@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom"
+  xmlns:gd="http://schemas.google.com/g/2005"
+  xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/"
+  xmlns:db="http://www.douban.com/xmlns/">
+  <db:location id="beijing">北京</db:location>
+  <db:signature>风骚为人</db:signature>
+  <db:uid>ahbei</db:uid>
+  <title>阿北</title>
+  <content>
+    豆瓣的临时总管。现在多数时间在忙忙碌碌地为豆瓣添砖加瓦。坐在马桶上看书，算是一天中最放松的时间。
+    
+    
+    我不但喜欢读书、旅行和音乐电影，还曾经是一个乐此不疲的实践者，有一墙碟、两墙书、三大洲的车船票为记。现在自己游荡差不多够了，开始懂得分享和回馈。豆瓣是一个开始，希望它对你同样有用。
+  </content>
+  <link rel="self" href="http://api.douban.com/people/ahbei" />
+  <link rel="alternate" href="http://www.douban.com/people/ahbei/" />
+  <link rel="icon" href="http://www.douban.com/icon/u1000001.jpg" />
+  
+  <link rel="homepage" href="http://ahbei.com/" />
+  <id>http://api.douban.com/people/ahbei</id>
+</entry>

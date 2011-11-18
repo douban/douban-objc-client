@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+	<title>搜索 douban 的结果</title>
+	<opensearch:startIndex>10</opensearch:startIndex>
+	<opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+	<opensearch:totalResults>158</opensearch:totalResults>
+	<entry>
+		<id>http://api.douban.com/people/1000000</id>
+		<title>六零</title>
+		<link href="http://api.douban.com/people/1000000" rel="self"/>
+		<link href="http://www.douban.com/people/douban/" rel="alternate"/>
+		<content></content>
+		<db:uid>douban</db:uid>
+	</entry>
+	<entry>
+		<id>http://api.douban.com/people/1428797</id>
+		<title>yangjiani</title>
+		<link href="http://api.douban.com/people/1428797" rel="self"/>
+		<link href="http://www.douban.com/people/www.douban.amy./" rel="alternate"/>
+		<link href="http://t.douban.com/icon/u1428797-1.jpg" rel="icon"/>
+		<link href="http://http://blog.sina.com.cn/yangjianiamy" rel="homepage"/>
+		<content>日子过充实是真的很好
+      让你可以忘掉一切
+      一切的一切
+      再也没有了孤独~
+      也许他们这是偶尔躲我一下
+      但还是不错的样子
+      
+      生活少了些暧昧
+      多了些真实
+      越来越不认识
+      ~~~自己</content>
+		<db:uid>www.douban.amy.</db:uid>
+	</entry>
+	<entry>
+		<id>http://api.douban.com/people/1405403</id>
+		<title>douban</title>
+		<link href="http://api.douban.com/people/1405403" rel="self"/>
+		<link href="http://www.douban.com/people/perfectlie/" rel="alternate"/>
+		<link href="http://t.douban.com/icon/u1405403-1.jpg" rel="icon"/>
+		<content></content>
+		<db:uid>perfectlie</db:uid>
+	</entry>
+</feed>

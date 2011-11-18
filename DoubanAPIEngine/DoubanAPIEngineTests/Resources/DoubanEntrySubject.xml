@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom"
+  xmlns:gd="http://schemas.google.com/g/2005"
+  xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/"
+  xmlns:db="http://www.douban.com/xmlns/">
+  <category scheme="http://www.douban.com/2007#kind"
+  term="http://www.douban.com/2007#book" />
+  <db:tag count="15" name="片山恭一" />
+  <db:tag count="6" name="小说" />
+  <db:tag count="5" name="日本小说" />
+  <db:tag count="2" name="日本文学" />
+  <db:tag count="2" name="日本" />
+  <title>倘若我在彼岸-日本畅销爱情小说</title>
+  <author>
+    <name>片山恭一</name>
+  </author>
+  <summary>
+    本书由三个看似独立实则相通的凄美的爱情故事组成。主人公是老师，都喜欢某种运动，他们都曾亲身经历过或目睹过接近死神的一瞬间并从中感悟或懂得了生命中的某些东西。
+    这是作者在《在世界中心呼唤爱》后的首部爱情小说集。片山恭一，学生时代通读了包括夏目漱石和大江健三郎在内的日本近现代文学全集，同时读了从笛卡尔、莱布尼茨到结构主义的欧洲近现代哲学，也读了马克思。自二十二三岁开始创作小说，《气息》、《世界在你不知道的地方运转》、《别相信约翰·列侬》等均为他的代表作。
+  </summary>
+  <link rel="self" href="http://api.douban.com/book/subject/2023013" />
+  <link rel="collection" href="http://api.douban.com/collection/1234567" /><!-- API认证授权后才包含 -->
+  <link rel="alternate" href="http://book.douban.com/subject/2023013/" />
+  <link rel="image" href="http://t.douban.com/spic/s2328836.jpg" />
+  <db:attribute name="isbn10">7543639130</db:attribute>
+  <db:attribute name="isbn13">9787543639133</db:attribute>
+  <db:attribute name="pages">193</db:attribute>
+  <db:attribute name="tranlator">张兴</db:attribute>
+  <db:attribute name="price">14</db:attribute>
+  <db:attribute name="author">片山恭一</db:attribute>
+  <db:attribute name="publisher">青岛出版社</db:attribute>
+  <db:attribute name="binding">平装</db:attribute>
+  <db:attribute name="author-intro">
+    片山恭一，1959年生于日本爱媛县，九州大学农学系农业经济学专业毕业。学生时代通读了包括夏目漱石和大江健三郎在内的日本近现代文学全集，同时读了从笛卡尔、莱布尼茨到结构主义的欧洲近现代哲学。也读了马克思。学士论文写的是马克思，硕士论文写的是恩格斯。二十二三岁开始创作小说。代表作有《在世界中心呼唤爱》、《世界在你不知道的地方运转》、《满月之夜白鲸现》、《空镜头》以及新作《倘若我在彼岸》《雨天的海豚们》、《最后盛开的花》等。
+  </db:attribute>
+  <id>http://api.douban.com/book/subject/2023013</id>
+  <gd:rating min="1" numRaters="12" average="4.00" max="5" />
+</entry>

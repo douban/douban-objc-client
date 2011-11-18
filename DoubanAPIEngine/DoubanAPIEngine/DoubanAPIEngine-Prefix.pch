@@ -1,0 +1,7 @@
+//
+// Prefix header for all source files of the 'DoubanAPIEngine' target in the 'DoubanAPIEngine' project
+//
+
+#ifdef __OBJC__
+  #import <Foundation/Foundation.h>
+#endif

@@ -1,0 +1,10 @@
+
+#global
+*.orig
+
+#ios
+.DS_Store
+build/
+*~
+project.xcworkspace/
+xcuserdata/

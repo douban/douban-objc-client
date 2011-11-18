@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <title>胖胖的大头鱼的活动</title>
+  <author>
+    <link href="http://api.douban.com/people/1057620" rel="self"/>
+    <link href="http://www.douban.com/people/aka/" rel="alternate"/>
+    <link href="http://t.douban.com/icon/u1057620-16.jpg" rel="icon"/>
+    <name>胖胖的大头鱼</name>
+    <uri>http://api.douban.com/people/1057620</uri>
+  </author>
+  <link href="http://www.douban.com/people/1057620/events" rel="alternate"/>
+  <opensearch:startIndex>3</opensearch:startIndex>
+  <opensearch:itemPerPage>1</opensearch:itemPerPage>
+  <opensearch:totalResults>46</opensearch:totalResults>
+  <entry>
+    <id>http://api.douban.com/event/10297336</id>
+    <title>Open Source Camp 北京 2008技术交流盛会</title>
+    <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#event.salon"/>
+    <author>
+      <link href="http://api.douban.com/people/1000062" rel="self"/>
+      <link href="http://www.douban.com/people/shizhao/" rel="alternate"/>
+      <link href="http://t.douban.com/icon/u1000062-1.jpg" rel="icon"/>
+      <name>shizhao</name>
+      <uri>http://api.douban.com/people/1000062</uri>
+    </author>
+    <link href="http://api.douban.com/event/10297336" rel="self"/>
+    <link href="http://www.douban.com/event/10297336/" rel="alternate"/>
+    <link href="http://t.douban.com/mpic/e39902.jpg" rel="image"/>
+    <summary>更多信息，请访问：http://www.opensourcecamp.org/ , http://www.opensourcecamp.org.cn/
+      OSCAMP@Facebook：http://www.new.facebook.com/home.php#/group.php?gid=5626789741
+      
+      活动联系人
+      
+      Peter Cheng 138-1138-1302 opensourcecamp@gmail.com
+      如何报名参加
+      
+      如果你想参加OpenSourceCamp 北京活动，请填写在线的报名表格：https://sp...</summary>
+    <content>更多信息，请访问：http://www.opensourcecamp.org/ , http://www.opensourcecamp.org.cn/
+      OSCAMP@Facebook：http://www.new.facebook.com/home.php#/group.php?gid=5626789741
+      
+      活动联系人
+      
+      Peter Cheng 138-1138-1302 opensourcecamp@gmail.com
+      如何报名参加
+      
+      如果你想参加OpenSourceCamp 北京活动，请填写在线的报名表格：https://sp...</content>
+    <db:attribute name="invite_only">no</db:attribute>
+    <db:attribute name="can_invite">yes</db:attribute>
+    <db:attribute name="participants">13</db:attribute>
+    <db:attribute name="wishers">22</db:attribute>
+    <db:attribute name="status">wish</db:attribute>
+    <db:location id="beijing">北京</db:location>
+    <gd:when endTime="2008-10-25T19:00:00+08:00" startTime="2008-10-25T13:00:00+08:00"/>
+    <gd:where valueString="北京 海淀区蓝旗营路北 工商银行旁 Study 英语学 习吧（三角地）"/>
+  </entry>
+</feed>

@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <id>http://api.douban.com/event/10069638</id>
+  <title>Debugging the Web </title>
+  <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#event.salon"/>
+  <author>
+    <link href="http://api.douban.com/people/1057620" rel="self"/>
+    <link href="http://www.douban.com/people/aka/" rel="alternate"/>
+    <link href="http://t.douban.com/icon/u1057620-16.jpg" rel="icon"/>
+    
+    <name>胖胖的大头鱼</name>
+    <uri>http://api.douban.com/people/1057620</uri>
+  </author>
+  <link href="http://api.douban.com/event/10069638" rel="self"/>
+  <link href="http://www.douban.com/event/10069638/" rel="alternate"/>
+  <summary>著名的开源人物David Baron近期再次来华，并安排本周日在清华FIT楼以 “Debugging the Web：looking at Web sites that don’t work correctly in Firefox, and how they can be fixed”的题目与社区和广大爱好者交流，特别欢迎学生参加。地址选在FIT为了方 便，所有人都欢迎。
+    
+    Mozilla 技术讲座
+    
+    ===============
+    
+    时间：2008年4月20日（...</summary>
+  <content>著名的开源人物David Baron近期再次来华，并安排本周日在清华FIT楼以 “Debugging the Web：looking at Web sites that don’t work correctly in Firefox, and how they can be fixed”的题目与社区和广大爱好者交流，特别欢迎学生参加。地址选在FIT为了方 便，所有人都欢迎。
+    
+    Mozilla 技术讲座
+    
+    ===============
+    
+    时间：2008年4月20日（...</content>
+  <db:attribute name="invite_only">no</db:attribute>
+  
+  <db:attribute name="can_invite">no</db:attribute>
+  <db:attribute name="participants">3</db:attribute>
+  <db:attribute name="wishers">10</db:attribute>
+  <db:attribute name="status">participant</db:attribute>
+  <db:location id="beijing">北京</db:location>
+  <gd:when endTime="2008-04-20T16:30:00+08:00" startTime="2008-04-20T14:00:00+08:00"/>
+  <gd:where valueString="北京 清华大学东门FIT楼二层多功能厅"/>
+</entry>
