@@ -31,11 +31,22 @@ typedef void (^DOUBasicBlock)(void);
 - (void)addRequestHeader:(NSString *)header value:(NSString *)value;
 
 
-+ (DOUHttpRequest *)postRequestWithURL:(NSURL *)URL;
++ (DOUHttpRequest *)formRequestWithURL:(NSURL *)URL;
+
++ (DOUHttpRequest *)formRequestWithURL:(NSURL *)URL target:(id<DOUHttpRequestDelegate>)delegate;
+
++ (DOUHttpRequest *)formRequestWithQuery:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
+
+#if NS_BLOCKS_AVAILABLE
++ (DOUHttpRequest *)formRequestWithQuery:(DOUQuery *)query 
+                         completionBlock:(DOUBasicBlock)handler;
+#endif
+
+
+
++ (DOUHttpRequest *)requestWithURL:(NSURL *)URL;
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL target:(id<DOUHttpRequestDelegate>)delegate;
-
-+ (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query;
 
 + (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
 
@@ -43,6 +54,7 @@ typedef void (^DOUBasicBlock)(void);
 + (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
                      completionBlock:(DOUBasicBlock)handler;
 #endif
+
 
 @end
 

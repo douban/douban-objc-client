@@ -39,7 +39,7 @@
 
 - (NSString *)requestUrl {
   
-  NSString *url = [NSString stringWithFormat:@"%@/%@", 
+  NSString *url = [NSString stringWithFormat:@"%@%@", 
                    kAPIBaseUrl,
                    subPath_];
   NSString * parameterStr = [self parametersUrlString];

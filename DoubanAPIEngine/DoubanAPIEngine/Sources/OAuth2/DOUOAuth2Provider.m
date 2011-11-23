@@ -57,7 +57,7 @@ static NSString *kDelegateKey = @"DelegateKey";
 
 
 - (DOUHttpRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
-  DOUHttpRequest *req = [DOUHttpRequest postRequestWithURL:[NSURL URLWithString:tokenURL_]];
+  DOUHttpRequest *req = [DOUHttpRequest formRequestWithURL:[NSURL URLWithString:tokenURL_]];
   [req setRequestMethod:@"POST"];
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];

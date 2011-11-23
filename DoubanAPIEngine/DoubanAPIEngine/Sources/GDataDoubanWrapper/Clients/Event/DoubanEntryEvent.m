@@ -15,6 +15,9 @@
 
 @implementation DoubanEntryEvent
 
+NSString * const kParticipatedStr = @"participate";
+NSString * const kWishedStr = @"wish";
+
 
 NSString * const kTravelCategoryTerm = @"http://www.douban.com/2007#event.travel";
 NSString * const kSalonCategoryTerm = @"http://www.douban.com/2007#event.salon";
@@ -145,7 +148,7 @@ NSString * const kExhibitionCategoryTerm = @"http://www.douban.com/2007#event.ex
 }
 
 
-- (NSInteger)participants {
+- (NSInteger)participantsCount {
 	DoubanAttribute *attr = nil;
 	for(id _attr in [self attributes]) {
 		if([[_attr name] isEqualToString:@"participants"]){
@@ -159,5 +162,40 @@ NSString * const kExhibitionCategoryTerm = @"http://www.douban.com/2007#event.ex
 	return 0;
 }
 
+
+- (NSInteger)wishersCount {
+	DoubanAttribute *attr = nil;
+	for(id _attr in [self attributes]) {
+		if([[_attr name] isEqualToString:@"wishers"]){
+			attr = _attr;
+			break;
+		}
+	}
+	if (attr) {
+		return [[attr content] integerValue];
+	}
+	return 0;
+}
+
+- (NSString *)status {
+  DoubanAttribute *attr = nil;
+	for(id _attr in [self attributes]) {
+		if([[_attr name] isEqualToString:@"status"]){
+			attr = _attr;
+			break;
+		}
+	}
+	if (attr) {
+		return [attr content];
+	}
+  return nil;
+}
+
+- (void)setStatus:(NSString *)content {
+  DoubanAttribute *attr = [[DoubanAttribute alloc] init];
+  [attr setName:@"status"];
+  [attr setContent:content];
+  [self setObject:attr forExtensionClass:[DoubanAttribute class]];
+}
 
 @end

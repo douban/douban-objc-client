@@ -24,6 +24,8 @@
 
 @implementation DOUService
 
+NSUInteger const kMaxConcurrentOperationCount = 5;
+
 @synthesize queue = queue_;
 @synthesize consumer = consumer_;
 @synthesize userId = userId;
@@ -142,8 +144,8 @@ static DOUService *myInstance = nil;
 - (void)addRequest:(DOUHttpRequest *)request {
   
   if (![self queue]) {
-    self.queue.maxConcurrentOperationCount = 5;
     [self setQueue:[[[ASINetworkQueue alloc] init] autorelease]];
+     self.queue.maxConcurrentOperationCount = kMaxConcurrentOperationCount;
   }
   
   [consumer_ sign:request];

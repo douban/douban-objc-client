@@ -37,20 +37,20 @@ static NSString * const kPasswordStr = @"yourpassword";
 }
 
 + (DOUQuery *)queryCurrentUser {
-  NSString *subPath = @"shuo/users/@me";
+  NSString *subPath = @"/shuo/users/@me";
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
   return [query autorelease];
 }
 
 + (DOUQuery *)queryUserWithId:(NSUInteger)userId {
-  NSString *subPath = [NSString stringWithFormat:@"shuo/users/%d", userId];
+  NSString *subPath = [NSString stringWithFormat:@"/shuo/users/%d", userId];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
   return [query autorelease];
 }
 
 
 + (DOUQuery *)queryActivityWithId:(NSUInteger)activityId {
-  NSString *subPath = [NSString stringWithFormat:@"event/%d", activityId];
+  NSString *subPath = [NSString stringWithFormat:@"/event/%d", activityId];
   NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:params];
   return [query autorelease];
@@ -58,7 +58,7 @@ static NSString * const kPasswordStr = @"yourpassword";
 
 
 + (DOUQuery *)queryBookWithId:(int)bookId {
-  NSString *subPath = [NSString stringWithFormat:@"book/subject/%d", bookId];
+  NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
   NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:params];
   return [query autorelease];

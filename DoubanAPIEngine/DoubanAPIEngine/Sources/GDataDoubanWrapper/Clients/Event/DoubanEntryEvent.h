@@ -34,6 +34,9 @@ typedef enum {
   EXHIBITION_CATEGORY
 } EventCategory;
 
+extern NSString * const kParticipatedStr;
+extern NSString * const kWishedStr;
+
 @interface DoubanEntryEvent : GDataEntryBase
 
 + (NSDictionary *)eventsNamespaces;
@@ -57,6 +60,8 @@ typedef enum {
 
 - (GDataLink *)imageLink;
 
-- (NSInteger)participants;
-
+- (NSInteger)participantsCount;
+- (NSInteger)wishersCount;
+- (NSString *)status;
+- (void)setStatus:(NSString *)content;
 @end
