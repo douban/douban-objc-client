@@ -9,10 +9,6 @@
 #import "DOUQuery.h"
 #import "DOUAPIConfig.h"
 
-@interface DOUQuery ()
-- (NSString *)parametersUrlString;
-@end
-
 
 @implementation DOUQuery
 
@@ -37,20 +33,6 @@
 }
 
 
-- (NSString *)requestUrl {
-  
-  NSString *url = [NSString stringWithFormat:@"%@%@", 
-                   kAPIBaseUrl,
-                   subPath_];
-  NSString * parameterStr = [self parametersUrlString];
-  if ( parameterStr != nil && [parameterStr length] > 0 ) {
-    url = [url stringByAppendingString:parameterStr];
-  }
-  
-  return url;
-}
-
-
 - (NSString *)parametersUrlString {
   NSString *parametersUrl = @"";
   NSUInteger index = 0;
@@ -66,5 +48,22 @@
   }
   return parametersUrl;
 }
+
+
+- (NSString *)requestURLString {
+  NSString *url = [NSString stringWithFormat:@"%@%@", kAPIBaseUrl, subPath_];
+  NSString *parameterStr = [self parametersUrlString];
+  if ( parameterStr != nil && [parameterStr length] > 0 ) {
+    url = [url stringByAppendingString:parameterStr];
+  }
+  
+  return [url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+}
+
+
+- (NSURL *)requestURL {
+  return [NSURL URLWithString:[self requestURLString]];
+}
+
 
 @end

@@ -34,5 +34,6 @@ NSString * const kPrivateKey = @"69f50280e68a742a";
 NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 
-NSUInteger const kTimeoutSeconds = 20;
+
+
 

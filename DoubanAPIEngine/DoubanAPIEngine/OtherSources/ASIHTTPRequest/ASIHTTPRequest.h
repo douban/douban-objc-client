@@ -50,13 +50,13 @@ typedef enum _ASIAuthenticationState {
 } ASIAuthenticationState;
 
 typedef enum _ASINetworkErrorType {
-    ASIConnectionFailureErrorType = 1,
-    ASIRequestTimedOutErrorType = 2,
-    ASIAuthenticationErrorType = 3,
-    ASIRequestCancelledErrorType = 4,
-    ASIUnableToCreateRequestErrorType = 5,
-    ASIInternalErrorWhileBuildingRequestType  = 6,
-    ASIInternalErrorWhileApplyingCredentialsType  = 7,
+  ASIConnectionFailureErrorType = 1,
+  ASIRequestTimedOutErrorType = 2,
+  ASIAuthenticationErrorType = 3,
+  ASIRequestCancelledErrorType = 4,
+  ASIUnableToCreateRequestErrorType = 5,
+  ASIInternalErrorWhileBuildingRequestType  = 6,
+  ASIInternalErrorWhileApplyingCredentialsType  = 7,
 	ASIFileManagementError = 8,
 	ASITooMuchRedirectionErrorType = 9,
 	ASIUnhandledExceptionError = 10,
@@ -178,11 +178,11 @@ typedef void (^ASIDataBlock)(NSData *data);
 	// When the request fails or completes successfully, complete will be true
 	BOOL complete;
 	
-    // external "finished" indicator, subject of KVO notifications; updates after 'complete'
-    BOOL finished;
+  // external "finished" indicator, subject of KVO notifications; updates after 'complete'
+  BOOL finished;
     
-    // True if our 'cancel' selector has been called
-    BOOL cancelled;
+  // True if our 'cancel' selector has been called
+  BOOL cancelled;
     
 	// If an error occurs, error will contain an NSError
 	// If error code is = ASIConnectionFailureErrorType (1, Connection failure occurred) - inspect [[error userInfo] objectForKey:NSUnderlyingErrorKey] for more information

@@ -9,6 +9,7 @@
 #import "DOUService.h"
 #import "DOUQuery.h"
 
-#import "DOUHttpRequest.h"
-
 #import "DOUOAuth2Consumer.h"
+
+#import "DOUHttpRequest.h"
+#import "DOUFormDataRequest.h"

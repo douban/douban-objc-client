@@ -92,7 +92,7 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 
 - (void)sign:(DOUHttpRequest *)request {
   NSString *authValue = [NSString stringWithFormat:@"%@ %@",kOAuth2, self.accessToken];
-  NSLog(@"token:%@", authValue);
+  //NSLog(@"token:%@", authValue);
   [request addRequestHeader:kOAuth2AuthorizationHttpHeader value:authValue];
 }
 

@@ -98,8 +98,6 @@
 		D800D613146908FD009F64FD /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D5C7146908FD009F64FD /* Reachability.h */; };
 		D800D614146908FD009F64FD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D5C8146908FD009F64FD /* Reachability.m */; };
 		D800D6161469092C009F64FD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D6151469092C009F64FD /* libxml2.dylib */; };
-		D800D61E1469098D009F64FD /* DOUObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D6181469098D009F64FD /* DOUObject.h */; };
-		D800D61F1469098D009F64FD /* DOUObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D6191469098D009F64FD /* DOUObject.m */; };
 		D800D6201469098D009F64FD /* DOUQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D61A1469098D009F64FD /* DOUQuery.h */; };
 		D800D6211469098D009F64FD /* DOUQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D61B1469098D009F64FD /* DOUQuery.m */; };
 		D800D6221469098D009F64FD /* DOUService.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D61C1469098D009F64FD /* DOUService.h */; };
@@ -246,6 +244,8 @@
 		D8A25D9E14721CB0000A6FF5 /* DoubanFeedPeople.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A25D9C14721CB0000A6FF5 /* DoubanFeedPeople.m */; };
 		D8A25DB914725215000A6FF5 /* DoubanSignature.h in Headers */ = {isa = PBXBuildFile; fileRef = D8A25DB714725215000A6FF5 /* DoubanSignature.h */; };
 		D8A25DBA14725215000A6FF5 /* DoubanSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A25DB814725215000A6FF5 /* DoubanSignature.m */; };
+		D8C5BD83147DEDC8005BA879 /* DOUFormDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C5BD81147DEDC8005BA879 /* DOUFormDataRequest.h */; };
+		D8C5BD84147DEDC8005BA879 /* DOUFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C5BD82147DEDC8005BA879 /* DOUFormDataRequest.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -352,8 +352,6 @@
 		D800D5C7146908FD009F64FD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D800D5C8146908FD009F64FD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D800D6151469092C009F64FD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		D800D6181469098D009F64FD /* DOUObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUObject.h; sourceTree = "<group>"; };
-		D800D6191469098D009F64FD /* DOUObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUObject.m; sourceTree = "<group>"; };
 		D800D61A1469098D009F64FD /* DOUQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUQuery.h; sourceTree = "<group>"; };
 		D800D61B1469098D009F64FD /* DOUQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUQuery.m; sourceTree = "<group>"; };
 		D800D61C1469098D009F64FD /* DOUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUService.h; sourceTree = "<group>"; };
@@ -492,6 +490,8 @@
 		D8A25D9C14721CB0000A6FF5 /* DoubanFeedPeople.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanFeedPeople.m; sourceTree = "<group>"; };
 		D8A25DB714725215000A6FF5 /* DoubanSignature.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanSignature.h; sourceTree = "<group>"; };
 		D8A25DB814725215000A6FF5 /* DoubanSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanSignature.m; sourceTree = "<group>"; };
+		D8C5BD81147DEDC8005BA879 /* DOUFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUFormDataRequest.h; sourceTree = "<group>"; };
+		D8C5BD82147DEDC8005BA879 /* DOUFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUFormDataRequest.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -571,8 +571,8 @@
 		D800D53D146907B2009F64FD /* DoubanAPIEngine */ = {
 			isa = PBXGroup;
 			children = (
-				D800D575146908FD009F64FD /* OtherSources */,
 				D800D562146908AF009F64FD /* Sources */,
+				D800D575146908FD009F64FD /* OtherSources */,
 				D800D53E146907B2009F64FD /* Supporting Files */,
 			);
 			path = DoubanAPIEngine;
@@ -628,6 +628,8 @@
 			children = (
 				D800D565146908AF009F64FD /* DOUHttpRequest.h */,
 				D800D566146908AF009F64FD /* DOUHttpRequest.m */,
+				D8C5BD81147DEDC8005BA879 /* DOUFormDataRequest.h */,
+				D8C5BD82147DEDC8005BA879 /* DOUFormDataRequest.m */,
 			);
 			path = Network;
 			sourceTree = "<group>";
@@ -786,8 +788,6 @@
 		D800D6171469098D009F64FD /* Objects */ = {
 			isa = PBXGroup;
 			children = (
-				D800D6181469098D009F64FD /* DOUObject.h */,
-				D800D6191469098D009F64FD /* DOUObject.m */,
 				D800D61A1469098D009F64FD /* DOUQuery.h */,
 				D800D61B1469098D009F64FD /* DOUQuery.m */,
 				D800D61C1469098D009F64FD /* DOUService.h */,
@@ -1080,7 +1080,6 @@
 				D800D60F146908FD009F64FD /* SBJsonUTF8Stream.h in Headers */,
 				D800D611146908FD009F64FD /* SBJsonWriter.h in Headers */,
 				D800D613146908FD009F64FD /* Reachability.h in Headers */,
-				D800D61E1469098D009F64FD /* DOUObject.h in Headers */,
 				D800D6201469098D009F64FD /* DOUQuery.h in Headers */,
 				D800D6221469098D009F64FD /* DOUService.h in Headers */,
 				D800D626146909C2009F64FD /* DOUAPIConfig.h in Headers */,
@@ -1143,6 +1142,7 @@
 				D800D71614690A77009F64FD /* DoubanUID.h in Headers */,
 				D8A25D9D14721CB0000A6FF5 /* DoubanFeedPeople.h in Headers */,
 				D8A25DB914725215000A6FF5 /* DoubanSignature.h in Headers */,
+				D8C5BD83147DEDC8005BA879 /* DOUFormDataRequest.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1288,7 +1288,6 @@
 				D800D610146908FD009F64FD /* SBJsonUTF8Stream.m in Sources */,
 				D800D612146908FD009F64FD /* SBJsonWriter.m in Sources */,
 				D800D614146908FD009F64FD /* Reachability.m in Sources */,
-				D800D61F1469098D009F64FD /* DOUObject.m in Sources */,
 				D800D6211469098D009F64FD /* DOUQuery.m in Sources */,
 				D800D6231469098D009F64FD /* DOUService.m in Sources */,
 				D800D627146909C2009F64FD /* DOUAPIConfig.m in Sources */,
@@ -1349,6 +1348,7 @@
 				D800D71714690A77009F64FD /* DoubanUID.m in Sources */,
 				D8A25D9E14721CB0000A6FF5 /* DoubanFeedPeople.m in Sources */,
 				D8A25DBA14725215000A6FF5 /* DoubanSignature.m in Sources */,
+				D8C5BD84147DEDC8005BA879 /* DOUFormDataRequest.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

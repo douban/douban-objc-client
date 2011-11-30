@@ -25,7 +25,7 @@
 - (void)asyncAccessTokenByPassword:(DOUOAuth2Consumer *)consumer 
                           username:(NSString *)username 
                           password:(NSString *)password
-                          delegate:(id<LoginDelegate>)delegate;
+                          delegate:(id<DOULoginDelegate>)delegate;
 
 - (void)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer;
 

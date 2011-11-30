@@ -17,4 +17,3 @@ extern NSString * const kAPIKey;
 extern NSString * const kPrivateKey;
 extern NSString * const kRedirectUrl;
 
-extern NSUInteger const kTimeoutSeconds;

@@ -24,11 +24,12 @@
 
 @implementation DOUService
 
-NSUInteger const kMaxConcurrentOperationCount = 5;
+NSUInteger const kDefaultMaxConcurrentOperationCount = 8;
 
 @synthesize queue = queue_;
 @synthesize consumer = consumer_;
 @synthesize userId = userId;
+
 
 - (id)init {
   self = [super init];
@@ -115,7 +116,8 @@ static DOUService *myInstance = nil;
 
 - (NSError *)loginWithUsername:(NSString *)username password:(NSString *)password {
 
-  DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl tokenURL:kTokenUrl];
+  DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
+                                                                  tokenURL:kTokenUrl];
   DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:kAPIKey
                                                                 secret:kPrivateKey
                                                         andRedirectURL:kRedirectUrl] autorelease];
@@ -126,9 +128,10 @@ static DOUService *myInstance = nil;
 
 - (void)asyncLoginWithUsername:(NSString *)username 
                       password:(NSString *)password 
-                      delegate:(id<LoginDelegate>)delegate {
+                      delegate:(id<DOULoginDelegate>)delegate {
 
-  DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl tokenURL:kTokenUrl];
+  DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
+                                                                  tokenURL:kTokenUrl];
   DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:kAPIKey
                                                                  secret:kPrivateKey
                                                          andRedirectURL:kRedirectUrl] autorelease];
@@ -145,12 +148,17 @@ static DOUService *myInstance = nil;
   
   if (![self queue]) {
     [self setQueue:[[[ASINetworkQueue alloc] init] autorelease]];
-     self.queue.maxConcurrentOperationCount = kMaxConcurrentOperationCount;
+     self.queue.maxConcurrentOperationCount = kDefaultMaxConcurrentOperationCount;
   }
   
   [consumer_ sign:request];
   [[self queue] addOperation:request];
   [[self queue] go];
+}
+
+
+- (void)setMaxConcurrentOperationCount:(NSUInteger)maxCount {
+  self.queue.maxConcurrentOperationCount = maxCount;
 }
 
 

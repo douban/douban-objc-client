@@ -8,7 +8,7 @@
 
 #import <Foundation/Foundation.h>
 
-@protocol LoginDelegate <NSObject>
+@protocol DOULoginDelegate <NSObject>
 
 - (void)loginFinished;
 - (void)loginFailed;
@@ -29,6 +29,7 @@
 @property (nonatomic, retain) DOUOAuth2Consumer *consumer;
 @property (nonatomic, assign, readonly) int userId;
 
+
 + (DOUService *)sharedInstance;
 
 - (NSError *)loginWithUsername:(NSString *)username 
@@ -36,8 +37,10 @@
 
 - (void)asyncLoginWithUsername:(NSString *)username 
                       password:(NSString *)password
-                      delegate:(id<LoginDelegate>)delegate;
+                      delegate:(id<DOULoginDelegate>)delegate;
 
 - (void)addRequest:(DOUHttpRequest *)request;
+
+- (void)setMaxConcurrentOperationCount:(NSUInteger)maxConcurrentOperationCount;
 
 @end

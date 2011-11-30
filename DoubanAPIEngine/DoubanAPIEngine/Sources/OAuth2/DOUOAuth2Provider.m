@@ -8,7 +8,7 @@
 
 #import "DOUOAuth2Provider.h"
 #import "DOUOAuth2.h"
-#import "DOUHttpRequest.h"
+#import "DOUFormDataRequest.h"
 
 @interface DOUOAuth2Provider ()
 @end
@@ -37,7 +37,7 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (void)accessTokenWithConsumer:(DOUOAuth2Consumer *)consumer andRequest:(DOUHttpRequest *)request {
+- (void)accessTokenWithConsumer:(DOUOAuth2Consumer *)consumer andRequest:(DOUFormDataRequest *)request {
   
   NSLog(@"auth %@", [request url]);
   [request startSynchronous];
@@ -56,8 +56,8 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (DOUHttpRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
-  DOUHttpRequest *req = [DOUHttpRequest formRequestWithURL:[NSURL URLWithString:tokenURL_]];
+- (DOUFormDataRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
+  DOUFormDataRequest *req = [DOUFormDataRequest formRequestWithURL:[NSURL URLWithString:tokenURL_]];
   [req setRequestMethod:@"POST"];
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];
@@ -69,7 +69,7 @@ static NSString *kDelegateKey = @"DelegateKey";
 - (NSError *)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
                      username:(NSString *)username 
                      password:(NSString *)password {
-  DOUHttpRequest *req = [self auth2Request:consumer];
+  DOUFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
   [req setPostValue:password forKey:kPasswordKey];
   [self accessTokenWithConsumer:consumer andRequest:req];
@@ -80,8 +80,8 @@ static NSString *kDelegateKey = @"DelegateKey";
 - (void)asyncAccessTokenByPassword:(DOUOAuth2Consumer *)consumer 
                           username:(NSString *)username 
                           password:(NSString *)password 
-                          delegate:(id<LoginDelegate>)delegate {
-  DOUHttpRequest *req = [self auth2Request:consumer];
+                          delegate:(id<DOULoginDelegate>)delegate {
+  DOUFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
   [req setPostValue:password forKey:kPasswordKey];
   [req setDelegate:self];
@@ -126,7 +126,7 @@ static NSString *kDelegateKey = @"DelegateKey";
 
  
 - (void)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer {
-  DOUHttpRequest *req = [DOUHttpRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
+  DOUFormDataRequest *req = [DOUFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
   [req setRequestMethod:@"POST"];
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];

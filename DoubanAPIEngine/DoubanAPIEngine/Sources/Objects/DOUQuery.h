@@ -8,6 +8,9 @@
 
 #import <Foundation/Foundation.h>
 
+//
+// DOUQuery the class by which we can define the API Request.
+//
 @interface DOUQuery : NSObject {
  @private
   NSString     *subPath_;
@@ -19,6 +22,6 @@
 
 - (id)initWithSubPath:(NSString *)aSubPath parameters:(NSDictionary *)theParameters;
 
-- (NSString *)requestUrl;
-
+- (NSString *)requestURLString;
+- (NSURL *)requestURL;
 @end

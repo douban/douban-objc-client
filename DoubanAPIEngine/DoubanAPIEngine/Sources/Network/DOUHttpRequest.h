@@ -18,31 +18,35 @@
 - (void)requestFailed:(DOUHttpRequest *)aRequest;
 @end
 
+extern NSUInteger const kDefaultTimeoutSeconds;
+
+extern NSString * const DOUHTTPRequestErrorDomain;
+
+typedef enum _DOUNetworkErrorType {
+  DOUConnectionFailureErrorType = 1,
+  DOURequestTimedOutErrorType = 2,
+  DOUAuthenticationErrorType = 3,
+  DOURequestCancelledErrorType = 4,
+  DOUUnableToCreateRequestErrorType = 5,
+  DOUInternalErrorWhileBuildingRequestType  = 6,
+  DOUInternalErrorWhileApplyingCredentialsType  = 7,
+	DOUFileManagementError = 8,
+	DOUTooMuchRedirectionErrorType = 9,
+	DOUUnhandledExceptionError = 10,
+	DOUCompressionError = 11
+	
+} DOUNetworkErrorType;
+
+
 
 #if NS_BLOCKS_AVAILABLE
 typedef void (^DOUBasicBlock)(void);
 #endif
 
 //
-// DOUHttpRequest is the wrapper of network utilities, now it's ASIHTTPRequest
+// DOUHttpRequest is the wrapper of http request, now it's ASIHTTPRequest.
 //
-@interface DOUHttpRequest : ASIFormDataRequest
-
-- (void)addRequestHeader:(NSString *)header value:(NSString *)value;
-
-
-+ (DOUHttpRequest *)formRequestWithURL:(NSURL *)URL;
-
-+ (DOUHttpRequest *)formRequestWithURL:(NSURL *)URL target:(id<DOUHttpRequestDelegate>)delegate;
-
-+ (DOUHttpRequest *)formRequestWithQuery:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
-
-#if NS_BLOCKS_AVAILABLE
-+ (DOUHttpRequest *)formRequestWithQuery:(DOUQuery *)query 
-                         completionBlock:(DOUBasicBlock)handler;
-#endif
-
-
+@interface DOUHttpRequest : ASIHTTPRequest
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL;
 
@@ -52,10 +56,11 @@ typedef void (^DOUBasicBlock)(void);
 
 #if NS_BLOCKS_AVAILABLE
 + (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
-                     completionBlock:(DOUBasicBlock)handler;
+                     completionBlock:(DOUBasicBlock)completionHandler;
 #endif
 
-
++ (NSError *)adapterError:(NSError *)asiError;
+- (NSError *)doubanError;
 @end
 
 
