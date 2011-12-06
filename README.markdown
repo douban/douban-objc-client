@@ -1,4 +1,4 @@
-------------------
+
 douban-objc-client 
 ------------------
 
@@ -12,24 +12,24 @@ douban-objc-client
 
 首先，配置 Auth2 所需参数
 
-
+```objective-c
   [DOUService setAPIKey:kYourAPIKey];
   [DOUService setPrivateKey:kYourPrivateKey];
   [DOUService setRedirectUrl:kYourRedirectUrl];
-
+```
 
 
 登录，当前只完成了 password 类型的 Auth2 认证
 
-
+```objective-c
   DOUService *service = [DOUService sharedInstance];
   [service loginWithUsername:kUsernameStr password:kPasswordStr];  
-
+```
 
 
 发起 一个同步请求
 
-
+```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
   NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
   DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:params] autorelease];
@@ -41,11 +41,12 @@ douban-objc-client
   if (![req error]) {
     DoubanEntrySubject *book = [[DoubanEntrySubject alloc] initWithData:[req responseData]];
   }
-
+```
 
 
 发起 一个异步请求
 
+```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
   NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
   DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:params] autorelease];
@@ -55,7 +56,7 @@ douban-objc-client
   req.userInfo = [NSDictionary dictionaryWithObjectsAndKeys:startIndex, kUserInfoStartIndex, nil];
   DOUService *service = [DOUService sharedInstance];
   [service addRequest:req];
-
+```
 
 
 异步请求的回调
