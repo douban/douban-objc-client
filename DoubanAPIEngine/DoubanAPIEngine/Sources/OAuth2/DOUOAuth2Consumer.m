@@ -37,20 +37,7 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 
 @synthesize hasExpired = hasExpired_;
 
-- (id)init {
-  self = [super init];
-  if (self) {
-    key_ = kAPIKey;
-    secret_ = kPrivateKey;
-    redirectURL_ = kRedirectUrl;
-    
-    accessToken_ = nil;
-    refreshToken_ = nil;
-    expiresIn_ = nil;
-    hasExpired_ = NO;
-  }
-  return self;
-}
+
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret andRedirectURL:(NSString *)aRedirectURL {
 	self = [super init];

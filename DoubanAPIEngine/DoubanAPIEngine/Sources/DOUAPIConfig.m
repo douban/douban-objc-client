@@ -21,19 +21,5 @@ NSString * const kTokenUrl = @"https://www.douban.com/service/auth2/token";
 
 
 
-//
-// Customer parameters:
-//
-//
-//NSString * const kAPIKey = @"yourAPUKey";
-//NSString * const kPrivateKey = @"yourPrivateKey";
-//NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
-
-NSString * const kAPIKey = @"0339b495d888705009ad1dc1899950f0";
-NSString * const kPrivateKey = @"69f50280e68a742a";
-NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
-
-
-
 
 

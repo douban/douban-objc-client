@@ -103,6 +103,24 @@ static DOUService *myInstance = nil;
   return self;
 }
 
+#pragma mark - Auth2 Parameters
+
+static NSString *APIKey;
+static NSString *privateKey;
+static NSString *redirectUrl;
+
++ (void)setAPIKey:(NSString *)theAPIKey {
+  APIKey = theAPIKey;
+}
+
++ (void)setPrivateKey:(NSString *)thePrivateKey {
+  privateKey = thePrivateKey;
+}
+
++ (void)setRedirectUrl:(NSString *)theRedirectUrl {
+  redirectUrl = theRedirectUrl;
+}
+
 
 #pragma mark - login
 
@@ -118,9 +136,9 @@ static DOUService *myInstance = nil;
 
   DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
                                                                   tokenURL:kTokenUrl];
-  DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:kAPIKey
-                                                                secret:kPrivateKey
-                                                        andRedirectURL:kRedirectUrl] autorelease];
+  DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
+                                                                secret:privateKey
+                                                        andRedirectURL:redirectUrl] autorelease];
   self.consumer = consumer;
   return [provider accessTokenByPassword:self.consumer username:username password:password];
 }
@@ -132,9 +150,9 @@ static DOUService *myInstance = nil;
 
   DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
                                                                   tokenURL:kTokenUrl];
-  DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:kAPIKey
-                                                                 secret:kPrivateKey
-                                                         andRedirectURL:kRedirectUrl] autorelease];
+  DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
+                                                                 secret:privateKey
+                                                         andRedirectURL:redirectUrl] autorelease];
   self.consumer = consumer;
   [provider asyncAccessTokenByPassword:self.consumer 
                               username:username 

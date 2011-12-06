@@ -492,6 +492,7 @@
 		D8A25DB814725215000A6FF5 /* DoubanSignature.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanSignature.m; sourceTree = "<group>"; };
 		D8C5BD81147DEDC8005BA879 /* DOUFormDataRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUFormDataRequest.h; sourceTree = "<group>"; };
 		D8C5BD82147DEDC8005BA879 /* DOUFormDataRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUFormDataRequest.m; sourceTree = "<group>"; };
+		D8D58D8F148DB74200741BF5 /* README.rst */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.rst; path = ../README.rst; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -535,6 +536,7 @@
 		D800D52D146907B2009F64FD = {
 			isa = PBXGroup;
 			children = (
+				D8D58D8F148DB74200741BF5 /* README.rst */,
 				D800D53D146907B2009F64FD /* DoubanAPIEngine */,
 				D800D551146907B2009F64FD /* DoubanAPIEngineTests */,
 				D800D53A146907B2009F64FD /* Frameworks */,

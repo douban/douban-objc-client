@@ -13,7 +13,5 @@ extern NSString * const kAPIBaseUrl;
 extern NSString * const kAuthUrl;
 extern NSString * const kTokenUrl;
 
-extern NSString * const kAPIKey;
-extern NSString * const kPrivateKey;
-extern NSString * const kRedirectUrl;
+
 

@@ -12,7 +12,7 @@
 #import "DOUHttpRequest.h"
 #import "DOUService.h"
 #import "DOUQuery.h"
-
+#import "DoubanEntrySubject.h"
 
 @interface DoubanAPIEngineTests : SenTestCase 
 - (void)testDOUOAuth2Service;
@@ -67,7 +67,7 @@ static NSString * const kPasswordStr = @"yourpassword";
 
 - (void)testDOUOAuth2Service {
 
-  DOUService *service = [[DOUService alloc] init];
+  DOUService *service = [DOUService sharedInstance];
 
   [service loginWithUsername:kUsernameStr password:kPasswordStr];  
 
@@ -80,19 +80,11 @@ static NSString * const kPasswordStr = @"yourpassword";
   //DOUQuery *query = [[self class] queryCurrentUser];
   DOUQuery *query = [[self class] queryBookWithId:6861929];
   DOUHttpRequest *req = [DOUHttpRequest requestWithQuery:query];
-  
   [service.consumer sign:req];
-    
-  NSDictionary *headers = [req requestHeaders];
-  for (NSString *key in [headers allKeys]) {
-    NSLog(@"header pair: %@/%@", key, [headers objectForKey:key]);
-  }
-  
   
   [req startSynchronous];
   if (![req error]) {
-    NSString* responseStr = [req responseString];
-    NSLog(@"response :%@",responseStr);
+    DoubanEntrySubject *book = [[DoubanEntrySubject alloc] initWithData:[req responseData]];
   }
   
 }

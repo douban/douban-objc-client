@@ -32,6 +32,11 @@
 
 + (DOUService *)sharedInstance;
 
++ (void)setAPIKey:(NSString *)theAPIKey;
++ (void)setRedirectUrl:(NSString *)theRedirectUrl;
++ (void)setPrivateKey:(NSString *)thePrivateKey;
+
+
 - (NSError *)loginWithUsername:(NSString *)username 
                       password:(NSString *)password;
 
