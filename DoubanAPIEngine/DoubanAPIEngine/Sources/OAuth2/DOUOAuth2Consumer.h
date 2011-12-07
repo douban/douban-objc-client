@@ -20,7 +20,7 @@
   NSDate     *expiresIn_;
   
   int        userId_;
-  BOOL       hasExpired_;
+
 }
 
 @property (nonatomic, copy, readonly) NSString *key;
@@ -33,7 +33,7 @@
 
 @property (nonatomic, readonly) int userId;
 
-@property (nonatomic, assign) BOOL hasExpired; // Decided by Error code returned by server.
+
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret andRedirectURL:(NSString *)aRedirectURL;
 - (void)updateWithHTTPResponse:(NSString *)aString;
@@ -41,7 +41,7 @@
 
 - (void)sign:(DOUHttpRequest *)request;
 
-- (BOOL)isValid;
+- (BOOL)hasExpired;
 - (void)save;
 
 @end

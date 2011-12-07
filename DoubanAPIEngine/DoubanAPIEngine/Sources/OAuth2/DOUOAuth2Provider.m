@@ -37,7 +37,19 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (void)accessTokenWithConsumer:(DOUOAuth2Consumer *)consumer andRequest:(DOUFormDataRequest *)request {
+- (DOUFormDataRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
+  DOUFormDataRequest *req = [DOUFormDataRequest formRequestWithURL:[NSURL URLWithString:tokenURL_]];
+  [req setRequestMethod:@"POST"];
+  [req setPostValue:consumer.key forKey:kClientIdKey];
+  [req setPostValue:consumer.secret forKey:kClientSecretKey];
+  [req setPostValue:kGrantTypePassword forKey:kGrantTypeKey];
+  [req setStringEncoding:NSUTF8StringEncoding];  
+  return  req;
+}
+
+
+- (void)accessTokenWithConsumer:(DOUOAuth2Consumer *)consumer 
+                        request:(DOUFormDataRequest *)request {
   
   NSLog(@"auth %@", [request url]);
   [request startSynchronous];
@@ -56,26 +68,19 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (DOUFormDataRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
-  DOUFormDataRequest *req = [DOUFormDataRequest formRequestWithURL:[NSURL URLWithString:tokenURL_]];
-  [req setRequestMethod:@"POST"];
-  [req setPostValue:consumer.key forKey:kClientIdKey];
-  [req setPostValue:consumer.secret forKey:kClientSecretKey];
-  [req setPostValue:kGrantTypePassword forKey:kGrantTypeKey];
-  [req setStringEncoding:NSUTF8StringEncoding];  
-  return  req;
-}
+#pragma mark - Auth2 actions
 
 - (NSError *)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
-                     username:(NSString *)username 
-                     password:(NSString *)password {
+                          username:(NSString *)username 
+                          password:(NSString *)password {
   DOUFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
   [req setPostValue:password forKey:kPasswordKey];
-  [self accessTokenWithConsumer:consumer andRequest:req];
+  [self accessTokenWithConsumer:consumer request:req];
   NSError *error = [req error];
   return error;
 } 
+
 
 - (void)asyncAccessTokenByPassword:(DOUOAuth2Consumer *)consumer 
                           username:(NSString *)username 
@@ -91,6 +96,7 @@ static NSString *kDelegateKey = @"DelegateKey";
   [req setUserInfo:dic];
   [req startAsynchronous];
 }
+
 
 - (void)requestFinished:(ASIHTTPRequest *)request {
   NSError *error = [request error];
@@ -114,6 +120,7 @@ static NSString *kDelegateKey = @"DelegateKey";
   
 }
 
+
 - (void)requestFailed:(ASIHTTPRequest *)request {
   NSError *error = [request error];
   NSLog(@"error: %@", error);
@@ -125,16 +132,18 @@ static NSString *kDelegateKey = @"DelegateKey";
 
 
  
-- (void)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer {
+- (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer {
   DOUFormDataRequest *req = [DOUFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
   [req setRequestMethod:@"POST"];
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];
-  [req setPostValue:kGrantTypeRefreshToken forKey:kGrantTypeKey];  
+  [req setPostValue:kGrantTypeRefreshToken forKey:kGrantTypeKey];
   [req setPostValue:consumer.refreshToken forKey:kRefreshTokenKey];
-  
+
   [req setStringEncoding:NSUTF8StringEncoding];
-  [self accessTokenWithConsumer:consumer andRequest:req];
+  [self accessTokenWithConsumer:consumer request:req];
+  NSError *error = [req error];
+  return error;
 }
 
 /*

@@ -28,7 +28,7 @@ NSUInteger const kDefaultMaxConcurrentOperationCount = 8;
 
 @synthesize queue = queue_;
 @synthesize consumer = consumer_;
-@synthesize userId = userId;
+
 
 
 - (id)init {
@@ -124,18 +124,11 @@ static NSString *redirectUrl;
 
 #pragma mark - login
 
-- (int)userId {
-  if (!consumer_) {
-    return consumer_.userId;
-  }
-  return -1;
-}
-
 
 - (NSError *)loginWithUsername:(NSString *)username password:(NSString *)password {
 
-  DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
-                                                                  tokenURL:kTokenUrl];
+  DOUOAuth2Provider *provider = [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
+                                                                  tokenURL:kTokenUrl] autorelease];
   DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
                                                                 secret:privateKey
                                                         andRedirectURL:redirectUrl] autorelease];
@@ -148,8 +141,8 @@ static NSString *redirectUrl;
                       password:(NSString *)password 
                       delegate:(id<DOULoginDelegate>)delegate {
 
-  DOUOAuth2Provider *provider = [[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
-                                                                  tokenURL:kTokenUrl];
+  DOUOAuth2Provider *provider = [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
+                                                                  tokenURL:kTokenUrl] autorelease];
   DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
                                                                  secret:privateKey
                                                          andRedirectURL:redirectUrl] autorelease];
@@ -161,12 +154,30 @@ static NSString *redirectUrl;
 }
 
 
+- (NSError *)executeRefreshToken {
+  DOUOAuth2Provider *provider = [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
+                                                                   tokenURL:kTokenUrl] autorelease];
+  if (!self.consumer) {
+    DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
+                                                                   secret:privateKey
+                                                           andRedirectURL:redirectUrl] autorelease];
+    self.consumer = consumer;
+    [self.consumer updateWithUserDefaults];
+  }
+
+  return [provider accessTokenByRefresh:self.consumer];
+}
+
 
 - (void)addRequest:(DOUHttpRequest *)request {
   
   if (![self queue]) {
     [self setQueue:[[[ASINetworkQueue alloc] init] autorelease]];
-     self.queue.maxConcurrentOperationCount = kDefaultMaxConcurrentOperationCount;
+    self.queue.maxConcurrentOperationCount = kDefaultMaxConcurrentOperationCount;
+  }
+  
+  if ([consumer_ hasExpired]) {
+    [self executeRefreshToken];
   }
   
   [consumer_ sign:request];
@@ -179,5 +190,20 @@ static NSString *redirectUrl;
   self.queue.maxConcurrentOperationCount = maxCount;
 }
 
+
+- (NSString *)accessToken {
+  if (!consumer_) {
+    return consumer_.accessToken;
+  }
+  return nil;
+}
+
+
+- (int)userId {
+  if (!consumer_) {
+    return consumer_.userId;
+  }
+  return -1;
+}
 
 @end

@@ -27,11 +27,12 @@
                           password:(NSString *)password
                           delegate:(id<DOULoginDelegate>)delegate;
 
-- (void)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer;
+- (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer;
 
 /*
 - (void)accessTokenByAuthorizationCode:(DOUOAuth2Consumer *)consumer 
                      authorizationCode:(NSString *)authorizationCode;
 */
+
 
 @end

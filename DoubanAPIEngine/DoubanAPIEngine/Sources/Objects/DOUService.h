@@ -23,11 +23,13 @@
  @private
   ASINetworkQueue *queue_;
   DOUOAuth2Consumer *consumer_;
+  
+  BOOL isRefreshingToken_;
 }
 
 @property (nonatomic, retain) ASINetworkQueue   *queue;
 @property (nonatomic, retain) DOUOAuth2Consumer *consumer;
-@property (nonatomic, assign, readonly) int userId;
+
 
 
 + (DOUService *)sharedInstance;
@@ -44,8 +46,14 @@
                       password:(NSString *)password
                       delegate:(id<DOULoginDelegate>)delegate;
 
+- (NSError *)executeRefreshToken;
+
 - (void)addRequest:(DOUHttpRequest *)request;
 
 - (void)setMaxConcurrentOperationCount:(NSUInteger)maxConcurrentOperationCount;
+
+- (NSString *)accessToken;
+
+- (int)userId;
 
 @end

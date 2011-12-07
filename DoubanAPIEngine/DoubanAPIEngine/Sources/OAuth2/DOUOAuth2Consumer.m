@@ -32,11 +32,7 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 @synthesize accessToken  = accessToken_;
 @synthesize refreshToken = refreshToken_;
 @synthesize expiresIn = expiresIn_;
-
 @synthesize userId = userId_;
-
-@synthesize hasExpired = hasExpired_;
-
 
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret andRedirectURL:(NSString *)aRedirectURL {
@@ -45,6 +41,7 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 		key_ = [aKey retain];
 		secret_ = [aSecret retain];
 		redirectURL_ = [aRedirectURL retain];
+    [self updateWithUserDefaults];
 	}
 	return self;
 }
@@ -78,19 +75,16 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 
 
 - (void)sign:(DOUHttpRequest *)request {
-  NSString *authValue = [NSString stringWithFormat:@"%@ %@",kOAuth2, self.accessToken];
-  //NSLog(@"token:%@", authValue);
-  [request addRequestHeader:kOAuth2AuthorizationHttpHeader value:authValue];
+  if (self.accessToken) {
+    NSString *authValue = [NSString stringWithFormat:@"%@ %@",kOAuth2, self.accessToken];
+    NSLog(@"token:%@", authValue);
+    [request addRequestHeader:kOAuth2AuthorizationHttpHeader value:authValue];    
+  }
 }
 
-- (BOOL)isValid {
-  
-  if (hasExpired_) {
-    return NO;
-  }
-  
+- (BOOL)hasExpired {
   NSDate *now = [NSDate date];
-  if( [now compare:[self expiresIn]] == NSOrderedAscending ){
+  if([now compare:[self expiresIn]] == NSOrderedAscending) {
 		return YES;
 	}
 	else{
@@ -106,6 +100,24 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
   [userDefaults setObject:[self expiresIn] forKey:kUserDefaultsExpiresInKey];
   [userDefaults setInteger:[self userId] forKey:kUserDefaultsUserIdKey];
   [userDefaults synchronize];
+}
+
+- (NSString *)accessToken {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  accessToken_ = [[userDefaults stringForKey:kUserDefaultsAccessTokenKey] retain];
+  return accessToken_;
+}
+
+- (NSString *)refreshToken {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  refreshToken_ = [[userDefaults stringForKey:kUserDefaultsRefreshTokenKey] retain];
+  return refreshToken_;
+}
+
+- (int)userId {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  userId_ = [[userDefaults objectForKey:kUserDefaultsUserIdKey] intValue];
+  return userId_;
 }
 
 

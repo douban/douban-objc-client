@@ -1,5 +1,5 @@
 
-[豆瓣 API]: http://www.douban.com
+[豆瓣 API]: http://www.douban.com/service/
 
 douban-objc-client 
 ------------------
@@ -11,8 +11,21 @@ douban-objc-client
 
 如何使用? 
 -------
+* 首先配置所需的 Frameworks，将下面库加入你的项目的 Link Binary with Libaries
+  * libDoubanAPIEngine.a
+  * libxml2.dylib
+  * libz.dylib
+  * CoreGraphics.framework
+  * CFNetwork.framework
+  * Security.framework
+  * SystemConfiguration.framework
+  * MobileCoreServices.framework
+  * UIKit.framework
+  * Foundation.framework
+  * SenTestingkit.framework
 
-首先，配置 Auth2 所需参数
+
+* 提供 Auth2 所需参数
 
 ```objective-c
   [DOUService setAPIKey:kYourAPIKey];
@@ -21,7 +34,7 @@ douban-objc-client
 ```
 
 
-登录，当前只完成了 password 类型的 Auth2 认证
+* 登录，当前只完成了 password 类型的 Auth2 认证，随后会支持 AuthorizationCode 类型认证
 
 ```objective-c
   DOUService *service = [DOUService sharedInstance];
@@ -29,7 +42,7 @@ douban-objc-client
 ```
 
 
-发起 一个同步请求
+* 发起一个同步请求
 
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
@@ -46,7 +59,7 @@ douban-objc-client
 ```
 
 
-发起 一个异步请求
+* 发起一个异步请求
 
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
@@ -61,7 +74,7 @@ douban-objc-client
 ```
 
 
-异步请求的回调
+* 异步请求的回调
 
 ```objective-c
 - (void)requestFinished:(DOUHttpRequest *)req {
