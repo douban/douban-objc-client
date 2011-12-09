@@ -49,7 +49,7 @@
     NSLog(@"event where:%@", [[event where] stringValue]);
     NSLog(@"event summary:%@", [[event summary] stringValue]);
     NSLog(@"event content:%@", [[event content] stringValue]);
-    NSLog(@"event participants:%d", [event participants]);  
+    NSLog(@"event participants:%d", [event participantsCount]);  
     NSLog(@"event location:%@", [[event location] identity]);
     
     for (DoubanAttribute* attribute in [event attributes]) {
@@ -73,7 +73,7 @@
       NSLog(@"event where:%@", [[event where] stringValue]);
       NSLog(@"event summary:%@", [[event summary] stringValue]);
       NSLog(@"event content:%@", [[event content] stringValue]);
-      NSLog(@"event participants:%d", [event participants]);  
+      NSLog(@"event participants:%d", [event participantsCount]);  
       NSLog(@"event location:%@", [[event location] identity]);
       
       for (DoubanAttribute* attribute in [event attributes]) {

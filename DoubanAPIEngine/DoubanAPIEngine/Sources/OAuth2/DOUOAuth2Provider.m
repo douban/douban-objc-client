@@ -102,11 +102,7 @@ static NSString *kDelegateKey = @"DelegateKey";
   NSError *error = [request error];
   if (!error) {
     
-    DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[request userInfo] objectForKey:kConsumerKey];
-    if ([request responseStatusCode] == kErrorCodeAccessTokenHasExpired) {
-      [self accessTokenByRefresh:consumer];
-    }
-    
+    DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[request userInfo] objectForKey:kConsumerKey];    
     NSString* responseStr = [request responseString];
     NSLog(@"response: %@", responseStr);
     [consumer updateWithHTTPResponse:responseStr];

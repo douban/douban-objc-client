@@ -14,6 +14,10 @@
 #import "SBJson.h"
 
 @interface DOUOAuth2Consumer ()
+@property (nonatomic, copy) NSString *accessToken;
+@property (nonatomic, copy) NSString *refreshToken;
+@property (nonatomic, copy) NSDate *expiresIn;
+@property (nonatomic, assign) int userId;
 @end
 
 
@@ -22,7 +26,7 @@
 static NSString *kUserDefaultsAccessTokenKey = @"douban_userdefaults_access_token";
 static NSString *kUserDefaultsRefreshTokenKey = @"douban_userdefaults_refresh_token";
 static NSString *kUserDefaultsExpiresInKey = @"douban_userdefaults_expires_in";
-static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
+static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
 
 
 @synthesize key    = key_;
@@ -35,7 +39,7 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 @synthesize userId = userId_;
 
 
-- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret andRedirectURL:(NSString *)aRedirectURL {
+- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret redirectURL:(NSString *)aRedirectURL {
 	self = [super init];
 	if( self ) {
 		key_ = [aKey retain];
@@ -63,14 +67,12 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 - (void)updateWithHTTPResponse:(NSString *)aString {
 
   NSDictionary *dic = [aString JSONValue];
-  accessToken_ = [[dic objectForKey:kAccessTokenKey] retain];
-  refreshToken_ = [[dic objectForKey:kRefreshTokenKey] retain];
+  self.accessToken = [dic objectForKey:kAccessTokenKey];
+  self.refreshToken = [dic objectForKey:kRefreshTokenKey];
   
   NSUInteger expiresSecond = [[dic objectForKey:kExpiresInKey] integerValue];
-  NSDate *now = [NSDate date];
-  expiresIn_ = [[now dateByAddingTimeInterval:expiresSecond] retain];
-  
-  userId_ = [[dic objectForKey:kDoubanUserIdKey] intValue];
+  self.expiresIn = [[NSDate date] dateByAddingTimeInterval:expiresSecond];
+  self.userId = [[dic objectForKey:kDoubanUserIdKey] intValue];
 }
 
 
@@ -82,23 +84,24 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
   }
 }
 
+
 - (BOOL)hasExpired {
   NSDate *now = [NSDate date];
-  if([now compare:[self expiresIn]] == NSOrderedAscending) {
-		return YES;
+  if([now compare:self.expiresIn] == NSOrderedAscending) {
+		return NO;
 	}
 	else{
-		return NO;
+		return YES;
 	}
 }
 
 
 - (void)save {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  [userDefaults setObject:[self accessToken] forKey:kUserDefaultsAccessTokenKey];
-  [userDefaults setObject:[self refreshToken] forKey:kUserDefaultsRefreshTokenKey];
-  [userDefaults setObject:[self expiresIn] forKey:kUserDefaultsExpiresInKey];
-  [userDefaults setInteger:[self userId] forKey:kUserDefaultsUserIdKey];
+  [userDefaults setObject:accessToken_ forKey:kUserDefaultsAccessTokenKey];
+  [userDefaults setObject:refreshToken_ forKey:kUserDefaultsRefreshTokenKey];
+  [userDefaults setObject:expiresIn_ forKey:kUserDefaultsExpiresInKey];
+  [userDefaults setInteger:userId_ forKey:kUserDefaultsUserIdKey];
   [userDefaults synchronize];
 }
 
@@ -123,10 +126,10 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_in";
 
 - (void)updateWithUserDefaults {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  accessToken_ = [[userDefaults stringForKey:kUserDefaultsAccessTokenKey] retain];
-  refreshToken_ = [[userDefaults stringForKey:kUserDefaultsRefreshTokenKey] retain];
-  expiresIn_ = [[userDefaults objectForKey:kUserDefaultsExpiresInKey] retain];
-  userId_ = [[userDefaults objectForKey:kUserDefaultsUserIdKey] intValue];
+  self.accessToken = [userDefaults stringForKey:kUserDefaultsAccessTokenKey];
+  self.refreshToken = [userDefaults stringForKey:kUserDefaultsRefreshTokenKey];
+  self.expiresIn = [userDefaults objectForKey:kUserDefaultsExpiresInKey];
+  self.userId = [[userDefaults objectForKey:kUserDefaultsUserIdKey] intValue];
 }
 
 

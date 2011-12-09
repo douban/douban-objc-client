@@ -1,5 +1,5 @@
 //
-//  DoubanEntryMovie.m
+//  DoubanEntrySubject.m
 //  DOUAPIEngine
 //
 //  Created by Lin GUO on 11-11-4.
@@ -36,7 +36,7 @@
 }
 
 + (NSString *)standardEntryKind {
-	return kDoubanCategoryBook;
+	return kDoubanCategorySubject;
 }
 
 + (void)load {

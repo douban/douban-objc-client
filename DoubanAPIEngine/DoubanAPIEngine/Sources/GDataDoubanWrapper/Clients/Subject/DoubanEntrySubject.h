@@ -1,5 +1,5 @@
 //
-//  DoubanEntryMovie.h
+//  DoubanEntrySubject.h
 //  DOUAPIEngine
 //
 //  Created by Lin GUO on 11-11-4.
@@ -18,7 +18,7 @@
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
-#ifdef DOUBANSUJECT_DEFINE_GLOBALS
+#ifdef DOUBANSUBJECT_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else

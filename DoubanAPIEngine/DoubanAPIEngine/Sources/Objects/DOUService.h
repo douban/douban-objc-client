@@ -18,18 +18,19 @@
 
 @class ASINetworkQueue;
 @class DOUOAuth2Consumer;
+@class DOUOAuth2Provider;
 @class DOUHttpRequest;
 @interface DOUService : NSObject {
  @private
   ASINetworkQueue *queue_;
   DOUOAuth2Consumer *consumer_;
-  
+  DOUOAuth2Provider *provider_;
   BOOL isRefreshingToken_;
 }
 
 @property (nonatomic, retain) ASINetworkQueue   *queue;
 @property (nonatomic, retain) DOUOAuth2Consumer *consumer;
-
+@property (nonatomic, retain) DOUOAuth2Provider *provider;
 
 
 + (DOUService *)sharedInstance;
@@ -55,5 +56,7 @@
 - (NSString *)accessToken;
 
 - (int)userId;
+
+- (BOOL)isValid;
 
 @end

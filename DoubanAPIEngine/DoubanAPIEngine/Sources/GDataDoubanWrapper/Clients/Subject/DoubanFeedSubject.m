@@ -1,5 +1,5 @@
 //
-//  DoubanFeedMovie.m
+//  DoubanFeedSubject.m
 //  DoubanAPIEngine
 //
 //  Created by Lin GUO on 11-11-7.
@@ -7,7 +7,7 @@
 //
 
 
-#define DOUBANENTRYSUBJECT_DEFINE_GLOBALS 1
+#define DOUBANSUBJECT_DEFINE_GLOBALS 1
 
 #import "DoubanFeedSubject.h"
 #import "DoubanEntrySubject.h"

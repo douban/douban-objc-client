@@ -1,5 +1,5 @@
 //
-//  DoubanFeedMovie.h
+//  DoubanFeedSubject.h
 //  DoubanAPIEngine
 //
 //  Created by Lin GUO on 11-11-7.

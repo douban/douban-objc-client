@@ -31,11 +31,11 @@
 @property (nonatomic, copy, readonly) NSString *refreshToken;
 @property (nonatomic, copy, readonly) NSDate *expiresIn;
 
-@property (nonatomic, readonly) int userId;
+@property (nonatomic, assign, readonly) int userId;
 
 
 
-- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret andRedirectURL:(NSString *)aRedirectURL;
+- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret redirectURL:(NSString *)aRedirectURL;
 - (void)updateWithHTTPResponse:(NSString *)aString;
 - (void)updateWithUserDefaults;
 

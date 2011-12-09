@@ -3,7 +3,7 @@
 //  douban-objective-c
 //
 //  Created by py on 3/19/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Douban Inc. All rights reserved.
 //
 
 #define DOUBANEVENTS_DEFINE_GLOBALS 1
@@ -19,11 +19,11 @@ NSString * const kParticipatedStr = @"participate";
 NSString * const kWishedStr = @"wish";
 
 
-NSString * const kTravelCategoryTerm = @"http://www.douban.com/2007#event.travel";
-NSString * const kSalonCategoryTerm = @"http://www.douban.com/2007#event.salon";
-NSString * const kMusicCategoryTerm = @"http://www.douban.com/2007#event.music";
-NSString * const kFilmCategoryTerm = @"http://www.douban.com/2007#event.film";
-NSString * const kExhibitionCategoryTerm = @"http://www.douban.com/2007#event.exhibition";
+static NSString * const kEventTravelCategoryTerm = @"http://www.douban.com/2007#event.travel";
+static NSString * const kEventSalonCategoryTerm = @"http://www.douban.com/2007#event.salon";
+static NSString * const kEventMusicCategoryTerm = @"http://www.douban.com/2007#event.music";
+static NSString * const kEventFilmCategoryTerm = @"http://www.douban.com/2007#event.film";
+static NSString * const kEventExhibitionCategoryTerm = @"http://www.douban.com/2007#event.exhibition";
 
 
 + (NSDictionary *)eventsNamespaces {
@@ -130,20 +130,20 @@ NSString * const kExhibitionCategoryTerm = @"http://www.douban.com/2007#event.ex
   GDataCategory *category = [categories objectAtIndex:0];
   NSString *categoryTerm = [category term];
 
-  if ([categoryTerm isEqualToString:kTravelCategoryTerm]) {
-    return TRAVEL_CATEGORY;
+  if ([categoryTerm isEqualToString:kEventTravelCategoryTerm]) {
+    return EVENT_TRAVEL_CATEGORY;
   }
-  else if ([categoryTerm isEqualToString:kSalonCategoryTerm]) {
-    return SALON_CATEGORY;
+  else if ([categoryTerm isEqualToString:kEventSalonCategoryTerm]) {
+    return EVENT_SALON_CATEGORY;
   }
-  else if ([categoryTerm isEqualToString:kMusicCategoryTerm]) {
-    return MUSIC_CATEGORY;
+  else if ([categoryTerm isEqualToString:kEventMusicCategoryTerm]) {
+    return EVENT_MUSIC_CATEGORY;
   }  
-  else if ([categoryTerm isEqualToString:kExhibitionCategoryTerm]) {
-    return EXHIBITION_CATEGORY;
+  else if ([categoryTerm isEqualToString:kEventExhibitionCategoryTerm]) {
+    return EVENT_EXHIBITION_CATEGORY;
   }
   else {
-    return FILM_CATEGORY;
+    return EVENT_FILM_CATEGORY;
   }
 }
 

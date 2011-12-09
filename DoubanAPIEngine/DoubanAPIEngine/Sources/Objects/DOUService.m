@@ -28,16 +28,37 @@ NSUInteger const kDefaultMaxConcurrentOperationCount = 8;
 
 @synthesize queue = queue_;
 @synthesize consumer = consumer_;
+@synthesize provider = provider_;
 
+#pragma mark - Auth2 Parameters
+
+static NSString *APIKey;
+static NSString *privateKey;
+static NSString *redirectUrl;
+
++ (void)setAPIKey:(NSString *)theAPIKey {
+  APIKey = theAPIKey;
+}
+
++ (void)setPrivateKey:(NSString *)thePrivateKey {
+  privateKey = thePrivateKey;
+}
+
++ (void)setRedirectUrl:(NSString *)theRedirectUrl {
+  redirectUrl = theRedirectUrl;
+}
 
 
 - (id)init {
   self = [super init];
   if (self) {
-    DOUOAuth2Consumer *consumer = [[DOUOAuth2Consumer alloc] init];
-    consumer_ = [consumer retain];
+    self.consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey 
+                                                     secret:privateKey 
+                                                redirectURL:redirectUrl] autorelease];
     [consumer_ updateWithUserDefaults];
-    [consumer release];
+    
+    self.provider =  [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
+                                                        tokenURL:kTokenUrl] autorelease];
   }
   return self;
 }
@@ -46,13 +67,13 @@ NSUInteger const kDefaultMaxConcurrentOperationCount = 8;
 - (void)dealloc {
   [queue_ release]; queue_ = nil;
   [consumer_ release]; consumer_ = nil;
+  [provider_ release]; provider_ = nil;
   [super dealloc];
 }
 
 
 #pragma mark -
 #pragma mark Singleton
-
 
 static DOUService *myInstance = nil;
 
@@ -78,7 +99,6 @@ static DOUService *myInstance = nil;
   return nil; 
 }
 
-
 - (id)copyWithZone:(NSZone *)zone {
   return self;
 }
@@ -103,51 +123,19 @@ static DOUService *myInstance = nil;
   return self;
 }
 
-#pragma mark - Auth2 Parameters
-
-static NSString *APIKey;
-static NSString *privateKey;
-static NSString *redirectUrl;
-
-+ (void)setAPIKey:(NSString *)theAPIKey {
-  APIKey = theAPIKey;
-}
-
-+ (void)setPrivateKey:(NSString *)thePrivateKey {
-  privateKey = thePrivateKey;
-}
-
-+ (void)setRedirectUrl:(NSString *)theRedirectUrl {
-  redirectUrl = theRedirectUrl;
-}
-
 
 #pragma mark - login
 
 
 - (NSError *)loginWithUsername:(NSString *)username password:(NSString *)password {
-
-  DOUOAuth2Provider *provider = [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
-                                                                  tokenURL:kTokenUrl] autorelease];
-  DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
-                                                                secret:privateKey
-                                                        andRedirectURL:redirectUrl] autorelease];
-  self.consumer = consumer;
-  return [provider accessTokenByPassword:self.consumer username:username password:password];
+  return [provider_ accessTokenByPassword:consumer_ username:username password:password];
 }
 
 
 - (void)asyncLoginWithUsername:(NSString *)username 
                       password:(NSString *)password 
                       delegate:(id<DOULoginDelegate>)delegate {
-
-  DOUOAuth2Provider *provider = [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
-                                                                  tokenURL:kTokenUrl] autorelease];
-  DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
-                                                                 secret:privateKey
-                                                         andRedirectURL:redirectUrl] autorelease];
-  self.consumer = consumer;
-  [provider asyncAccessTokenByPassword:self.consumer 
+  [provider_ asyncAccessTokenByPassword:consumer_ 
                               username:username 
                               password:password
                               delegate:delegate];
@@ -155,17 +143,7 @@ static NSString *redirectUrl;
 
 
 - (NSError *)executeRefreshToken {
-  DOUOAuth2Provider *provider = [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
-                                                                   tokenURL:kTokenUrl] autorelease];
-  if (!self.consumer) {
-    DOUOAuth2Consumer *consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey
-                                                                   secret:privateKey
-                                                           andRedirectURL:redirectUrl] autorelease];
-    self.consumer = consumer;
-    [self.consumer updateWithUserDefaults];
-  }
-
-  return [provider accessTokenByRefresh:self.consumer];
+  return [provider_ accessTokenByRefresh:consumer_];
 }
 
 
@@ -192,18 +170,19 @@ static NSString *redirectUrl;
 
 
 - (NSString *)accessToken {
-  if (!consumer_) {
-    return consumer_.accessToken;
-  }
-  return nil;
+  return consumer_.accessToken;
 }
 
 
 - (int)userId {
-  if (!consumer_) {
-    return consumer_.userId;
+  return consumer_.userId;  
+}
+
+- (BOOL)isValid {
+  if (consumer_.accessToken) {
+    return ![consumer_ hasExpired];
   }
-  return -1;
+  return NO;
 }
 
 @end

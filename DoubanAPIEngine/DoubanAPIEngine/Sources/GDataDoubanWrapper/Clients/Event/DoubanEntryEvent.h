@@ -3,7 +3,7 @@
 //  douban-objective-c
 //
 //  Created by py on 3/19/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Douban Inc. All rights reserved.
 //
 
 #import "GDataEntryBase.h"
@@ -15,6 +15,7 @@
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
+
 #ifdef DOUBANEVENTS_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
@@ -27,11 +28,11 @@ _EXTERN NSString* const kDoubanEventsDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 
 
 typedef enum {
-  MUSIC_CATEGORY,
-  FILM_CATEGORY,
-  SALON_CATEGORY,
-  TRAVEL_CATEGORY,
-  EXHIBITION_CATEGORY
+  EVENT_MUSIC_CATEGORY,
+  EVENT_FILM_CATEGORY,
+  EVENT_SALON_CATEGORY,
+  EVENT_TRAVEL_CATEGORY,
+  EVENT_EXHIBITION_CATEGORY
 } EventCategory;
 
 extern NSString * const kParticipatedStr;

@@ -3,7 +3,7 @@
 //  douban-objective-c
 //
 //  Created by py on 3/23/10.
-//  Copyright 2010 __MyCompanyName__. All rights reserved.
+//  Copyright 2010 Douban Inc. All rights reserved.
 //
 
 #define DOUBANPEOPLES_DEFINE_GLOBALS 1
