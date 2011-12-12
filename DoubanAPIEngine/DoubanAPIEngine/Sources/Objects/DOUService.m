@@ -154,7 +154,7 @@ static DOUService *myInstance = nil;
     self.queue.maxConcurrentOperationCount = kDefaultMaxConcurrentOperationCount;
   }
   
-  if ([consumer_ hasExpired]) {
+  if (consumer_.userId != 0 && [consumer_ hasExpired]) {
     [self executeRefreshToken];
   }
   
