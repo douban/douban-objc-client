@@ -7,7 +7,7 @@
 //
 
 #import "GDataEntryBase.h"
-#import "GDataValueConstruct.h"
+#import "GDataBaseElements.h"
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -31,9 +31,18 @@ _EXTERN NSString* const kDoubanPhotosDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 
 + (DoubanEntryPhoto *)photoEntry;
 
+
 // extensions
 
 - (GDataLink *)imageLink;
 - (GDataLink *)thumbLink;
+- (GDataAtomAuthor *)author;
+- (NSInteger)commentsCount;
+- (NSInteger)recsCount;
+- (NSInteger)position;
+- (NSInteger)nextPhotoId;
+- (NSInteger)prevPhotoId;
+- (NSInteger)albumId;
+- (NSString *)albumTitle;
 
 @end

@@ -114,7 +114,16 @@ static NSString * const kMiniblogSignatureCategoryTerm = @"http://www.douban.com
   else {
     return MINIBLOG_SAYING_CATEGORY;
   }
-  
+}
+
+
+- (GDataAtomAuthor *)author {
+  NSArray *authors = [self authors];
+  if (authors) {
+    GDataAtomAuthor *author = [authors objectAtIndex:0];
+    return author;
+  }
+  return nil;
 }
 
 @end

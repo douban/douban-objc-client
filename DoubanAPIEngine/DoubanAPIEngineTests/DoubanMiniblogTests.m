@@ -33,7 +33,8 @@
 
 - (void)testDoubanEntryMiniblog {
 
-  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"DoubanEntryMiniblog" ofType:@"xml"];  
+  NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"DoubanEntryMiniblog" 
+                                                                        ofType:@"xml"];  
 
   if (!filePath)
     STAssertTrue(FALSE, @"filePath fail!");
@@ -90,8 +91,6 @@
         STAssertTrue([[author name] isEqualToString:@"挑灯看剑"], @"author");
       }
     }
-    
-
   }
   
   

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <id>http://api.douban.com/recommendation/3673470</id>
+  <title>推荐喵喵喵</title>
+  <published>2008-11-07T08:28:40+08:00</published>
+  <content type="html"><![CDATA[推荐<a href="http://www.douban.com/photos/album/12573993/">喵喵喵</a>]]></content>
+  <db:attribute name="category">photo_album</db:attribute>
+  <db:attribute name="comment">团子，我家团子，以前觉得她小时候很丑，现在觉得一 点也不丑啊～哇哈哈哈</db:attribute>
+  <db:attribute name="comments_count">6</db:attribute>
+</entry>

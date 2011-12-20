@@ -54,15 +54,19 @@ extern NSString * const kWishedStr;
 - (void)setLocation:(DoubanLocation*)obj;
 
 - (NSArray *)attributes;
-- (void)setAttributes:(NSArray *)attr;
-- (void)addAttribute:(DoubanAttribute *)obj;
+
 
 - (EventCategory)eventCategory;
 
 - (GDataLink *)imageLink;
 
+- (NSUInteger)albumId;
 - (NSInteger)participantsCount;
 - (NSInteger)wishersCount;
 - (NSString *)status;
 - (void)setStatus:(NSString *)content;
+
+- (float)geoLatitude;
+- (float)geoLongitude;
+
 @end

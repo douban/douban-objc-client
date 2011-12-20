@@ -16,7 +16,7 @@
 
 @interface DoubanAPIEngineTests : SenTestCase 
 - (void)testDOUOAuth2Service;
-- (void)testDOUService;
+
 @end
 
 
@@ -59,7 +59,7 @@ static NSString * const kPasswordStr = @"yourpassword";
 
 + (DOUQuery *)queryBookWithId:(int)bookId {
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
-  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
+  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"xml",@"alt", nil];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:params];
   return [query autorelease];
 }
@@ -77,41 +77,20 @@ static NSString * const kPasswordStr = @"yourpassword";
   NSLog(@"refresh token: %@", service.consumer.refreshToken);
   NSLog(@"expiry: %@", service.consumer.expiresIn);
   
-  //DOUQuery *query = [[self class] queryCurrentUser];
+
   DOUQuery *query = [[self class] queryBookWithId:6861929];
-  DOUHttpRequest *req = [DOUHttpRequest requestWithQuery:query];
+  NSURL *url = [query requestURL];
+  DOUHttpRequest *req = [DOUHttpRequest requestWithURL:url];
   [service.consumer sign:req];
   
   [req startSynchronous];
   if (![req error]) {
     DoubanEntrySubject *book = [[DoubanEntrySubject alloc] initWithData:[req responseData]];
+    STAssertNotNil(book, @"book is not nil");
   }
   
 }
 
 
-/*
-- (void)testDOUService {
-
-  DOUService *service = [DOUService sharedInstance];
-  DOUQuery *query = [[self class] queryActivityWithId:14910931];
-  //DOUQuery *query = [[self class] queryBookWithId:6861929];
-  //DOUQuery *query = [[self class] queryUserWithId:service.consumer.userId];
-  DOUHttpRequest *req = [DOUHttpRequest requestWithQuery:query];
-  [service.consumer sign:req];
-  
-  NSLog(@"key: %@", service.consumer.key);
-  NSLog(@"secret: %@", service.consumer.secret);
-  NSLog(@"token: %@", service.consumer.accessToken);
-  NSLog(@"refresh token: %@", service.consumer.refreshToken);
-  NSLog(@"expiry: %@", service.consumer.expiresIn);
-  
-  [req startSynchronous];
-  if (![req error]) {
-    NSString *str = [req responseString];
-    NSLog(@"response:%@", str);
-  }
-}
-*/
 
 @end

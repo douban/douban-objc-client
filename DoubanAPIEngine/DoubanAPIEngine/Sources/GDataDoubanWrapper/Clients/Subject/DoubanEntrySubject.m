@@ -50,11 +50,8 @@
 	Class entryClass = [self class];
   
 	[self addExtensionDeclarationForParentClass:entryClass
-                                 childClasses:
-   
-	 [GDataRating class],[DoubanAttribute class],
-	 [DoubanTag class],
-	 nil];
+                                 childClasses:[GDataRating class],[DoubanAttribute class],
+                                              [DoubanTag class],nil];
 
 }
 

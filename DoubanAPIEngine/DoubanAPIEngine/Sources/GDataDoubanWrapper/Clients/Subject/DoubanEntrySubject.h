@@ -59,7 +59,6 @@ _EXTERN NSString* const kDoubanMusicsFeed _INITIALIZE_AS(@"http://api.douban.com
 - (NSString*) publishDate;
 - (NSString*) isbn;
 - (NSString*) price;
-//- (NSArray*) authors;
 - (NSArray*) translators;
 
 

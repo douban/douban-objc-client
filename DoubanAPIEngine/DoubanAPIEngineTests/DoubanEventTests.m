@@ -43,18 +43,20 @@
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     DoubanEntryEvent *event = [[DoubanEntryEvent alloc] initWithData:data]; 
-    NSLog(@"event id:%@", [event identifier]);                               
-    NSLog(@"event title:%@", [[event title] stringValue]);                               
-    NSLog(@"event when:%@", [[event when] value]);                       
-    NSLog(@"event where:%@", [[event where] stringValue]);
-    NSLog(@"event summary:%@", [[event summary] stringValue]);
-    NSLog(@"event content:%@", [[event content] stringValue]);
-    NSLog(@"event participants:%d", [event participantsCount]);  
-    NSLog(@"event location:%@", [[event location] identity]);
+    STAssertTrue([[event identifier] isEqualToString:@"http://api.douban.com/event/14792861"], @"latitude");
+    STAssertTrue([[[event title] stringValue] isEqualToString:@"山谷里，我的家/小娟山谷里的居民2011北京演唱会"], @"title");
     
-    for (DoubanAttribute* attribute in [event attributes]) {
-      NSLog(@"attribute %@:%@", [attribute name], [attribute content]);
-    }
+    STAssertTrue([[[[event when] startTime] stringValue] isEqualToString:@"2011-12-18T19:30:00+08:00"], @"startTime");
+    STAssertTrue([[[[event when] endTime] stringValue] isEqualToString:@"2011-12-18T21:30:00+08:00"], @"endTime");
+    STAssertTrue([[[event where] stringValue] isEqualToString:@"北京 西城区 西直门/动物园 北京展览馆剧场"], @"where");
+    STAssertTrue([event albumId] == 58416320, @"album");
+
+    STAssertTrue([event participantsCount] == 342, @"participantsCount");
+    STAssertTrue([event wishersCount] == 1118, @"wishersCount");
+    STAssertTrue([[[event location] identity] isEqualToString:@"beijing"], @"location");
+    STAssertTrue(fabs([event geoLatitude] - 39.904213 )< 0.000001, @"latitude");
+    STAssertTrue(fabs([event geoLongitude] - 116.40741) < 0.000001, @"longitude");  
+
   }
 }
 
@@ -65,21 +67,26 @@
   if (filePath) {
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     DoubanFeedEvent *feed = [[DoubanFeedEvent alloc] initWithData:data];
+    STAssertTrue([[[feed title] stringValue] isEqualToString:@"胖胖的大头鱼的活动"], @"title");
     
-    for (DoubanEntryEvent *event in [feed entries]) {
-      NSLog(@"event id:%@", [event identifier]);                               
-      NSLog(@"event title:%@", [[event title] stringValue]);                               
-      NSLog(@"event when:%@", [[event when] value]);                       
-      NSLog(@"event where:%@", [[event where] stringValue]);
-      NSLog(@"event summary:%@", [[event summary] stringValue]);
-      NSLog(@"event content:%@", [[event content] stringValue]);
-      NSLog(@"event participants:%d", [event participantsCount]);  
-      NSLog(@"event location:%@", [[event location] identity]);
-      
-      for (DoubanAttribute* attribute in [event attributes]) {
-        NSLog(@"attribute %@:%@", [attribute name], [attribute content]);
-      }
-    }
+    NSArray *events = [feed entries];
+    STAssertTrue([events count] == 1, @"events count");
+    
+    DoubanEntryEvent *event = [events objectAtIndex:0]; 
+    STAssertTrue([[event identifier] isEqualToString:@"http://api.douban.com/event/10297336"], @"latitude");
+    STAssertTrue([[[event title] stringValue] isEqualToString:@"Open Source Camp 北京 2008技术交流盛会"], @"title");
+    
+    STAssertTrue([[[[event when] startTime] stringValue] isEqualToString:@"2008-10-25T13:00:00+08:00"], @"startTime");
+    STAssertTrue([[[[event when] endTime] stringValue] isEqualToString:@"2008-10-25T19:00:00+08:00"], @"endTime");
+    STAssertTrue([[[event where] stringValue] isEqualToString:@"北京 海淀区蓝旗营路北 工商银行旁 Study 英语学 习吧（三角地）"], @"where");
+    STAssertTrue([event albumId] == 0, @"album");
+    
+    STAssertTrue([event participantsCount] == 13, @"participantsCount");
+    STAssertTrue([event wishersCount] == 22, @"wishersCount");
+    STAssertTrue([[[event location] identity] isEqualToString:@"beijing"], @"location");
+    STAssertTrue([event geoLatitude] == 0 , @"latitude");
+    STAssertTrue([event geoLongitude] == 0 , @"longitude");
+
   }
 
 

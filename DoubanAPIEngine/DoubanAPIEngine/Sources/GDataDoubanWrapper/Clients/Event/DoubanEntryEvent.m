@@ -9,9 +9,9 @@
 #define DOUBANEVENTS_DEFINE_GLOBALS 1
 
 #import "DoubanEntryEvent.h"
-
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
+#import "GeorssPoint.h"
 
 @implementation DoubanEntryEvent
 
@@ -66,7 +66,8 @@ static NSString * const kEventExhibitionCategoryTerm = @"http://www.douban.com/2
 								   childClasses:[DoubanAttribute class], 
                                 [GDataWhere class], 
                                 [GDataWhen class], 
-                                [DoubanLocation class], nil];
+                                [DoubanLocation class], 
+                                [GeorssPoint class], nil];
 }
 
 
@@ -117,14 +118,6 @@ static NSString * const kEventExhibitionCategoryTerm = @"http://www.douban.com/2
 	return [self objectsForExtensionClass:[DoubanAttribute class]];
 }
 
-- (void)setAttributes:(NSArray *)attr {
-	[self setObjects:attr forExtensionClass:[DoubanAttribute class]];
-}
-
-- (void)addAttribute:(DoubanAttribute *)obj {
-	[self addObject:obj forExtensionClass:[DoubanAttribute class]];
-}
-
 - (EventCategory)eventCategory {
   NSArray *categories = [self categories];
   GDataCategory *category = [categories objectAtIndex:0];
@@ -147,6 +140,20 @@ static NSString * const kEventExhibitionCategoryTerm = @"http://www.douban.com/2
   }
 }
 
+
+- (NSUInteger)albumId {
+	DoubanAttribute *attr = nil;
+	for(id _attr in [self attributes]) {
+		if([[_attr name] isEqualToString:@"album"]){
+			attr = _attr;
+			break;
+		}
+	}
+	if (attr) {
+		return [[attr content] integerValue];
+	}
+	return 0;
+}
 
 - (NSInteger)participantsCount {
 	DoubanAttribute *attr = nil;
@@ -197,5 +204,17 @@ static NSString * const kEventExhibitionCategoryTerm = @"http://www.douban.com/2
   [attr setContent:content];
   [self setObject:attr forExtensionClass:[DoubanAttribute class]];
 }
+
+- (float)geoLatitude {
+  GeorssPoint *georssPoint = [self objectForExtensionClass:[GeorssPoint class]];
+  return [georssPoint geoLatitude];
+}
+
+- (float)geoLongitude {
+  GeorssPoint *georssPoint = [self objectForExtensionClass:[GeorssPoint class]];
+  return [georssPoint geoLongitude];
+}
+
+
 
 @end

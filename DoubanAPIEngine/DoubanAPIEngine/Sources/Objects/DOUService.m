@@ -72,8 +72,7 @@ static NSString *redirectUrl;
 }
 
 
-#pragma mark -
-#pragma mark Singleton
+#pragma mark - Singleton
 
 static DOUService *myInstance = nil;
 

@@ -8,11 +8,8 @@
 
 #import <Foundation/Foundation.h>
 #import "GDataEntryBase.h"
+#import "GDataBaseElements.h"
 
-#import "GDataWhen.h"
-#import "GDataWhere.h"
-#import "DoubanLocation.h"
-#import "DoubanAttribute.h"
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -59,7 +56,7 @@ typedef enum {
 
 + (DoubanEntryMiniblog *)miniblogEntry;
 
-
 - (MiniblogCategory)miniblogCategory;
 
+- (GDataAtomAuthor *)author;
 @end

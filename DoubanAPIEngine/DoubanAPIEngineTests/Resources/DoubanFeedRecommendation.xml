@@ -1,0 +1,21 @@
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <title>胖胖的大头鱼 的推荐</title>
+  <author>
+    <link href="http://api.douban.com/people/1057620" rel="self"/>
+    <link href="http://www.douban.com/people/aka/" rel="alternate"/>
+    <link href="http://t.douban.com/icon/u1057620-16.jpg" rel="icon"/>
+    <name>胖胖的大头鱼</name>
+    <uri>http://api.douban.com/people/1057620</uri>
+  </author>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <entry>
+    <id>http://api.douban.com/recommendation/3677685</id>
+    <title>推荐麦凯恩的败选演说——2008美国大选之夜（上）</title>
+    <published>2008-11-07T13:36:05+08:00</published>
+    <content type="html"><![CDATA[推荐<a href="http://9.douban.com/site/entry/74478867/">麦凯恩的败选演说——2008美国大选之夜（上）</a>]]></content>
+    <db:attribute name="category">entry</db:attribute>
+    <db:attribute name="comment"></db:attribute>
+    <db:attribute name="comments_count">0</db:attribute>
+  </entry>
+  <opensearch:itemsPerPage>1</opensearch:itemsPerPage>
+</feed>
