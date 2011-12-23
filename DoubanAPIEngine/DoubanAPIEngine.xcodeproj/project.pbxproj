@@ -238,7 +238,6 @@
 		D8839970149F479B00099D23 /* DoubanRecommendationTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D883996F149F479A00099D23 /* DoubanRecommendationTests.m */; };
 		D8839971149F479F00099D23 /* DoubanEntryRecommendation.xml in Resources */ = {isa = PBXBuildFile; fileRef = D883996C149F477600099D23 /* DoubanEntryRecommendation.xml */; };
 		D8839972149F47A200099D23 /* DoubanFeedRecommendation.xml in Resources */ = {isa = PBXBuildFile; fileRef = D883996D149F477700099D23 /* DoubanFeedRecommendation.xml */; };
-		D8839975149F4CF500099D23 /* DoubanFeedRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8839974149F4CF400099D23 /* DoubanFeedRecommendation.m */; };
 		D88EAEFD14691D0800A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
 		D88EAEFE14691D2F00A4DE43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D71F14690D32009F64FD /* Security.framework */; };
 		D88EAEFF14691D5B00A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
@@ -257,6 +256,8 @@
 		D8A25DBA14725215000A6FF5 /* DoubanSignature.m in Sources */ = {isa = PBXBuildFile; fileRef = D8A25DB814725215000A6FF5 /* DoubanSignature.m */; };
 		D8C5BD83147DEDC8005BA879 /* DOUFormDataRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D8C5BD81147DEDC8005BA879 /* DOUFormDataRequest.h */; };
 		D8C5BD84147DEDC8005BA879 /* DOUFormDataRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D8C5BD82147DEDC8005BA879 /* DOUFormDataRequest.m */; };
+		D8C7BB6814A03BBA00C43619 /* DoubanFeedRecommendation.m in Sources */ = {isa = PBXBuildFile; fileRef = D8839974149F4CF400099D23 /* DoubanFeedRecommendation.m */; };
+		D8C7BB6914A03BBD00C43619 /* DoubanFeedRecommendation.h in Headers */ = {isa = PBXBuildFile; fileRef = D8839973149F4CF300099D23 /* DoubanFeedRecommendation.h */; };
 		D8CF7CF01491A0610032C509 /* DoubanEntryMiniblog.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CF7CEE1491A0610032C509 /* DoubanEntryMiniblog.h */; };
 		D8CF7CF11491A0610032C509 /* DoubanEntryMiniblog.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7CEF1491A0610032C509 /* DoubanEntryMiniblog.m */; };
 		D8CF7CFA1491C0AE0032C509 /* DoubanMiniblogTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7CF81491C09D0032C509 /* DoubanMiniblogTests.m */; };
@@ -1221,6 +1222,7 @@
 				D8CF7CFF1491E2D30032C509 /* DoubanFeedMiniblog.h in Headers */,
 				D8839952149F383400099D23 /* GeorssPoint.h in Headers */,
 				D883995D149F424E00099D23 /* DoubanEntryRecommendation.h in Headers */,
+				D8C7BB6914A03BBD00C43619 /* DoubanFeedRecommendation.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1437,6 +1439,7 @@
 				D8CF7D001491E2D30032C509 /* DoubanFeedMiniblog.m in Sources */,
 				D8839953149F383400099D23 /* GeorssPoint.m in Sources */,
 				D883995E149F424E00099D23 /* DoubanEntryRecommendation.m in Sources */,
+				D8C7BB6814A03BBA00C43619 /* DoubanFeedRecommendation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1451,7 +1454,6 @@
 				D8CF7CFA1491C0AE0032C509 /* DoubanMiniblogTests.m in Sources */,
 				D8839940149F14EF00099D23 /* DoubanPhotoTests.m in Sources */,
 				D8839970149F479B00099D23 /* DoubanRecommendationTests.m in Sources */,
-				D8839975149F4CF500099D23 /* DoubanFeedRecommendation.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

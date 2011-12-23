@@ -11,7 +11,6 @@
 #import "DoubanEntryRecommendation.h"
 
 
-
 @implementation DoubanFeedRecommendation
 
 + (DoubanFeedRecommendation *)recommendationFeed {
@@ -25,6 +24,10 @@
 
 + (NSString *)standardFeedKind {
 	return @"recommendations"; //kGDataCategoryRecommendationsFeed;
+}
+
++ (void)load {
+	[self registerFeedClass];
 }
 
 - (Class)classForEntries {

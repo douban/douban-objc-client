@@ -15,6 +15,7 @@
 #undef _INITIALIZE_AS
 
 #ifdef DOUBANRECOMMENDATION_DEFINE_GLOBALS
+
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -23,7 +24,6 @@
 #endif
 
 _EXTERN NSString* const kDoubanRecommendationsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
-
 
 @interface DoubanEntryRecommendation : GDataEntryBase
 
