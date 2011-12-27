@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <id>http://api.douban.com/location/shanghai</id>
+  <title>上海</title>
+  <link href="http://api.douban.com/location/shanghai" rel="self"/>
+  <link href="http://www.douban.com/location/shanghai" rel="alternate"/>
+  <db:attribute name="name">上海</db:attribute>
+  <db:attribute name="name_cn">上海</db:attribute>
+  <db:attribute name="habitable">True</db:attribute>
+  <db:attribute name="parent">china</db:attribute>
+  <db:uid>shanghai</db:uid>
+</entry>

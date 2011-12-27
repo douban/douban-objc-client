@@ -1,0 +1,58 @@
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <title>北京的活动数目</title>
+  <entry>
+    <title>drama</title>
+    <db:attribute name="cname">戏剧/曲艺</db:attribute>
+    <db:attribute name="event_count">51</db:attribute>
+  </entry>
+  <entry>
+    <title>music</title>
+    <db:attribute name="cname">音乐/演出</db:attribute>
+    <db:attribute name="event_count">105</db:attribute>
+  </entry>
+  <entry>
+    <title>all</title>
+    <db:attribute name="cname">所有类型</db:attribute>
+    <db:attribute name="event_count">781</db:attribute>
+  </entry>
+  <entry>
+    <title>exhibition</title>
+    <db:attribute name="cname">展览</db:attribute>
+    <db:attribute name="event_count">100</db:attribute>
+  </entry>
+  <entry>
+    <title>sports</title>
+    <db:attribute name="cname">体育</db:attribute>
+    <db:attribute name="event_count">46</db:attribute>
+  </entry>
+  <entry>
+    <title>party</title>
+    <db:attribute name="cname">生活/聚会</db:attribute>
+    <db:attribute name="event_count">156</db:attribute>
+  </entry>
+  <entry>
+    <title>commonweal</title>
+    <db:attribute name="cname">公益</db:attribute>
+    <db:attribute name="event_count">56</db:attribute>
+  </entry>
+  <entry>
+    <title>travel</title>
+    <db:attribute name="cname">旅行</db:attribute>
+    <db:attribute name="event_count">28</db:attribute>
+  </entry>
+  <entry>
+    <title>film</title>
+    <db:attribute name="cname">电影</db:attribute>
+    <db:attribute name="event_count">37</db:attribute>
+  </entry>
+  <entry>
+    <title>salon</title>
+    <db:attribute name="cname">讲座/沙龙</db:attribute>
+    <db:attribute name="event_count">132</db:attribute>
+  </entry>
+  <entry>
+    <title>others</title>
+    <db:attribute name="cname">其他</db:attribute>
+    <db:attribute name="event_count">70</db:attribute>
+  </entry>
+</feed>

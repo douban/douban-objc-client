@@ -16,7 +16,7 @@
 #undef _EXTERN
 #undef _INITIALIZE_AS
 
-#ifdef DOUBANEVENTS_DEFINE_GLOBALS
+#ifdef DOUBANEVENT_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -27,17 +27,12 @@
 _EXTERN NSString* const kDoubanEventsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
 
-typedef enum {
-  EVENT_MUSIC_CATEGORY,
-  EVENT_FILM_CATEGORY,
-  EVENT_SALON_CATEGORY,
-  EVENT_TRAVEL_CATEGORY,
-  EVENT_EXHIBITION_CATEGORY
-} EventCategory;
+
 
 extern NSString * const kParticipatedStr;
 extern NSString * const kWishedStr;
 
+@class DoubanEntryEventCategory;
 @interface DoubanEntryEvent : GDataEntryBase
 
 + (NSDictionary *)eventsNamespaces;
@@ -56,8 +51,7 @@ extern NSString * const kWishedStr;
 - (NSArray *)attributes;
 
 
-- (EventCategory)eventCategory;
-
+- (DoubanEntryEventCategory *)eventCategory;
 - (GDataLink *)imageLink;
 
 - (NSUInteger)albumId;

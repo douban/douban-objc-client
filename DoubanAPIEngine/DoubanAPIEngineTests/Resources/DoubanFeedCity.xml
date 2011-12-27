@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <title>活动热门城市</title>
+  <entry>
+    <id>http://api.douban.com/location/beijing</id>
+    <db:attribute name="name">北京</db:attribute>
+    <db:uid>beijing</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/shanghai</id>
+    <db:attribute name="name">上海</db:attribute>
+    <db:uid>shanghai</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/guangzhou</id>
+    <db:attribute name="name">广州</db:attribute>
+    <db:uid>guangzhou</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/wuhan</id>
+    <db:attribute name="name">武汉</db:attribute>
+    <db:uid>wuhan</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/chengdu</id>
+    <db:attribute name="name">成都</db:attribute>
+    <db:uid>chengdu</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/shenzhen</id>
+    <db:attribute name="name">深圳</db:attribute>
+    <db:uid>shenzhen</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/hangzhou</id>
+    <db:attribute name="name">杭州</db:attribute>
+    <db:uid>hangzhou</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/xian</id>
+    <db:attribute name="name">西安</db:attribute>
+    <db:uid>xian</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/nanjing</id>
+    <db:attribute name="name">南京</db:attribute>
+    <db:uid>nanjing</db:uid>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/location/changsha</id>
+    <db:attribute name="name">长沙</db:attribute>
+    <db:uid>changsha</db:uid>
+  </entry>
+  <openSearch:itemsPerPage>10</openSearch:itemsPerPage>
+  <openSearch:startIndex>1</openSearch:startIndex>
+  <openSearch:totalResults>853</openSearch:totalResults>
+</feed>
