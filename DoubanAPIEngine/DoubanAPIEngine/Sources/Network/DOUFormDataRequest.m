@@ -19,13 +19,14 @@
 + (DOUFormDataRequest *)formRequestWithURL:(NSURL *)URL {
   NSLog(@"Form url:%@", [URL absoluteString]);
   DOUFormDataRequest *req = [ASIFormDataRequest requestWithURL:URL];
+  [req setAllowCompressedResponse:YES]; // YES is the default
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];
   return req;
 }
 
 
 + (DOUFormDataRequest *)formRequestWithURL:(NSURL *)URL target:(id<DOUHttpRequestDelegate>)delegate {
-  DOUFormDataRequest *req = [[self class] requestWithURL:URL];
+  DOUFormDataRequest *req = [[self class] formRequestWithURL:URL];
   [req setDelegate:delegate];
   [req setDidFinishSelector:@selector(requestFinished:)];
   [req setDidFailSelector:@selector(requestFailed:)];
@@ -42,7 +43,7 @@
 #if NS_BLOCKS_AVAILABLE
 + (DOUFormDataRequest *)formRequestWithQuery:(DOUQuery *)query 
                          completionBlock:(DOUBasicBlock)handler {
-  DOUFormDataRequest *req = [[self class] requestWithURL:[query requestURL]];  
+  DOUFormDataRequest *req = [[self class] formRequestWithURL:[query requestURL]];  
   [req setCompletionBlock:handler];
   [req setFailedBlock:handler];
   return req;

@@ -24,6 +24,8 @@ _EXTERN NSString* const kDoubanCategoryReview  _INITIALIZE_AS(@"http://www.douba
 _EXTERN NSString* const kDoubanCategoryEvent  _INITIALIZE_AS(@"http://www.douban.com/2007#event");
 _EXTERN NSString* const kDoubanCategoryPeople  _INITIALIZE_AS(@"http://www.douban.com/2007#people");
 _EXTERN NSString* const kDoubanCategoryPhoto  _INITIALIZE_AS(@"http://www.douban.com/2007#photo");
+_EXTERN NSString* const kDoubanCategoryEventCategory  _INITIALIZE_AS(@"http://www.douban.com/2007#category");
+_EXTERN NSString* const kDoubanCategoryCityCategory _INITIALIZE_AS(@"http://www.douban.com/2007#city");
 
 _EXTERN NSString* const kDoubanNamespace _INITIALIZE_AS(@"http://www.douban.com/xmlns/");
 _EXTERN NSString* const kDoubanNamespacePrefix _INITIALIZE_AS(@"db");

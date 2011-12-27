@@ -25,7 +25,6 @@
   ASINetworkQueue *queue_;
   DOUOAuth2Consumer *consumer_;
   DOUOAuth2Provider *provider_;
-  BOOL isRefreshingToken_;
 }
 
 @property (nonatomic, retain) ASINetworkQueue   *queue;
