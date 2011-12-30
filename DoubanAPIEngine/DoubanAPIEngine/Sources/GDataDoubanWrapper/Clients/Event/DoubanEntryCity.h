@@ -26,8 +26,11 @@ _EXTERN NSString* const kDoubanCityDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 + (NSDictionary *)citiesNamespaces;
 + (DoubanEntryCity *)cityEntry;
 
-
+- (void)setCityName:(NSString *)theName;
 - (NSString *)cityName;
+
+- (void)setUID:(NSString *)theUID;
+
 - (BOOL)isHabitable;
 
 @end

@@ -17,6 +17,7 @@ static NSString* const kContentAttr = @"content";
 + (NSString *)extensionElementURI       { return kDoubanNamespace; }
 + (NSString *)extensionElementPrefix    { return kDoubanNamespacePrefix; }
 + (NSString *)extensionElementLocalName { return @"uid"; }
+
 - (void)addParseDeclarations {
 	NSArray *attrs = [NSArray arrayWithObjects:
 					  kContentAttr, nil];

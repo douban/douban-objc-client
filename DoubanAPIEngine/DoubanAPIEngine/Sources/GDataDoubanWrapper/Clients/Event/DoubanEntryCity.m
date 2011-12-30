@@ -63,15 +63,22 @@
 
 
 // extension
-
 - (NSArray *)attributes {
 	return [self objectsForExtensionClass:[DoubanAttribute class]];
 }
 
+- (void)setCityName:(NSString *)theName {
+  DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
+  [attr setName:@"name"];
+  [attr setContent:theName];
+  [self setObject:attr forExtensionClass:[DoubanAttribute class]];
+}
+
+
 - (NSString *)cityName {
 	DoubanAttribute *attr = nil;
 	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"name_cn"]){
+		if([[_attr name] isEqualToString:@"name"]){
 			attr = _attr;
 			break;
 		}
@@ -80,6 +87,13 @@
 		return [attr content];
 	}
 	return 0;
+}
+
+
+- (void)setUID:(NSString *)theUID {
+  DoubanUID *uid = [[[DoubanUID alloc] init] autorelease];
+  [uid setContent:theUID];
+  [self setObject:uid forExtensionClass:[DoubanUID class]];
 }
 
 

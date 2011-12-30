@@ -112,6 +112,7 @@ NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
                                     userInfo:asiError.userInfo];
       break;
     default:
+      doubanError = asiError;
       break;
   }
   return doubanError;
