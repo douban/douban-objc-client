@@ -25,6 +25,10 @@ douban-objc-client
   * SenTestingkit.framework
 
 
+* 设置工程 Building Settings
+找到 Other Linker Flags, 设置为 －all_load 和 －Objc
+
+
 * 提供 Auth2 所需参数
 
 ```objective-c

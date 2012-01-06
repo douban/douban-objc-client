@@ -13,12 +13,14 @@
 @interface DOUOAuth2Provider ()
 @end
 
+
 @implementation DOUOAuth2Provider
 
 static NSUInteger kErrorCodeAccessTokenHasExpired = 106;
 
 static NSString *kConsumerKey = @"ConsumerKey";
 static NSString *kDelegateKey = @"DelegateKey";
+
 
 - (id)initWithAuthURL:(NSString *)anAuthURL tokenURL:(NSString *)aTokenURL {
   self = [super init];

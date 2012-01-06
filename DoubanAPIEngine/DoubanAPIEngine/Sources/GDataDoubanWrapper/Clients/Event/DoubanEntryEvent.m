@@ -13,6 +13,8 @@
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
 #import "GeorssPoint.h"
+#import "GDataBaseElements.h"
+
 
 @implementation DoubanEntryEvent
 
@@ -85,9 +87,11 @@ static NSString * const kEventOthersCategoryName = @"其他";
 	return kDoubanCategoryEvent;
 }
 
+
 + (void)load {
 	[self registerEntryClass];
 }
+
 
 - (void)addExtensionDeclarations {
 	

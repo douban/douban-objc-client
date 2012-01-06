@@ -43,6 +43,11 @@
     NSData *data = [NSData dataWithContentsOfFile:filePath];
     
     DoubanEntryEvent *event = [[DoubanEntryEvent alloc] initWithData:data]; 
+    
+    NSArray *authors = [event authors];
+    STAssertNotNil(authors, @"authors");
+    STAssertTrue([[[authors objectAtIndex:0] name] isEqualToString:@"小娟山谷里的居民"], @"");
+    
     STAssertTrue([[event identifier] isEqualToString:@"http://api.douban.com/event/14792861"], @"latitude");
     STAssertTrue([[[event title] stringValue] isEqualToString:@"山谷里，我的家/小娟山谷里的居民2011北京演唱会"], @"title");
     

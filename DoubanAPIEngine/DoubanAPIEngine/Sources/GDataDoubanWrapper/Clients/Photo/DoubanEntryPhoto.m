@@ -59,9 +59,11 @@
 	return items;
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanPhotosDefaultServiceVersion;
 }
+
 
 - (GDataLink *)imageLink {
 	return [self linkWithRelAttributeValue:@"image"];
@@ -72,6 +74,17 @@
 	return [self linkWithRelAttributeValue:@"thumb"];
 }
 
+
+- (GDataLink *)iconLink {
+	return [self linkWithRelAttributeValue:@"icon"];
+}
+
+
+- (GDataLink *)albumcoverLink {
+	return [self linkWithRelAttributeValue:@"cover"];
+}
+
+
 - (GDataAtomAuthor *)author {
   NSArray *authors = [self authors];
   if (authors) {
@@ -81,9 +94,11 @@
   return nil;
 }
 
+
 - (NSArray *)attributes {
 	return [self objectsForExtensionClass:[DoubanAttribute class]];
 }
+
 
 - (NSInteger)commentsCount {
 	DoubanAttribute *attr = nil;
@@ -98,7 +113,6 @@
 	}
 	return 0;
 }
-
 
 
 - (NSInteger)recsCount {
@@ -189,5 +203,6 @@
 	return nil;
 
 }
+
 
 @end

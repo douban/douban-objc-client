@@ -36,6 +36,9 @@ _EXTERN NSString* const kDoubanPhotosDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 
 - (GDataLink *)imageLink;
 - (GDataLink *)thumbLink;
+- (GDataLink *)albumcoverLink;
+- (GDataLink *)iconLink;
+
 - (GDataAtomAuthor *)author;
 - (NSInteger)commentsCount;
 - (NSInteger)recsCount;
