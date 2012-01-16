@@ -13,3 +13,10 @@
 
 #import "DOUHttpRequest.h"
 #import "DOUFormDataRequest.h"
+
+#import "DoubanAttribute.h"
+#import "DoubanLocation.h"
+#import "DoubanTag.h"
+#import "DoubanUID.h"
+#import "DoubanSignature.h"
+#import "GeorssPoint.h"

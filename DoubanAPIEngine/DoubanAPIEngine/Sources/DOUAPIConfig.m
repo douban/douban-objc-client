@@ -15,7 +15,7 @@ NSString * const kAPIBaseUrl = @"https://api.douban.com";
 NSString * const kAuthUrl = @"https://www.douban.com/service/auth2/auth";
 NSString * const kTokenUrl = @"https://www.douban.com/service/auth2/token";
 
-//NSString * const kAPIBaseUrl = @"https://loc-zeta.douban.com/service/api/";
+//NSString * const kAPIBaseUrl = @"https://loc-zeta.douban.com/service/api";
 //NSString * const kAuthUrl = @"https://loc-zeta.douban.com/service/auth2/auth";
 //NSString * const kTokenUrl = @"https://loc-zeta.douban.com/service/auth2/token";
 

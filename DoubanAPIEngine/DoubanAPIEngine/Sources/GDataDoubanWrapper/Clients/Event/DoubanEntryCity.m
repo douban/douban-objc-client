@@ -67,7 +67,8 @@
 	return [self objectsForExtensionClass:[DoubanAttribute class]];
 }
 
-- (void)setCityName:(NSString *)theName {
+
+- (void)setName:(NSString *)theName {
   DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
   [attr setName:@"name"];
   [attr setContent:theName];
@@ -75,7 +76,7 @@
 }
 
 
-- (NSString *)cityName {
+- (NSString *)name {
 	DoubanAttribute *attr = nil;
 	for(id _attr in [self attributes]) {
 		if([[_attr name] isEqualToString:@"name"]){
@@ -90,9 +91,15 @@
 }
 
 
-- (void)setUID:(NSString *)theUID {
+- (DoubanUID *)uid {
+  DoubanUID* uid = (DoubanUID *)[self objectForExtensionClass:[DoubanUID class]];
+  return uid;
+}
+
+
+- (void)setUid:(NSString *)theUid {
   DoubanUID *uid = [[[DoubanUID alloc] init] autorelease];
-  [uid setContent:theUID];
+  [uid setContent:theUid];
   [self setObject:uid forExtensionClass:[DoubanUID class]];
 }
 
