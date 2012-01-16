@@ -38,9 +38,9 @@
   NSData *data = [NSData dataWithContentsOfFile:filePath];
     
   DoubanEntryCity *city = [[DoubanEntryCity alloc] initWithData:data]; 
-  STAssertTrue( [[[city title] stringValue] isEqualToString:@"上海"] , @"path fail");
-  STAssertTrue( [[city cityName] isEqualToString:@"上海"] , @"path fail");
-  STAssertTrue( [city isHabitable] , @"isHabitable");
+  STAssertTrue([[[city title] stringValue] isEqualToString:@"上海"] , @"path fail");
+  STAssertTrue([[city name] isEqualToString:@"上海"] , @"path fail");
+  STAssertTrue([city isHabitable] , @"isHabitable");
   
 }
 
@@ -59,12 +59,11 @@
   for (DoubanEntryCity * city in feed) {
     
     if ([[[city title] stringValue] isEqualToString:@"北京"]) {
-      STAssertTrue( [[[city title] stringValue] isEqualToString:@"北京"] , @"path fail");
-      STAssertTrue( [[city cityName] isEqualToString:@"北京"] , @"path fail");
-      STAssertTrue( [city isHabitable] , @"isHabitable");
+      STAssertTrue([[[city title] stringValue] isEqualToString:@"北京"] , @"path fail");
+      STAssertTrue([[city name] isEqualToString:@"北京"] , @"path fail");
+      STAssertTrue([city isHabitable] , @"isHabitable");
     }
   }
-  
   
 }
 

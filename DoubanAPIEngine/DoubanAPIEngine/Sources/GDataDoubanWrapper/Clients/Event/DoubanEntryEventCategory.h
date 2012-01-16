@@ -24,10 +24,10 @@ _EXTERN NSString* const kDoubanEventCategoriesDefaultServiceVersion _INITIALIZE_
 
 @interface DoubanEntryEventCategory : GDataEntryBase
 
-+ (NSDictionary *)eventCategoriesNamespaces;
-+ (DoubanEntryEventCategory *)eventCategoryEntry;
-
 - (NSInteger)eventCount;
+
 - (NSString *)eventCateogryName;
+
 - (void)setEventCateogryName:(NSString *)content;
+
 @end

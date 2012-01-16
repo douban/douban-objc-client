@@ -27,10 +27,6 @@ _EXTERN NSString* const kDoubanRecommendationsDefaultServiceVersion _INITIALIZE_
 
 @interface DoubanEntryRecommendation : GDataEntryBase
 
-+ (NSDictionary *)recommendationsNamespaces;
-
-+ (DoubanEntryRecommendation *)recommendationsEntry;
-
 - (NSString *)category;
 - (NSString *)comment;
 - (NSInteger)commentsCount;

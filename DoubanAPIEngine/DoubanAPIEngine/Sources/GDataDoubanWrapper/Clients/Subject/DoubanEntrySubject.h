@@ -36,30 +36,27 @@ _EXTERN NSString* const kDoubanMusicsFeed _INITIALIZE_AS(@"http://api.douban.com
 
 @interface DoubanEntrySubject : GDataEntryBase
 
-+ (NSDictionary *)subjectsNamespaces;
-
-+ (DoubanEntrySubject *)subjectEntry;
-
-// extensions
-
 - (GDataRating *)rating;
+
 - (void)setRating:(GDataRating *)obj;
 
-- (NSArray *)attributes;
-- (void)setAttributes:(NSArray *)attr;
-- (void)addAttribute:(DoubanAttribute *)obj;
-
 - (NSArray *)tags;
+
 - (void)setTags:(NSArray *)tags;
+
 - (void)addTag:(DoubanTag *)obj;
 
 - (GDataLink *)imageLink;
 
-- (NSString*) publisher;
-- (NSString*) publishDate;
-- (NSString*) isbn;
-- (NSString*) price;
-- (NSArray*) translators;
+- (NSString*)publisher;
+
+- (NSString*)publishDate;
+
+- (NSString*)isbn;
+
+- (NSString*)price;
+
+- (NSArray*)translators;
 
 
 @end

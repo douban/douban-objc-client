@@ -11,6 +11,4 @@
 
 @interface DoubanFeedPeople : GDataFeedBase
 
-+ (DoubanFeedPeople *)peopleFeed;
-
 @end

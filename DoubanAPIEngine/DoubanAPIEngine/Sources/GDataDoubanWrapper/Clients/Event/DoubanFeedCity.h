@@ -10,5 +10,4 @@
 
 @interface DoubanFeedCity : GDataFeedBase
 
-+ (DoubanFeedCity *)cityFeed;
 @end

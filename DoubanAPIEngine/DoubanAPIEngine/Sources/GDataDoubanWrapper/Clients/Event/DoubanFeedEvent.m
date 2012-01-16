@@ -13,26 +13,16 @@
 
 @implementation DoubanFeedEvent
 
-+ (DoubanFeedEvent *)eventFeed {
-
-	DoubanFeedEvent *feed = [[[self alloc] init] autorelease];
-
-	[feed setNamespaces:[DoubanEntryEvent eventsNamespaces]];
-
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"events"; //kGDataCategoryEventsFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryEvent class];
 }
+
 
 + (NSString *)defaultServiceVersion {
 	return kDoubanEventsDefaultServiceVersion;

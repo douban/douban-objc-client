@@ -10,6 +10,5 @@
 
 @interface DoubanFeedPhoto : GDataFeedBase
 
-+ (DoubanFeedPhoto *)photoFeed;
 
 @end

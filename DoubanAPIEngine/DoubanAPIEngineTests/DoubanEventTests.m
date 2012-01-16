@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "DoubanEntryEvent.h"
 #import "DoubanFeedEvent.h"
-
+#import "DoubanLocation.h"
 
 @interface DoubanEventTests : SenTestCase 
 - (void)testDoubanEntryEvent;

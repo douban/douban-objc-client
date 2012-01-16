@@ -10,10 +10,13 @@
 
 #import "DoubanEntryEvent.h"
 #import "DoubanEntryEventCategory.h"
+
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
+#import "DoubanLocation.h"
 #import "GeorssPoint.h"
-#import "GDataBaseElements.h"
+
+#import "GDateEntryBase+Extension.h"
 
 
 @implementation DoubanEntryEvent
@@ -61,44 +64,15 @@ static NSString * const kEventSalonCategoryName = @"讲座/沙龙";
 static NSString * const kEventOthersCategoryName = @"其他";
 
 
-+ (NSDictionary *)eventsNamespaces {
-	
-	NSMutableDictionary *namespaces;
-	
-	namespaces = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
-	
-	[namespaces addEntriesFromDictionary:[GDataEntryBase baseGDataNamespaces]];
-	
-	return namespaces;
-}
-
-+ (DoubanEntryEvent *)eventEntry {
-	
-	DoubanEntryEvent *obj;
-	obj = [[[self alloc] init] autorelease];
-	
-	[obj setNamespaces:[DoubanEntryEvent eventsNamespaces]];
-	
-	return obj;
-}
-
-
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryEvent;
-}
-
-
-+ (void)load {
-	[self registerEntryClass];
 }
 
 
 - (void)addExtensionDeclarations {
 	
 	[super addExtensionDeclarations];
-	
 	Class entryClass = [self class];
-	
 	[self addExtensionDeclarationForParentClass:entryClass
 								   childClasses:[DoubanAttribute class], 
                                 [GDataWhere class], 
@@ -108,22 +82,17 @@ static NSString * const kEventOthersCategoryName = @"其他";
 }
 
 
-- (NSMutableArray *)itemsForDescription {
-	NSMutableArray *items = [super itemsForDescription];
-	return items;
-}
-
-
 + (NSString *)defaultServiceVersion {
 	return kDoubanEventsDefaultServiceVersion;
 }
 
 
-#pragma mark -
-#pragma mark Extensions
+#pragma mark - Extensions
+
 - (GDataWhen *)when {
 	return [self objectForExtensionClass:[GDataWhen class]];
 }
+
 
 - (void)setWhen:(GDataWhen *)obj {
 	[self setObject:obj forExtensionClass:[GDataWhen class]];
@@ -134,6 +103,7 @@ static NSString * const kEventOthersCategoryName = @"其他";
 	return [self objectForExtensionClass:[GDataWhere class]];
 }
 
+
 - (void)setWhere:(GDataWhere *)obj {
 	[self setObject:obj forExtensionClass:[GDataWhere class]];
 }
@@ -143,17 +113,16 @@ static NSString * const kEventOthersCategoryName = @"其他";
 	return [self objectForExtensionClass:[DoubanLocation class]];
 }
 
+
 - (void)setLocation:(DoubanLocation *)obj {
 	[self setObject:obj forExtensionClass:[DoubanLocation class]];
 }
+
 
 - (GDataLink *)imageLink {
 	return [self linkWithRelAttributeValue:@"image"];
 }
 
-- (NSArray *)attributes {
-	return [self objectsForExtensionClass:[DoubanAttribute class]];
-}
 
 - (DoubanEntryEventCategory *)eventCategory {
   NSArray *categories = [self categories];
@@ -207,27 +176,16 @@ static NSString * const kEventOthersCategoryName = @"其他";
 
 
 - (NSUInteger)albumId {
-	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"album"]){
-			attr = _attr;
-			break;
-		}
-	}
+	DoubanAttribute *attr = [self attributeForName:@"album"];
 	if (attr) {
 		return [[attr content] integerValue];
 	}
 	return 0;
 }
 
+
 - (NSInteger)participantsCount {
-	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"participants"]){
-			attr = _attr;
-			break;
-		}
-	}
+	DoubanAttribute *attr = [self attributeForName:@"participants"];
 	if (attr) {
 		return [[attr content] integerValue];
 	}
@@ -236,32 +194,22 @@ static NSString * const kEventOthersCategoryName = @"其他";
 
 
 - (NSInteger)wishersCount {
-	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"wishers"]){
-			attr = _attr;
-			break;
-		}
-	}
+	DoubanAttribute *attr = [self attributeForName:@"wishers"];
 	if (attr) {
 		return [[attr content] integerValue];
 	}
 	return 0;
 }
 
+
 - (NSString *)status {
-  DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"status"]){
-			attr = _attr;
-			break;
-		}
-	}
+  DoubanAttribute *attr = [self attributeForName:@"status"];
 	if (attr) {
 		return [attr content];
 	}
   return nil;
 }
+
 
 - (void)setStatus:(NSString *)content {
   DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
@@ -269,6 +217,7 @@ static NSString * const kEventOthersCategoryName = @"其他";
   [attr setContent:content];
   [self setObject:attr forExtensionClass:[DoubanAttribute class]];
 }
+
 
 - (float)geoLatitude {
   GeorssPoint *georssPoint = [self objectForExtensionClass:[GeorssPoint class]];

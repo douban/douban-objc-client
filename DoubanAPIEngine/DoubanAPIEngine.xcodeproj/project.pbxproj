@@ -98,10 +98,6 @@
 		D800D613146908FD009F64FD /* Reachability.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D5C7146908FD009F64FD /* Reachability.h */; };
 		D800D614146908FD009F64FD /* Reachability.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D5C8146908FD009F64FD /* Reachability.m */; };
 		D800D6161469092C009F64FD /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D6151469092C009F64FD /* libxml2.dylib */; };
-		D800D6201469098D009F64FD /* DOUQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D61A1469098D009F64FD /* DOUQuery.h */; };
-		D800D6211469098D009F64FD /* DOUQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D61B1469098D009F64FD /* DOUQuery.m */; };
-		D800D6221469098D009F64FD /* DOUService.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D61C1469098D009F64FD /* DOUService.h */; };
-		D800D6231469098D009F64FD /* DOUService.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D61D1469098D009F64FD /* DOUService.m */; };
 		D800D626146909C2009F64FD /* DOUAPIConfig.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D624146909C2009F64FD /* DOUAPIConfig.h */; };
 		D800D627146909C2009F64FD /* DOUAPIConfig.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D625146909C2009F64FD /* DOUAPIConfig.m */; };
 		D800D6A814690A77009F64FD /* GDataEntryBase.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D62D14690A77009F64FD /* GDataEntryBase.h */; };
@@ -235,6 +231,12 @@
 		D815D1CE14A9A6F4008BD224 /* DoubanCityTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D815D1CC14A9A6D2008BD224 /* DoubanCityTests.m */; };
 		D815D1CF14A9A6FA008BD224 /* DoubanFeedCity.xml in Resources */ = {isa = PBXBuildFile; fileRef = D815D1CB14A9A666008BD224 /* DoubanFeedCity.xml */; };
 		D815D1D014A9A6FC008BD224 /* DoubanEntryCity.xml in Resources */ = {isa = PBXBuildFile; fileRef = D815D1CA14A9A666008BD224 /* DoubanEntryCity.xml */; };
+		D858E04614C3AC0D00335280 /* DOUQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04414C3AC0D00335280 /* DOUQuery.h */; };
+		D858E04714C3AC0D00335280 /* DOUQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04514C3AC0D00335280 /* DOUQuery.m */; };
+		D858E04A14C3AC2400335280 /* GDateEntryBase+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04814C3AC2400335280 /* GDateEntryBase+Extension.h */; };
+		D858E04B14C3AC2400335280 /* GDateEntryBase+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04914C3AC2400335280 /* GDateEntryBase+Extension.m */; };
+		D858E04E14C3DA9100335280 /* DOUService.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04C14C3DA9100335280 /* DOUService.h */; };
+		D858E04F14C3DA9100335280 /* DOUService.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04D14C3DA9100335280 /* DOUService.m */; };
 		D8839940149F14EF00099D23 /* DoubanPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D883993F149F14EF00099D23 /* DoubanPhotoTests.m */; };
 		D8839941149F185E00099D23 /* DoubanEntryPhoto.xml in Resources */ = {isa = PBXBuildFile; fileRef = D883993B149F143C00099D23 /* DoubanEntryPhoto.xml */; };
 		D8839942149F186100099D23 /* DoubanFeedPhoto.xml in Resources */ = {isa = PBXBuildFile; fileRef = D883993C149F143C00099D23 /* DoubanFeedPhoto.xml */; };
@@ -384,10 +386,6 @@
 		D800D5C7146908FD009F64FD /* Reachability.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Reachability.h; sourceTree = "<group>"; };
 		D800D5C8146908FD009F64FD /* Reachability.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Reachability.m; sourceTree = "<group>"; };
 		D800D6151469092C009F64FD /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
-		D800D61A1469098D009F64FD /* DOUQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUQuery.h; sourceTree = "<group>"; };
-		D800D61B1469098D009F64FD /* DOUQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUQuery.m; sourceTree = "<group>"; };
-		D800D61C1469098D009F64FD /* DOUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUService.h; sourceTree = "<group>"; };
-		D800D61D1469098D009F64FD /* DOUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUService.m; sourceTree = "<group>"; };
 		D800D624146909C2009F64FD /* DOUAPIConfig.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAPIConfig.h; sourceTree = "<group>"; };
 		D800D625146909C2009F64FD /* DOUAPIConfig.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAPIConfig.m; sourceTree = "<group>"; };
 		D800D62D14690A77009F64FD /* GDataEntryBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = GDataEntryBase.h; sourceTree = "<group>"; };
@@ -515,6 +513,12 @@
 		D815D1CA14A9A666008BD224 /* DoubanEntryCity.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanEntryCity.xml; sourceTree = "<group>"; };
 		D815D1CB14A9A666008BD224 /* DoubanFeedCity.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedCity.xml; sourceTree = "<group>"; };
 		D815D1CC14A9A6D2008BD224 /* DoubanCityTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanCityTests.m; sourceTree = "<group>"; };
+		D858E04414C3AC0D00335280 /* DOUQuery.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUQuery.h; sourceTree = "<group>"; };
+		D858E04514C3AC0D00335280 /* DOUQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUQuery.m; sourceTree = "<group>"; };
+		D858E04814C3AC2400335280 /* GDateEntryBase+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDateEntryBase+Extension.h"; sourceTree = "<group>"; };
+		D858E04914C3AC2400335280 /* GDateEntryBase+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDateEntryBase+Extension.m"; sourceTree = "<group>"; };
+		D858E04C14C3DA9100335280 /* DOUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUService.h; sourceTree = "<group>"; };
+		D858E04D14C3DA9100335280 /* DOUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUService.m; sourceTree = "<group>"; };
 		D883993B149F143C00099D23 /* DoubanEntryPhoto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanEntryPhoto.xml; sourceTree = "<group>"; };
 		D883993C149F143C00099D23 /* DoubanFeedPhoto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedPhoto.xml; sourceTree = "<group>"; };
 		D883993F149F14EF00099D23 /* DoubanPhotoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanPhotoTests.m; sourceTree = "<group>"; };
@@ -688,7 +692,6 @@
 				D800D62B14690A77009F64FD /* GData */,
 				D800D68414690A77009F64FD /* GDataDoubanWrapper */,
 				D800D564146908AF009F64FD /* Network */,
-				D800D6171469098D009F64FD /* Objects */,
 				D800D567146908AF009F64FD /* OAuth2 */,
 			);
 			path = Sources;
@@ -697,6 +700,10 @@
 		D800D564146908AF009F64FD /* Network */ = {
 			isa = PBXGroup;
 			children = (
+				D858E04C14C3DA9100335280 /* DOUService.h */,
+				D858E04D14C3DA9100335280 /* DOUService.m */,
+				D858E04414C3AC0D00335280 /* DOUQuery.h */,
+				D858E04514C3AC0D00335280 /* DOUQuery.m */,
 				D800D565146908AF009F64FD /* DOUHttpRequest.h */,
 				D800D566146908AF009F64FD /* DOUHttpRequest.m */,
 				D8C5BD81147DEDC8005BA879 /* DOUFormDataRequest.h */,
@@ -856,17 +863,6 @@
 			path = Reachability;
 			sourceTree = "<group>";
 		};
-		D800D6171469098D009F64FD /* Objects */ = {
-			isa = PBXGroup;
-			children = (
-				D800D61A1469098D009F64FD /* DOUQuery.h */,
-				D800D61B1469098D009F64FD /* DOUQuery.m */,
-				D800D61C1469098D009F64FD /* DOUService.h */,
-				D800D61D1469098D009F64FD /* DOUService.m */,
-			);
-			path = Objects;
-			sourceTree = "<group>";
-		};
 		D800D62B14690A77009F64FD /* GData */ = {
 			isa = PBXGroup;
 			children = (
@@ -993,9 +989,9 @@
 		D800D68414690A77009F64FD /* GDataDoubanWrapper */ = {
 			isa = PBXGroup;
 			children = (
-				D800D68514690A77009F64FD /* Clients */,
 				D800D69D14690A77009F64FD /* DoubanDefines.h */,
 				D800D69E14690A77009F64FD /* DoubanDefines.m */,
+				D800D68514690A77009F64FD /* Clients */,
 				D800D69F14690A77009F64FD /* Elements */,
 			);
 			path = GDataDoubanWrapper;
@@ -1004,6 +1000,8 @@
 		D800D68514690A77009F64FD /* Clients */ = {
 			isa = PBXGroup;
 			children = (
+				D858E04814C3AC2400335280 /* GDateEntryBase+Extension.h */,
+				D858E04914C3AC2400335280 /* GDateEntryBase+Extension.m */,
 				D883995A149F41DA00099D23 /* Recommendation */,
 				D8CF7CEC14919FB70032C509 /* Miniblog */,
 				D800D68614690A77009F64FD /* Event */,
@@ -1194,8 +1192,6 @@
 				D800D60F146908FD009F64FD /* SBJsonUTF8Stream.h in Headers */,
 				D800D611146908FD009F64FD /* SBJsonWriter.h in Headers */,
 				D800D613146908FD009F64FD /* Reachability.h in Headers */,
-				D800D6201469098D009F64FD /* DOUQuery.h in Headers */,
-				D800D6221469098D009F64FD /* DOUService.h in Headers */,
 				D800D626146909C2009F64FD /* DOUAPIConfig.h in Headers */,
 				D800D6A814690A77009F64FD /* GDataEntryBase.h in Headers */,
 				D800D6AA14690A77009F64FD /* GDataFeedBase.h in Headers */,
@@ -1266,6 +1262,9 @@
 				D8D28D5914A81F9A003570B0 /* DoubanFeedEventCategory.h in Headers */,
 				D815D1C314A9A0B8008BD224 /* DoubanEntryCity.h in Headers */,
 				D815D1C814A9A4CA008BD224 /* DoubanFeedCity.h in Headers */,
+				D858E04614C3AC0D00335280 /* DOUQuery.h in Headers */,
+				D858E04A14C3AC2400335280 /* GDateEntryBase+Extension.h in Headers */,
+				D858E04E14C3DA9100335280 /* DOUService.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1420,8 +1419,6 @@
 				D800D610146908FD009F64FD /* SBJsonUTF8Stream.m in Sources */,
 				D800D612146908FD009F64FD /* SBJsonWriter.m in Sources */,
 				D800D614146908FD009F64FD /* Reachability.m in Sources */,
-				D800D6211469098D009F64FD /* DOUQuery.m in Sources */,
-				D800D6231469098D009F64FD /* DOUService.m in Sources */,
 				D800D627146909C2009F64FD /* DOUAPIConfig.m in Sources */,
 				D800D6A914690A77009F64FD /* GDataEntryBase.m in Sources */,
 				D800D6AB14690A77009F64FD /* GDataFeedBase.m in Sources */,
@@ -1490,6 +1487,9 @@
 				D8D28D5A14A81F9A003570B0 /* DoubanFeedEventCategory.m in Sources */,
 				D815D1C414A9A0B8008BD224 /* DoubanEntryCity.m in Sources */,
 				D815D1C914A9A4CA008BD224 /* DoubanFeedCity.m in Sources */,
+				D858E04714C3AC0D00335280 /* DOUQuery.m in Sources */,
+				D858E04B14C3AC2400335280 /* GDateEntryBase+Extension.m in Sources */,
+				D858E04F14C3DA9100335280 /* DOUService.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

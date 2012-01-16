@@ -13,29 +13,20 @@
 
 @implementation DoubanFeedReview
 
-+ (DoubanFeedReview *)reviewFeed {
-	
-	DoubanFeedReview *feed = [[[self alloc] init] autorelease];
-	
-	[feed setNamespaces:[DoubanEntryReview reviewsNamespaces]];
-	
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"reviews"; //kGDataCategoryReviesFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryReview class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanReviewsDefaultServiceVersion;
 }
+
 
 @end

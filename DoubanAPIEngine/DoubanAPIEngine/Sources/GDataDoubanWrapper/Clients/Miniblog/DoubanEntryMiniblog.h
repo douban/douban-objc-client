@@ -52,11 +52,6 @@ typedef enum {
 
 @interface DoubanEntryMiniblog : GDataEntryBase
 
-+ (NSDictionary *)miniblogsNamespaces;
-
-+ (DoubanEntryMiniblog *)miniblogEntry;
-
 - (MiniblogCategory)miniblogCategory;
 
-- (GDataAtomAuthor *)author;
 @end

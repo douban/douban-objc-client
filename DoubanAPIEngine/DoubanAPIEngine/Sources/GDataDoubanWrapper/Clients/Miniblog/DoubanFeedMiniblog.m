@@ -14,29 +14,19 @@
 @implementation DoubanFeedMiniblog
 
 
-+ (DoubanFeedMiniblog *)miniblogFeed {
-  
-	DoubanFeedMiniblog *feed = [[[self alloc] init] autorelease];
-  
-	[feed setNamespaces:[DoubanEntryMiniblog miniblogsNamespaces]];
-  
-	return feed;
-}
-
 + (NSString *)standardFeedKind {
 	return @"miniblogs"; //kGDataCategoryMiniblogsFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryMiniblog class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanMiniblogsDefaultServiceVersion;
 }
+
 
 @end

@@ -10,8 +10,7 @@
 
 #import "GDataWhen.h"
 #import "GDataWhere.h"
-#import "DoubanLocation.h"
-#import "DoubanAttribute.h"
+
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -27,17 +26,13 @@
 _EXTERN NSString* const kDoubanEventsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
 
-
-
 extern NSString * const kParticipatedStr;
 extern NSString * const kWishedStr;
 
 @class DoubanEntryEventCategory;
+@class DoubanLocation;
 @interface DoubanEntryEvent : GDataEntryBase
 
-+ (NSDictionary *)eventsNamespaces;
-
-+ (DoubanEntryEvent *)eventEntry;
 
 - (GDataWhere *)where;
 - (void)setWhere:(GDataWhere *)obj;
@@ -47,8 +42,6 @@ extern NSString * const kWishedStr;
 
 - (DoubanLocation *)location;
 - (void)setLocation:(DoubanLocation*)obj;
-
-- (NSArray *)attributes;
 
 
 - (DoubanEntryEventCategory *)eventCategory;

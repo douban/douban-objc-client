@@ -11,6 +11,5 @@
 
 @interface DoubanFeedReview : GDataFeedBase
 
-+ (DoubanFeedReview *)reviewFeed;
 
 @end

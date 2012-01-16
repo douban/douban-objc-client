@@ -13,29 +13,20 @@
 
 @implementation DoubanFeedPeople
 
-+ (DoubanFeedPeople *)peopleFeed {
-  
-	DoubanFeedPeople *feed = [[[self alloc] init] autorelease];
-  
-	[feed setNamespaces:[DoubanEntryPeople peoplesNamespaces]];
-  
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"peoples"; //kGDataCategoryPeoplesFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryPeople class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanPeoplesDefaultServiceVersion;
 }
+
 
 @end

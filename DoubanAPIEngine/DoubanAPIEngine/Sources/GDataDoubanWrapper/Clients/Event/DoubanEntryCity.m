@@ -11,24 +11,10 @@
 #import "DoubanAttribute.h"
 #import "DoubanUID.h"
 
+#import "GDateEntryBase+Extension.h"
+
+
 @implementation DoubanEntryCity
-
-
-+ (NSDictionary *)citiesNamespaces {
-	
-	NSMutableDictionary *namespaces;
-	namespaces = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
-	[namespaces addEntriesFromDictionary:[GDataEntryBase baseGDataNamespaces]];
-	return namespaces;
-}
-
-+ (DoubanEntryCity *)cityEntry {
-	
-	DoubanEntryCity *obj;
-	obj = [[[self alloc] init] autorelease];
-	[obj setNamespaces:[DoubanEntryCity citiesNamespaces]];
-	return obj;
-}
 
 
 + (NSString *)standardEntryKind {
@@ -36,24 +22,12 @@
 }
 
 
-+ (void)load {
-	[self registerEntryClass];
-}
-
-- (void)addExtensionDeclarations {
-	
+- (void)addExtensionDeclarations {	
 	[super addExtensionDeclarations];
-	
 	Class entryClass = [self class];
-	
 	[self addExtensionDeclarationForParentClass:entryClass
-                                 childClasses:[DoubanAttribute class], [DoubanUID class], nil];
-}
-
-
-- (NSMutableArray *)itemsForDescription {
-	NSMutableArray *items = [super itemsForDescription];
-	return items;
+                                 childClasses:[DoubanAttribute class], 
+                                              [DoubanUID class], nil];
 }
 
 
@@ -62,11 +36,7 @@
 }
 
 
-// extension
-- (NSArray *)attributes {
-	return [self objectsForExtensionClass:[DoubanAttribute class]];
-}
-
+#pragma mark - Extensions
 
 - (void)setName:(NSString *)theName {
   DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
@@ -77,13 +47,7 @@
 
 
 - (NSString *)name {
-	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"name"]){
-			attr = _attr;
-			break;
-		}
-	}
+	DoubanAttribute *attr = [self attributeForName:@"name"];
 	if (attr) {
 		return [attr content];
 	}
@@ -105,14 +69,7 @@
 
 
 - (BOOL)isHabitable {
-	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"habitable"]){
-			attr = _attr;
-			break;
-		}
-	}
-  
+	DoubanAttribute *attr = [self attributeForName:@"habitable"];  
 	if (attr) {
     NSString * result = [attr content];
 		if ([result isEqualToString:@"True"]) {

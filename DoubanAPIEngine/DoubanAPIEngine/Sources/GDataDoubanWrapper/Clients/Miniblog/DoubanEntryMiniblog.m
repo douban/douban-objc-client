@@ -35,31 +35,12 @@ static NSString * const kMiniblogSignatureCategoryTerm = @"http://www.douban.com
 
 
 
-
-
-+ (NSDictionary *)miniblogsNamespaces {
-	NSMutableDictionary *namespaces;
-	
-	namespaces = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
-	
-	[namespaces addEntriesFromDictionary:[GDataEntryBase baseGDataNamespaces]];
-	
-	return namespaces;
-}
-
-
-+ (DoubanEntryMiniblog *)miniblogEntry {
-	DoubanEntryMiniblog *obj;
-	obj = [[[self alloc] init] autorelease];
-	[obj setNamespaces:[DoubanEntryMiniblog miniblogsNamespaces]];
-	return obj;
-}
-
-
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryMiniblog;
 }
 
+
+#pragma mark - Extensions
 
 - (MiniblogCategory)miniblogCategory {
   NSArray *categories = [self categories];
@@ -116,14 +97,5 @@ static NSString * const kMiniblogSignatureCategoryTerm = @"http://www.douban.com
   }
 }
 
-
-- (GDataAtomAuthor *)author {
-  NSArray *authors = [self authors];
-  if (authors) {
-    GDataAtomAuthor *author = [authors objectAtIndex:0];
-    return author;
-  }
-  return nil;
-}
 
 @end

@@ -24,21 +24,11 @@
 
 _EXTERN NSString* const kDoubanReviewsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
-@interface DoubanEntryReview : GDataEntryBase {
-
-}
-
-+ (NSDictionary *)reviewsNamespaces;
-
-+ (DoubanEntryReview *)reviewEntry;
-
-// extensions
+@interface DoubanEntryReview : GDataEntryBase
 
 - (GDataRating *)rating;
+
 - (void)setRating:(GDataRating *)obj;
 
-- (NSArray *)attributes;
-- (void)setAttributes:(NSArray *)attr;
-- (void)addAttribute:(DoubanAttribute *)obj;
 
 @end

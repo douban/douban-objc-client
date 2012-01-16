@@ -14,29 +14,20 @@
 
 @implementation DoubanFeedSubject
 
-+ (DoubanFeedSubject *)subjectFeed {
-  
-  DoubanFeedSubject *feed = [[[self alloc] init] autorelease];
-  
-  [feed setNamespaces:[DoubanEntrySubject subjectsNamespaces]];
-  
-  return feed;
-}
 
 + (NSString *)standardFeedKind {
-  return @"akka"; //kGDataCategorySubjectsVolume;
+  return @"subjects"; //kGDataCategorySubjectsVolume;
 }
 
-+ (void)load {
-  [self registerFeedClass];
-}
 
 - (Class)classForEntries {
   return [DoubanEntrySubject class];
 }
 
+
 + (NSString *)defaultServiceVersion {
   return kDoubanSubjectsDefaultServiceVersion;
 }
+
 
 @end

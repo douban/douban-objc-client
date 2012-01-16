@@ -13,29 +13,20 @@
 
 @implementation DoubanFeedRecommendation
 
-+ (DoubanFeedRecommendation *)recommendationFeed {
-  
-	DoubanFeedRecommendation *feed = [[[self alloc] init] autorelease];
-  
-	[feed setNamespaces:[DoubanEntryRecommendation recommendationsNamespaces]];
-  
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"recommendations"; //kGDataCategoryRecommendationsFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryRecommendation class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanRecommendationsDefaultServiceVersion;
 }
+
 
 @end

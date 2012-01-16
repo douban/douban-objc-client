@@ -24,13 +24,12 @@ _EXTERN NSString* const kDoubanCityDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 @class DoubanUID;
 @interface DoubanEntryCity : GDataEntryBase
 
-+ (NSDictionary *)citiesNamespaces;
-+ (DoubanEntryCity *)cityEntry;
-
 - (void)setName:(NSString *)theName;
+
 - (NSString *)name;
 
 - (DoubanUID *)uid;
+
 - (void)setUid:(NSString *)theUid;
 
 - (BOOL)isHabitable;

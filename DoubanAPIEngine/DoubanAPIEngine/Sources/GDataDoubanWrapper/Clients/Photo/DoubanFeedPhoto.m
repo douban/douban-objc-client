@@ -13,29 +13,20 @@
 
 @implementation DoubanFeedPhoto
 
-+ (DoubanFeedPhoto *)photoFeed {
-	
-	DoubanFeedPhoto *feed = [[[self alloc] init] autorelease];
-	
-	[feed setNamespaces:[DoubanEntryPhoto photosNamespaces]];
-	
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"photos"; //kGDataCategoryPhotosFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryPhoto class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanPhotosDefaultServiceVersion;
 }
+
 
 @end

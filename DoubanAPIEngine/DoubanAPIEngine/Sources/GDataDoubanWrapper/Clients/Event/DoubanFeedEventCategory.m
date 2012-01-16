@@ -12,31 +12,23 @@
 #import "DoubanFeedEventCategory.h"
 #import "DoubanEntryEventCategory.h"
 
+
 @implementation DoubanFeedEventCategory
 
-+ (DoubanFeedEventCategory *)eventCategoryFeed {
-  
-	DoubanFeedEventCategory *feed = [[[self alloc] init] autorelease];
-  
-	[feed setNamespaces:[DoubanEntryEventCategory eventCategoriesNamespaces]];
-  
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"categories"; //kGDataCategoryEventCategoriesFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryEventCategory class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanEventCategoriesDefaultServiceVersion;
 }
+
 
 @end

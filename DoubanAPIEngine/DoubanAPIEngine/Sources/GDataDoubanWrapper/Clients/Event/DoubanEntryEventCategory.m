@@ -10,48 +10,22 @@
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
 
+#import "GDateEntryBase+Extension.h"
+
 @implementation DoubanEntryEventCategory
-
-
-+ (NSDictionary *)eventCategoriesNamespaces {
-	
-	NSMutableDictionary *namespaces;
-	namespaces = [NSMutableDictionary dictionaryWithObjectsAndKeys:nil];
-	[namespaces addEntriesFromDictionary:[GDataEntryBase baseGDataNamespaces]];
-	return namespaces;
-}
-
-+ (DoubanEntryEventCategory *)eventCategoryEntry {
-	
-	DoubanEntryEventCategory *obj;
-	obj = [[[self alloc] init] autorelease];
-	[obj setNamespaces:[DoubanEntryEventCategory eventCategoriesNamespaces]];
-	return obj;
-}
 
 
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryEventCategory;
 }
 
-+ (void)load {
-	[self registerEntryClass];
-}
 
 - (void)addExtensionDeclarations {
 	
-	[super addExtensionDeclarations];
-	
+	[super addExtensionDeclarations];	
 	Class entryClass = [self class];
-	
 	[self addExtensionDeclarationForParentClass:entryClass
                                  childClasses:[DoubanAttribute class], nil];
-}
-
-
-- (NSMutableArray *)itemsForDescription {
-	NSMutableArray *items = [super itemsForDescription];
-	return items;
 }
 
 
@@ -59,12 +33,8 @@
 	return kDoubanEventCategoriesDefaultServiceVersion;
 }
 
-// extension
 
-- (NSArray *)attributes {
-	return [self objectsForExtensionClass:[DoubanAttribute class]];
-}
-
+#pragma mark - Extensions
 
 - (void)setEventCount:(NSInteger)eventCount {
   DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
@@ -75,13 +45,7 @@
 
 
 - (NSInteger)eventCount {
-	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"event_count"]){
-			attr = _attr;
-			break;
-		}
-	}
+	DoubanAttribute *attr = [self attributeForName:@"event_count"];
 	if (attr) {
 		return [[attr content] integerValue];
 	}
@@ -90,13 +54,7 @@
 
 
 - (NSString*)eventCateogryName {
-  DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
-		if([[_attr name] isEqualToString:@"cname"]){
-			attr = _attr;
-			break;
-		}
-	}
+  DoubanAttribute *attr = [self attributeForName:@"cname"];
 	if (attr) {
 		return [attr content];
 	}

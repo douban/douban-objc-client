@@ -10,6 +10,5 @@
 
 @interface DoubanFeedRecommendation : GDataFeedBase
 
-+ (DoubanFeedRecommendation *)recommendationFeed;
 
 @end

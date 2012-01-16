@@ -10,6 +10,5 @@
 
 @interface DoubanFeedEventCategory : GDataFeedBase
 
-+ (DoubanFeedEventCategory *)eventCategoryFeed;
 
 @end

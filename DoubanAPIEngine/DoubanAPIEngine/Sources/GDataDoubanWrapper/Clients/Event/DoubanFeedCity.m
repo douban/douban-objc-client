@@ -7,32 +7,26 @@
 //
 
 #define DOUBANCITY_DEFINE_GLOBALS 1
+
 #import "DoubanFeedCity.h"
 #import "DoubanEntryCity.h"
 
 @implementation DoubanFeedCity
 
-+ (DoubanFeedCity *)cityFeed {
-  
-	DoubanFeedCity *feed = [[[self alloc] init] autorelease];
-	[feed setNamespaces:[DoubanEntryCity citiesNamespaces]];
-	return feed;
-}
 
 + (NSString *)standardFeedKind {
 	return @"cities"; //kGDataCategoryCitiesFeed;
 }
 
-+ (void)load {
-	[self registerFeedClass];
-}
 
 - (Class)classForEntries {
 	return [DoubanEntryCity class];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanCityDefaultServiceVersion;
 }
+
 
 @end

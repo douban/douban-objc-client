@@ -12,6 +12,4 @@
 @interface DoubanFeedMiniblog : GDataFeedBase
 
 
-+ (DoubanFeedMiniblog *)miniblogFeed;
-
 @end

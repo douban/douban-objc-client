@@ -26,20 +26,25 @@ static NSString* const kContentAttr = @"content";
 	[self addContentValueDeclaration];
 }
 
+
 - (NSString *)identity {
 	return [self stringValueForAttribute:kIdentityAttr];
 }
+
 
 - (void)setIdentity:(NSString *)str {
 	[self setStringValue:str forAttribute:kIdentityAttr];
 }
 
+
 - (NSString *)content {
 	return [self contentStringValue];
 }
 
+
 - (void)setContent:(NSString *)str {
 	[self setContentStringValue:str];
 }
+
 
 @end

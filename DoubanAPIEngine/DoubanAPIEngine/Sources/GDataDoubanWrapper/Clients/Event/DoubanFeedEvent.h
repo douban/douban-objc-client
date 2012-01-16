@@ -11,6 +11,5 @@
 
 @interface DoubanFeedEvent : GDataFeedBase
 
-+ (DoubanFeedEvent *)eventFeed;
 
 @end
