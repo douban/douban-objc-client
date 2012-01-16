@@ -1,0 +1,415 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 46;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		D8FC8C5D14C416BB003E5A03 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8C5C14C416BB003E5A03 /* UIKit.framework */; };
+		D8FC8C5F14C416BB003E5A03 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8C5E14C416BB003E5A03 /* Foundation.framework */; };
+		D8FC8C6114C416BB003E5A03 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8C6014C416BB003E5A03 /* CoreGraphics.framework */; };
+		D8FC8C6714C416BB003E5A03 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = D8FC8C6514C416BB003E5A03 /* InfoPlist.strings */; };
+		D8FC8C6914C416BB003E5A03 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FC8C6814C416BB003E5A03 /* main.m */; };
+		D8FC8C6D14C416BB003E5A03 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FC8C6C14C416BB003E5A03 /* AppDelegate.m */; };
+		D8FC8CCF14C48FAC003E5A03 /* MainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FC8CCE14C48FAC003E5A03 /* MainViewController.m */; };
+		D8FC8CE014C494AC003E5A03 /* DoubanQueryEvent.m in Sources */ = {isa = PBXBuildFile; fileRef = D8FC8CDF14C494AC003E5A03 /* DoubanQueryEvent.m */; };
+		D8FC8CE114C4952D003E5A03 /* libDoubanAPIEngine.a in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CB014C48D5E003E5A03 /* libDoubanAPIEngine.a */; };
+		D8FC8CE314C49544003E5A03 /* libxml2.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CE214C49544003E5A03 /* libxml2.dylib */; };
+		D8FC8CE514C4960D003E5A03 /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CE414C4960D003E5A03 /* libz.dylib */; };
+		D8FC8CE714C49628003E5A03 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CE614C49628003E5A03 /* CFNetwork.framework */; };
+		D8FC8CE914C49633003E5A03 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CE814C49633003E5A03 /* Security.framework */; };
+		D8FC8CEB14C4963D003E5A03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CEA14C4963D003E5A03 /* SystemConfiguration.framework */; };
+		D8FC8CEF14C49665003E5A03 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CEE14C49665003E5A03 /* SenTestingKit.framework */; };
+		D8FC8CF014C49675003E5A03 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CEC14C4964A003E5A03 /* MobileCoreServices.framework */; };
+		D8FC8CF314C496EC003E5A03 /* MainViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FC8CF114C496EC003E5A03 /* MainViewController.xib */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		D8FC8CAF14C48D5E003E5A03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8FC8CAA14C48D5E003E5A03 /* DoubanAPIEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D800D538146907B2009F64FD;
+			remoteInfo = DoubanAPIEngine;
+		};
+		D8FC8CB114C48D5E003E5A03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8FC8CAA14C48D5E003E5A03 /* DoubanAPIEngine.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = D800D548146907B2009F64FD;
+			remoteInfo = DoubanAPIEngineTests;
+		};
+		D8FC8CDA14C493A2003E5A03 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D8FC8CAA14C48D5E003E5A03 /* DoubanAPIEngine.xcodeproj */;
+			proxyType = 1;
+			remoteGlobalIDString = D800D537146907B2009F64FD;
+			remoteInfo = DoubanAPIEngine;
+		};
+/* End PBXContainerItemProxy section */
+
+/* Begin PBXFileReference section */
+		D8FC8C5814C416BB003E5A03 /* DoubanAPIEngineDemo.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DoubanAPIEngineDemo.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		D8FC8C5C14C416BB003E5A03 /* UIKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = UIKit.framework; path = System/Library/Frameworks/UIKit.framework; sourceTree = SDKROOT; };
+		D8FC8C5E14C416BB003E5A03 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
+		D8FC8C6014C416BB003E5A03 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
+		D8FC8C6414C416BB003E5A03 /* DoubanAPIEngineDemo-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "DoubanAPIEngineDemo-Info.plist"; sourceTree = "<group>"; };
+		D8FC8C6614C416BB003E5A03 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
+		D8FC8C6814C416BB003E5A03 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		D8FC8C6A14C416BB003E5A03 /* DoubanAPIEngineDemo-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoubanAPIEngineDemo-Prefix.pch"; sourceTree = "<group>"; };
+		D8FC8C6B14C416BB003E5A03 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		D8FC8C6C14C416BB003E5A03 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		D8FC8CAA14C48D5E003E5A03 /* DoubanAPIEngine.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DoubanAPIEngine.xcodeproj; path = ../../DoubanAPIEngine/DoubanAPIEngine.xcodeproj; sourceTree = "<group>"; };
+		D8FC8CCD14C48FAC003E5A03 /* MainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = MainViewController.h; sourceTree = "<group>"; };
+		D8FC8CCE14C48FAC003E5A03 /* MainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = MainViewController.m; sourceTree = "<group>"; };
+		D8FC8CDE14C494AC003E5A03 /* DoubanQueryEvent.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanQueryEvent.h; sourceTree = "<group>"; };
+		D8FC8CDF14C494AC003E5A03 /* DoubanQueryEvent.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanQueryEvent.m; sourceTree = "<group>"; };
+		D8FC8CE214C49544003E5A03 /* libxml2.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libxml2.dylib; path = usr/lib/libxml2.dylib; sourceTree = SDKROOT; };
+		D8FC8CE414C4960D003E5A03 /* libz.dylib */ = {isa = PBXFileReference; lastKnownFileType = "compiled.mach-o.dylib"; name = libz.dylib; path = usr/lib/libz.dylib; sourceTree = SDKROOT; };
+		D8FC8CE614C49628003E5A03 /* CFNetwork.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CFNetwork.framework; path = System/Library/Frameworks/CFNetwork.framework; sourceTree = SDKROOT; };
+		D8FC8CE814C49633003E5A03 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
+		D8FC8CEA14C4963D003E5A03 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
+		D8FC8CEC14C4964A003E5A03 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
+		D8FC8CEE14C49665003E5A03 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
+		D8FC8CF214C496EC003E5A03 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/MainViewController.xib; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		D8FC8C5514C416BB003E5A03 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8FC8CF014C49675003E5A03 /* MobileCoreServices.framework in Frameworks */,
+				D8FC8CEF14C49665003E5A03 /* SenTestingKit.framework in Frameworks */,
+				D8FC8CEB14C4963D003E5A03 /* SystemConfiguration.framework in Frameworks */,
+				D8FC8CE914C49633003E5A03 /* Security.framework in Frameworks */,
+				D8FC8CE714C49628003E5A03 /* CFNetwork.framework in Frameworks */,
+				D8FC8C6114C416BB003E5A03 /* CoreGraphics.framework in Frameworks */,
+				D8FC8CE514C4960D003E5A03 /* libz.dylib in Frameworks */,
+				D8FC8CE314C49544003E5A03 /* libxml2.dylib in Frameworks */,
+				D8FC8CE114C4952D003E5A03 /* libDoubanAPIEngine.a in Frameworks */,
+				D8FC8C5D14C416BB003E5A03 /* UIKit.framework in Frameworks */,
+				D8FC8C5F14C416BB003E5A03 /* Foundation.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		D8FC8C4D14C416BB003E5A03 = {
+			isa = PBXGroup;
+			children = (
+				D8FC8C6214C416BB003E5A03 /* DoubanAPIEngineDemo */,
+				D8FC8C5B14C416BB003E5A03 /* Frameworks */,
+				D8FC8C5914C416BB003E5A03 /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		D8FC8C5914C416BB003E5A03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC8C5814C416BB003E5A03 /* DoubanAPIEngineDemo.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		D8FC8C5B14C416BB003E5A03 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC8CEE14C49665003E5A03 /* SenTestingKit.framework */,
+				D8FC8CEC14C4964A003E5A03 /* MobileCoreServices.framework */,
+				D8FC8CEA14C4963D003E5A03 /* SystemConfiguration.framework */,
+				D8FC8CE814C49633003E5A03 /* Security.framework */,
+				D8FC8CE614C49628003E5A03 /* CFNetwork.framework */,
+				D8FC8CE414C4960D003E5A03 /* libz.dylib */,
+				D8FC8CE214C49544003E5A03 /* libxml2.dylib */,
+				D8FC8C5C14C416BB003E5A03 /* UIKit.framework */,
+				D8FC8C5E14C416BB003E5A03 /* Foundation.framework */,
+				D8FC8C6014C416BB003E5A03 /* CoreGraphics.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		D8FC8C6214C416BB003E5A03 /* DoubanAPIEngineDemo */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC8C6B14C416BB003E5A03 /* AppDelegate.h */,
+				D8FC8C6C14C416BB003E5A03 /* AppDelegate.m */,
+				D8FC8CDE14C494AC003E5A03 /* DoubanQueryEvent.h */,
+				D8FC8CDF14C494AC003E5A03 /* DoubanQueryEvent.m */,
+				D8FC8CCD14C48FAC003E5A03 /* MainViewController.h */,
+				D8FC8CCE14C48FAC003E5A03 /* MainViewController.m */,
+				D8FC8CF114C496EC003E5A03 /* MainViewController.xib */,
+				D8FC8C9314C479DD003E5A03 /* Dependency */,
+				D8FC8C6314C416BB003E5A03 /* Supporting Files */,
+			);
+			path = DoubanAPIEngineDemo;
+			sourceTree = "<group>";
+		};
+		D8FC8C6314C416BB003E5A03 /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC8C6414C416BB003E5A03 /* DoubanAPIEngineDemo-Info.plist */,
+				D8FC8C6514C416BB003E5A03 /* InfoPlist.strings */,
+				D8FC8C6814C416BB003E5A03 /* main.m */,
+				D8FC8C6A14C416BB003E5A03 /* DoubanAPIEngineDemo-Prefix.pch */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		D8FC8C9314C479DD003E5A03 /* Dependency */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC8CAA14C48D5E003E5A03 /* DoubanAPIEngine.xcodeproj */,
+			);
+			name = Dependency;
+			sourceTree = "<group>";
+		};
+		D8FC8CAB14C48D5E003E5A03 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				D8FC8CB014C48D5E003E5A03 /* libDoubanAPIEngine.a */,
+				D8FC8CB214C48D5E003E5A03 /* DoubanAPIEngineTests.octest */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		D8FC8C5714C416BB003E5A03 /* DoubanAPIEngineDemo */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = D8FC8C8214C416BB003E5A03 /* Build configuration list for PBXNativeTarget "DoubanAPIEngineDemo" */;
+			buildPhases = (
+				D8FC8C5414C416BB003E5A03 /* Sources */,
+				D8FC8C5514C416BB003E5A03 /* Frameworks */,
+				D8FC8C5614C416BB003E5A03 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				D8FC8CDB14C493A2003E5A03 /* PBXTargetDependency */,
+			);
+			name = DoubanAPIEngineDemo;
+			productName = DoubanAPIEngineDemo;
+			productReference = D8FC8C5814C416BB003E5A03 /* DoubanAPIEngineDemo.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		D8FC8C4F14C416BB003E5A03 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0420;
+			};
+			buildConfigurationList = D8FC8C5214C416BB003E5A03 /* Build configuration list for PBXProject "DoubanAPIEngineDemo" */;
+			compatibilityVersion = "Xcode 3.2";
+			developmentRegion = English;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+			);
+			mainGroup = D8FC8C4D14C416BB003E5A03;
+			productRefGroup = D8FC8C5914C416BB003E5A03 /* Products */;
+			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = D8FC8CAB14C48D5E003E5A03 /* Products */;
+					ProjectRef = D8FC8CAA14C48D5E003E5A03 /* DoubanAPIEngine.xcodeproj */;
+				},
+			);
+			projectRoot = "";
+			targets = (
+				D8FC8C5714C416BB003E5A03 /* DoubanAPIEngineDemo */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXReferenceProxy section */
+		D8FC8CB014C48D5E003E5A03 /* libDoubanAPIEngine.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libDoubanAPIEngine.a;
+			remoteRef = D8FC8CAF14C48D5E003E5A03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		D8FC8CB214C48D5E003E5A03 /* DoubanAPIEngineTests.octest */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.cfbundle;
+			path = DoubanAPIEngineTests.octest;
+			remoteRef = D8FC8CB114C48D5E003E5A03 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		D8FC8C5614C416BB003E5A03 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8FC8C6714C416BB003E5A03 /* InfoPlist.strings in Resources */,
+				D8FC8CF314C496EC003E5A03 /* MainViewController.xib in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		D8FC8C5414C416BB003E5A03 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D8FC8C6914C416BB003E5A03 /* main.m in Sources */,
+				D8FC8C6D14C416BB003E5A03 /* AppDelegate.m in Sources */,
+				D8FC8CCF14C48FAC003E5A03 /* MainViewController.m in Sources */,
+				D8FC8CE014C494AC003E5A03 /* DoubanQueryEvent.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		D8FC8CDB14C493A2003E5A03 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			name = DoubanAPIEngine;
+			targetProxy = D8FC8CDA14C493A2003E5A03 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
+
+/* Begin PBXVariantGroup section */
+		D8FC8C6514C416BB003E5A03 /* InfoPlist.strings */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8FC8C6614C416BB003E5A03 /* en */,
+			);
+			name = InfoPlist.strings;
+			sourceTree = "<group>";
+		};
+		D8FC8CF114C496EC003E5A03 /* MainViewController.xib */ = {
+			isa = PBXVariantGroup;
+			children = (
+				D8FC8CF214C496EC003E5A03 /* en */,
+			);
+			name = MainViewController.xib;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		D8FC8C8014C416BB003E5A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		D8FC8C8114C416BB003E5A03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				COPY_PHASE_STRIP = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
+				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
+				OTHER_CFLAGS = "-DNS_BLOCK_ASSERTIONS=1";
+				OTHER_LDFLAGS = "-all_load";
+				SDKROOT = iphoneos;
+				TARGETED_DEVICE_FAMILY = "1,2";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		D8FC8C8314C416BB003E5A03 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoubanAPIEngineDemo/DoubanAPIEngineDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"../DoubanAPIEngine/DoubanAPIEngine/OtherSources/**",
+					"../DoubanAPIEngine/DoubanAPIEngine/Sources/**",
+					"${SDK_DIR}/usr/include/libxml2/**",
+				);
+				INFOPLIST_FILE = "DoubanAPIEngineDemo/DoubanAPIEngineDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Debug;
+		};
+		D8FC8C8414C416BB003E5A03 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"\"$(DEVELOPER_FRAMEWORKS_DIR)\"",
+				);
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "DoubanAPIEngineDemo/DoubanAPIEngineDemo-Prefix.pch";
+				HEADER_SEARCH_PATHS = (
+					"../DoubanAPIEngine/DoubanAPIEngine/OtherSources/**",
+					"../DoubanAPIEngine/DoubanAPIEngine/Sources/**",
+					"${SDK_DIR}/usr/include/libxml2/**",
+				);
+				INFOPLIST_FILE = "DoubanAPIEngineDemo/DoubanAPIEngineDemo-Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 4.0;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				WRAPPER_EXTENSION = app;
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		D8FC8C5214C416BB003E5A03 /* Build configuration list for PBXProject "DoubanAPIEngineDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8FC8C8014C416BB003E5A03 /* Debug */,
+				D8FC8C8114C416BB003E5A03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D8FC8C8214C416BB003E5A03 /* Build configuration list for PBXNativeTarget "DoubanAPIEngineDemo" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D8FC8C8314C416BB003E5A03 /* Debug */,
+				D8FC8C8414C416BB003E5A03 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = D8FC8C4F14C416BB003E5A03 /* Project object */;
+}

@@ -9,9 +9,9 @@ douban-objc-client
 更多信息请查询 **[豆瓣 API]**
 
 
-如何使用? 
+如何配置? 
 -------
-* 首先配置所需的 Frameworks，将下面库加入你的项目的 Link Binary with Libaries
+* 首先配置所需的 Frameworks，点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
   * libDoubanAPIEngine.a
   * libxml2.dylib
   * libz.dylib
@@ -25,10 +25,20 @@ douban-objc-client
   * SenTestingkit.framework
 
 
-* 设置工程 Building Settings
+* 设置项目 Building Settings
 
-找到 Other Linker Flags, 设置为 －all_load
+点击项目(PROJECT) 图标，找到 Other Linker Flags, 设置为 －all_load 。
 
+
+* 设置目标 Building Settings
+
+点击目标(TARGETS)图标，找到 Header Search Paths，添加 DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources  以及 ${SDK_DIR}/usr/include/libxml2 。
+DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可以为相对目录，这样有助于移植性。例如，项目若和 douban objc client 文件夹在同一目录下，
+可以添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且，应勾选 Recursive.
+
+
+如何使用? 
+-------
 
 * 提供 Auth2 所需参数
 
