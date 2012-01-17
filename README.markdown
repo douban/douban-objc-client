@@ -1,16 +1,30 @@
 
 [豆瓣 API]: http://www.douban.com/service/
 
-douban-objc-client 
-------------------
+douban-objc-client 介绍
+----------------------
 
 **douban-objc-client** 是一个 Objective C 实现的 豆瓣 API 客户端。支持 MAC OS 和 ios。
 
 更多信息请查询 **[豆瓣 API]**
 
 
+
 如何配置? 
 -------
+
+* 设置项目 Building Settings
+
+点击项目(PROJECT) 图标，找到 Other Linker Flags, 设置为 －all_load 。
+
+
+* 设置目标 Building Settings
+
+点击目标(TARGETS)图标，找到 Header Search Paths，添加 DoubanAPIEngine/OtherSources，DoubanAPIEngine/Sources 以及 ${SDK_DIR}/usr/include/libxml2 。
+
+DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，这样有助于移植。例如，你的项目若和 douban-objc-client 文件夹在同一目录下， 就可以添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且，应勾选 Recursive.
+
+
 * 首先配置所需的 Frameworks，点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
   * libDoubanAPIEngine.a
   * libxml2.dylib
@@ -24,17 +38,6 @@ douban-objc-client
   * Foundation.framework
   * SenTestingkit.framework
 
-
-* 设置项目 Building Settings
-
-点击项目(PROJECT) 图标，找到 Other Linker Flags, 设置为 －all_load 。
-
-
-* 设置目标 Building Settings
-
-点击目标(TARGETS)图标，找到 Header Search Paths，添加 DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources  以及 ${SDK_DIR}/usr/include/libxml2 。
-DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可以为相对目录，这样有助于移植性。例如，项目若和 douban objc client 文件夹在同一目录下，
-可以添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且，应勾选 Recursive.
 
 
 如何使用? 
@@ -103,3 +106,11 @@ DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可以为相对目录�
   NSLog(@"error");
 }
 ```
+
+
+
+待办列表
+-------
+  * AuthorizationCode 类型的 Auth2 认证        
+  * 更多数据类型的支持: 豆邮，日记，收藏。
+
