@@ -22,10 +22,10 @@ douban-objc-client 介绍
 
 点击目标(TARGETS)图标，找到 Header Search Paths，添加 DoubanAPIEngine/OtherSources，DoubanAPIEngine/Sources 以及 ${SDK_DIR}/usr/include/libxml2 。
 
-DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，这样有助于移植。例如，你的项目若和 douban-objc-client 文件夹在同一目录下， 就可以添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且，应勾选 Recursive.
+DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，这样有助于移植。例如，你的项目若和 douban-objc-client 文件夹在同一目录下， 就可添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且勾选 Recursive。
 
 
-* 首先配置所需的 Frameworks，点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
+* 配置所需的 Frameworks，点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
   * libDoubanAPIEngine.a
   * libxml2.dylib
   * libz.dylib
@@ -79,14 +79,26 @@ DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，�
 
 * 发起一个异步请求
 
+若使用 delegate 方式处理回调，要注意一个问题，某些情况下，request 的 delegate 被 dealloc 后，request 才得到了返回。这时就是一个 已释放的 delegate 来处理回调。
+这会造成程序崩溃。处理方法为，在 request 的 delegate (例如某个 UIViewController) 的 dealloc 方法中对 request 发送 clearDelegatesAndCancel 消息，再 release request。
+
+另外一个更为优雅的方法是使用“闭包” (block)，DOUHttpRequest 提供了 一个方法，可以使用闭包来处理回调。由于，request 会自动 retain 闭包。所以，就避免了使用 delegate 可能出现的问题。
+
+但，注意objective c 的闭包 在 iOS 4.0 以上版本才得到支持。
+
+DOUHttpRequest 的闭包处理回调的方法：
+
+
++ (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
+                     completionBlock:(DOUBasicBlock)completionHandler;
+
+
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
-  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
-  DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:params] autorelease];
+  DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:nil] autorelease];
   
   DOUHttpRequest *req = [DOUHttpRequest requestWithQuery:query target:self];
 
-  req.userInfo = [NSDictionary dictionaryWithObjectsAndKeys:startIndex, kUserInfoStartIndex, nil];
   DOUService *service = [DOUService sharedInstance];
   [service addRequest:req];
 ```

@@ -11,8 +11,11 @@
 #import "DoubanFeedCity.h"
 
 @interface DoubanCityTests : SenTestCase 
+
 - (void)testDoubanEntryCity;
+
 - (void)testDoubanFeedCity;
+
 @end
 
 
@@ -22,10 +25,10 @@
   [super setUp];
 }
 
+
 - (void)tearDown {
   [super tearDown];
 }
-
 
 
 - (void)testDoubanEntryCity {
@@ -43,7 +46,6 @@
   STAssertTrue([city isHabitable] , @"isHabitable");
   
 }
-
 
 
 - (void)testDoubanFeedCity {

@@ -11,9 +11,11 @@
 @interface DoubanLocation : GDataExtendedProperty <GDataExtension>
 
 - (NSString *)identity;
+
 - (void)setIdentity:(NSString *)str;
 
 - (NSString *)content;
+
 - (void)setContent:(NSString *)str;
 
 @end

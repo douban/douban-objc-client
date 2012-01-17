@@ -12,9 +12,11 @@
 @interface GeorssPoint : GDataExtendedProperty <GDataExtension>
 
 - (NSString *)content;
+
 - (void)setContent:(NSString *)str;
 
 - (float) geoLatitude;
+
 - (float) geoLongitude;
 
 @end

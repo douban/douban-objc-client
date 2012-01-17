@@ -11,9 +11,11 @@
 @interface DoubanTag : GDataExtendedProperty <GDataExtension>
 
 - (NSString *)name;
+
 - (void)setName:(NSString *)str;
 
-- (NSNumber *)count; // int
+- (NSNumber *)count;
+
 - (void)setCount:(NSNumber *)num;
 
 @end

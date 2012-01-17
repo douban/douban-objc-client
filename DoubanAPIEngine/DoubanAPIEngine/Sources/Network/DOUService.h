@@ -15,7 +15,6 @@
 @end
 
 
-
 @class ASINetworkQueue;
 @class DOUOAuth2Consumer;
 @class DOUOAuth2Provider;
@@ -26,6 +25,7 @@
   DOUOAuth2Consumer *consumer_;
   DOUOAuth2Provider *provider_;
 }
+
 
 @property (nonatomic, retain) ASINetworkQueue   *queue;
 @property (nonatomic, retain) DOUOAuth2Consumer *consumer;

@@ -23,5 +23,7 @@
 - (id)initWithSubPath:(NSString *)aSubPath parameters:(NSDictionary *)theParameters;
 
 - (NSString *)requestURLString;
+
 - (NSURL *)requestURL;
+
 @end

@@ -12,13 +12,18 @@
 #import "DoubanEntryRecommendation.h"
 #import "DoubanFeedRecommendation.h"
 
+
 @interface DoubanRecommendationTests : SenTestCase 
+
 - (void)testDoubanEntryRecommendation;
+
 - (void)testDoubanFeedRecommendation;
+
 @end
 
 
 @implementation DoubanRecommendationTests
+
 
 - (void)setUp {
   [super setUp];
@@ -34,7 +39,6 @@
   
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"DoubanEntryRecommendation" 
                                                                         ofType:@"xml"];
-  
   if (!filePath)
     STAssertTrue(FALSE, @"filePath fail!");
   

@@ -10,6 +10,7 @@
 @interface DoubanAttribute : GDataExtendedProperty <GDataExtension>
 
 - (NSString *)content;
+
 - (void)setContent:(NSString *)str;
 
 @end

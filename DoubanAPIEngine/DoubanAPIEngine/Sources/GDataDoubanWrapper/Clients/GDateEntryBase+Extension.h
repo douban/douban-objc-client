@@ -14,6 +14,7 @@
 @interface GDataEntryBase (Extension)
 
 - (DoubanAttribute *)attributeForName:(NSString *)attributeName;
-- (GDataAtomAuthor *)author;
+
+- (GDataAtomAuthor *)theFirstAuthor;
 
 @end

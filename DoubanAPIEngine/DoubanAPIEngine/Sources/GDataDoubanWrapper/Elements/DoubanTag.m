@@ -14,6 +14,7 @@ static NSString* const kCountAttr = @"count";
 
 @implementation DoubanTag
 
+
 + (NSString *)extensionElementURI       { return kDoubanNamespace; }
 + (NSString *)extensionElementPrefix    { return kDoubanNamespacePrefix; }
 + (NSString *)extensionElementLocalName { return @"tag"; }
@@ -26,20 +27,25 @@ static NSString* const kCountAttr = @"count";
 	[self addContentValueDeclaration];
 }
 
+
 - (NSString *)name {
   return [self stringValueForAttribute:kNameAttr];
 }
+
 
 - (void)setName:(NSString *)str {
   [self setStringValue:str forAttribute:kNameAttr];
 }
 
+
 - (NSNumber *)count {
   return [self intNumberForAttribute:kCountAttr];
 }
 
+
 - (void)setCount:(NSNumber *)num {
   [self setStringValue:[num stringValue] forAttribute:kCountAttr];
 }
+
 
 @end

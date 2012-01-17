@@ -11,4 +11,5 @@
 
 @interface DoubanFeedSubject : GDataFeedBase
 
+
 @end

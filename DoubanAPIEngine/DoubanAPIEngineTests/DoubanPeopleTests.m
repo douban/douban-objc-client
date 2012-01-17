@@ -13,9 +13,13 @@
 #import "GDataBaseElements.h"
 #import "DoubanUID.h"
 
+
 @interface DoubanPeopleTests : SenTestCase 
+
 - (void)testDoubanEntryPeople;
+
 - (void)testDoubanFeedPeople;
+
 @end
 
 
@@ -25,10 +29,10 @@
   [super setUp];
 }
 
+
 - (void)tearDown {
   [super tearDown];
 }
-
 
 
 - (void)testDoubanEntryPeople {
@@ -61,7 +65,6 @@
 }
 
 
-
 - (void)testDoubanFeedPeople {
   
   NSString *filePath = [[NSBundle bundleForClass:[self class]] pathForResource:@"DoubanFeedPeople" ofType:@"xml"];  
@@ -75,13 +78,11 @@
 
   for (DoubanEntryPeople *people in [feed entries]) {
 
-    
     if ([[people identifier] isEqualToString:@"http://api.douban.com/people/1000000"]) {
       STAssertTrue([[[people title] stringValue] isEqualToString:@"六零"], @"title");
       STAssertTrue([[[people uid] content] isEqualToString:@"douban"] , @"douban");
       STAssertTrue([[people identifier] isEqualToString:@"http://api.douban.com/people/1000000"], @"identifier");  
     }
-    
     
     if ([[people identifier] isEqualToString:@"http://api.douban.com/people/1428797"]) {
       STAssertTrue([[[people title] stringValue] isEqualToString:@"yangjiani"], @"title");
@@ -96,7 +97,6 @@
       
     }
 
-    
     if ([[people identifier] isEqualToString:@"http://api.douban.com/people/1405403"]) {
       STAssertTrue([[[people title] stringValue] isEqualToString:@"douban"], @"title");
       STAssertTrue([[[people uid] content] isEqualToString:@"perfectlie"] , @"uid");

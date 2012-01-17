@@ -14,12 +14,16 @@
 
 
 @interface DoubanPhotoTests : SenTestCase 
+
 - (void)testDoubanEntryPhoto;
+
 - (void)testDoubanFeedPhoto;
+
 @end
 
 
 @implementation DoubanPhotoTests
+
 
 - (void)setUp {
   [super setUp];
@@ -58,5 +62,6 @@
 - (void)testDoubanFeedPhoto {
   
 }
+
 
 @end

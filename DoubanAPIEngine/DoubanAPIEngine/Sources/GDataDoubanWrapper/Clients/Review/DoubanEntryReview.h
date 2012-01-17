@@ -30,5 +30,4 @@ _EXTERN NSString* const kDoubanReviewsDefaultServiceVersion _INITIALIZE_AS(@"2.0
 
 - (void)setRating:(GDataRating *)obj;
 
-
 @end

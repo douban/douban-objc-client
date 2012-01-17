@@ -59,7 +59,6 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
   [accessToken_ release];	accessToken_ = nil;
 	[refreshToken_ release]; refreshToken_ = nil;
   [expiresIn_ release]; expiresIn_ = nil;
-  
 	[super dealloc];
 }
 
@@ -105,17 +104,20 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
   [userDefaults synchronize];
 }
 
+
 - (NSString *)accessToken {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   accessToken_ = [[userDefaults stringForKey:kUserDefaultsAccessTokenKey] retain];
   return accessToken_;
 }
 
+
 - (NSString *)refreshToken {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   refreshToken_ = [[userDefaults stringForKey:kUserDefaultsRefreshTokenKey] retain];
   return refreshToken_;
 }
+
 
 - (int)userId {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

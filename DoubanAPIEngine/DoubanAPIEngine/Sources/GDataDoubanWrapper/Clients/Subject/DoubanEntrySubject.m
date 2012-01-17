@@ -32,6 +32,7 @@
                                               [DoubanTag class],nil];
 }
 
+
 + (NSString *)defaultServiceVersion {
 	return kDoubanSubjectsDefaultServiceVersion;
 }

@@ -38,6 +38,10 @@
 
 #pragma mark - Extensions
 
+- (GDataAtomAuthor *)author {
+  return [self theFirstAuthor];
+}
+
 - (GDataLink *)imageLink {
 	return [self linkWithRelAttributeValue:@"image"];
 }
@@ -53,7 +57,7 @@
 }
 
 
-- (GDataLink *)albumcoverLink {
+- (GDataLink *)albumCoverLink {
 	return [self linkWithRelAttributeValue:@"cover"];
 }
 

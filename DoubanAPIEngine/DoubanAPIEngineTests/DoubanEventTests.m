@@ -12,7 +12,9 @@
 #import "DoubanLocation.h"
 
 @interface DoubanEventTests : SenTestCase 
+
 - (void)testDoubanEntryEvent;
+
 - (void)testDoubanFeedEvent;
 
 @end
@@ -20,23 +22,21 @@
 
 @implementation DoubanEventTests
 
+
 - (void)setUp {
   [super setUp];
-  // Set-up code here.
 }
+
 
 - (void)tearDown {
-  // Tear-down code here.
   [super tearDown];
 }
-
 
 
 - (void)testDoubanEntryEvent {
 
   NSString *filePath = 
     [[NSBundle bundleForClass:[self class]] pathForResource:@"DoubanEntryEvent" ofType:@"xml"];
-
 
   if (filePath) {
     
@@ -61,9 +61,9 @@
     STAssertTrue([[[event location] identity] isEqualToString:@"beijing"], @"location");
     STAssertTrue(fabs([event geoLatitude] - 39.904213 )< 0.000001, @"latitude");
     STAssertTrue(fabs([event geoLongitude] - 116.40741) < 0.000001, @"longitude");  
-
   }
 }
+
 
 - (void)testDoubanFeedEvent {
   
@@ -91,13 +91,8 @@
     STAssertTrue([[[event location] identity] isEqualToString:@"beijing"], @"location");
     STAssertTrue([event geoLatitude] == 0 , @"latitude");
     STAssertTrue([event geoLongitude] == 0 , @"longitude");
-
   }
-
-
 }
-
-
 
 
 @end

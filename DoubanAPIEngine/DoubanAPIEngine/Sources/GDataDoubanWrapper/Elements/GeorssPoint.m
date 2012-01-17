@@ -13,6 +13,7 @@ static NSString* const kContentAttr = @"content";
 
 @implementation GeorssPoint
 
+
 + (NSString *)extensionElementURI       { return kGeorssNamespace; }
 + (NSString *)extensionElementPrefix    { return kGeorssNamespacePrefix; }
 + (NSString *)extensionElementLocalName { return @"point"; }
@@ -54,5 +55,6 @@ static NSString* const kContentAttr = @"content";
   }
   return 0;
 }
+
 
 @end

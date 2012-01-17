@@ -40,9 +40,11 @@ static NSString *redirectUrl;
   APIKey = theAPIKey;
 }
 
+
 + (void)setPrivateKey:(NSString *)thePrivateKey {
   privateKey = thePrivateKey;
 }
+
 
 + (void)setRedirectUrl:(NSString *)theRedirectUrl {
   redirectUrl = theRedirectUrl;
@@ -177,11 +179,13 @@ static DOUService *myInstance = nil;
   return consumer_.userId;  
 }
 
+
 - (BOOL)isValid {
   if (consumer_.accessToken) {
     return ![consumer_ hasExpired];
   }
   return NO;
 }
+
 
 @end

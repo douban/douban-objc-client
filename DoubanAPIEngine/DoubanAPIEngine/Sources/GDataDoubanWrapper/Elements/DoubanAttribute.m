@@ -14,9 +14,11 @@ static NSString* const kContentAttr = @"content";
 
 @implementation DoubanAttribute
 
+
 + (NSString *)extensionElementURI       { return kDoubanNamespace; }
 + (NSString *)extensionElementPrefix    { return kDoubanNamespacePrefix; }
 + (NSString *)extensionElementLocalName { return @"attribute"; }
+
 - (void)addParseDeclarations {
 	NSArray *attrs = [NSArray arrayWithObjects:
 					  kNameAttr, kContentAttr, nil];
@@ -25,12 +27,15 @@ static NSString* const kContentAttr = @"content";
 	[self addContentValueDeclaration];
 }
 
+
 - (NSString *)content {
 	return [self contentStringValue];
 }
 
+
 - (void)setContent:(NSString *)str {
 	[self setContentStringValue:str];
 }
+
 
 @end

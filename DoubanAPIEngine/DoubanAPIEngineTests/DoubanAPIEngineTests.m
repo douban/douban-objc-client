@@ -15,6 +15,7 @@
 #import "DoubanEntrySubject.h"
 
 @interface DoubanAPIEngineTests : SenTestCase 
+
 - (void)testDOUOAuth2Service;
 
 @end
@@ -26,15 +27,15 @@ static NSString * const kUsernameStr = @"yourUsername@";
 static NSString * const kPasswordStr = @"yourpassword";
 
 
-
-
 - (void)setUp {
   [super setUp];
 }
 
+
 - (void)tearDown {
   [super tearDown];
 }
+
 
 + (DOUQuery *)queryCurrentUser {
   NSString *subPath = @"/shuo/users/@me";
@@ -76,7 +77,6 @@ static NSString * const kPasswordStr = @"yourpassword";
   NSLog(@"token: %@", service.consumer.accessToken);
   NSLog(@"refresh token: %@", service.consumer.refreshToken);
   NSLog(@"expiry: %@", service.consumer.expiresIn);
-  
 
   DOUQuery *query = [[self class] queryBookWithId:6861929];
   NSURL *url = [query requestURL];

@@ -17,7 +17,6 @@ NSUInteger const kDefaultTimeoutSeconds = 12;
 
 NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
 
-#pragma mark - GET Request
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
   NSLog(@"request url:%@", [URL absoluteString]);
@@ -27,6 +26,7 @@ NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];
   return req;
 }
+
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL target:(id<DOUHttpRequestDelegate>)delegate {
   DOUHttpRequest *req = [[self class] requestWithURL:URL];
@@ -126,5 +126,6 @@ NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
   }
   return [[self class] adapterError:asiError];
 }
+
 
 @end

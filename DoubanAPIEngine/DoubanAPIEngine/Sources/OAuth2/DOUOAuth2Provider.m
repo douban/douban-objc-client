@@ -10,9 +10,6 @@
 #import "DOUOAuth2.h"
 #import "DOUFormDataRequest.h"
 
-@interface DOUOAuth2Provider ()
-@end
-
 
 @implementation DOUOAuth2Provider
 
@@ -160,7 +157,6 @@ static NSString *kDelegateKey = @"DelegateKey";
   [self accessTokenWithConsumer:consumer andRequest:req];
 }
 */
-
 
 
 @end

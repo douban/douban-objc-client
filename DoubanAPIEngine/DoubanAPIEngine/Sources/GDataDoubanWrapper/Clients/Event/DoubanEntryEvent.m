@@ -224,11 +224,11 @@ static NSString * const kEventOthersCategoryName = @"其他";
   return [georssPoint geoLatitude];
 }
 
+
 - (float)geoLongitude {
   GeorssPoint *georssPoint = [self objectForExtensionClass:[GeorssPoint class]];
   return [georssPoint geoLongitude];
 }
-
 
 
 @end

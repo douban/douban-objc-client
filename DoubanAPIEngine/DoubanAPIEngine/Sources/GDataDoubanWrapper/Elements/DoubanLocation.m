@@ -14,6 +14,7 @@ static NSString* const kContentAttr = @"content";
 
 @implementation DoubanLocation
 
+
 + (NSString *)extensionElementURI       { return kDoubanNamespace; }
 + (NSString *)extensionElementPrefix    { return kDoubanNamespacePrefix; }
 + (NSString *)extensionElementLocalName { return @"location"; }

@@ -12,21 +12,25 @@
 #import "GDataBaseElements.h"
 
 @interface DoubanSubjectTests : SenTestCase 
+
 - (void)testDoubanEntrySubject;
+
 - (void)testDoubanFeedSubject;
+
 @end
 
 
 @implementation DoubanSubjectTests
 
+
 - (void)setUp {
   [super setUp];
 }
 
+
 - (void)tearDown {
   [super tearDown];
 }
-
 
 
 - (void)testDoubanEntrySubject {
@@ -59,8 +63,6 @@
     if ([[tag name] isEqualToString:@"日本"])
       STAssertTrue([[tag count] integerValue]== 2, @"name"); 
   }
-  
-  
   
   STAssertTrue([[subject identifier] isEqualToString:@"http://api.douban.com/book/subject/2023013"], @"identifier");
   STAssertTrue([[[subject title] stringValue] isEqualToString:@"倘若我在彼岸-日本畅销爱情小说"], @"title");

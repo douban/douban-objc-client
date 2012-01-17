@@ -25,17 +25,29 @@ _EXTERN NSString* const kDoubanPhotosDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 
 @interface DoubanEntryPhoto : GDataEntryBase
 
+- (GDataAtomAuthor *)author;
+
 - (GDataLink *)imageLink;
+
 - (GDataLink *)thumbLink;
-- (GDataLink *)albumcoverLink;
+
+- (GDataLink *)albumCoverLink;
+
 - (GDataLink *)iconLink;
 
 - (NSInteger)commentsCount;
+
 - (NSInteger)recsCount;
+
 - (NSInteger)position;
+
 - (NSInteger)nextPhotoId;
+
 - (NSInteger)prevPhotoId;
+
 - (NSInteger)albumId;
+
 - (NSString *)albumTitle;
+
 
 @end

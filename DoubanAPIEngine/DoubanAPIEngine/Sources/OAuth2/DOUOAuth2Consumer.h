@@ -36,12 +36,15 @@
 
 
 - (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret redirectURL:(NSString *)aRedirectURL;
+
 - (void)updateWithHTTPResponse:(NSString *)aString;
+
 - (void)updateWithUserDefaults;
 
 - (void)sign:(DOUHttpRequest *)request;
 
 - (BOOL)hasExpired;
+
 - (void)save;
 
 @end

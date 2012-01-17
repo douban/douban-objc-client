@@ -61,6 +61,7 @@ typedef void (^DOUBasicBlock)(void);
 
 + (NSError *)adapterError:(NSError *)asiError;
 - (NSError *)doubanError;
+
 @end
 
 

@@ -14,21 +14,25 @@
 
 
 @interface DoubanMiniblogTests : SenTestCase 
+
 - (void)testDoubanEntryMiniblog;
+
 - (void)testDoubanFeedMiniblog;
+
 @end
 
 
 @implementation DoubanMiniblogTests
 
+
 - (void)setUp {
   [super setUp];
 }
 
+
 - (void)tearDown {
   [super tearDown];
 }
-
 
 
 - (void)testDoubanEntryMiniblog {
@@ -46,8 +50,8 @@
   STAssertTrue([[miniblog identifier] isEqualToString:@"http://api.douban.com/miniblog/12974354"], @"identifier");
   STAssertTrue([[[miniblog content] stringValue] length] >= 1 , @"content");
   STAssertTrue([[[miniblog publishedDate] stringValue] isEqualToString:@"2008-07-29T15:10:29+08:00"], @"published");
-
 }
+
 
 - (void)testDoubanFeedMiniblog {
   
