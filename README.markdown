@@ -79,20 +79,6 @@ DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，�
 
 * 发起一个异步请求
 
-若使用 delegate 方式处理回调，要注意一个问题，某些情况下，request 的 delegate 被 dealloc 后，request 才得到了返回。这时就是一个 已释放的 delegate 来处理回调。
-这会造成程序崩溃。处理方法为，在 request 的 delegate (例如某个 UIViewController) 的 dealloc 方法中对 request 发送 clearDelegatesAndCancel 消息，再 release request。
-
-另外一个更为优雅的方法是使用“闭包” (block)，DOUHttpRequest 提供了 一个方法，可以使用闭包来处理回调。由于，request 会自动 retain 闭包。所以，就避免了使用 delegate 可能出现的问题。
-
-但，注意objective c 的闭包 在 iOS 4.0 以上版本才得到支持。
-
-DOUHttpRequest 的闭包处理回调的方法：
-
-
-+ (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
-                     completionBlock:(DOUBasicBlock)completionHandler;
-
-
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
   DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:nil] autorelease];
@@ -102,6 +88,19 @@ DOUHttpRequest 的闭包处理回调的方法：
   DOUService *service = [DOUService sharedInstance];
   [service addRequest:req];
 ```
+
+若使用 delegate 方式处理回调，要注意一个问题，某些情况下，request 的 delegate 被 dealloc 后，request 才得到了返回。这时就是一个 已释放的 delegate 来处理回调。
+这会造成程序崩溃。处理方法为，在 request 的 delegate (例如某个 UIViewController) 的 dealloc 方法中对 request 发送 clearDelegatesAndCancel 消息，再 release request。
+
+另外一个更为优雅的方法是使用“闭包” (block)，DOUHttpRequest 提供了 一个方法，可以使用闭包来处理回调。由于，request 会自动 retain 闭包。所以，就避免了使用 delegate 可能出现的问题。
+
+但，注意 Objective－C 的闭包在 iOS 4.0 及其以上版本才得到支持。
+
+DOUHttpRequest 的闭包处理回调的方法：
+
++ (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
+                     completionBlock:(DOUBasicBlock)completionHandler;
+
 
 
 * 异步请求的回调
