@@ -13,6 +13,11 @@ douban-objc-client 介绍
 如何配置? 
 -------
 
+* 包含 DoubanAPIEngine
+
+将 DoubanAPIEngine.xcodeproj 图标拖拽到你的项目文件目录中。
+
+
 * 设置项目 Building Settings
 
 点击项目(PROJECT) 图标，找到 Other Linker Flags, 设置为 －all_load 。
@@ -25,7 +30,15 @@ douban-objc-client 介绍
 DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，这样有助于移植。例如，你的项目若和 douban-objc-client 文件夹在同一目录下， 就可添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且勾选 Recursive。
 
 
-* 配置所需的 Frameworks，点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
+* 添加依赖
+
+点击目标(TARGETS)图标，选择 Building Phases，在 Target Dependencies 中，添加 DoubanAPIEngine。
+
+
+* 配置所需的 Frameworks
+
+点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
+
   * libDoubanAPIEngine.a
   * libxml2.dylib
   * libz.dylib
@@ -124,6 +137,6 @@ DOUHttpRequest 的闭包处理回调的方法：
 
 待办列表
 -------
-  * AuthorizationCode 类型的 Auth2 认证        
-  * 更多数据类型的支持: 豆邮，日记，收藏。
+  * 提供 AuthorizationCode 类型的 Auth2 认证的支持        
+  * 提供更多数据类型的支持，如: 豆邮，日记，收藏
 
