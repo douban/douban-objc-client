@@ -18,14 +18,10 @@
 
 - (id)initWithAuthURL:(NSString *)anAuthURL tokenURL:(NSString *)aTokenURL;
 
-- (NSError *)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
-                          username:(NSString *)username 
-                          password:(NSString *)password;
-
-- (void)asyncAccessTokenByPassword:(DOUOAuth2Consumer *)consumer 
-                          username:(NSString *)username 
-                          password:(NSString *)password
-                          delegate:(id<DOULoginDelegate>)delegate;
+- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+                     username:(NSString *)username 
+                     password:(NSString *)password
+                     delegate:(id<DOULoginDelegate>)delegate;
 
 - (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer;
 

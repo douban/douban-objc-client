@@ -127,19 +127,13 @@ static DOUService *myInstance = nil;
 
 #pragma mark - login
 
-
-- (NSError *)loginWithUsername:(NSString *)username password:(NSString *)password {
-  return [provider_ accessTokenByPassword:consumer_ username:username password:password];
-}
-
-
-- (void)asyncLoginWithUsername:(NSString *)username 
-                      password:(NSString *)password 
-                      delegate:(id<DOULoginDelegate>)delegate {
-  [provider_ asyncAccessTokenByPassword:consumer_ 
-                              username:username 
-                              password:password
-                              delegate:delegate];
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password 
+                 delegate:(id<DOULoginDelegate>)delegate {
+  [provider_ accessTokenByPassword:consumer_ 
+                          username:username 
+                          password:password
+                          delegate:delegate];
 }
 
 

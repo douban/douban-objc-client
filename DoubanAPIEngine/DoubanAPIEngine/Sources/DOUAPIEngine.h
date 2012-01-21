@@ -8,6 +8,7 @@
 
 #import "DOUService.h"
 #import "DOUQuery.h"
+#import "DOUOAuth2.h"
 
 #import "DOUOAuth2Consumer.h"
 

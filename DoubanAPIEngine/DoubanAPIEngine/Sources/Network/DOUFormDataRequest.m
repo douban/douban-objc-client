@@ -55,7 +55,7 @@
   if (asiError == nil) {
     return asiError;
   }
-  return [[self class] adapterError:asiError];
+  return [DOUHttpRequest adapterError:asiError];
 }
 
 

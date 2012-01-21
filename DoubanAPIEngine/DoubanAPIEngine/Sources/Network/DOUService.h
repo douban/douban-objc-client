@@ -11,7 +11,7 @@
 @protocol DOULoginDelegate <NSObject>
 
 - (void)loginFinished;
-- (void)loginFailed;
+- (void)loginFailed:(NSInteger)errorCode;
 @end
 
 
@@ -38,13 +38,9 @@
 + (void)setRedirectUrl:(NSString *)theRedirectUrl;
 + (void)setPrivateKey:(NSString *)thePrivateKey;
 
-
-- (NSError *)loginWithUsername:(NSString *)username 
-                      password:(NSString *)password;
-
-- (void)asyncLoginWithUsername:(NSString *)username 
-                      password:(NSString *)password
-                      delegate:(id<DOULoginDelegate>)delegate;
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password
+                 delegate:(id<DOULoginDelegate>)delegate;
 
 - (NSError *)executeRefreshToken;
 

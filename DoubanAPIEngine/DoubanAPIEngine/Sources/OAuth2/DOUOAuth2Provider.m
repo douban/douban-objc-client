@@ -9,11 +9,11 @@
 #import "DOUOAuth2Provider.h"
 #import "DOUOAuth2.h"
 #import "DOUFormDataRequest.h"
+#import "SBJson.h"
 
 
 @implementation DOUOAuth2Provider
 
-static NSUInteger kErrorCodeAccessTokenHasExpired = 106;
 
 static NSString *kConsumerKey = @"ConsumerKey";
 static NSString *kDelegateKey = @"DelegateKey";
@@ -47,44 +47,12 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (void)accessTokenWithConsumer:(DOUOAuth2Consumer *)consumer 
-                        request:(DOUFormDataRequest *)request {
-  
-  NSLog(@"auth %@", [request url]);
-  [request startSynchronous];
-   
-  NSError *error = [request error];
-  if (!error) {
-    if ([request responseStatusCode] == kErrorCodeAccessTokenHasExpired) {
-      [self accessTokenByRefresh:consumer];
-    }
-    
-    NSString* responseStr = [request responseString];
-    NSLog(@"response: %@", responseStr);
-    [consumer updateWithHTTPResponse:responseStr];
-    [consumer save];
-  }
-}
-
-
 #pragma mark - Auth2 actions
 
-- (NSError *)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
-                          username:(NSString *)username 
-                          password:(NSString *)password {
-  DOUFormDataRequest *req = [self auth2Request:consumer];
-  [req setPostValue:username forKey:kUsernameKey];
-  [req setPostValue:password forKey:kPasswordKey];
-  [self accessTokenWithConsumer:consumer request:req];
-  NSError *error = [req error];
-  return error;
-} 
-
-
-- (void)asyncAccessTokenByPassword:(DOUOAuth2Consumer *)consumer 
-                          username:(NSString *)username 
-                          password:(NSString *)password 
-                          delegate:(id<DOULoginDelegate>)delegate {
+- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+                     username:(NSString *)username 
+                     password:(NSString *)password 
+                     delegate:(id<DOULoginDelegate>)delegate {
   DOUFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
   [req setPostValue:password forKey:kPasswordKey];
@@ -97,13 +65,38 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
+- (void)requestFailed:(ASIHTTPRequest *)request {
+  NSInteger errorCode = kOAuthErrorUnknown;
+  
+  NSString *responseStr = [request responseString];
+  NSLog(@"login failed response: %@", responseStr);
+
+  if (responseStr) {
+    NSDictionary *dic = [responseStr JSONValue];
+    errorCode = [[dic objectForKey:@"code"] integerValue];    
+  }
+  
+  id delegate = [[request userInfo] objectForKey:kDelegateKey];
+  if ([delegate respondsToSelector:@selector(loginFailed:)]){
+    [delegate loginFailed:errorCode];
+  }
+}
+
+
 - (void)requestFinished:(ASIHTTPRequest *)request {
   NSError *error = [request error];
   if (!error) {
     
+    int code = [request responseStatusCode];
+    if (code == 400) {
+      // error
+      [self requestFailed:request];
+      return ;
+    }
+    
     DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[request userInfo] objectForKey:kConsumerKey];    
     NSString* responseStr = [request responseString];
-    NSLog(@"response: %@", responseStr);
+    NSLog(@"login success response: %@", responseStr);
     [consumer updateWithHTTPResponse:responseStr];
     [consumer save];
     
@@ -115,17 +108,6 @@ static NSString *kDelegateKey = @"DelegateKey";
   
 }
 
-
-- (void)requestFailed:(ASIHTTPRequest *)request {
-  NSError *error = [request error];
-  NSLog(@"error: %@", error);
-  id delegate = [[request userInfo] objectForKey:kDelegateKey];
-  if ([delegate respondsToSelector:@selector(loginFinished)]){
-    [delegate loginFailed];
-  }
-}
-
-
  
 - (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer {
   DOUFormDataRequest *req = [DOUFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
@@ -134,10 +116,17 @@ static NSString *kDelegateKey = @"DelegateKey";
   [req setPostValue:consumer.secret forKey:kClientSecretKey];
   [req setPostValue:kGrantTypeRefreshToken forKey:kGrantTypeKey];
   [req setPostValue:consumer.refreshToken forKey:kRefreshTokenKey];
-
   [req setStringEncoding:NSUTF8StringEncoding];
-  [self accessTokenWithConsumer:consumer request:req];
+  [req startSynchronous];
+  
   NSError *error = [req error];
+  if (!error) {
+    NSString* responseStr = [req responseString];
+    NSLog(@"response: %@", responseStr);
+    [consumer updateWithHTTPResponse:responseStr];
+    [consumer save];
+  }
+  
   return error;
 }
 
@@ -149,12 +138,10 @@ static NSString *kDelegateKey = @"DelegateKey";
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];
   [req setPostValue:consumer.redirectURL forKey:kRedirectURIKey];
-  
   [req setPostValue:kGrantTypeAuthorizationCode forKey:kGrantTypeKey];  
   [req setPostValue:authorizationCode forKey:kOAuth2ResponseTypeCode];
   
   [req setStringEncoding:NSUTF8StringEncoding];
-  [self accessTokenWithConsumer:consumer andRequest:req];
 }
 */
 

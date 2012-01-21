@@ -34,7 +34,6 @@ typedef enum _DOUNetworkErrorType {
 	DOUTooMuchRedirectionErrorType = 9,
 	DOUUnhandledExceptionError = 10,
 	DOUCompressionError = 11
-	
 } DOUNetworkErrorType;
 
 
@@ -60,6 +59,7 @@ typedef void (^DOUBasicBlock)(void);
 #endif
 
 + (NSError *)adapterError:(NSError *)asiError;
+
 - (NSError *)doubanError;
 
 @end
