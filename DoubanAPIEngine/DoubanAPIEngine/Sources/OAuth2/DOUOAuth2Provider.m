@@ -88,22 +88,22 @@ static NSString *kDelegateKey = @"DelegateKey";
   if (!error) {
     
     int code = [request responseStatusCode];
-    if (code == 400) {
-      // error
-      [self requestFailed:request];
+    if (code == 201 || code == 200) {
+      // success
+      DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[request userInfo] objectForKey:kConsumerKey];    
+      NSString* responseStr = [request responseString];
+      NSLog(@"login success response: %@", responseStr);
+      [consumer updateWithHTTPResponse:responseStr];
+      [consumer save];
+      
+      id delegate = [[request userInfo] objectForKey:kDelegateKey];
+      if ([delegate respondsToSelector:@selector(loginFinished)]){
+        [delegate loginFinished];
+      }
       return ;
     }
     
-    DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[request userInfo] objectForKey:kConsumerKey];    
-    NSString* responseStr = [request responseString];
-    NSLog(@"login success response: %@", responseStr);
-    [consumer updateWithHTTPResponse:responseStr];
-    [consumer save];
-    
-    id delegate = [[request userInfo] objectForKey:kDelegateKey];
-    if ([delegate respondsToSelector:@selector(loginFinished)]){
-      [delegate loginFinished];
-    }
+    [self requestFailed:request];
   }
   
 }
