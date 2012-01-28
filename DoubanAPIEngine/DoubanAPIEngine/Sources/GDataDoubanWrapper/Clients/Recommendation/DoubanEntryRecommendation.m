@@ -9,7 +9,7 @@
 #import "DoubanEntryRecommendation.h"
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
-#import "GDateEntryBase+Extension.h"
+#import "GDataEntryBase+Extension.h"
 
 
 @implementation DoubanEntryRecommendation

@@ -20,4 +20,7 @@
 #import "DoubanTag.h"
 #import "DoubanUID.h"
 #import "DoubanSignature.h"
+
 #import "GeorssPoint.h"
+#import "GDataAtomAuthor+Extension.h"
+#import "GDataEntryBase+Extension.h"

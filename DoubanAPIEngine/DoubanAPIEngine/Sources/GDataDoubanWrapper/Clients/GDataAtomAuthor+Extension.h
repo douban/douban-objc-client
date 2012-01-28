@@ -1,5 +1,5 @@
 //
-//  GDataAtomAuthor+Exentsion.h
+//  GDataAtomAuthor+Extension.h
 //  DoubanAPIEngine
 //
 //  Created by Lin GUO on 1/26/12.
@@ -10,7 +10,7 @@
 #import "GDataBaseElements.h"
 
 @class GDataLink;
-@interface GDataAtomAuthor (Exentsion)
+@interface GDataAtomAuthor (Extension)
 
 - (GDataLink *)linkWithRelAttributeValue:(NSString *)rel;
 

@@ -20,6 +20,7 @@
 //
 
 #import "GDataBaseElements.h"
+#import "GDataLink.h"
 
 #pragma mark gd
 
@@ -83,6 +84,17 @@
 + (NSString *)extensionElementURI       { return kGDataNamespaceAtom; }
 + (NSString *)extensionElementPrefix    { return kGDataNamespaceAtomPrefix; }
 + (NSString *)extensionElementLocalName { return @"author"; }
+
+
+- (void)addExtensionDeclarations {
+  
+  [super addExtensionDeclarations];
+  
+  [self addExtensionDeclarationForParentClass:[self class]
+                                 childClasses:[GDataLink class],
+   nil];
+}
+
 @end
 
 @implementation GDataAtomContributor

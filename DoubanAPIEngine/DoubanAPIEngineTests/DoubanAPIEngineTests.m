@@ -67,27 +67,6 @@ static NSString * const kPasswordStr = @"yourpassword";
 
 
 - (void)testDOUOAuth2Service {
-
-  DOUService *service = [DOUService sharedInstance];
-
-  [service loginWithUsername:kUsernameStr password:kPasswordStr];  
-
-  NSLog(@"key: %@", service.consumer.key);
-  NSLog(@"secret: %@", service.consumer.secret);
-  NSLog(@"token: %@", service.consumer.accessToken);
-  NSLog(@"refresh token: %@", service.consumer.refreshToken);
-  NSLog(@"expiry: %@", service.consumer.expiresIn);
-
-  DOUQuery *query = [[self class] queryBookWithId:6861929];
-  NSURL *url = [query requestURL];
-  DOUHttpRequest *req = [DOUHttpRequest requestWithURL:url];
-  [service.consumer sign:req];
-  
-  [req startSynchronous];
-  if (![req error]) {
-    DoubanEntrySubject *book = [[DoubanEntrySubject alloc] initWithData:[req responseData]];
-    STAssertNotNil(book, @"book is not nil");
-  }
   
 }
 

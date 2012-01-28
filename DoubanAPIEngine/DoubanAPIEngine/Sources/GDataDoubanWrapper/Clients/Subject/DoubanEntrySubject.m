@@ -12,7 +12,7 @@
 #import "DoubanEntrySubject.h"
 #import "DoubanDefines.h"
 
-#import "GDateEntryBase+Extension.h"
+#import "GDataEntryBase+Extension.h"
 #import "GDataRating.h"
 
 

@@ -11,7 +11,7 @@
 #import "DoubanAttribute.h"
 #import "DoubanUID.h"
 
-#import "GDateEntryBase+Extension.h"
+#import "GDataEntryBase+Extension.h"
 
 
 @implementation DoubanEntryCity

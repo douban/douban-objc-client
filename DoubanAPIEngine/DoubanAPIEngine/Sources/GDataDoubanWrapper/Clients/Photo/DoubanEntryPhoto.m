@@ -12,7 +12,7 @@
 #import "DoubanAttribute.h"
 #import "DoubanDefines.h"
 
-#import "GDateEntryBase+Extension.h"
+#import "GDataEntryBase+Extension.h"
 
 
 @implementation DoubanEntryPhoto

@@ -16,7 +16,7 @@
 #import "DoubanLocation.h"
 #import "GeorssPoint.h"
 
-#import "GDateEntryBase+Extension.h"
+#import "GDataEntryBase+Extension.h"
 
 
 @implementation DoubanEntryEvent

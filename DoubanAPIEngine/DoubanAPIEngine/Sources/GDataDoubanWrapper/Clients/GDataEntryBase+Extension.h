@@ -1,5 +1,5 @@
 //
-// GDateEntryBase+Extension.h
+// GDataEntryBase+Extension.h
 //  DoubanAPIEngine
 //
 //  Created by Lin GUO on 1/16/12.

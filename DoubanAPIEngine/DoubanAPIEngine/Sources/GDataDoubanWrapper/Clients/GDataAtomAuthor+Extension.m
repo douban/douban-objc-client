@@ -1,31 +1,22 @@
 //
-//  GDataAtomAuthor+Exentsion.m
+//  GDataAtomAuthor+Extension.m
 //  DoubanAPIEngine
 //
 //  Created by Lin GUO on 1/26/12.
 //  Copyright (c) 2012 Douban Inc. All rights reserved.
 //
 
-#import "GDataAtomAuthor+Exentsion.h"
+#import "GDataAtomAuthor+Extension.h"
 #import "GDataLink.h"
 
 
-@implementation GDataAtomAuthor (Exentsion)
+@implementation GDataAtomAuthor (Extension)
 
 
 - (NSArray *)links {
-  NSArray *links = [self objectForExtensionClass:[GDataAtomAuthor class]];
+  NSArray *links = [self objectsForExtensionClass:[GDataLink class]];
   return links;
 }
-
-
-- (GDataLink *)linkWithRelAttributeValue:(NSString *)rel
-                                    type:(NSString *)type {
-  return [GDataLink linkWithRel:rel
-                           type:type
-                      fromLinks:[self links]];
-}
-
 
 - (GDataLink *)linkWithRelAttributeValue:(NSString *)rel {
   
