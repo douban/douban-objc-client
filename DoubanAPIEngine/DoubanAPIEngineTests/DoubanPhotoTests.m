@@ -44,18 +44,18 @@
   
   NSData *data = [NSData dataWithContentsOfFile:filePath];
   DoubanEntryPhoto *photo =  [[DoubanEntryPhoto alloc] initWithData:data];
-  STAssertTrue([[[photo title] stringValue] isEqualToString:@"照片"]  , @"title");
-  STAssertTrue([[photo identifier] isEqualToString:@"http://api.douban.com/photo/1259201045"], @"identifier");
-  STAssertTrue([[[photo publishedDate] stringValue] isEqualToString:@"2011-10-17T11:55:31+08:00"], @"published");
-  STAssertTrue([[[photo author] name] isEqualToString:@"公路"], @"author");
-  STAssertTrue([photo commentsCount] == 0, @"comment count");
-  STAssertTrue([photo recsCount] == 0, @"recs count");
-  STAssertTrue([photo position] == 0, @"position");
+  STAssertTrue([[photo.title stringValue] isEqualToString:@"照片"]  , @"title");
+  STAssertTrue([photo.identifier isEqualToString:@"http://api.douban.com/photo/1259201045"], @"identifier");
+  STAssertTrue([[photo.publishedDate stringValue] isEqualToString:@"2011-10-17T11:55:31+08:00"], @"published");
+  STAssertTrue([photo.author.name isEqualToString:@"公路"], @"author");
+  STAssertTrue(photo.commentsCount == 12, @"comment count");
+  STAssertTrue(photo.recsCount == 1, @"recs count");
+  STAssertTrue(photo.position == 20, @"position");
 
-  STAssertTrue([photo nextPhotoId] == 1259196350, @"nextPhotoId");  
-  STAssertTrue([photo prevPhotoId] == 1259193512, @"prevPhotoId");  
-  STAssertTrue([photo albumId] == 58416320, @"albumId"); 
-  STAssertTrue([[photo albumTitle] isEqualToString:@"活动照片"], @"album Title");  
+  STAssertTrue(photo.nextPhotoId == 1259196350, @"nextPhotoId");  
+  STAssertTrue(photo.prevPhotoId == 1259193512, @"prevPhotoId");  
+  STAssertTrue(photo.albumId == 58416320, @"albumId"); 
+  STAssertTrue([photo.albumTitle isEqualToString:@"活动照片"], @"album Title");  
 }
 
 

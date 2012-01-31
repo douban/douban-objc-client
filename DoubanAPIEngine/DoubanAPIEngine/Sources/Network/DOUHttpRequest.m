@@ -43,6 +43,16 @@ NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
 }
 
 #if NS_BLOCKS_AVAILABLE
+
++ (DOUHttpRequest *)requestWithURL:(NSURL *)URL 
+                   completionBlock:(DOUBasicBlock)completionHandler {
+  DOUHttpRequest *req = [[self class] requestWithURL:URL];
+  [req setCompletionBlock:completionHandler];
+  [req setFailedBlock:completionHandler];
+  return req;
+}
+
+
 + (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
                      completionBlock:(DOUBasicBlock)completionHandler {
   DOUHttpRequest *req = [[self class] requestWithURL:[query requestURL]];

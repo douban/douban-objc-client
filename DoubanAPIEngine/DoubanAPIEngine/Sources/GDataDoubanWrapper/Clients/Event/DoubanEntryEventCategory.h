@@ -30,4 +30,6 @@ _EXTERN NSString* const kDoubanEventCategoriesDefaultServiceVersion _INITIALIZE_
 
 - (void)setEventCateogryName:(NSString *)content;
 
+- (NSString *)suggestCoverImage;
+
 @end

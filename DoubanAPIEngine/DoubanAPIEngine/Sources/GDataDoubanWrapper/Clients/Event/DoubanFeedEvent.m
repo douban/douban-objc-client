@@ -6,7 +6,7 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-#define DOUBANEVENT_DEFINE_GLOBALS 1
+#define DOUBANENTRYEVENT_DEFINE_GLOBALS 1
 
 #import "DoubanFeedEvent.h"
 #import "DoubanEntryEvent.h"

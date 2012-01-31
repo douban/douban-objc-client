@@ -54,6 +54,9 @@ typedef void (^DOUBasicBlock)(void);
 + (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
 
 #if NS_BLOCKS_AVAILABLE
++ (DOUHttpRequest *)requestWithURL:(NSURL *)URL 
+                     completionBlock:(DOUBasicBlock)completionHandler;
+
 + (DOUHttpRequest *)requestWithQuery:(DOUQuery *)query 
                      completionBlock:(DOUBasicBlock)completionHandler;
 #endif

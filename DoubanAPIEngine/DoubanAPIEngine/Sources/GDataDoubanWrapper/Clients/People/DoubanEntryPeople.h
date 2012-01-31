@@ -28,20 +28,11 @@ _EXTERN NSString* const kDoubanPeoplesDefaultServiceVersion _INITIALIZE_AS(@"2.0
 
 @interface DoubanEntryPeople : GDataEntryBase
 
-- (DoubanLocation *)location;
+@property (nonatomic, readonly) DoubanLocation  *location;
+@property (nonatomic, readonly) DoubanUID       *uid;
+@property (nonatomic, readonly) DoubanSignature *signature;
+@property (nonatomic, readonly) GDataLink       *iconLink;
+@property (nonatomic, readonly) GDataLink       *homePage;
 
-- (void)setLocation:(DoubanLocation*)obj;
-
-- (DoubanUID *)uid;
-
-- (void)setUid:(DoubanUID*)obj;
-
-- (DoubanSignature *)signature;
-
-- (void)setSignature:(DoubanSignature *)signature;
-
-- (GDataLink *)imageLink;
-
-- (GDataLink *)homepage;
 
 @end

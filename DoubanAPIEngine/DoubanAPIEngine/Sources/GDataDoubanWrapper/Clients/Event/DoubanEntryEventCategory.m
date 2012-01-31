@@ -36,14 +36,6 @@
 
 #pragma mark - Extensions
 
-- (void)setEventCount:(NSInteger)eventCount {
-  DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
-  [attr setName:@"event_count"];
-  [attr setContent:[NSString stringWithFormat:@"%d", eventCount]];
-  [self setObject:attr forExtensionClass:[DoubanAttribute class]];
-}
-
-
 - (NSInteger)eventCount {
 	DoubanAttribute *attr = [self attributeForName:@"event_count"];
 	if (attr) {
@@ -67,6 +59,15 @@
   [attr setName:@"cname"];
   [attr setContent:content];
   [self setObject:attr forExtensionClass:[DoubanAttribute class]];
+}
+
+
+- (NSString *)suggestCoverImage {
+  DoubanAttribute *attr = [self attributeForName:@"suggest_event_cover"];
+	if (attr) {
+		return [attr content];
+	}
+  return nil;
 }
 
 

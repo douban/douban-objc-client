@@ -15,7 +15,7 @@
 #undef _EXTERN
 #undef _INITIALIZE_AS
 
-#ifdef DOUBANEVENT_DEFINE_GLOBALS
+#ifdef DOUBANEVENTS_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else

@@ -15,6 +15,12 @@
 
 @implementation DoubanEntryPeople
 
+@dynamic location;
+@dynamic uid;
+@dynamic signature;
+@dynamic iconLink;
+@dynamic homePage;
+
 
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryPeople;
@@ -43,18 +49,8 @@
 }
 
 
-- (void)setLocation:(DoubanLocation *)obj {
-	[self setObject:obj forExtensionClass:[DoubanLocation class]];
-}
-
-
 - (DoubanUID *)uid {
 	return [self objectForExtensionClass:[DoubanUID class]];
-}
-
-
-- (void)setUid:(DoubanUID *)obj{
-	[self setObject:obj forExtensionClass:[DoubanUID class]];
 }
 
 
@@ -63,17 +59,12 @@
 }
 
 
-- (void)setSignature:(DoubanSignature *)obj {
-	[self setObject:obj forExtensionClass:[DoubanSignature class]];
-}
-
-
-- (GDataLink *)imageLink {
+- (GDataLink *)iconLink {
 	return [self linkWithRelAttributeValue:@"icon"];
 }
 
 
-- (GDataLink *)homepage {
+- (GDataLink *)homePage {
 	return [self linkWithRelAttributeValue:@"homepage"];
 }
 

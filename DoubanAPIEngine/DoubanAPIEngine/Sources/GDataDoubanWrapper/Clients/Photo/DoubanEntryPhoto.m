@@ -17,6 +17,20 @@
 
 @implementation DoubanEntryPhoto
 
+@dynamic author;
+@dynamic imageLink;
+@dynamic thumbLink;
+@dynamic iconLink;
+@dynamic albumCoverLink;
+
+@dynamic commentsCount;
+@dynamic recsCount;
+@dynamic position;
+@dynamic nextPhotoId;
+@dynamic prevPhotoId;
+@dynamic albumId;
+@dynamic albumTitle;
+
 
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryPhoto;
