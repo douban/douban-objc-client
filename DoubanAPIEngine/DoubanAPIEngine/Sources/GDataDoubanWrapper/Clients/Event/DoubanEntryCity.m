@@ -61,9 +61,12 @@
 }
 
 
-- (DoubanUID *)uid {
+- (NSString *)uid {
   DoubanUID* uid = (DoubanUID *)[self objectForExtensionClass:[DoubanUID class]];
-  return uid;
+  if (uid) {
+    return [uid content];
+  }
+  return nil;
 }
 
 

@@ -25,8 +25,8 @@ _EXTERN NSString* const kDoubanCityDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 @class DoubanUID;
 @interface DoubanEntryCity : GDataEntryBase
 
-@property (nonatomic, copy) NSString *name;
-@property (nonatomic, copy) NSString *uid;
-@property (nonatomic, readonly) BOOL isHabitable;
+@property (nonatomic, copy) NSString  *name;
+@property (nonatomic, copy) NSString  *uid;
+@property (nonatomic, readonly) BOOL  isHabitable;
 
 @end

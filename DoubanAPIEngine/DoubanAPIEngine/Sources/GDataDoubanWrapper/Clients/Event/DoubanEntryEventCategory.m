@@ -61,7 +61,7 @@
 }
 
 
-- (void)name:(NSString *)content {
+- (void)setName:(NSString *)content {
   DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
   [attr setName:@"cname"];
   [attr setContent:content];
