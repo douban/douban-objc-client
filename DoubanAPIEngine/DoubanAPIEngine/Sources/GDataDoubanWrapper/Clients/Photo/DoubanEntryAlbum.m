@@ -26,6 +26,8 @@
 @dynamic size;
 @dynamic privacy;
 @dynamic recsCount;
+@dynamic likedCount;
+@dynamic albumId;
 
 
 + (NSString *)standardEntryKind {
@@ -98,6 +100,7 @@
 	return 0;
 }
 
+
 - (NSInteger)likedCount {
   DoubanAttribute *attr = [self attributeForName:@"liked_count"];
 	if(attr){
@@ -105,6 +108,7 @@
   }
 	return 0;
 }
+
 
 - (NSInteger)albumId{
   return [[[self identifier] lastPathComponent] integerValue];
