@@ -11,7 +11,7 @@
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
-#ifdef DOUBANPHOTOS_DEFINE_GLOBALS
+#ifdef DOUBANENTRYPHOTO_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -22,7 +22,9 @@
 _EXTERN NSString* const kDoubanPhotosDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
 
-@interface DoubanEntryPhoto : GDataEntryBase
+@interface DoubanEntryPhoto : GDataEntryBase {
+
+}
 
 @property (nonatomic, readonly) GDataAtomAuthor *author;
 @property (nonatomic, readonly) GDataLink       *imageLink;

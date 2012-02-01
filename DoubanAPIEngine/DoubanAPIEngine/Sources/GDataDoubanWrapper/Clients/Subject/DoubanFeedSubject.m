@@ -6,11 +6,7 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-
-#define DOUBANSUBJECT_DEFINE_GLOBALS 1
-
 #import "DoubanFeedSubject.h"
-#import "DoubanEntrySubject.h"
 
 @implementation DoubanFeedSubject
 

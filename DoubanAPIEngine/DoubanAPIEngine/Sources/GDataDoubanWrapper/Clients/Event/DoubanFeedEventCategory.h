@@ -7,6 +7,7 @@
 //
 
 #import "GDataFeedBase.h"
+#import "DoubanEntryEventCategory.h"
 
 @interface DoubanFeedEventCategory : GDataFeedBase
 

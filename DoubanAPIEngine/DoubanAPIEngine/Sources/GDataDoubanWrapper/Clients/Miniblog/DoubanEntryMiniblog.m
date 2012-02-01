@@ -6,6 +6,8 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
+#define DOUBANENTRYMINIBLOG_DEFINE_GLOBALS 1
+
 #import "DoubanEntryMiniblog.h"
 #import "DoubanDefines.h"
 
@@ -34,9 +36,21 @@ static NSString * const kMiniblogPlazaCategoryTerm = @"http://www.douban.com/200
 static NSString * const kMiniblogSignatureCategoryTerm = @"http://www.douban.com/2007#miniblog.signature";
 
 
+@dynamic miniblogCategory;
+
 
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryMiniblog;
+}
+
+
+- (void)addExtensionDeclarations {
+	[super addExtensionDeclarations];
+}
+
+
++ (NSString *)defaultServiceVersion {
+	return kDoubanMiniblogsDefaultServiceVersion;
 }
 
 

@@ -6,10 +6,8 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#define DOUBANENTRYPEOPLE_DEFINE_GLOBALS 1
-
 #import "DoubanFeedPeople.h"
-#import "DoubanEntryPeople.h"
+
 
 @implementation DoubanFeedPeople
 

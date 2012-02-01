@@ -100,10 +100,10 @@
     }
   }
 
-  STAssertTrue([[[subject rating] average] floatValue]== 4.00, @"rating average");
-  STAssertTrue([[[subject rating] max] integerValue] == 5, @"rating average");
-  STAssertTrue([[[subject rating] min] integerValue] == 1, @"rating average");
-  STAssertTrue([[[subject rating] numberOfRaters] integerValue] == 12, @"rating average");
+  STAssertTrue([[subject.rating average] floatValue]== 4.00, @"rating average");
+  STAssertTrue([[subject.rating max] integerValue] == 5, @"rating average");
+  STAssertTrue([[subject.rating min] integerValue] == 1, @"rating average");
+  STAssertTrue([[subject.rating numberOfRaters] integerValue] == 12, @"rating average");
 }
 
 

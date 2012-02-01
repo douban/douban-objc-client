@@ -6,7 +6,7 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-#define DOUBANPHOTOS_DEFINE_GLOBALS 1
+#define DOUBANENTRYPHOTO_DEFINE_GLOBALS 1
 
 #import "DoubanEntryPhoto.h"
 #import "DoubanAttribute.h"

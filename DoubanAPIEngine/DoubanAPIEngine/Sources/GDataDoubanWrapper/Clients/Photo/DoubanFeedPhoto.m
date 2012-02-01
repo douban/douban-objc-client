@@ -6,10 +6,9 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-#define DOUBANENTRYPHOTO_DEFINE_GLOBALS 1
 
 #import "DoubanFeedPhoto.h"
-#import "DoubanEntryPhoto.h"
+
 
 @implementation DoubanFeedPhoto
 

@@ -6,9 +6,7 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#define DOUBANMINIBLOG_DEFINE_GLOBALS 1
 #import "DoubanFeedMiniblog.h"
-#import "DoubanEntryMiniblog.h"
 
 
 @implementation DoubanFeedMiniblog

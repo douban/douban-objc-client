@@ -6,11 +6,7 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-
-#define DOUBANEVENTCATEGORY_DEFINE_GLOBALS 1
-
 #import "DoubanFeedEventCategory.h"
-#import "DoubanEntryEventCategory.h"
 
 
 @implementation DoubanFeedEventCategory

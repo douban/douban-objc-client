@@ -6,10 +6,8 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#define DOUBANCITY_DEFINE_GLOBALS 1
-
 #import "DoubanFeedCity.h"
-#import "DoubanEntryCity.h"
+
 
 @implementation DoubanFeedCity
 

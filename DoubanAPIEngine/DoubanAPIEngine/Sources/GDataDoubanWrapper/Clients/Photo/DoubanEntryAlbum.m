@@ -6,7 +6,7 @@
 //  Copyright (c) 2012 Douban Inc. All rights reserved.
 //
 
-#define DOUBANALBUMS_DEFINE_GLOBALS 1
+#define DOUBANENTRYALBUM_DEFINE_GLOBALS 1
 
 #import "DoubanEntryAlbum.h"
 #import "DoubanAttribute.h"

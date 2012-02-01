@@ -6,13 +6,20 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
+#define DOUBANEVENTCATEGORY_DEFINE_GLOBALS 1
+
 #import "DoubanEntryEventCategory.h"
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
 
 #import "GDataEntryBase+Extension.h"
 
+
 @implementation DoubanEntryEventCategory
+
+@dynamic eventsCount;
+@dynamic name;
+@dynamic coverLink;
 
 
 + (NSString *)standardEntryKind {
@@ -36,7 +43,7 @@
 
 #pragma mark - Extensions
 
-- (NSInteger)eventCount {
+- (NSInteger)eventsCount {
 	DoubanAttribute *attr = [self attributeForName:@"event_count"];
 	if (attr) {
 		return [[attr content] integerValue];
@@ -45,7 +52,7 @@
 }
 
 
-- (NSString*)eventCateogryName {
+- (NSString *)name {
   DoubanAttribute *attr = [self attributeForName:@"cname"];
 	if (attr) {
 		return [attr content];
@@ -54,7 +61,7 @@
 }
 
 
-- (void)setEventCateogryName:(NSString *)content {
+- (void)name:(NSString *)content {
   DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
   [attr setName:@"cname"];
   [attr setContent:content];
@@ -62,12 +69,8 @@
 }
 
 
-- (NSString *)suggestCoverImage {
-  DoubanAttribute *attr = [self attributeForName:@"suggest_event_cover"];
-	if (attr) {
-		return [attr content];
-	}
-  return nil;
+- (GDataLink *)coverLink {
+	return [self linkWithRelAttributeValue:@"suggest_cover"];
 }
 
 

@@ -6,8 +6,8 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "GDataFeedBase.h"
+#import "DoubanEntrySubject.h"
 
 @interface DoubanFeedSubject : GDataFeedBase
 

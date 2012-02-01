@@ -7,6 +7,7 @@
 //
 
 #import "GDataFeedBase.h"
+#import "DoubanEntryCity.h"
 
 @interface DoubanFeedCity : GDataFeedBase
 

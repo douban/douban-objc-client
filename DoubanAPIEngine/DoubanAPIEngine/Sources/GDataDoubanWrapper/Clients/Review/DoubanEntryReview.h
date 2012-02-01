@@ -14,7 +14,7 @@
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
-#ifdef DOUBANREVIEWS_DEFINE_GLOBALS
+#ifdef DOUBANENTRYREVIEW_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -26,8 +26,6 @@ _EXTERN NSString* const kDoubanReviewsDefaultServiceVersion _INITIALIZE_AS(@"2.0
 
 @interface DoubanEntryReview : GDataEntryBase
 
-- (GDataRating *)rating;
-
-- (void)setRating:(GDataRating *)obj;
+@property (nonatomic, retain) GDataRating *rating;
 
 @end

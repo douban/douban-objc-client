@@ -6,6 +6,8 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
+#define DOUBANENTRYCITY_DEFINE_GLOBALS 1
+
 #import "DoubanEntryCity.h"
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
@@ -15,6 +17,10 @@
 
 
 @implementation DoubanEntryCity
+
+@dynamic name;
+@dynamic uid;
+@dynamic isHabitable;
 
 
 + (NSString *)standardEntryKind {

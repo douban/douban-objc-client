@@ -15,7 +15,7 @@
 #undef _EXTERN
 #undef _INITIALIZE_AS
 
-#ifdef DOUBANEVENTS_DEFINE_GLOBALS
+#ifdef DOUBANENTRYEVENT_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -33,36 +33,19 @@ extern NSString * const kWishedStr;
 @class DoubanLocation;
 @interface DoubanEntryEvent : GDataEntryBase
 
+@property (nonatomic, readonly) GDataWhere *where;
+@property (nonatomic, readonly) GDataWhen  *when;
+@property (nonatomic, readonly) DoubanLocation *location;
+@property (nonatomic, readonly) DoubanEntryEventCategory *eventCategory;
+@property (nonatomic, readonly) GDataLink   *imageLink;
+@property (nonatomic, readonly) NSInteger   albumId;
 
-- (GDataWhere *)where;
+@property (nonatomic, readonly) NSInteger   participantsCount;
+@property (nonatomic, readonly) NSInteger   wishersCount;
+@property (nonatomic, copy)     NSString    *status;
 
-- (void)setWhere:(GDataWhere *)obj;
+@property (nonatomic, readonly) float       geoLatitude;
+@property (nonatomic, readonly) float       geoLongitude;
 
-- (GDataWhen *)when;
-
-- (void)setWhen:(GDataWhen *)obj;
-
-- (DoubanLocation *)location;
-
-- (void)setLocation:(DoubanLocation*)obj;
-
-
-- (DoubanEntryEventCategory *)eventCategory;
-
-- (GDataLink *)imageLink;
-
-- (NSUInteger)albumId;
-
-- (NSInteger)participantsCount;
-
-- (NSInteger)wishersCount;
-
-- (NSString *)status;
-
-- (void)setStatus:(NSString *)content;
-
-- (float)geoLatitude;
-
-- (float)geoLongitude;
 
 @end

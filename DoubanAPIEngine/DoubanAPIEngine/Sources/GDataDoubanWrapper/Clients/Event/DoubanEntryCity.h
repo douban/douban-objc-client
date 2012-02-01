@@ -11,7 +11,7 @@
 #undef _EXTERN
 #undef _INITIALIZE_AS
 
-#ifdef DOUBANCITY_DEFINE_GLOBALS
+#ifdef DOUBANENTRYCITY_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -21,17 +21,12 @@
 
 _EXTERN NSString* const kDoubanCityDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
+
 @class DoubanUID;
 @interface DoubanEntryCity : GDataEntryBase
 
-- (void)setName:(NSString *)theName;
-
-- (NSString *)name;
-
-- (DoubanUID *)uid;
-
-- (void)setUid:(NSString *)theUid;
-
-- (BOOL)isHabitable;
+@property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *uid;
+@property (nonatomic, readonly) BOOL isHabitable;
 
 @end

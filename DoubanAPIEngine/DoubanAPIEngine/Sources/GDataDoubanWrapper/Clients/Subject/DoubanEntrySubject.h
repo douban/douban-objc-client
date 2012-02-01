@@ -18,7 +18,7 @@
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
-#ifdef DOUBANSUBJECT_DEFINE_GLOBALS
+#ifdef DOUBANENTRYSUBJECT_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -28,36 +28,20 @@
 
 _EXTERN NSString* const kDoubanSubjectsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
-_EXTERN NSString* const kDoubanBooksFeed  _INITIALIZE_AS(@"http://api.douban.com/book/subjects");
-_EXTERN NSString* const kDoubanChartBooksFeed  _INITIALIZE_AS(@"http://api.douban.com/book/chart");
-_EXTERN NSString* const kDoubanMoviesFeed _INITIALIZE_AS(@"http://api.douban.com/movie/subjects");
-_EXTERN NSString* const kDoubanMusicsFeed _INITIALIZE_AS(@"http://api.douban.com/music/subjects");
-
 
 @interface DoubanEntrySubject : GDataEntryBase
 
-- (GDataRating *)rating;
+@property (nonatomic, retain) GDataRating  *rating;
+@property (nonatomic, retain) NSArray      *tags;
 
-- (void)setRating:(GDataRating *)obj;
-
-- (NSArray *)tags;
-
-- (void)setTags:(NSArray *)tags;
+@property (nonatomic, readonly) GDataLink  *imageLink;
+@property (nonatomic, readonly) NSString   *publisher; 
+@property (nonatomic, readonly) NSString   *publishDate;
+@property (nonatomic, readonly) NSString   *isbn;
+@property (nonatomic, readonly) NSString   *price;
+@property (nonatomic, readonly) NSArray    *translators;
 
 - (void)addTag:(DoubanTag *)obj;
-
-- (GDataLink *)imageLink;
-
-- (NSString*)publisher;
-
-- (NSString*)publishDate;
-
-- (NSString*)isbn;
-
-- (NSString*)price;
-
-- (NSArray*)translators;
-
 
 @end
 

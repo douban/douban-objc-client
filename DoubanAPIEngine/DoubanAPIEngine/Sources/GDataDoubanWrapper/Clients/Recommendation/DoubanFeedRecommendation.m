@@ -6,10 +6,7 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#define DOUBANRECOMMENDATION_DEFINE_GLOBALS 1
 #import "DoubanFeedRecommendation.h"
-#import "DoubanEntryRecommendation.h"
-
 
 @implementation DoubanFeedRecommendation
 

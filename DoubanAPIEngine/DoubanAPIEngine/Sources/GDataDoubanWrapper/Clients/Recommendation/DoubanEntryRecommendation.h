@@ -14,7 +14,7 @@
 #undef _EXTERN
 #undef _INITIALIZE_AS
 
-#ifdef DOUBANRECOMMENDATION_DEFINE_GLOBALS
+#ifdef DOUBANENTRYRECOMMENDATION_DEFINE_GLOBALS
 
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
@@ -27,10 +27,8 @@ _EXTERN NSString* const kDoubanRecommendationsDefaultServiceVersion _INITIALIZE_
 
 @interface DoubanEntryRecommendation : GDataEntryBase
 
-- (NSString *)category;
-
-- (NSString *)comment;
-
-- (NSInteger)commentsCount;
+@property (nonatomic, readonly) NSString *category;
+@property (nonatomic, readonly) NSString *comment;
+@property (nonatomic, readonly) NSInteger commentsCount;
 
 @end

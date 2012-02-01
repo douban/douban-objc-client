@@ -7,12 +7,10 @@
 //
 
 
-#define DOUBANREVIEWS_DEFINE_GLOBALS 1
+#define DOUBANENTRYREVIEW_DEFINE_GLOBALS 1
 
 #import "GDataRating.h"
-
 #import "DoubanDefines.h"
-
 #import "DoubanEntryReview.h"
 
 

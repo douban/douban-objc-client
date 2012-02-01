@@ -7,7 +7,7 @@
 //
 
 
-#define DOUBANSUJECT_DEFINE_GLOBALS 1
+#define DOUBANENTRYSUBJECT_DEFINE_GLOBALS 1
 
 #import "DoubanEntrySubject.h"
 #import "DoubanDefines.h"
@@ -17,6 +17,15 @@
 
 
 @implementation DoubanEntrySubject
+
+@dynamic rating;
+@dynamic tags;
+@dynamic imageLink;
+@dynamic publisher;
+@dynamic publishDate;
+@dynamic isbn;
+@dynamic price;
+@dynamic translators;
 
 
 + (NSString *)standardEntryKind {

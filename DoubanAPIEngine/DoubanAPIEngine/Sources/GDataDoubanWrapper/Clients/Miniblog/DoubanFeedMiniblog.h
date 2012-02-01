@@ -7,7 +7,7 @@
 //
 
 #import "GDataFeedBase.h"
-
+#import "DoubanEntryMiniblog.h"
 
 @interface DoubanFeedMiniblog : GDataFeedBase
 

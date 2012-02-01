@@ -6,10 +6,8 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-#define DOUBANENTRYREVIEW_DEFINE_GLOBALS 1
-
 #import "DoubanFeedReview.h"
-#import "DoubanEntryReview.h"
+
 
 @implementation DoubanFeedReview
 

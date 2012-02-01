@@ -6,6 +6,8 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
+#define DOUBANENTRYRECOMMENDATION_DEFINE_GLOBALS 1
+
 #import "DoubanEntryRecommendation.h"
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
@@ -13,6 +15,10 @@
 
 
 @implementation DoubanEntryRecommendation
+
+@dynamic category;
+@dynamic comment;
+@dynamic commentsCount;
 
 
 + (NSString *)standardEntryKind {

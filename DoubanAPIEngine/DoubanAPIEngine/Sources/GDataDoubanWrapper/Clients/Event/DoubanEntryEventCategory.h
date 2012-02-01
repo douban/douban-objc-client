@@ -24,12 +24,8 @@ _EXTERN NSString* const kDoubanEventCategoriesDefaultServiceVersion _INITIALIZE_
 
 @interface DoubanEntryEventCategory : GDataEntryBase
 
-- (NSInteger)eventCount;
-
-- (NSString *)eventCateogryName;
-
-- (void)setEventCateogryName:(NSString *)content;
-
-- (NSString *)suggestCoverImage;
+@property (nonatomic, readonly) NSInteger eventsCount;
+@property (nonatomic, copy)     NSString  *name;
+@property (nonatomic, readonly) GDataLink *coverLink;
 
 @end

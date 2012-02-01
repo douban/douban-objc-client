@@ -14,7 +14,7 @@
 #undef _EXTERN
 #undef _INITIALIZE_AS
 
-#ifdef DOUBANMINIBLOG_DEFINE_GLOBALS
+#ifdef DOUBANENTRYMINIBLOG_DEFINE_GLOBALS
 #define _EXTERN
 #define _INITIALIZE_AS(x) =x
 #else
@@ -52,6 +52,6 @@ typedef enum {
 
 @interface DoubanEntryMiniblog : GDataEntryBase
 
-- (MiniblogCategory)miniblogCategory;
+@property (nonatomic, readonly) MiniblogCategory miniblogCategory;
 
 @end

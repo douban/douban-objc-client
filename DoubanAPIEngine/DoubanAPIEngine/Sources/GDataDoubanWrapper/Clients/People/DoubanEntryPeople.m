@@ -6,7 +6,7 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-#define DOUBANPEOPLES_DEFINE_GLOBALS 1
+#define DOUBANENTRYPEOPLE_DEFINE_GLOBALS 1
 
 #import "DoubanEntryPeople.h"
 

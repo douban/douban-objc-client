@@ -45,59 +45,59 @@
     
     for (DoubanEntryEventCategory *category in categories) {
       if ([[[category title] stringValue] isEqualToString:@"all"]) {
-        STAssertTrue([category eventCount] == 781, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"所有类型"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 781, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"所有类型"] , @"eventCateogryName");
       }
       
       if ([[[category title] stringValue] isEqualToString:@"drama"]) {
-        STAssertTrue([category eventCount] == 51, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"戏剧/曲艺"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 51, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"戏剧/曲艺"] , @"eventCateogryName");
        }
       
       if ([[[category title] stringValue] isEqualToString:@"music"]) {
-        STAssertTrue([category eventCount] == 105, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"音乐/演出"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 105, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"音乐/演出"] , @"eventCateogryName");
       }
 
       if ([[[category title] stringValue] isEqualToString:@"exhibition"]) {
-        STAssertTrue([category eventCount] == 100, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"展览"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 100, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"展览"] , @"eventCateogryName");
       }
 
       if ([[[category title] stringValue] isEqualToString:@"sports"]) {
-        STAssertTrue([category eventCount] == 46, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"体育"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 46, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"体育"] , @"eventCateogryName");
       }
 
       if ([[[category title] stringValue] isEqualToString:@"party"]) {
-        STAssertTrue([category eventCount] == 156, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"生活/聚会"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 156, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"生活/聚会"] , @"eventCateogryName");
       }
 
       if ([[[category title] stringValue] isEqualToString:@"commonweal"]) {
-        STAssertTrue([category eventCount] == 56, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"公益"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 56, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"公益"] , @"eventCateogryName");
       }
       
       if ([[[category title] stringValue] isEqualToString:@"travel"]) {
-        STAssertTrue([category eventCount] == 28, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"旅行"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 28, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"旅行"] , @"eventCateogryName");
       }
       
       
       if ([[[category title] stringValue] isEqualToString:@"film"]) {
-        STAssertTrue([category eventCount] == 37, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"电影"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 37, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"电影"] , @"eventCateogryName");
       }
 
       if ([[[category title] stringValue] isEqualToString:@"salon"]) {
-        STAssertTrue([category eventCount] == 132, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"讲座/沙龙"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 132, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"讲座/沙龙"] , @"eventCateogryName");
       }
       
       if ([[[category title] stringValue] isEqualToString:@"others"]) {
-        STAssertTrue([category eventCount] == 70, @"eventsCount");
-        STAssertTrue([[category eventCateogryName] isEqualToString:@"其他"] , @"eventCateogryName");
+        STAssertTrue([category eventsCount] == 70, @"eventsCount");
+        STAssertTrue([[category name] isEqualToString:@"其他"] , @"eventCateogryName");
       }
       
     }

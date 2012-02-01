@@ -6,8 +6,8 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-
 #import "GDataFeedBase.h"
+#import "DoubanEntryReview.h"
 
 @interface DoubanFeedReview : GDataFeedBase
 

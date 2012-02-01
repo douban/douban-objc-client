@@ -6,7 +6,7 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-#define DOUBANEVENTS_DEFINE_GLOBALS 1
+#define DOUBANENTRYEVENT_DEFINE_GLOBALS 1
 
 #import "DoubanEntryEvent.h"
 #import "DoubanEntryEventCategory.h"
@@ -63,6 +63,18 @@ static NSString * const kEventFilmCategoryName = @"电影";
 static NSString * const kEventSalonCategoryName = @"讲座/沙龙";
 static NSString * const kEventOthersCategoryName = @"其他";
 
+@dynamic when;
+@dynamic where;
+@dynamic location;
+@dynamic eventCategory;
+@dynamic imageLink;
+@dynamic albumId;
+@dynamic participantsCount;
+@dynamic wishersCount;
+@dynamic status;
+@dynamic geoLatitude;
+@dynamic geoLongitude;
+
 
 + (NSString *)standardEntryKind {
 	return kDoubanCategoryEvent;
@@ -94,28 +106,13 @@ static NSString * const kEventOthersCategoryName = @"其他";
 }
 
 
-- (void)setWhen:(GDataWhen *)obj {
-	[self setObject:obj forExtensionClass:[GDataWhen class]];
-}
-
-
 - (GDataWhere *)where {
 	return [self objectForExtensionClass:[GDataWhere class]];
 }
 
 
-- (void)setWhere:(GDataWhere *)obj {
-	[self setObject:obj forExtensionClass:[GDataWhere class]];
-}
-
-
 - (DoubanLocation *)location {
 	return [self objectForExtensionClass:[DoubanLocation class]];
-}
-
-
-- (void)setLocation:(DoubanLocation *)obj {
-	[self setObject:obj forExtensionClass:[DoubanLocation class]];
 }
 
 
@@ -132,50 +129,50 @@ static NSString * const kEventOthersCategoryName = @"其他";
   DoubanEntryEventCategory *eventCategory = [[[DoubanEntryEventCategory alloc] init] autorelease];
   if  ([categoryTerm isEqualToString:kEventDramaCategoryTerm]) {
     [eventCategory setTitleWithString:kEventDramaCategoryTitle];
-    [eventCategory setEventCateogryName:kEventDramaCategoryName];
+    [eventCategory setName:kEventDramaCategoryName];
   }
   else if ([categoryTerm isEqualToString:kEventMusicCategoryTerm]) {
     [eventCategory setTitleWithString:kEventMusicCategoryTitle];
-    [eventCategory setEventCateogryName:kEventMusicCategoryName];  
+    [eventCategory setName:kEventMusicCategoryName];  
   }
   else if ([categoryTerm isEqualToString:kEventExhibitionCategoryTerm]) {
     [eventCategory setTitleWithString:kEventExhibitionCategoryTitle];
-    [eventCategory setEventCateogryName:kEventExhibitionCategoryName];
+    [eventCategory setName:kEventExhibitionCategoryName];
   }
   else if ([categoryTerm isEqualToString:kEventSportsCategoryTerm]) {
     [eventCategory setTitleWithString:kEventSportsCategoryTitle];
-    [eventCategory setEventCateogryName:kEventSportsCategoryName];    
+    [eventCategory setName:kEventSportsCategoryName];    
   }
   else if ([categoryTerm isEqualToString:kEventPartyCategoryTerm]) {
     [eventCategory setTitleWithString:kEventPartyCategoryTitle];
-    [eventCategory setEventCateogryName:kEventPartyCategoryName];    
+    [eventCategory setName:kEventPartyCategoryName];    
   }
   else if ([categoryTerm isEqualToString:kEventCommonwealCategoryTerm]) {
     [eventCategory setTitleWithString:kEventCommonwealCategoryTitle];
-    [eventCategory setEventCateogryName:kEventCommonwealCategoryName];    
+    [eventCategory setName:kEventCommonwealCategoryName];    
   }
   else if ([categoryTerm isEqualToString:kEventTravelCategoryTerm]) {
     [eventCategory setTitleWithString:kEventTravelCategoryTitle];
-    [eventCategory setEventCateogryName:kEventTravelCategoryName];
+    [eventCategory setName:kEventTravelCategoryName];
   }
   else if ([categoryTerm isEqualToString:kEventFilmCategoryTerm]) {
     [eventCategory setTitleWithString:kEventFilmCategoryTitle];
-    [eventCategory setEventCateogryName:kEventFilmCategoryName];    
+    [eventCategory setName:kEventFilmCategoryName];    
   }  
   else if ([categoryTerm isEqualToString:kEventSalonCategoryTerm]) {
     [eventCategory setTitleWithString:kEventSalonCategoryTitle];
-    [eventCategory setEventCateogryName:kEventSalonCategoryName];    
+    [eventCategory setName:kEventSalonCategoryName];    
   }  
   else {
     [eventCategory setTitleWithString:kEventOthersCategoryTitle];
-    [eventCategory setEventCateogryName:kEventOthersCategoryName];    
+    [eventCategory setName:kEventOthersCategoryName];    
   }
   
   return eventCategory;
 }
 
 
-- (NSUInteger)albumId {
+- (NSInteger)albumId {
 	DoubanAttribute *attr = [self attributeForName:@"album"];
 	if (attr) {
 		return [[attr content] integerValue];
