@@ -98,5 +98,16 @@
 	return 0;
 }
 
+- (NSInteger)likedCount {
+  DoubanAttribute *attr = [self attributeForName:@"liked_count"];
+	if(attr){
+    return [[attr content] integerValue];
+  }
+	return 0;
+}
+
+- (NSInteger)albumId{
+  return [[[self identifier] lastPathComponent] integerValue];
+}
 
 @end
