@@ -104,6 +104,15 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
   [userDefaults synchronize];
 }
 
+- (void)clear {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  [userDefaults removeObjectForKey:kUserDefaultsAccessTokenKey];
+  [userDefaults removeObjectForKey:kUserDefaultsRefreshTokenKey];
+  [userDefaults removeObjectForKey:kUserDefaultsExpiresInKey];
+  [userDefaults removeObjectForKey:kUserDefaultsUserIdKey];
+  [userDefaults synchronize];
+}
+
 
 - (NSString *)accessToken {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];

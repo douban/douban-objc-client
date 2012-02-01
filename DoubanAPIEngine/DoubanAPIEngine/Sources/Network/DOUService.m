@@ -137,6 +137,10 @@ static DOUService *myInstance = nil;
 }
 
 
+- (void)logout{
+  [consumer_ clear];
+}
+
 - (NSError *)executeRefreshToken {
   return [provider_ accessTokenByRefresh:consumer_];
 }

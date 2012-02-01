@@ -42,6 +42,8 @@
                  password:(NSString *)password
                  delegate:(id<DOULoginDelegate>)delegate;
 
+- (void)logout;
+
 - (NSError *)executeRefreshToken;
 
 - (void)addRequest:(DOUHttpRequest *)request;
