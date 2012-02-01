@@ -20,7 +20,7 @@ douban-objc-client 介绍
 
 * 设置项目 Building Settings
 
-点击项目(PROJECT) 图标，找到 Other Linker Flags, 设置为 －all_load 。
+点击项目(TARGETS) 图标，找到 Other Linker Flags, 设置为 －all_load 。
 
 
 * 设置目标 Building Settings
