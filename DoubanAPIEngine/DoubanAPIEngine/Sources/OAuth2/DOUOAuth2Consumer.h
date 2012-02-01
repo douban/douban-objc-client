@@ -46,5 +46,6 @@
 - (BOOL)hasExpired;
 
 - (void)save;
+- (void)clear;
 
 @end
