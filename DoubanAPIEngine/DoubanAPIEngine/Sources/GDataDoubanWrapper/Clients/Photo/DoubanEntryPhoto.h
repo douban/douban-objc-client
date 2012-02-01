@@ -34,7 +34,9 @@ _EXTERN NSString* const kDoubanPhotosDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 
 @property (nonatomic, readonly) NSInteger       commentsCount;
 @property (nonatomic, readonly) NSInteger       recsCount;
+@property (nonatomic, readonly) NSInteger       likedCount;
 @property (nonatomic, readonly) NSInteger       position;
+@property (nonatomic, readonly) NSInteger       photoId;
 @property (nonatomic, readonly) NSInteger       nextPhotoId;
 @property (nonatomic, readonly) NSInteger       prevPhotoId;
 @property (nonatomic, readonly) NSInteger       albumId;
