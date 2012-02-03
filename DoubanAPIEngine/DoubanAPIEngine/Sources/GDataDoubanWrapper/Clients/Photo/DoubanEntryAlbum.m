@@ -109,9 +109,21 @@
 	return 0;
 }
 
+- (BOOL)liked{
+  DoubanAttribute *attr = [self attributeForName:@"liked"];
+	if(attr){
+    return [[attr content] boolValue];
+  }
+	return NO;
+}
+
 
 - (NSInteger)albumId{
   return [[[self identifier] lastPathComponent] integerValue];
+}
+
+- (NSInteger)authorId{
+  return [[self.author.URI lastPathComponent] integerValue];
 }
 
 @end

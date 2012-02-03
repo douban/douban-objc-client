@@ -93,6 +93,13 @@
 	return 0;
 }
 
+- (NSInteger)likedCount {
+  DoubanAttribute *attr = [self attributeForName:@"liked_count"];
+	if(attr){
+    return [[attr content] integerValue];
+  }
+	return 0;
+}
 
 - (NSInteger)position {
   DoubanAttribute *attr = [self attributeForName:@"position"];
@@ -102,6 +109,9 @@
 	return 0;
 }
 
+- (NSInteger)photoId{
+  return [[[self identifier] lastPathComponent] integerValue];
+}
 
 - (NSInteger)nextPhotoId {
   DoubanAttribute *attr = [self attributeForName:@"next_photo"];
