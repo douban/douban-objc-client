@@ -35,5 +35,7 @@ _EXTERN NSString* const kDoubanAlbumsDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 @property (nonatomic, readonly) NSInteger       recsCount;
 @property (nonatomic, readonly) NSInteger       likedCount;
 @property (nonatomic, readonly) NSInteger       albumId;
+@property (nonatomic, readonly) NSInteger       authorId;
+@property (nonatomic, readonly) BOOL            liked;
 
 @end
