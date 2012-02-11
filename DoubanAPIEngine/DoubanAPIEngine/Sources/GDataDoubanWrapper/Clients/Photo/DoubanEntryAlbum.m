@@ -20,7 +20,6 @@
 @dynamic author;
 @dynamic imageLink;
 @dynamic thumbLink;
-@dynamic iconLink;
 @dynamic albumCoverLink;
 
 @dynamic size;
@@ -60,12 +59,7 @@
 
 
 - (GDataLink *)thumbLink {
-	return [self linkWithRelAttributeValue:@"thumb"];
-}
-
-
-- (GDataLink *)iconLink {
-	return [self linkWithRelAttributeValue:@"icon"];
+	return [self linkWithRelAttributeValue:@"cover_thumb"];
 }
 
 

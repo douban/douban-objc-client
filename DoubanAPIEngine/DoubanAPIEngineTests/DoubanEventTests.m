@@ -61,6 +61,8 @@
     STAssertTrue([[[event location] identity] isEqualToString:@"beijing"], @"location");
     STAssertTrue(fabs([event geoLatitude] - 39.904213 )< 0.000001, @"latitude");
     STAssertTrue(fabs([event geoLongitude] - 116.40741) < 0.000001, @"longitude");  
+    
+    GDataAttribute *attribute = [GDataAttribute attributeWithValue:@"222"];
   }
 }
 

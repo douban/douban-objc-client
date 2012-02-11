@@ -14,14 +14,14 @@
 @implementation GDataEntryBase (Extension)
 
 
-- (NSArray *)attributes {
+- (NSArray *)doubanAttributes {
 	return [self objectsForExtensionClass:[DoubanAttribute class]];
 }
 
 
 - (DoubanAttribute *)attributeForName:(NSString *)attributeName {
 	DoubanAttribute *attr = nil;
-	for(id _attr in [self attributes]) {
+	for(id _attr in [self doubanAttributes]) {
 		if([[_attr name] isEqualToString:attributeName]){
 			attr = _attr;
 			break;

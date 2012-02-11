@@ -28,6 +28,8 @@ _EXTERN NSString* const kDoubanEventsDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 
 extern NSString * const kParticipatedStr;
 extern NSString * const kWishedStr;
+extern NSString * const kArrivedStr;
+
 
 @class DoubanEntryEventCategory;
 @class DoubanLocation;
@@ -38,10 +40,12 @@ extern NSString * const kWishedStr;
 @property (nonatomic, readonly) DoubanLocation *location;
 @property (nonatomic, readonly) DoubanEntryEventCategory *eventCategory;
 @property (nonatomic, readonly) GDataLink   *imageLink;
+@property (nonatomic, readonly) GDataLink   *iconLink;
 @property (nonatomic, readonly) NSInteger   albumId;
 
 @property (nonatomic, readonly) NSInteger   participantsCount;
 @property (nonatomic, readonly) NSInteger   wishersCount;
+@property (nonatomic, readonly) NSDate      *participateDate;
 @property (nonatomic, copy)     NSString    *status;
 
 @property (nonatomic, readonly) float       geoLatitude;

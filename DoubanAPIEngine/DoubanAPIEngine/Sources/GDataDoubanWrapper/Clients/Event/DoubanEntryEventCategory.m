@@ -70,7 +70,7 @@
 
 
 - (GDataLink *)coverLink {
-	return [self linkWithRelAttributeValue:@"suggest_cover"];
+	return [self linkWithRelAttributeValue:@"event"];
 }
 
 

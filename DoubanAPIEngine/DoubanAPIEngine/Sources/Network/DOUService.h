@@ -12,6 +12,7 @@
 
 - (void)loginFinished;
 - (void)loginFailed:(NSInteger)errorCode;
+
 @end
 
 

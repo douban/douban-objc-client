@@ -23,6 +23,7 @@
 
 NSString * const kParticipatedStr = @"participate";
 NSString * const kWishedStr = @"wish";
+NSString * const kArrivedStr = @"arrive";
 
 
 static NSString * const kEventAllCategoryTerm = @"http://www.douban.com/2007#event.all";
@@ -68,9 +69,11 @@ static NSString * const kEventOthersCategoryName = @"其他";
 @dynamic location;
 @dynamic eventCategory;
 @dynamic imageLink;
+@dynamic iconLink;
 @dynamic albumId;
 @dynamic participantsCount;
 @dynamic wishersCount;
+@dynamic participateDate;
 @dynamic status;
 @dynamic geoLatitude;
 @dynamic geoLongitude;
@@ -118,6 +121,11 @@ static NSString * const kEventOthersCategoryName = @"其他";
 
 - (GDataLink *)imageLink {
 	return [self linkWithRelAttributeValue:@"image"];
+}
+
+
+- (GDataLink *)iconLink {
+	return [self linkWithRelAttributeValue:@"icon"];
 }
 
 
@@ -199,6 +207,20 @@ static NSString * const kEventOthersCategoryName = @"其他";
 }
 
 
+- (NSDate *)participateDate {
+	DoubanAttribute *attr = [self attributeForName:@"participate_date"];
+	if (attr) {
+		NSString *dateStr = [attr content];
+    
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];
+    NSDate *participateDate = [dateFormatter dateFromString:dateStr];
+    return participateDate;
+	}
+  return nil;
+}
+
+
 - (NSString *)status {
   DoubanAttribute *attr = [self attributeForName:@"status"];
 	if (attr) {
@@ -209,10 +231,20 @@ static NSString * const kEventOthersCategoryName = @"其他";
 
 
 - (void)setStatus:(NSString *)content {
-  DoubanAttribute *attr = [[[DoubanAttribute alloc] init] autorelease];
-  [attr setName:@"status"];
-  [attr setContent:content];
-  [self setObject:attr forExtensionClass:[DoubanAttribute class]];
+  DoubanAttribute *attr = [self attributeForName:@"status"];
+  if (attr) {
+   [attr setContent:content]; 
+  }
+  else {
+    DoubanAttribute *newAttr = [[DoubanAttribute alloc] init];
+    [newAttr setName:@"status"];
+    [newAttr setContent:content];
+    
+    NSArray *attrs = [self doubanAttributes];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:attrs];
+    [array addObject:newAttr];
+    [self setObjects:array forExtensionClass:[DoubanAttribute class]];
+  }
 }
 
 

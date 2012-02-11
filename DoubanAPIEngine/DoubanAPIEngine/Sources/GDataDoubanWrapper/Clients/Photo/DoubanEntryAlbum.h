@@ -28,7 +28,6 @@ _EXTERN NSString* const kDoubanAlbumsDefaultServiceVersion _INITIALIZE_AS(@"2.0"
 @property (nonatomic, readonly) GDataLink       *imageLink;
 @property (nonatomic, readonly) GDataLink       *thumbLink;
 @property (nonatomic, readonly) GDataLink       *albumCoverLink;
-@property (nonatomic, readonly) GDataLink       *iconLink;
 
 @property (nonatomic, readonly) NSInteger       size;
 @property (nonatomic, readonly) NSString        *privacy;

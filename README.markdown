@@ -139,4 +139,5 @@ DOUHttpRequest 的闭包处理回调的方法：
 -------
   * 提供 AuthorizationCode 类型的 Auth2 认证的支持        
   * 提供更多数据类型的支持，如: 豆邮，日记，收藏
+  * 改进 token 过期时，refresh token 的方式，使其不依赖于本机时间
 

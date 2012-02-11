@@ -13,6 +13,8 @@
 @class DoubanAttribute;
 @interface GDataEntryBase (Extension)
 
+- (NSArray *)doubanAttributes;
+
 - (DoubanAttribute *)attributeForName:(NSString *)attributeName;
 
 - (GDataAtomAuthor *)theFirstAuthor;
