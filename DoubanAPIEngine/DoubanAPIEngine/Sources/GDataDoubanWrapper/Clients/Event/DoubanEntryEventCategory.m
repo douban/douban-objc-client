@@ -17,6 +17,20 @@
 
 @implementation DoubanEntryEventCategory
 
+
+NSString * const kEventAllCategoryTitle = @"all";
+NSString * const kEventDramaCategoryTitle = @"drama";
+NSString * const kEventMusicCategoryTitle = @"music";
+NSString * const kEventExhibitionCategoryTitle = @"exhibition";
+NSString * const kEventSportsCategoryTitle = @"sports";
+NSString * const kEventPartyCategoryTitle = @"party";
+NSString * const kEventCommonwealCategoryTitle = @"commonweal";
+NSString * const kEventTravelCategoryTitle = @"travel";
+NSString * const kEventFilmCategoryTitle = @"film";
+NSString * const kEventSalonCategoryTitle = @"salon";
+NSString * const kEventOthersCategoryTitle = @"others";
+
+
 @dynamic eventsCount;
 @dynamic name;
 @dynamic coverLink;

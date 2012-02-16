@@ -39,19 +39,6 @@ static NSString * const kEventSalonCategoryTerm = @"http://www.douban.com/2007#e
 static NSString * const kEventOthersCategoryTerm = @"http://www.douban.com/2007#event.others";
 
 
-static NSString * const kEventAllCategoryTitle = @"all";
-static NSString * const kEventDramaCategoryTitle = @"drama";
-static NSString * const kEventMusicCategoryTitle = @"music";
-static NSString * const kEventExhibitionCategoryTitle = @"exhibition";
-static NSString * const kEventSportsCategoryTitle = @"sports";
-static NSString * const kEventPartyCategoryTitle = @"party";
-static NSString * const kEventCommonwealCategoryTitle = @"commonweal";
-static NSString * const kEventTravelCategoryTitle = @"travel";
-static NSString * const kEventFilmCategoryTitle = @"film";
-static NSString * const kEventSalonCategoryTitle = @"salon";
-static NSString * const kEventOthersCategoryTitle = @"others";
-
-
 static NSString * const kEventAllCategoryName = @"类型";
 static NSString * const kEventDramaCategoryName = @"戏剧/曲艺";
 static NSString * const kEventMusicCategoryName = @"音乐/演出";

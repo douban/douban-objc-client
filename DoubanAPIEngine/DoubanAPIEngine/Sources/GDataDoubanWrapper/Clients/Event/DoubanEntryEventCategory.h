@@ -24,6 +24,19 @@ _EXTERN NSString* const kDoubanEventCategoriesDefaultServiceVersion _INITIALIZE_
 
 @interface DoubanEntryEventCategory : GDataEntryBase
 
+extern NSString * const kEventAllCategoryTitle;
+extern NSString * const kEventDramaCategoryTitle;
+extern NSString * const kEventMusicCategoryTitle;
+extern NSString * const kEventExhibitionCategoryTitle;
+extern NSString * const kEventSportsCategoryTitle;
+extern NSString * const kEventPartyCategoryTitle;
+extern NSString * const kEventCommonwealCategoryTitle;
+extern NSString * const kEventTravelCategoryTitle;
+extern NSString * const kEventFilmCategoryTitle;
+extern NSString * const kEventSalonCategoryTitle;
+extern NSString * const kEventOthersCategoryTitle;
+
+
 @property (nonatomic, readonly) NSInteger eventsCount;
 @property (nonatomic, copy)     NSString  *name;
 @property (nonatomic, readonly) GDataLink *coverLink;

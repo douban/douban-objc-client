@@ -10,6 +10,7 @@
 #import "DoubanEntryEvent.h"
 #import "DoubanFeedEvent.h"
 #import "DoubanLocation.h"
+#import "DoubanAttribute.h"
 
 @interface DoubanEventTests : SenTestCase 
 
@@ -62,7 +63,23 @@
     STAssertTrue(fabs([event geoLatitude] - 39.904213 )< 0.000001, @"latitude");
     STAssertTrue(fabs([event geoLongitude] - 116.40741) < 0.000001, @"longitude");  
     
-    GDataAttribute *attribute = [GDataAttribute attributeWithValue:@"222"];
+
+    
+    GDataEntryBase *empty = [GDataEntryBase entry];
+    [empty addExtensionDeclarations];
+    [empty addExtensionDeclarationForParentClass:[empty class]
+                                   childClasses:[DoubanAttribute class],nil];
+    
+    
+    DoubanAttribute *attribute = [[[DoubanAttribute alloc] init] autorelease];
+    [attribute setName:@"participate_date"];
+    [attribute setContent:@"2011-01-01"];
+    
+    [empty addObject:attribute forExtensionClass: [DoubanAttribute class]];  
+    
+    NSData *theData = [[empty XMLDocument] XMLData];
+    NSString *string = [[NSString alloc] initWithData:theData encoding:NSUTF8StringEncoding];
+    NSLog(@"result: %@", string);
   }
 }
 
