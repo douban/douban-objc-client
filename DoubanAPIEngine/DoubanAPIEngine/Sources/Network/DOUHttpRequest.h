@@ -40,6 +40,8 @@ typedef enum _DOUNetworkErrorType {
 
 #if NS_BLOCKS_AVAILABLE
 typedef void (^DOUBasicBlock)(void);
+
+typedef void (^DOUReqBlock)(DOUHttpRequest *);
 #endif
 
 //

@@ -186,4 +186,104 @@ static DOUService *myInstance = nil;
 }
 
 
+#if NS_BLOCKS_AVAILABLE
+
+- (void)get:(DOUQuery *)query callback:(DOUReqBlock)block {
+  // __block, It tells the block not to retain the request, which is important in preventing a retain-cycle,
+  // since the request will always retain the block
+  __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
+    block(req);
+  }];
+  
+  [self addRequest:req];
+}
+
+
+- (void)post:(DOUQuery *)query callback:(DOUReqBlock)block {
+  [self post:query object:nil callback:block];
+}
+
+
+- (void)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block {
+  __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
+    block(req);
+  }];
+
+  [req setRequestMethod:@"POST"];
+  [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+  
+  if (object) {
+    NSString *string = [[object XMLElement] XMLString];
+    NSData *objectData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
+    [req appendPostData:objectData];
+    [req addRequestHeader:@"CONTENT_LENGTH" value:length];    
+  }
+  else {
+    [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
+  }
+  
+  [req setResponseEncoding:NSUTF8StringEncoding];
+  [self addRequest:req];
+}
+
+
+- (void)del:(DOUQuery *)query callback:(DOUReqBlock)block {
+  __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
+    block(req);
+  }];
+  
+  [req setRequestMethod:@"DELETE"];
+  [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+  [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];
+  [self addRequest:req];
+}
+
+
+#endif
+
+
+- (void)get:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
+  DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
+  [self addRequest:req];
+}
+
+
+- (void)post:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
+  [self post:query object:nil target:delegate];
+}
+
+
+- (void)post:(DOUQuery *)query object:(GDataEntryBase *)object target:(id<DOUHttpRequestDelegate>)delegate {
+
+  DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
+  
+  [req setRequestMethod:@"POST"];
+  [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+
+  if (object) {
+    NSString *string = [[object XMLElement] XMLString];
+    NSData *objectData = [string dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
+    [req appendPostData:objectData];
+    [req addRequestHeader:@"CONTENT_LENGTH" value:length];    
+  }
+  else {
+    [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
+  }
+  
+  [req setResponseEncoding:NSUTF8StringEncoding];
+  [self addRequest:req];
+}
+
+
+- (void)del:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
+  DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
+  [req setRequestMethod:@"DELETE"];
+  [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+  [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
+  [self addRequest:req];
+}
+
+
 @end

@@ -7,6 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "DOUHttpRequest.h"
+#import "GDataEntryBase.h"
 
 @protocol DOULoginDelegate <NSObject>
 
@@ -56,5 +58,25 @@
 - (int)userId;
 
 - (BOOL)isValid;
+
+#if NS_BLOCKS_AVAILABLE
+
+- (void)get:(DOUQuery *)query callback:(DOUReqBlock)block;
+
+- (void)post:(DOUQuery *)query callback:(DOUReqBlock)block;
+
+- (void)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block;
+
+- (void)del:(DOUQuery *)query callback:(DOUReqBlock)block;
+
+#endif
+
+- (void)get:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
+
+- (void)post:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
+
+- (void)post:(DOUQuery *)query object:(GDataEntryBase *)object target:(id<DOUHttpRequestDelegate>)delegate;
+
+- (void)del:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
 
 @end
