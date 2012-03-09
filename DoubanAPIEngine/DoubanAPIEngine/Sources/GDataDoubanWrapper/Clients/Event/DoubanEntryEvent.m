@@ -208,6 +208,35 @@ static NSString * const kEventOthersCategoryName = @"其他";
 }
 
 
+- (void)setParticipateDate:(NSDate *)participateDate {
+
+  NSString *content = nil;
+  if (participateDate) {
+    NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd"];    
+    NSTimeZone *zone = [NSTimeZone localTimeZone];
+    [dateFormatter setTimeZone:zone];
+    
+    content = [dateFormatter stringFromDate:participateDate];
+  }
+
+  DoubanAttribute *attr = [self attributeForName:@"participate_date"];
+  if (attr) {
+    [attr setContent:content]; 
+  }
+  else {
+    DoubanAttribute *newAttr = [[DoubanAttribute alloc] init];
+    [newAttr setName:@"participate_date"];
+    [newAttr setContent:content];
+    
+    NSArray *attrs = [self doubanAttributes];
+    NSMutableArray *array = [NSMutableArray arrayWithArray:attrs];
+    [array addObject:newAttr];
+    [self setObjects:array forExtensionClass:[DoubanAttribute class]];
+  }
+}
+
+
 - (NSString *)status {
   DoubanAttribute *attr = [self attributeForName:@"status"];
 	if (attr) {

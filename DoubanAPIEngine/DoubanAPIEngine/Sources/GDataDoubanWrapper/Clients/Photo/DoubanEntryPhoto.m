@@ -101,6 +101,7 @@
 	return 0;
 }
 
+
 - (NSInteger)position {
   DoubanAttribute *attr = [self attributeForName:@"position"];
   if(attr){
@@ -109,9 +110,11 @@
 	return 0;
 }
 
-- (NSInteger)photoId{
+
+- (NSInteger)photoId {
   return [[[self identifier] lastPathComponent] integerValue];
 }
+
 
 - (NSInteger)nextPhotoId {
   DoubanAttribute *attr = [self attributeForName:@"next_photo"];

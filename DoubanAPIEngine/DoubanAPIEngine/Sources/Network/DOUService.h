@@ -41,6 +41,8 @@
 + (void)setRedirectUrl:(NSString *)theRedirectUrl;
 + (void)setPrivateKey:(NSString *)thePrivateKey;
 
++ (NSString *)apiKey;
+
 - (void)loginWithUsername:(NSString *)username 
                  password:(NSString *)password
                  delegate:(id<DOULoginDelegate>)delegate;

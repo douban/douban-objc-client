@@ -13,14 +13,12 @@
 
 @implementation DOUHttpRequest
 
-NSUInteger const kDefaultTimeoutSeconds = 12;
+NSUInteger const kDefaultTimeoutSeconds = 18;
 
 NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
 
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
-  NSLog(@"request url:%@", [URL absoluteString]);
-  //DOUHttpRequest *req = (DOUHttpRequest *)[ASIHTTPRequest requestWithURL:URL];
   DOUHttpRequest *req = [[[DOUHttpRequest alloc] initWithURL:URL] autorelease];
   [req setAllowCompressedResponse:YES];// YES is the default
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];

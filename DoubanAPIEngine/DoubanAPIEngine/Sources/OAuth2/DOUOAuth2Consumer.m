@@ -11,7 +11,9 @@
 #import "DOUOAuth2Consumer.h"
 #import "DOUHttpRequest.h"
 #import "DOUAPIConfig.h"
+#import "DOUService.h"
 #import "SBJson.h"
+
 
 @interface DOUOAuth2Consumer ()
 @property (nonatomic, copy) NSString *accessToken;
@@ -75,12 +77,51 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
 }
 
 
+- (NSDictionary *)parseQueryString:(NSString *)query {
+  NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithCapacity:6] autorelease];
+  NSArray *pairs = [query componentsSeparatedByString:@"&"];
+  
+  for (NSString *pair in pairs) {
+    NSArray *elements = [pair componentsSeparatedByString:@"="];
+    NSString *key = 
+    [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *val = 
+    [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [dict setObject:val forKey:key];
+  }
+  return dict;
+}
+
+
 - (void)sign:(DOUHttpRequest *)request {
   if (self.accessToken) {
     NSString *authValue = [NSString stringWithFormat:@"%@ %@", kOAuth2, self.accessToken];
-    //NSLog(@"token:%@", authValue);
     [request addRequestHeader:kOAuth2AuthorizationHttpHeader value:authValue];    
   }
+  else {
+    NSURL *url = [request url];
+    NSString *urlString = [url absoluteString];
+    NSString *query = [url query];
+    if (query) {
+      NSDictionary *parameters = [self parseQueryString:query];
+      
+      NSArray *keys = [parameters allKeys];      
+      if ([keys count]  == 0) {
+        urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", [DOUService apiKey]];
+      }
+      else {
+        urlString = [urlString stringByAppendingFormat:@"&%@=%@", @"apikey", [DOUService apiKey]];
+      }
+    }
+    else {
+      urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", [DOUService apiKey]];  
+    }
+    NSString *afterUrl = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+
+    request.url = [NSURL URLWithString:afterUrl];
+  }
+  
 }
 
 

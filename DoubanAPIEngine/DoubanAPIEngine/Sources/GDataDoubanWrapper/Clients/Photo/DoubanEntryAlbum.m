@@ -112,11 +112,12 @@
 }
 
 
-- (NSInteger)albumId{
+- (NSInteger)albumId {
   return [[[self identifier] lastPathComponent] integerValue];
 }
 
-- (NSInteger)authorId{
+
+- (NSInteger)authorId {
   return [[self.author.URI lastPathComponent] integerValue];
 }
 

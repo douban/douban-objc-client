@@ -24,7 +24,7 @@
 
 @implementation DOUService
 
-NSUInteger const kDefaultMaxConcurrentOperationCount = 8;
+NSUInteger const kDefaultMaxConcurrentOperationCount = 4;
 
 @synthesize queue = queue_;
 @synthesize consumer = consumer_;
@@ -48,6 +48,11 @@ static NSString *redirectUrl;
 
 + (void)setRedirectUrl:(NSString *)theRedirectUrl {
   redirectUrl = theRedirectUrl;
+}
+
+
++ (NSString *)apiKey {
+  return APIKey;
 }
 
 
@@ -137,7 +142,7 @@ static DOUService *myInstance = nil;
 }
 
 
-- (void)logout{
+- (void)logout {
   [consumer_ clear];
 }
 
@@ -158,6 +163,8 @@ static DOUService *myInstance = nil;
   }
   
   [consumer_ sign:request];
+  //NSLog(@"request url:%@", [request.url absoluteString]);
+
   [[self queue] addOperation:request];
   [[self queue] go];
 }

@@ -96,7 +96,7 @@
     NSArray *events = [feed entries];
     STAssertTrue([events count] == 1, @"events count");
     
-    DoubanEntryEvent *event = [events objectAtIndex:0]; 
+    DoubanEntryEvent *event = [events objectAtIndex:0];
     STAssertTrue([[event identifier] isEqualToString:@"http://api.douban.com/event/10297336"], @"latitude");
     STAssertTrue([[[event title] stringValue] isEqualToString:@"Open Source Camp 北京 2008技术交流盛会"], @"title");
     
@@ -105,12 +105,21 @@
     STAssertTrue([[[event where] stringValue] isEqualToString:@"北京 海淀区蓝旗营路北 工商银行旁 Study 英语学 习吧（三角地）"], @"where");
     STAssertTrue([event albumId] == 0, @"album");
     
+    
     STAssertTrue([event participantsCount] == 13, @"participantsCount");
     STAssertTrue([event wishersCount] == 22, @"wishersCount");
     STAssertTrue([[[event location] identity] isEqualToString:@"beijing"], @"location");
     STAssertTrue([event geoLatitude] == 0 , @"latitude");
     STAssertTrue([event geoLongitude] == 0 , @"longitude");
+        
+    NSMutableArray *mutableEvents = [[NSMutableArray alloc] initWithArray:events];
+    [mutableEvents removeObject:event];
+    [feed setEntries:mutableEvents];
+    STAssertTrue([[feed entries] count] == 0 , @"after remove");
   }
+  
+  
+  
 }
 
 

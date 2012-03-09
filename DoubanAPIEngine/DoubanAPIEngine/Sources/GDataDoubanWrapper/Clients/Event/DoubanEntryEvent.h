@@ -45,7 +45,7 @@ extern NSString * const kArrivedStr;
 
 @property (nonatomic, readonly) NSInteger   participantsCount;
 @property (nonatomic, readonly) NSInteger   wishersCount;
-@property (nonatomic, readonly) NSDate      *participateDate;
+@property (nonatomic, retain)   NSDate      *participateDate;
 @property (nonatomic, copy)     NSString    *status;
 
 @property (nonatomic, readonly) float       geoLatitude;
