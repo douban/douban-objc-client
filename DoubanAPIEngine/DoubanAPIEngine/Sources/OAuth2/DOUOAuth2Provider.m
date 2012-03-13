@@ -8,7 +8,6 @@
 
 #import "DOUOAuth2Provider.h"
 #import "DOUOAuth2.h"
-#import "DOUFormDataRequest.h"
 #import "SBJson.h"
 
 
@@ -36,8 +35,11 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (DOUFormDataRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
-  DOUFormDataRequest *req = [DOUFormDataRequest formRequestWithURL:[NSURL URLWithString:tokenURL_]];
+- (ASIFormDataRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
+  
+  ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
+  [req setAllowCompressedResponse:YES]; // YES is the default
+  [req setTimeOutSeconds:kDefaultTimeoutSeconds];
   [req setRequestMethod:@"POST"];
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];
@@ -53,7 +55,7 @@ static NSString *kDelegateKey = @"DelegateKey";
                      username:(NSString *)username 
                      password:(NSString *)password 
                      delegate:(id<DOULoginDelegate>)delegate {
-  DOUFormDataRequest *req = [self auth2Request:consumer];
+  ASIFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
   [req setPostValue:password forKey:kPasswordKey];
   [req setDelegate:self];
@@ -110,7 +112,9 @@ static NSString *kDelegateKey = @"DelegateKey";
 
  
 - (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer {
-  DOUFormDataRequest *req = [DOUFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
+  
+  ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
+
   [req setRequestMethod:@"POST"];
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];

@@ -13,7 +13,6 @@
 #import "DOUOAuth2Consumer.h"
 
 #import "DOUHttpRequest.h"
-#import "DOUFormDataRequest.h"
 
 #import "DoubanAttribute.h"
 #import "DoubanLocation.h"
