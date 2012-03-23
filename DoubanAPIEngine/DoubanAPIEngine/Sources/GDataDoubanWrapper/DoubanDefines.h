@@ -20,6 +20,8 @@ _EXTERN NSString* const kDoubanCategorySubject  _INITIALIZE_AS(@"http://www.doub
 _EXTERN NSString* const kDoubanCategoryMiniblog  _INITIALIZE_AS(@"http://www.douban.com/2007#miniblog");
 _EXTERN NSString* const kDoubanCategoryRecommendation  _INITIALIZE_AS(@"http://www.douban.com/2007#recommendation");
 
+_EXTERN NSString* const kDoubanCategoryComment  _INITIALIZE_AS(@"http://www.douban.com/2007#comment");
+
 _EXTERN NSString* const kDoubanCategoryReview  _INITIALIZE_AS(@"http://www.douban.com/2007#review");
 _EXTERN NSString* const kDoubanCategoryEvent  _INITIALIZE_AS(@"http://www.douban.com/2007#event");
 _EXTERN NSString* const kDoubanCategoryPeople  _INITIALIZE_AS(@"http://www.douban.com/2007#people");

@@ -274,6 +274,8 @@
 		D8CF7CFC1491E0380032C509 /* DoubanFeedMiniblog.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8CF7CF61491A5780032C509 /* DoubanFeedMiniblog.xml */; };
 		D8CF7CFF1491E2D30032C509 /* DoubanFeedMiniblog.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CF7CFD1491E2D20032C509 /* DoubanFeedMiniblog.h */; };
 		D8CF7D001491E2D30032C509 /* DoubanFeedMiniblog.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7CFE1491E2D30032C509 /* DoubanFeedMiniblog.m */; };
+		D8CFD435151C5C7A00CCC311 /* DoubanCommentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CFD433151C5C5200CCC311 /* DoubanCommentTests.m */; };
+		D8CFD436151C605D00CCC311 /* DoubanFeedComment.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8CFD432151C5BD700CCC311 /* DoubanFeedComment.xml */; };
 		D8D28D5114A81BD7003570B0 /* DoubanEntryEventCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D28D4F14A81BD7003570B0 /* DoubanEntryEventCategory.h */; };
 		D8D28D5214A81BD7003570B0 /* DoubanEntryEventCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D28D5014A81BD7003570B0 /* DoubanEntryEventCategory.m */; };
 		D8D28D5914A81F9A003570B0 /* DoubanFeedEventCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D28D5714A81F99003570B0 /* DoubanFeedEventCategory.h */; };
@@ -284,6 +286,10 @@
 		D8D8C66B14D45EF70084D6E9 /* GDataEntryBase+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D8C66914D45EF70084D6E9 /* GDataEntryBase+Extension.m */; };
 		D8DEDC5714D0D2C300500C56 /* GDataAtomAuthor+Extension.h in Headers */ = {isa = PBXBuildFile; fileRef = D8DEDC5514D0D2C300500C56 /* GDataAtomAuthor+Extension.h */; };
 		D8DEDC5814D0D2C300500C56 /* GDataAtomAuthor+Extension.m in Sources */ = {isa = PBXBuildFile; fileRef = D8DEDC5614D0D2C300500C56 /* GDataAtomAuthor+Extension.m */; };
+		D8EC0045151C252F00A7066F /* DoubanEntryComment.h in Headers */ = {isa = PBXBuildFile; fileRef = D8EC0043151C252F00A7066F /* DoubanEntryComment.h */; };
+		D8EC0046151C252F00A7066F /* DoubanEntryComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC0044151C252F00A7066F /* DoubanEntryComment.m */; };
+		D8EC0049151C274600A7066F /* DoubanFeedComment.h in Headers */ = {isa = PBXBuildFile; fileRef = D8EC0047151C274600A7066F /* DoubanFeedComment.h */; };
+		D8EC004A151C274600A7066F /* DoubanFeedComment.m in Sources */ = {isa = PBXBuildFile; fileRef = D8EC0048151C274600A7066F /* DoubanFeedComment.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -530,7 +536,7 @@
 		D883995C149F424E00099D23 /* DoubanEntryRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanEntryRecommendation.m; sourceTree = "<group>"; };
 		D883996C149F477600099D23 /* DoubanEntryRecommendation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanEntryRecommendation.xml; sourceTree = "<group>"; };
 		D883996D149F477700099D23 /* DoubanFeedRecommendation.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedRecommendation.xml; sourceTree = "<group>"; };
-		D883996F149F479A00099D23 /* DoubanRecommendationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoubanRecommendationTests.m; path = Resources/DoubanRecommendationTests.m; sourceTree = "<group>"; };
+		D883996F149F479A00099D23 /* DoubanRecommendationTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanRecommendationTests.m; sourceTree = "<group>"; };
 		D8839973149F4CF300099D23 /* DoubanFeedRecommendation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanFeedRecommendation.h; sourceTree = "<group>"; };
 		D8839974149F4CF400099D23 /* DoubanFeedRecommendation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanFeedRecommendation.m; sourceTree = "<group>"; };
 		D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -558,6 +564,8 @@
 		D8CF7CF81491C09D0032C509 /* DoubanMiniblogTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DoubanMiniblogTests.m; path = DoubanAPIEngineTests/DoubanMiniblogTests.m; sourceTree = SOURCE_ROOT; };
 		D8CF7CFD1491E2D20032C509 /* DoubanFeedMiniblog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanFeedMiniblog.h; sourceTree = "<group>"; };
 		D8CF7CFE1491E2D30032C509 /* DoubanFeedMiniblog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanFeedMiniblog.m; sourceTree = "<group>"; };
+		D8CFD432151C5BD700CCC311 /* DoubanFeedComment.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedComment.xml; sourceTree = "<group>"; };
+		D8CFD433151C5C5200CCC311 /* DoubanCommentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanCommentTests.m; sourceTree = "<group>"; };
 		D8D28D4F14A81BD7003570B0 /* DoubanEntryEventCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanEntryEventCategory.h; sourceTree = "<group>"; };
 		D8D28D5014A81BD7003570B0 /* DoubanEntryEventCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanEntryEventCategory.m; sourceTree = "<group>"; };
 		D8D28D5714A81F99003570B0 /* DoubanFeedEventCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanFeedEventCategory.h; sourceTree = "<group>"; };
@@ -569,6 +577,10 @@
 		D8D8C66914D45EF70084D6E9 /* GDataEntryBase+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataEntryBase+Extension.m"; sourceTree = "<group>"; };
 		D8DEDC5514D0D2C300500C56 /* GDataAtomAuthor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataAtomAuthor+Extension.h"; sourceTree = "<group>"; };
 		D8DEDC5614D0D2C300500C56 /* GDataAtomAuthor+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataAtomAuthor+Extension.m"; sourceTree = "<group>"; };
+		D8EC0043151C252F00A7066F /* DoubanEntryComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanEntryComment.h; sourceTree = "<group>"; };
+		D8EC0044151C252F00A7066F /* DoubanEntryComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanEntryComment.m; sourceTree = "<group>"; };
+		D8EC0047151C274600A7066F /* DoubanFeedComment.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanFeedComment.h; sourceTree = "<group>"; };
+		D8EC0048151C274600A7066F /* DoubanFeedComment.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanFeedComment.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -668,6 +680,7 @@
 			isa = PBXGroup;
 			children = (
 				D88EAF3514692D9400A4DE43 /* Resources */,
+				D8CFD433151C5C5200CCC311 /* DoubanCommentTests.m */,
 				D883996F149F479A00099D23 /* DoubanRecommendationTests.m */,
 				D8CF7CF81491C09D0032C509 /* DoubanMiniblogTests.m */,
 				D883993F149F14EF00099D23 /* DoubanPhotoTests.m */,
@@ -1010,6 +1023,7 @@
 				D8D8C66914D45EF70084D6E9 /* GDataEntryBase+Extension.m */,
 				D8DEDC5514D0D2C300500C56 /* GDataAtomAuthor+Extension.h */,
 				D8DEDC5614D0D2C300500C56 /* GDataAtomAuthor+Extension.m */,
+				D8EC0041151C24D500A7066F /* Comment */,
 				D883995A149F41DA00099D23 /* Recommendation */,
 				D8CF7CEC14919FB70032C509 /* Miniblog */,
 				D800D68614690A77009F64FD /* Event */,
@@ -1121,6 +1135,7 @@
 		D88EAF3514692D9400A4DE43 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				D8CFD432151C5BD700CCC311 /* DoubanFeedComment.xml */,
 				D815D1CA14A9A666008BD224 /* DoubanEntryCity.xml */,
 				D815D1CB14A9A666008BD224 /* DoubanFeedCity.xml */,
 				D8D28D5C14A82356003570B0 /* DoubanFeedEventCategory.xml */,
@@ -1149,6 +1164,17 @@
 				D8CF7CFE1491E2D30032C509 /* DoubanFeedMiniblog.m */,
 			);
 			path = Miniblog;
+			sourceTree = "<group>";
+		};
+		D8EC0041151C24D500A7066F /* Comment */ = {
+			isa = PBXGroup;
+			children = (
+				D8EC0043151C252F00A7066F /* DoubanEntryComment.h */,
+				D8EC0044151C252F00A7066F /* DoubanEntryComment.m */,
+				D8EC0047151C274600A7066F /* DoubanFeedComment.h */,
+				D8EC0048151C274600A7066F /* DoubanFeedComment.m */,
+			);
+			path = Comment;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1279,6 +1305,8 @@
 				D8D8C66A14D45EF70084D6E9 /* GDataEntryBase+Extension.h in Headers */,
 				D89263A814D8412700F9D1D7 /* DoubanEntryAlbum.h in Headers */,
 				D89263AD14D8468500F9D1D7 /* DoubanFeedAlbum.h in Headers */,
+				D8EC0045151C252F00A7066F /* DoubanEntryComment.h in Headers */,
+				D8EC0049151C274600A7066F /* DoubanFeedComment.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1369,6 +1397,7 @@
 				D8D28D5F14A827D6003570B0 /* DoubanFeedEventCategory.xml in Resources */,
 				D815D1CF14A9A6FA008BD224 /* DoubanFeedCity.xml in Resources */,
 				D815D1D014A9A6FC008BD224 /* DoubanEntryCity.xml in Resources */,
+				D8CFD436151C605D00CCC311 /* DoubanFeedComment.xml in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1506,6 +1535,8 @@
 				D8D8C66B14D45EF70084D6E9 /* GDataEntryBase+Extension.m in Sources */,
 				D89263A914D8412700F9D1D7 /* DoubanEntryAlbum.m in Sources */,
 				D89263AE14D8468500F9D1D7 /* DoubanFeedAlbum.m in Sources */,
+				D8EC0046151C252F00A7066F /* DoubanEntryComment.m in Sources */,
+				D8EC004A151C274600A7066F /* DoubanFeedComment.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1522,6 +1553,7 @@
 				D8839970149F479B00099D23 /* DoubanRecommendationTests.m in Sources */,
 				D8D28D5E14A825DC003570B0 /* DoubanEventCategoryTests.m in Sources */,
 				D815D1CE14A9A6F4008BD224 /* DoubanCityTests.m in Sources */,
+				D8CFD435151C5C7A00CCC311 /* DoubanCommentTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
