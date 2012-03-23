@@ -143,7 +143,7 @@ static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
   }
   
   int statusCode = [self responseStatusCode];
-  if (statusCode == 200 || statusCode == 201) {
+  if (statusCode == 200 || statusCode == 201 || statusCode == 202) {
     // success
     return nil;
   }

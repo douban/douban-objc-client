@@ -12,6 +12,7 @@
 #import "DOUOAuth2.h"
 #import "DOUOAuth2Provider.h"
 #import "DOUOAuth2Consumer.h"
+#import "NSString+Base64Encoding.h"
 
 #import "ASINetworkQueue.h"
 
@@ -155,7 +156,7 @@ static DOUService *myInstance = nil;
   }
   
   [consumer_ sign:request];
-  //NSLog(@"request url:%@", [request.url absoluteString]);
+  NSLog(@"request url:%@", [request.url absoluteString]);
 
   [[self queue] addOperation:request];
   [[self queue] go];
@@ -234,6 +235,40 @@ static DOUService *myInstance = nil;
   
   [req setResponseEncoding:NSUTF8StringEncoding];
   [self addRequest:req];
+}
+
+
+- (void)post:(DOUQuery *)query 
+   photoData:(NSData *)photoData
+      format:(NSString *)format
+ description:(NSString *)description
+    callback:(DOUReqBlock)block {
+  __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
+    block(req);
+  }];
+  
+  [req setRequestMethod:@"POST"];
+  [req addRequestHeader:@"Content-Type" value:@"multipart/related; boundary=\"END_OF_PART\""];
+  [req addRequestHeader:@"MIME-version" value:@"1.0"];
+
+  NSString *postContent = @"Media multipart posting\n--END_OF_PART\nContent-Type: application/atom+xml\n\n";
+  
+  GDataEntryBase *emptyEntry = [[GDataEntryBase alloc] init];
+  emptyEntry.contentStringValue = description;
+  NSString *descStr = [[emptyEntry XMLElement] XMLString];
+  postContent = [postContent stringByAppendingString:descStr];
+  postContent = [postContent stringByAppendingString:@"\n--END_OF_PART"];
+  postContent = [postContent stringByAppendingFormat:@"\nContent-Type: image/%@\n", format];
+  
+  NSString *encodingStr = [NSString base64StringFromData:photoData length:[photoData length]];
+  
+  postContent = [postContent stringByAppendingString:encodingStr];
+  
+  postContent = [postContent stringByAppendingFormat:@"--END_OF_PART--", format];
+  NSData *postData = [postContent dataUsingEncoding:NSUTF8StringEncoding];
+  NSInteger length = [postData length];
+  [req addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", length]];
+  [self addRequest:req]; 
 }
 
 

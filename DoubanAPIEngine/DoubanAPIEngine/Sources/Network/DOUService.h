@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "DOUHttpRequest.h"
 #import "GDataEntryBase.h"
+#import "DoubanEntryPhoto.h"
 
 
 @class ASINetworkQueue;
@@ -60,6 +61,12 @@
 - (void)post:(DOUQuery *)query callback:(DOUReqBlock)block;
 
 - (void)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block;
+
+- (void)post:(DOUQuery *)query 
+   photoData:(NSData *)photoData
+      format:(NSString *)format
+ description:(NSString *)description
+    callback:(DOUReqBlock)block;
 
 - (void)del:(DOUQuery *)query callback:(DOUReqBlock)block;
 

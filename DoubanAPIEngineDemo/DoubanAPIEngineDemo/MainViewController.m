@@ -54,20 +54,20 @@
   DOUService *service = [DOUService sharedInstance];
   DOUQuery *query = [DoubanQueryEvent queryForEventById:14910931];
 
-  __block DOUHttpRequest *req 
-      = [DOUHttpRequest requestWithQuery:query 
-                         completionBlock:^{
-                            NSError *error = [req error];
-                            if (!error) {
-                              NSLog(@"str:%@", [req responseString]);
-                                   
-                              DoubanEntryEvent *newEvent = [[DoubanEntryEvent alloc] initWithData:[req responseData]];
-                              self.event = newEvent;
-                              [newEvent release];
-                              [self updateUI];
-                            }    
-                        }];
-  [service addRequest:req];
+  DOUReqBlock completionBlock = ^(DOUHttpRequest *req){
+    NSError *error = [req error];
+    NSLog(@"str:%@", [req responseString]);
+    
+    if (!error) {
+      
+      DoubanEntryEvent *newEvent = [[DoubanEntryEvent alloc] initWithData:[req responseData]];
+      self.event = newEvent;
+      [newEvent release];
+      [self updateUI];
+    }    
+  };
+  
+  [service get:query callback:completionBlock];
 }
 
 

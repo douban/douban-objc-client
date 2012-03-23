@@ -276,6 +276,10 @@
 		D8CF7D001491E2D30032C509 /* DoubanFeedMiniblog.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CF7CFE1491E2D30032C509 /* DoubanFeedMiniblog.m */; };
 		D8CFD435151C5C7A00CCC311 /* DoubanCommentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CFD433151C5C5200CCC311 /* DoubanCommentTests.m */; };
 		D8CFD436151C605D00CCC311 /* DoubanFeedComment.xml in Resources */ = {isa = PBXBuildFile; fileRef = D8CFD432151C5BD700CCC311 /* DoubanFeedComment.xml */; };
+		D8CFD43F151C757200CCC311 /* NSString+Base64Encoding.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CFD43D151C757200CCC311 /* NSString+Base64Encoding.h */; };
+		D8CFD440151C757200CCC311 /* NSString+Base64Encoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CFD43E151C757200CCC311 /* NSString+Base64Encoding.m */; };
+		D8CFD443151C760700CCC311 /* NSData+Base64Decoding.h in Headers */ = {isa = PBXBuildFile; fileRef = D8CFD441151C760600CCC311 /* NSData+Base64Decoding.h */; };
+		D8CFD444151C760700CCC311 /* NSData+Base64Decoding.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CFD442151C760600CCC311 /* NSData+Base64Decoding.m */; };
 		D8D28D5114A81BD7003570B0 /* DoubanEntryEventCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D28D4F14A81BD7003570B0 /* DoubanEntryEventCategory.h */; };
 		D8D28D5214A81BD7003570B0 /* DoubanEntryEventCategory.m in Sources */ = {isa = PBXBuildFile; fileRef = D8D28D5014A81BD7003570B0 /* DoubanEntryEventCategory.m */; };
 		D8D28D5914A81F9A003570B0 /* DoubanFeedEventCategory.h in Headers */ = {isa = PBXBuildFile; fileRef = D8D28D5714A81F99003570B0 /* DoubanFeedEventCategory.h */; };
@@ -566,6 +570,10 @@
 		D8CF7CFE1491E2D30032C509 /* DoubanFeedMiniblog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanFeedMiniblog.m; sourceTree = "<group>"; };
 		D8CFD432151C5BD700CCC311 /* DoubanFeedComment.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedComment.xml; sourceTree = "<group>"; };
 		D8CFD433151C5C5200CCC311 /* DoubanCommentTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanCommentTests.m; sourceTree = "<group>"; };
+		D8CFD43D151C757200CCC311 /* NSString+Base64Encoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSString+Base64Encoding.h"; path = "Base64/NSString+Base64Encoding.h"; sourceTree = "<group>"; };
+		D8CFD43E151C757200CCC311 /* NSString+Base64Encoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSString+Base64Encoding.m"; path = "Base64/NSString+Base64Encoding.m"; sourceTree = "<group>"; };
+		D8CFD441151C760600CCC311 /* NSData+Base64Decoding.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "NSData+Base64Decoding.h"; path = "Base64/NSData+Base64Decoding.h"; sourceTree = "<group>"; };
+		D8CFD442151C760600CCC311 /* NSData+Base64Decoding.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "NSData+Base64Decoding.m"; path = "Base64/NSData+Base64Decoding.m"; sourceTree = "<group>"; };
 		D8D28D4F14A81BD7003570B0 /* DoubanEntryEventCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanEntryEventCategory.h; sourceTree = "<group>"; };
 		D8D28D5014A81BD7003570B0 /* DoubanEntryEventCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanEntryEventCategory.m; sourceTree = "<group>"; };
 		D8D28D5714A81F99003570B0 /* DoubanFeedEventCategory.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DoubanFeedEventCategory.h; sourceTree = "<group>"; };
@@ -746,6 +754,7 @@
 		D800D575146908FD009F64FD /* OtherSources */ = {
 			isa = PBXGroup;
 			children = (
+				D8CFD43C151C742700CCC311 /* Base64 */,
 				D800D576146908FD009F64FD /* ASIHTTPRequest */,
 				D800D5AC146908FD009F64FD /* JSON */,
 				D800D5C6146908FD009F64FD /* Reachability */,
@@ -1166,6 +1175,17 @@
 			path = Miniblog;
 			sourceTree = "<group>";
 		};
+		D8CFD43C151C742700CCC311 /* Base64 */ = {
+			isa = PBXGroup;
+			children = (
+				D8CFD43D151C757200CCC311 /* NSString+Base64Encoding.h */,
+				D8CFD43E151C757200CCC311 /* NSString+Base64Encoding.m */,
+				D8CFD441151C760600CCC311 /* NSData+Base64Decoding.h */,
+				D8CFD442151C760600CCC311 /* NSData+Base64Decoding.m */,
+			);
+			name = Base64;
+			sourceTree = "<group>";
+		};
 		D8EC0041151C24D500A7066F /* Comment */ = {
 			isa = PBXGroup;
 			children = (
@@ -1307,6 +1327,8 @@
 				D89263AD14D8468500F9D1D7 /* DoubanFeedAlbum.h in Headers */,
 				D8EC0045151C252F00A7066F /* DoubanEntryComment.h in Headers */,
 				D8EC0049151C274600A7066F /* DoubanFeedComment.h in Headers */,
+				D8CFD43F151C757200CCC311 /* NSString+Base64Encoding.h in Headers */,
+				D8CFD443151C760700CCC311 /* NSData+Base64Decoding.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1537,6 +1559,8 @@
 				D89263AE14D8468500F9D1D7 /* DoubanFeedAlbum.m in Sources */,
 				D8EC0046151C252F00A7066F /* DoubanEntryComment.m in Sources */,
 				D8EC004A151C274600A7066F /* DoubanFeedComment.m in Sources */,
+				D8CFD440151C757200CCC311 /* NSString+Base64Encoding.m in Sources */,
+				D8CFD444151C760700CCC311 /* NSData+Base64Decoding.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

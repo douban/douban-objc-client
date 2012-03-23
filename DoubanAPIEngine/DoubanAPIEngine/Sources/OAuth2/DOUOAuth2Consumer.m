@@ -100,25 +100,30 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
     [request addRequestHeader:kOAuth2AuthorizationHttpHeader value:authValue];    
   }
   else {
+    NSString *apiKey = [DOUService apiKey];
+    if (!apiKey) {
+      return ;
+    }
+    
     NSURL *url = [request url];
     NSString *urlString = [url absoluteString];
-    NSString *query = [url query];
+    NSString *query = [url query];    
     if (query) {
       NSDictionary *parameters = [self parseQueryString:query];
       
       NSArray *keys = [parameters allKeys];      
       if ([keys count]  == 0) {
-        urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", [DOUService apiKey]];
+        urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", apiKey];
       }
       else {
-        urlString = [urlString stringByAppendingFormat:@"&%@=%@", @"apikey", [DOUService apiKey]];
+        urlString = [urlString stringByAppendingFormat:@"&%@=%@", @"apikey", apiKey];
       }
     }
     else {
-      urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", [DOUService apiKey]];  
+      urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", apiKey];  
     }
+    
     NSString *afterUrl = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-
     request.url = [NSURL URLWithString:afterUrl];
   }
   
