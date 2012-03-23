@@ -119,12 +119,12 @@ static DOUService *myInstance = nil;
   return UINT_MAX;
 }
 
-/*
-- (void)release {
+
+- (oneway void)release {
   //nothing
 }
-*/
- 
+
+
 - (id)autorelease {
   return self;
 }
@@ -132,19 +132,11 @@ static DOUService *myInstance = nil;
 
 #pragma mark - login
 
-- (void)loginWithUsername:(NSString *)username 
-                 password:(NSString *)password 
-                 delegate:(id<DOULoginDelegate>)delegate {
-  [provider_ accessTokenByPassword:consumer_ 
-                          username:username 
-                          password:password
-                          delegate:delegate];
-}
-
 
 - (void)logout {
   [consumer_ clear];
 }
+
 
 - (NSError *)executeRefreshToken {
   return [provider_ accessTokenByRefresh:consumer_];
@@ -194,6 +186,16 @@ static DOUService *myInstance = nil;
 
 
 #if NS_BLOCKS_AVAILABLE
+
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password 
+                 callback:(DOUBasicBlock)block {
+  [provider_ accessTokenByPassword:consumer_ 
+                          username:username 
+                          password:password
+                          callback:block];
+}
+
 
 - (void)get:(DOUQuery *)query callback:(DOUReqBlock)block {
   // __block, It tells the block not to retain the request, which is important in preventing a retain-cycle,
@@ -290,6 +292,16 @@ static DOUService *myInstance = nil;
   [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
   [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
   [self addRequest:req];
+}
+
+
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password 
+                 delegate:(id<DOUHttpRequestDelegate>)delegate {
+  [provider_ accessTokenByPassword:consumer_ 
+                          username:username 
+                          password:password
+                          delegate:delegate];
 }
 
 

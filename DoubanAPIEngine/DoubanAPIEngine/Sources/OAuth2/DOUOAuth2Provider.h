@@ -21,7 +21,7 @@
 - (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
                      username:(NSString *)username 
                      password:(NSString *)password
-                     delegate:(id<DOULoginDelegate>)delegate;
+                     delegate:(id<DOUHttpRequestDelegate>)delegate;
 
 - (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer;
 
@@ -29,5 +29,15 @@
 - (void)accessTokenByAuthorizationCode:(DOUOAuth2Consumer *)consumer 
                      authorizationCode:(NSString *)authorizationCode;
 */
+
+#if NS_BLOCKS_AVAILABLE
+
+- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+                     username:(NSString *)username 
+                     password:(NSString *)password
+                     callback:(DOUBasicBlock)block;
+
+#endif
+
 
 @end

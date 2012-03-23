@@ -56,6 +56,8 @@ static NSString * const kEventOthersCategoryName = @"其他";
 @dynamic location;
 @dynamic eventCategory;
 @dynamic imageLink;
+@dynamic imageMobileLink;
+@dynamic imageLargeLink;
 @dynamic iconLink;
 @dynamic albumId;
 @dynamic participantsCount;
@@ -109,6 +111,17 @@ static NSString * const kEventOthersCategoryName = @"其他";
 - (GDataLink *)imageLink {
 	return [self linkWithRelAttributeValue:@"image"];
 }
+
+
+- (GDataLink *)imageMobileLink {
+	return [self linkWithRelAttributeValue:@"image-lmobile"];
+}
+
+
+- (GDataLink *)imageLargeLink {
+	return [self linkWithRelAttributeValue:@"image-hlarge"];
+}
+
 
 
 - (GDataLink *)iconLink {
@@ -225,7 +238,7 @@ static NSString * const kEventOthersCategoryName = @"其他";
     [attr setContent:content]; 
   }
   else {
-    DoubanAttribute *newAttr = [[DoubanAttribute alloc] init];
+    DoubanAttribute *newAttr = [[[DoubanAttribute alloc] init] autorelease];
     [newAttr setName:@"participate_date"];
     [newAttr setContent:content];
     
@@ -252,7 +265,7 @@ static NSString * const kEventOthersCategoryName = @"其他";
    [attr setContent:content]; 
   }
   else {
-    DoubanAttribute *newAttr = [[DoubanAttribute alloc] init];
+    DoubanAttribute *newAttr = [[[DoubanAttribute alloc] init] autorelease];
     [newAttr setName:@"status"];
     [newAttr setContent:content];
     

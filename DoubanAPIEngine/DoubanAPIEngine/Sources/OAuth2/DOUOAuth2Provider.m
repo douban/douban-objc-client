@@ -54,7 +54,7 @@ static NSString *kDelegateKey = @"DelegateKey";
 - (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
                      username:(NSString *)username 
                      password:(NSString *)password 
-                     delegate:(id<DOULoginDelegate>)delegate {
+                     delegate:(id<DOUHttpRequestDelegate>)delegate {
   ASIFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
   [req setPostValue:password forKey:kPasswordKey];
@@ -67,47 +67,61 @@ static NSString *kDelegateKey = @"DelegateKey";
 }
 
 
-- (void)requestFailed:(ASIHTTPRequest *)request {
-  NSInteger errorCode = kOAuthErrorUnknown;
+- (void)requestFailed:(ASIHTTPRequest *)req {
+  NSError *error = nil;
   
-  NSString *responseStr = [request responseString];
-  NSLog(@"login failed response: %@", responseStr);
+  NSError *asiError = [req error];
+  // handle the http error
+  if (asiError) {
+     error = [DOUHttpRequest adapterError:asiError];
+  }
 
-  if (responseStr) {
-    NSDictionary *dic = [responseStr JSONValue];
-    errorCode = [[dic objectForKey:@"code"] integerValue];    
+  // handle the oauth error
+  int statusCode = [req responseStatusCode];
+  if (statusCode == 400) {
+    NSString *response = [req responseString];
+    NSDictionary *dic = [response JSONValue];  
+    if (dic) {
+      NSInteger code = [[dic objectForKey:@"code"] integerValue];
+      error = [NSError errorWithDomain:DOUOAuthErrorDomain
+                                  code:code 
+                              userInfo:dic];
+    }
   }
-  
-  id delegate = [[request userInfo] objectForKey:kDelegateKey];
-  if ([delegate respondsToSelector:@selector(loginFailed:)]){
-    [delegate loginFailed:errorCode];
-  }
+
+  // handled by delegate
+  id delegate = [[req userInfo] objectForKey:kDelegateKey];
+  if ([delegate respondsToSelector:@selector(requestFailed:)]) {
+    [req setError:error];
+    [delegate requestFailed:req];
+  }   
 }
 
 
-- (void)requestFinished:(ASIHTTPRequest *)request {
-  NSError *error = [request error];
+- (void)requestFinished:(ASIHTTPRequest *)req {
+  
+  NSLog(@"login response: %@", [req responseString]);
+  NSError *error = [req error];
   if (!error) {
     
-    int code = [request responseStatusCode];
+    int code = [req responseStatusCode];
     if (code == 201 || code == 200) {
       // success
-      DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[request userInfo] objectForKey:kConsumerKey];    
-      NSString* responseStr = [request responseString];
-      NSLog(@"login success response: %@", responseStr);
+      DOUOAuth2Consumer *consumer = (DOUOAuth2Consumer *)[[req userInfo] objectForKey:kConsumerKey];    
+      NSString* responseStr = [req responseString];
       [consumer updateWithHTTPResponse:responseStr];
       [consumer save];
       
-      id delegate = [[request userInfo] objectForKey:kDelegateKey];
-      if ([delegate respondsToSelector:@selector(loginFinished)]){
-        [delegate loginFinished];
+      // handled by delegate
+      id delegate = [[req userInfo] objectForKey:kDelegateKey];
+      if ([delegate respondsToSelector:@selector(requestFinished:)]){
+        [delegate requestFinished:req];
       }
       return ;
     }
-    
-    [self requestFailed:request];
   }
   
+  [self requestFailed:req];  
 }
 
  
@@ -148,6 +162,24 @@ static NSString *kDelegateKey = @"DelegateKey";
   [req setStringEncoding:NSUTF8StringEncoding];
 }
 */
+
+
+#if NS_BLOCKS_AVAILABLE
+
+- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+                     username:(NSString *)username 
+                     password:(NSString *)password
+                     callback:(DOUBasicBlock)block {
+  ASIFormDataRequest *req = [self auth2Request:consumer];
+  [req setPostValue:username forKey:kUsernameKey];
+  [req setPostValue:password forKey:kPasswordKey];
+  [req setCompletionBlock:block];
+  [req setFailedBlock:block];
+  
+  [req startAsynchronous];
+}
+
+#endif
 
 
 @end

@@ -7,10 +7,12 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
+#import "DOUAPIEngine.h"
 #import "DoubanEntryEvent.h"
 #import "DoubanFeedEvent.h"
 #import "DoubanLocation.h"
 #import "DoubanAttribute.h"
+
 
 @interface DoubanEventTests : SenTestCase 
 

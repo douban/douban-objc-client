@@ -40,6 +40,8 @@ extern NSString * const kArrivedStr;
 @property (nonatomic, readonly) DoubanLocation *location;
 @property (nonatomic, readonly) DoubanEntryEventCategory *eventCategory;
 @property (nonatomic, readonly) GDataLink   *imageLink;
+@property (nonatomic, readonly) GDataLink   *imageMobileLink;
+@property (nonatomic, readonly) GDataLink   *imageLargeLink;
 @property (nonatomic, readonly) GDataLink   *iconLink;
 @property (nonatomic, readonly) NSInteger   albumId;
 

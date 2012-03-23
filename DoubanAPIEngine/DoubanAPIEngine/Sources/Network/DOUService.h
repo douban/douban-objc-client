@@ -10,13 +10,6 @@
 #import "DOUHttpRequest.h"
 #import "GDataEntryBase.h"
 
-@protocol DOULoginDelegate <NSObject>
-
-- (void)loginFinished;
-- (void)loginFailed:(NSInteger)errorCode;
-
-@end
-
 
 @class ASINetworkQueue;
 @class DOUOAuth2Consumer;
@@ -37,19 +30,10 @@
 
 + (DOUService *)sharedInstance;
 
++ (NSString *)apiKey;
 + (void)setAPIKey:(NSString *)theAPIKey;
 + (void)setRedirectUrl:(NSString *)theRedirectUrl;
 + (void)setPrivateKey:(NSString *)thePrivateKey;
-
-+ (NSString *)apiKey;
-
-- (void)loginWithUsername:(NSString *)username 
-                 password:(NSString *)password
-                 delegate:(id<DOULoginDelegate>)delegate;
-
-- (void)logout;
-
-- (NSError *)executeRefreshToken;
 
 - (void)addRequest:(DOUHttpRequest *)request;
 
@@ -61,7 +45,15 @@
 
 - (BOOL)isValid;
 
+- (NSError *)executeRefreshToken;
+
+- (void)logout;
+
 #if NS_BLOCKS_AVAILABLE
+
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password
+                 callback:(DOUBasicBlock)block;
 
 - (void)get:(DOUQuery *)query callback:(DOUReqBlock)block;
 
@@ -73,6 +65,11 @@
 
 #endif
 
+
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password
+                 delegate:(id<DOUHttpRequestDelegate>)delegate;
+
 - (void)get:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
 
 - (void)post:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
@@ -80,5 +77,6 @@
 - (void)post:(DOUQuery *)query object:(GDataEntryBase *)object target:(id<DOUHttpRequestDelegate>)delegate;
 
 - (void)del:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
+
 
 @end

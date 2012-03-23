@@ -11,6 +11,15 @@
 #import "DOUQuery.h"
 #import "DOUOAuth2Consumer.h"
 
+extern NSUInteger const kDefaultTimeoutSeconds;
+
+extern NSString * const DOUHTTPRequestErrorDomain;
+
+extern NSString * const DOUOAuthErrorDomain;
+
+extern NSString * const DOUErrorDomain;
+
+
 @protocol DOUHttpRequestDelegate <NSObject>
 
 @required
@@ -18,9 +27,6 @@
 - (void)requestFailed:(DOUHttpRequest *)aRequest;
 @end
 
-extern NSUInteger const kDefaultTimeoutSeconds;
-
-extern NSString * const DOUHTTPRequestErrorDomain;
 
 typedef enum _DOUNetworkErrorType {
   DOUConnectionFailureErrorType = 1,

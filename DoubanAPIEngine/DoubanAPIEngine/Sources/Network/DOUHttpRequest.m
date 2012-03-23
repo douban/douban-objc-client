@@ -9,13 +9,21 @@
 #import "DOUHttpRequest.h"
 #import "DOUOAuth2.h"
 #import "DOUAPIConfig.h"
+#import "SBJson.h"
 
 
 @implementation DOUHttpRequest
 
 NSUInteger const kDefaultTimeoutSeconds = 18;
 
+
 NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
+
+NSString * const DOUOAuthErrorDomain = @"DOUOAuthErrorDomain";
+
+NSString * const DOUErrorDomain = @"DOUErrorDomain";
+
+static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
 
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
@@ -129,10 +137,38 @@ NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
 
 - (NSError *)doubanError {
   NSError *asiError = [super error];
-  if (asiError == nil) {
-    return asiError;
+  // handle the http error
+  if (asiError) {
+    return [[self class] adapterError:asiError];
   }
-  return [[self class] adapterError:asiError];
+  
+  int statusCode = [self responseStatusCode];
+  if (statusCode == 200 || statusCode == 201) {
+    // success
+    return nil;
+  }
+  else if (statusCode == 400) {
+    // handle the oauth error
+    NSString *response = [self responseString];
+    NSDictionary *dic = [response JSONValue];  
+    NSInteger code = 0;
+    if (dic) {
+      code = [[dic objectForKey:@"code"] integerValue];
+    }
+
+    if (dic) {
+      NSError *oauthError = [NSError errorWithDomain:DOUOAuthErrorDomain
+                                                code:code 
+                                            userInfo:dic];
+      return oauthError;
+    }
+  }
+      
+  NSError *otherError = [NSError errorWithDomain:DOUErrorDomain
+                                            code:statusCode 
+                                        userInfo:nil];
+  return otherError;  
+
 }
 
 
