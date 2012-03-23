@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <title>照片 的回应</title>
+  <author>
+    <link href="http://api.douban.com/people/1080296" rel="self"/>
+    <link href="http://www.douban.com/people/linguo/" rel="alternate"/>
+    <link href="http://img3.douban.com/icon/u1080296-7.jpg" rel="icon"/>
+    <name>lincode</name>
+    <uri>http://api.douban.com/people/1080296</uri>
+  </author>
+  <entry>
+    <id>http://api.douban.com/recommendation/1474552938/comment/99611691</id>
+    <author>
+      <link href="http://api.douban.com/people/2449296" rel="self"/>
+      <link href="http://www.douban.com/people/JGuo/" rel="alternate"/>
+      <link href="http://img3.douban.com/icon/u2449296-34.jpg" rel="icon"/>
+      <name>放开那个西红柿</name>
+      <uri>http://api.douban.com/people/2449296</uri>
+    </author>
+    <published>2012-03-22T21:23:43+08:00</published>
+    <content>什么时候拍的？</content>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/recommendation/1474552938/comment/99612528</id>
+    <author>
+      <link href="http://api.douban.com/people/1080296" rel="self"/>
+      <link href="http://www.douban.com/people/linguo/" rel="alternate"/>
+      <link href="http://img3.douban.com/icon/u1080296-7.jpg" rel="icon"/>
+      <name>lincode</name>
+      <uri>http://api.douban.com/people/1080296</uri>
+    </author>
+    <published>2012-03-22T21:29:27+08:00</published>
+    <content>大众点评啦</content>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/recommendation/1474552938/comment/99624829</id>
+    <author>
+      <link href="http://api.douban.com/people/1354395" rel="self"/>
+      <link href="http://www.douban.com/people/p3865/" rel="alternate"/>
+      <link href="http://img3.douban.com/icon/u1354395-48.jpg" rel="icon"/>
+      <name>Kirsten</name>
+      <uri>http://api.douban.com/people/1354395</uri>
+    </author>
+    <published>2012-03-22T22:51:50+08:00</published>
+    <content>不知道大叔的新店如何？</content>
+  </entry>
+  <openSearch:itemsPerPage>10</openSearch:itemsPerPage>
+  <openSearch:startIndex>1</openSearch:startIndex>
+  <openSearch:totalResults>3</openSearch:totalResults>
+</feed>
