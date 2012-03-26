@@ -33,6 +33,7 @@
 
 + (NSString *)apiKey;
 + (void)setAPIKey:(NSString *)theAPIKey;
++ (NSString *)redirectUrl;
 + (void)setRedirectUrl:(NSString *)theRedirectUrl;
 + (void)setPrivateKey:(NSString *)thePrivateKey;
 
@@ -56,6 +57,9 @@
                  password:(NSString *)password
                  callback:(DOUBasicBlock)block;
 
+- (void)loginWithAuthorizationCode:(NSString *)authorizationCode
+                          callback:(DOUBasicBlock)block;
+
 - (void)get:(DOUQuery *)query callback:(DOUReqBlock)block;
 
 - (void)post:(DOUQuery *)query callback:(DOUReqBlock)block;
@@ -76,6 +80,9 @@
 - (void)loginWithUsername:(NSString *)username 
                  password:(NSString *)password
                  delegate:(id<DOUHttpRequestDelegate>)delegate;
+
+- (void)loginWithAuthorizationCode:(NSString *)code
+                          delegate:(id<DOUHttpRequestDelegate>)delegate;
 
 - (void)get:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate;
 

@@ -18,24 +18,28 @@
 
 - (id)initWithAuthURL:(NSString *)anAuthURL tokenURL:(NSString *)aTokenURL;
 
-- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+- (void)accessTokenByPassword:(NSString *)password
                      username:(NSString *)username 
-                     password:(NSString *)password
+                     consumer:(DOUOAuth2Consumer *)consumer
                      delegate:(id<DOUHttpRequestDelegate>)delegate;
+
+- (void)accessTokenByAuthorizationCode:(NSString *)authorizationCode
+                              consumer:(DOUOAuth2Consumer *)consumer
+                              delegate:(id<DOUHttpRequestDelegate>)delegate;
 
 - (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer;
 
-/*
-- (void)accessTokenByAuthorizationCode:(DOUOAuth2Consumer *)consumer 
-                     authorizationCode:(NSString *)authorizationCode;
-*/
 
 #if NS_BLOCKS_AVAILABLE
 
-- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+- (void)accessTokenByPassword:(NSString *)password 
                      username:(NSString *)username 
-                     password:(NSString *)password
+                     consumer:(DOUOAuth2Consumer *)consumer
                      callback:(DOUBasicBlock)block;
+
+- (void)accessTokenByAuthorizationCode:(NSString *)authorizationCode
+                              consumer:(DOUOAuth2Consumer *)consumer
+                              callback:(DOUBasicBlock)block;
 
 #endif
 

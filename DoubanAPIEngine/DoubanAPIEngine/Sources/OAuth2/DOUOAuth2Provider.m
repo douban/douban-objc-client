@@ -36,14 +36,17 @@ static NSString *kDelegateKey = @"DelegateKey";
 
 
 - (ASIFormDataRequest *)auth2Request:(DOUOAuth2Consumer *)consumer {
-  
+    
   ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
+  [req setRequestMethod:@"POST"];
+
   [req setAllowCompressedResponse:YES]; // YES is the default
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];
-  [req setRequestMethod:@"POST"];
+    
   [req setPostValue:consumer.key forKey:kClientIdKey];
   [req setPostValue:consumer.secret forKey:kClientSecretKey];
-  [req setPostValue:kGrantTypePassword forKey:kGrantTypeKey];
+  [req setPostValue:consumer.redirectURL forKey:kRedirectURIKey];
+
   [req setStringEncoding:NSUTF8StringEncoding];  
   return  req;
 }
@@ -51,20 +54,35 @@ static NSString *kDelegateKey = @"DelegateKey";
 
 #pragma mark - Auth2 actions
 
-- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+- (void)accessTokenByPassword:(NSString *)password 
                      username:(NSString *)username 
-                     password:(NSString *)password 
+                     consumer:(DOUOAuth2Consumer *)consumer
                      delegate:(id<DOUHttpRequestDelegate>)delegate {
   ASIFormDataRequest *req = [self auth2Request:consumer];
+  [req setPostValue:kGrantTypePassword forKey:kGrantTypeKey];
   [req setPostValue:username forKey:kUsernameKey];
-  [req setPostValue:password forKey:kPasswordKey];
+  [req setPostValue:password forKey:kPasswordKey]; 
   [req setDelegate:self];
   
   NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:consumer, kConsumerKey, delegate, kDelegateKey, nil];
-  
   [req setUserInfo:dic];
   [req startAsynchronous];
 }
+
+
+- (void)accessTokenByAuthorizationCode:(NSString *)authorizationCode
+                              consumer:(DOUOAuth2Consumer *)consumer
+                              delegate:(id<DOUHttpRequestDelegate>)delegate {
+  ASIFormDataRequest *req = [self auth2Request:consumer];
+  [req setPostValue:kGrantTypeAuthorizationCode forKey:kGrantTypeKey];  
+  [req setPostValue:authorizationCode forKey:kOAuth2ResponseTypeCode];;
+  [req setDelegate:self];
+  
+  NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:consumer, kConsumerKey, delegate, kDelegateKey, nil];
+  [req setUserInfo:dic];
+  [req startAsynchronous];  
+}
+
 
 
 - (void)requestFailed:(ASIHTTPRequest *)req {
@@ -127,14 +145,9 @@ static NSString *kDelegateKey = @"DelegateKey";
  
 - (NSError *)accessTokenByRefresh:(DOUOAuth2Consumer *)consumer {
   
-  ASIFormDataRequest *req = [ASIFormDataRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
-
-  [req setRequestMethod:@"POST"];
-  [req setPostValue:consumer.key forKey:kClientIdKey];
-  [req setPostValue:consumer.secret forKey:kClientSecretKey];
+  ASIFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:kGrantTypeRefreshToken forKey:kGrantTypeKey];
-  [req setPostValue:consumer.refreshToken forKey:kRefreshTokenKey];
-  [req setStringEncoding:NSUTF8StringEncoding];
+  [req setPostValue:consumer.refreshToken forKey:kOAuth2ResponseTypeToken];
   [req startSynchronous];
   
   NSError *error = [req error];
@@ -148,27 +161,13 @@ static NSString *kDelegateKey = @"DelegateKey";
   return error;
 }
 
-/*
-- (void)accessTokenByAuthorizationCode:(DOUOAuth2Consumer *)consumer 
-                     authorizationCode:(NSString *)authorizationCode {
-  DOUHttpRequest *req = [DOUHttpRequest requestWithURL:[NSURL URLWithString:tokenURL_]];
-  [req setRequestMethod:@"POST"];
-  [req setPostValue:consumer.key forKey:kClientIdKey];
-  [req setPostValue:consumer.secret forKey:kClientSecretKey];
-  [req setPostValue:consumer.redirectURL forKey:kRedirectURIKey];
-  [req setPostValue:kGrantTypeAuthorizationCode forKey:kGrantTypeKey];  
-  [req setPostValue:authorizationCode forKey:kOAuth2ResponseTypeCode];
-  
-  [req setStringEncoding:NSUTF8StringEncoding];
-}
-*/
 
 
 #if NS_BLOCKS_AVAILABLE
 
-- (void)accessTokenByPassword:(DOUOAuth2Consumer *)consumer 
+- (void)accessTokenByPassword:(NSString *)password 
                      username:(NSString *)username 
-                     password:(NSString *)password
+                     consumer:(DOUOAuth2Consumer *)consumer
                      callback:(DOUBasicBlock)block {
   ASIFormDataRequest *req = [self auth2Request:consumer];
   [req setPostValue:username forKey:kUsernameKey];
@@ -178,6 +177,20 @@ static NSString *kDelegateKey = @"DelegateKey";
   
   [req startAsynchronous];
 }
+
+
+- (void)accessTokenByAuthorizationCode:(NSString *)authorizationCode
+                     consumer:(DOUOAuth2Consumer *)consumer
+                     callback:(DOUBasicBlock)block {
+  ASIFormDataRequest *req = [self auth2Request:consumer];
+  [req setPostValue:kGrantTypeAuthorizationCode forKey:kGrantTypeKey];  
+  [req setPostValue:authorizationCode forKey:kOAuth2ResponseTypeCode];;
+  [req setCompletionBlock:block];
+  [req setFailedBlock:block];
+  
+  [req startAsynchronous];
+}
+
 
 #endif
 

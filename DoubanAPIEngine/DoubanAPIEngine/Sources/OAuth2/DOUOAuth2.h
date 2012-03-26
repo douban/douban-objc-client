@@ -65,6 +65,6 @@ static NSString * const kOAuth2 = @"Bearer";
 static NSString * const kOAuth2AuthorizationHttpHeader = @"Authorization";
 static NSString * const kOAuth2ResponseType = @"response_type";
 static NSString * const kOAuth2ResponseTypeCode = @"code";
-static NSString * const kOAuth2ResponseTypeToken = @"token";
+static NSString * const kOAuth2ResponseTypeToken = @"refresh_token";
 
 

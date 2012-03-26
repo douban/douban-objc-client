@@ -57,6 +57,11 @@ static NSString *redirectUrl;
 }
 
 
++ (NSString *)redirectUrl {
+  return redirectUrl;
+}
+
+
 - (id)init {
   self = [super init];
   if (self) {
@@ -191,10 +196,18 @@ static DOUService *myInstance = nil;
 - (void)loginWithUsername:(NSString *)username 
                  password:(NSString *)password 
                  callback:(DOUBasicBlock)block {
-  [provider_ accessTokenByPassword:consumer_ 
+  [provider_ accessTokenByPassword:password 
                           username:username 
-                          password:password
+                          consumer:consumer_
                           callback:block];
+}
+
+
+- (void)loginWithAuthorizationCode:(NSString *)authorizationCode 
+                          callback:(DOUBasicBlock)block {
+  [provider_ accessTokenByAuthorizationCode:authorizationCode 
+                                   consumer:consumer_
+                                   callback:block];
 }
 
 
@@ -287,6 +300,24 @@ static DOUService *myInstance = nil;
 #endif
 
 
+- (void)loginWithUsername:(NSString *)username 
+                 password:(NSString *)password 
+                 delegate:(id<DOUHttpRequestDelegate>)delegate {
+  [provider_ accessTokenByPassword:password 
+                          username:username 
+                          consumer:consumer_
+                          delegate:delegate];
+}
+
+
+- (void)loginWithAuthorizationCode:(NSString *)code
+                          delegate:(id<DOUHttpRequestDelegate>)delegate {
+  [provider_ accessTokenByAuthorizationCode:code 
+                                   consumer:consumer_
+                                   delegate:delegate];
+}
+
+
 - (void)get:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
   [self addRequest:req];
@@ -327,16 +358,6 @@ static DOUService *myInstance = nil;
   [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
   [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
   [self addRequest:req];
-}
-
-
-- (void)loginWithUsername:(NSString *)username 
-                 password:(NSString *)password 
-                 delegate:(id<DOUHttpRequestDelegate>)delegate {
-  [provider_ accessTokenByPassword:consumer_ 
-                          username:username 
-                          password:password
-                          delegate:delegate];
 }
 
 

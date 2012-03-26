@@ -7,11 +7,16 @@
 //
 
 #import "AppDelegate.h"
-
-#import "MainViewController.h"
+#import "NavController.h"
+#import "DOUAPIEngine.h"
 
 
 @implementation AppDelegate
+
+// 仅用于此 demo, level 较低，大量使用时会遇到访问限制。实际使用，请重新申请。
+static NSString * const kAPIKey = @"04e0b2ab7ca02a8a0ea2180275e07f9e";
+static NSString * const kPrivateKey = @"4275ee2fa3689a2f";
+static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 @synthesize window = window_;
 
@@ -22,12 +27,20 @@
 }
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
-    MainViewController *mainViewController = [[[MainViewController alloc] initWithNibName:@"MainViewController" 
-                                                                                  bundle:nil] autorelease];
-    self.window.rootViewController = mainViewController;
-    [self.window makeKeyAndVisible];
-    return YES;
+  
+  [DOUService setAPIKey:kAPIKey];
+  [DOUService setPrivateKey:kPrivateKey];
+  [DOUService setRedirectUrl:kRedirectUrl];
+  
+  self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
+
+  NavController *navController = [[[NavController alloc] initWithNibName:@"NavController" 
+                                                                  bundle:nil] autorelease];
+  
+  UINavigationController *nav = [[[UINavigationController alloc] initWithRootViewController:navController] autorelease];
+  self.window.rootViewController = nav;
+  [self.window makeKeyAndVisible];
+  return YES;
 }
 
 
