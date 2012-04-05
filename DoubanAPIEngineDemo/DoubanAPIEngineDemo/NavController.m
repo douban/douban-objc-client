@@ -3,9 +3,9 @@
 //  DoubanAPIEngineDemo
 //
 //  Created by Lin GUO on 3/26/12.
-//  Copyright (c) 2012 douban.inc. All rights reserved.
+//  Copyright (c) 2012 douban Inc. All rights reserved.
 //
-
+#import <MobileCoreServices/MobileCoreServices.h>
 #import "NavController.h"
 #import "GetEventController.h"
 #import "WebViewController.h"
@@ -103,9 +103,54 @@
                                                                                 bundle:nil];
     [self.navigationController pushViewController:getEventController animated:YES];     
   }
+  else if ([indexPath row] == 2) {
+    UIImagePickerController *photoController = [[UIImagePickerController alloc] init];
+    photoController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    [self.navigationController presentModalViewController:photoController animated:YES]; 
+    photoController.delegate = self;
+  }
+
   [tableView deselectRowAtIndexPath:indexPath animated:YES];
 }
 
 
+- (void)imagePickerController:(UIImagePickerController *)picker
+    didFinishPickingMediaWithInfo:(NSDictionary *)info {
+
+  NSString *mediaType = [info objectForKey:UIImagePickerControllerMediaType];
+  
+  if ([mediaType isEqualToString:(NSString *)kUTTypeMovie] == YES){
+
+  }  
+  else if ([mediaType isEqualToString:(NSString *)kUTTypeImage] == YES){
+    UIImage *pickedImage = [info objectForKey:UIImagePickerControllerOriginalImage];
+    
+    if (picker.sourceType == UIImagePickerControllerSourceTypeCamera) {
+      UIImageWriteToSavedPhotosAlbum(pickedImage, nil, nil , nil);
+    }
+        
+    NSData *imageData = UIImagePNGRepresentation(pickedImage);    
+    DOUService *service = [DOUService sharedInstance];
+    NSString *subPath = [NSString stringWithFormat:@"/album/%d", @"43672487"];
+    DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
+    DOUReqBlock completionBlock = ^(DOUHttpRequest *req){
+    
+    };
+  
+    [service post:query 
+        photoData:imageData 
+           format:@"png" 
+      description:@"description" 
+         callback:completionBlock];
+  }
+  
+  [picker dismissModalViewControllerAnimated:YES];
+  
+}
+
+
+- (void)imagePickerControllerDidCancel:(UIImagePickerController *)picker{
+  [picker dismissModalViewControllerAnimated:YES];
+}
 
 @end

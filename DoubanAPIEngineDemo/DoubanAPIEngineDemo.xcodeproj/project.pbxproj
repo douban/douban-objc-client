@@ -153,11 +153,11 @@
 				D8F14DB015200AF9008F1875 /* NavController.h */,
 				D8F14DB115200AF9008F1875 /* NavController.m */,
 				D8F14DAE152002B1008F1875 /* NavController.xib */,
-				D8F14DCC1520200E008F1875 /* PhotosController.h */,
-				D8F14DCD1520200E008F1875 /* PhotosController.m */,
 				D8FC8CCD14C48FAC003E5A03 /* GetEventController.h */,
 				D8FC8CCE14C48FAC003E5A03 /* GetEventController.m */,
 				D8FC8CF114C496EC003E5A03 /* GetEventController.xib */,
+				D8F14DCC1520200E008F1875 /* PhotosController.h */,
+				D8F14DCD1520200E008F1875 /* PhotosController.m */,
 				D8F14DD415204FC5008F1875 /* WebViewController.h */,
 				D8F14DD515204FC5008F1875 /* WebViewController.m */,
 				D8FC8C9314C479DD003E5A03 /* Dependency */,
@@ -326,7 +326,8 @@
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "iPhone Developer: GUO Lin (67XSBV9QSJ)";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer: GUO Lin (67XSBV9QSJ)";
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -342,6 +343,8 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 5.0;
 				OTHER_LDFLAGS = "-all_load";
+				PROVISIONING_PROFILE = "D23DD422-001D-4D79-AB28-E50B44258C3E";
+				"PROVISIONING_PROFILE[sdk=iphoneos*]" = "D23DD422-001D-4D79-AB28-E50B44258C3E";
 				SDKROOT = iphoneos;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

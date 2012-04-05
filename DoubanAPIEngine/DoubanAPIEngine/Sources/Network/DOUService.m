@@ -161,7 +161,7 @@ static DOUService *myInstance = nil;
   }
   
   [consumer_ sign:request];
-  NSLog(@"request url:%@", [request.url absoluteString]);
+  //NSLog(@"request url:%@", [request.url absoluteString]);
 
   [[self queue] addOperation:request];
   [[self queue] go];
