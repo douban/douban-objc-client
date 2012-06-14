@@ -7,9 +7,9 @@
 //
 
 #import <UIKit/UIKit.h>
-#import "DOUHttpRequest.h"
+#import "DOUOAuthService.h"
 
-@interface WebViewController : UIViewController<UIWebViewDelegate, DOUHttpRequestDelegate>
+@interface WebViewController : UIViewController<UIWebViewDelegate, DOUOAuthServiceDelegate>
 
 - (id)initWithRequestURL:(NSURL *)aURL;
 

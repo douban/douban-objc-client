@@ -6,16 +6,12 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-
+#import "DOUOAuthStore.h"
 #import "DOUOAuth2.h"
-#import "DOUOAuth2Consumer.h"
-#import "DOUHttpRequest.h"
-#import "DOUAPIConfig.h"
-#import "DOUService.h"
 #import "SBJson.h"
 
 
-@interface DOUOAuth2Consumer ()
+@interface DOUOAuthStore ()
 @property (nonatomic, copy) NSString *accessToken;
 @property (nonatomic, copy) NSString *refreshToken;
 @property (nonatomic, copy) NSDate *expiresIn;
@@ -23,17 +19,12 @@
 @end
 
 
-@implementation DOUOAuth2Consumer
+@implementation DOUOAuthStore
 
 static NSString *kUserDefaultsAccessTokenKey = @"douban_userdefaults_access_token";
 static NSString *kUserDefaultsRefreshTokenKey = @"douban_userdefaults_refresh_token";
 static NSString *kUserDefaultsExpiresInKey = @"douban_userdefaults_expires_in";
 static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
-
-
-@synthesize key    = key_;
-@synthesize secret = secret_;
-@synthesize redirectURL  = redirectURL_;
 
 @synthesize accessToken  = accessToken_;
 @synthesize refreshToken = refreshToken_;
@@ -41,23 +32,67 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
 @synthesize userId = userId_;
 
 
-- (id)initWithKey:(NSString *)aKey secret:(NSString *)aSecret redirectURL:(NSString *)aRedirectURL {
+- (id)init {
 	self = [super init];
 	if( self ) {
-		key_ = [aKey retain];
-		secret_ = [aSecret retain];
-		redirectURL_ = [aRedirectURL retain];
     [self updateWithUserDefaults];
 	}
 	return self;
 }
 
 
-- (void)dealloc {
-  [key_ release]; key_ = nil;
-	[secret_ release]; secret_ = nil;
-	[redirectURL_ release];	redirectURL_ = nil;
+#pragma mark - Singleton
+
+static DOUOAuthStore *myInstance = nil;
+
++ (DOUOAuthStore *)sharedInstance {
   
+  @synchronized(self) {
+    if (myInstance == nil) {
+      myInstance = [[DOUOAuthStore alloc] init];
+    }
+    
+  }
+  return myInstance;
+}
+
+
++ (id)allocWithZone:(NSZone *)zone {
+  @synchronized(self) {
+    if (myInstance == nil) {
+      myInstance = [super allocWithZone:zone];
+      return myInstance;  // assignment and return on first allocation
+    }
+  }
+  return nil; 
+}
+
+
+- (id)copyWithZone:(NSZone *)zone {
+  return self;
+}
+
+
+- (id)retain {
+  return self;
+}
+
+
+- (unsigned)retainCount {
+  return UINT_MAX;
+}
+
+
+- (oneway void)release {
+  //nothing
+}
+
+
+- (id)autorelease {
+  return self;
+}
+
+- (void)dealloc {
   [accessToken_ release];	accessToken_ = nil;
 	[refreshToken_ release]; refreshToken_ = nil;
   [expiresIn_ release]; expiresIn_ = nil;
@@ -65,79 +100,40 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
 }
 
 
-- (void)updateWithHTTPResponse:(NSString *)aString {
+- (void)updateWithSuccessDictionary:(NSDictionary *)dic {
 
-  NSDictionary *dic = [aString JSONValue];
   self.accessToken = [dic objectForKey:kAccessTokenKey];
   self.refreshToken = [dic objectForKey:kRefreshTokenKey];
   
   NSUInteger expiresSecond = [[dic objectForKey:kExpiresInKey] integerValue];
   self.expiresIn = [[NSDate date] dateByAddingTimeInterval:expiresSecond];
   self.userId = [[dic objectForKey:kDoubanUserIdKey] intValue];
-}
-
-
-- (NSDictionary *)parseQueryString:(NSString *)query {
-  NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithCapacity:6] autorelease];
-  NSArray *pairs = [query componentsSeparatedByString:@"&"];
-  
-  for (NSString *pair in pairs) {
-    NSArray *elements = [pair componentsSeparatedByString:@"="];
-    NSString *key = 
-    [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    NSString *val = 
-    [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    
-    [dict setObject:val forKey:key];
-  }
-  return dict;
-}
-
-
-- (void)sign:(DOUHttpRequest *)request {
-  if (self.accessToken) {
-    NSString *authValue = [NSString stringWithFormat:@"%@ %@", kOAuth2, self.accessToken];
-    [request addRequestHeader:kOAuth2AuthorizationHttpHeader value:authValue];    
-  }
-  else {
-    NSString *apiKey = [DOUService apiKey];
-    if (!apiKey) {
-      return ;
-    }
-    
-    NSURL *url = [request url];
-    NSString *urlString = [url absoluteString];
-    NSString *query = [url query];    
-    if (query) {
-      NSDictionary *parameters = [self parseQueryString:query];
-      
-      NSArray *keys = [parameters allKeys];      
-      if ([keys count]  == 0) {
-        urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", apiKey];
-      }
-      else {
-        urlString = [urlString stringByAppendingFormat:@"&%@=%@", @"apikey", apiKey];
-      }
-    }
-    else {
-      urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", apiKey];  
-    }
-    
-    NSString *afterUrl = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
-    request.url = [NSURL URLWithString:afterUrl];
-  }
-  
+  [self save];
 }
 
 
 - (BOOL)hasExpired {
   NSDate *now = [NSDate date];
-  if([now compare:self.expiresIn] == NSOrderedAscending) {
+  NSDate *thirtyMinutesBeforeExpires = [self.expiresIn dateByAddingTimeInterval:-1800];
+  if([now compare:thirtyMinutesBeforeExpires] == NSOrderedAscending) {
+		return NO;
+	}
+	else {
+		return YES;
+	}
+}
+
+
+- (BOOL)shouldRefreshToken {
+  NSDate *now = [NSDate date];
+  NSDate *oneDayBeforeExpires = [self.expiresIn dateByAddingTimeInterval:-86400];
+  if([now compare:oneDayBeforeExpires] == NSOrderedAscending) {
 		return NO;
 	}
 	else{
 		return YES;
 	}
+
 }
 
 
@@ -149,6 +145,7 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
   [userDefaults setInteger:userId_ forKey:kUserDefaultsUserIdKey];
   [userDefaults synchronize];
 }
+
 
 - (void)clear {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
@@ -162,21 +159,28 @@ static NSString *kUserDefaultsUserIdKey = @"douban_userdefaults_user_id";
 
 - (NSString *)accessToken {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  accessToken_ = [[userDefaults stringForKey:kUserDefaultsAccessTokenKey] retain];
+  self.accessToken = [userDefaults stringForKey:kUserDefaultsAccessTokenKey];
   return accessToken_;
 }
 
 
 - (NSString *)refreshToken {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  refreshToken_ = [[userDefaults stringForKey:kUserDefaultsRefreshTokenKey] retain];
+  self.refreshToken = [userDefaults stringForKey:kUserDefaultsRefreshTokenKey];
   return refreshToken_;
+}
+
+
+- (NSDate *)expiresIn {
+  NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
+  self.expiresIn = [userDefaults objectForKey:kUserDefaultsExpiresInKey];
+  return expiresIn_;
 }
 
 
 - (int)userId {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
-  userId_ = [[userDefaults objectForKey:kUserDefaultsUserIdKey] intValue];
+  self.userId = [[userDefaults objectForKey:kUserDefaultsUserIdKey] intValue];
   return userId_;
 }
 

@@ -61,8 +61,6 @@ static NSString * const kPasswordKey = @"password";
 
 static NSString * const kDoubanUserIdKey = @"douban_user_id";
 
-static NSString * const kOAuth2 = @"Bearer";
-static NSString * const kOAuth2AuthorizationHttpHeader = @"Authorization";
 static NSString * const kOAuth2ResponseType = @"response_type";
 static NSString * const kOAuth2ResponseTypeCode = @"code";
 static NSString * const kOAuth2ResponseTypeToken = @"refresh_token";

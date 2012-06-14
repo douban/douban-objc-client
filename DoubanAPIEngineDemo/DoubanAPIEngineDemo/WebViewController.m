@@ -7,7 +7,12 @@
 //
 
 #import "WebViewController.h"
-#import "DOUService.h"
+#import "DOUAPIEngine.h"
+
+
+static NSString * const kAPIKey = @"04e0b2ab7ca02a8a0ea2180275e07f9e";
+static NSString * const kPrivateKey = @"4275ee2fa3689a2f";
+static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 
 @interface NSString (ParseCategory)
@@ -103,16 +108,24 @@
   
   NSURL *urlObj =  [request URL];
   NSString *url = [urlObj absoluteString];
-  NSString *redirectUrl = [DOUService redirectUrl]; 
-  if ([url hasPrefix:redirectUrl]) {
+  
+   
+  if ([url hasPrefix:kRedirectUrl]) {
     
     NSString* query = [urlObj query];
     NSMutableDictionary *parsedQuery = [query explodeToDictionaryInnerGlue:@"=" 
                                                                 outterGlue:@"&"];
     
     NSString *code = [parsedQuery objectForKey:@"code"];
-    DOUService *service = [DOUService sharedInstance];
-    [service loginWithAuthorizationCode:code delegate:self];
+    DOUOAuthService *service = [DOUOAuthService sharedInstance];
+    service.authorizationURL = kTokenUrl;
+    service.delegate = self;
+    service.clientId = kAPIKey;
+    service.clientSecret = kPrivateKey;
+    service.callbackURL = kRedirectUrl;
+    service.authorizationCode = code;
+
+    [service validateAuthorizationCode];
     
     return NO;
   }
@@ -121,15 +134,16 @@
 }
 
 
-- (void)requestFinished:(DOUHttpRequest *)aRequest {
+- (void)OAuthClient:(DOUOAuthService *)client didAcquireSuccessDictionary:(NSDictionary *)dic {
   NSLog(@"success!");
   [self.navigationController popViewControllerAnimated:YES];
+
 }
 
-
-- (void)requestFailed:(DOUHttpRequest *)aRequest {
+- (void)OAuthClient:(DOUOAuthService *)client didFailWithError:(NSError *)error {
   NSLog(@"Fail!");
 }
+
 
 
 @end

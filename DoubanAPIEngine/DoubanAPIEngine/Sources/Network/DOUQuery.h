@@ -15,10 +15,12 @@
  @private
   NSString     *subPath_;
   NSDictionary *parameters_;
+  NSString     *apiBaseUrlString_;
 }
 
 @property (nonatomic, copy) NSString *subPath;
 @property (nonatomic, retain) NSDictionary *parameters;
+@property (nonatomic, copy) NSString *apiBaseUrlString;
 
 - (id)initWithSubPath:(NSString *)aSubPath parameters:(NSDictionary *)theParameters;
 

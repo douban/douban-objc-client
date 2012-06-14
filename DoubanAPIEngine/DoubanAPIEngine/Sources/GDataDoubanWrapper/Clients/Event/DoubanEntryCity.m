@@ -89,4 +89,23 @@
 }
 
 
+- (BOOL)isEqual:(id)object {
+  if (self == object) {
+    return YES;
+  }
+  if ([object isKindOfClass:[self class]]) {
+    if (![[self uid] isEqualToString:[(DoubanEntryCity *)object uid]]) 
+      return NO;
+      
+    return YES;
+  }
+  return NO;
+}
+
+
+- (NSUInteger)hash {
+  return [[self uid] hash];
+}
+
+
 @end

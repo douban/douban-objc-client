@@ -9,7 +9,7 @@
 #import "NavController.h"
 #import "GetEventController.h"
 #import "WebViewController.h"
-#import "DOUService.h"
+#import "DOUAPIEngine.h"
 
 
 @implementation NavController
@@ -87,13 +87,18 @@
 #pragma mark -
 #pragma mark UITableViewDelegate's methods
 
+static NSString * const kAPIKey = @"04e0b2ab7ca02a8a0ea2180275e07f9e";
+static NSString * const kPrivateKey = @"4275ee2fa3689a2f";
+static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
+
 
 - (void)tableView:(UITableView *)tableView 
     didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
   
   if ([indexPath row] == 0) {
-    NSString *urlStr = [NSString stringWithFormat:@"https://www.douban.com/service/auth2/auth?client_id=%@&redirect_uri=%@&response_type=code", [DOUService apiKey], [DOUService redirectUrl]];
+    NSString *str = [NSString stringWithFormat:@"https://www.douban.com/service/auth2/auth?client_id=%@&redirect_uri=%@&response_type=code", kAPIKey, kRedirectUrl];
     
+    NSString *urlStr = [str stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
     NSURL *url = [NSURL URLWithString:urlStr];
     UIViewController *webViewController = [[WebViewController alloc] initWithRequestURL:url];
     [self.navigationController pushViewController:webViewController animated:YES];

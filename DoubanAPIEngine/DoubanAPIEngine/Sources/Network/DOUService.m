@@ -9,9 +9,9 @@
 #import "DOUService.h"
 #import "DOUHTTPRequest.h"
 #import "DOUAPIConfig.h"
-#import "DOUOAuth2.h"
-#import "DOUOAuth2Provider.h"
-#import "DOUOAuth2Consumer.h"
+#import "DOUOAuthService.h"
+#import "DOUOAuthStore.h"
+#import "DOUQuery.h"
 #import "NSString+Base64Encoding.h"
 
 #import "ASINetworkQueue.h"
@@ -19,7 +19,10 @@
 
 @interface DOUService ()
 
+@property (nonatomic, retain) ASINetworkQueue   *queue;
+
 - (void)addRequest:(DOUHttpRequest *)request;
+- (void)setMaxConcurrentOperationCount:(NSUInteger)maxConcurrentOperationCount;
 
 @end
 
@@ -28,50 +31,16 @@
 NSUInteger const kDefaultMaxConcurrentOperationCount = 4;
 
 @synthesize queue = queue_;
-@synthesize consumer = consumer_;
-@synthesize provider = provider_;
 
-#pragma mark - Auth2 Parameters
-
-static NSString *APIKey;
-static NSString *privateKey;
-static NSString *redirectUrl;
-
-+ (void)setAPIKey:(NSString *)theAPIKey {
-  APIKey = theAPIKey;
-}
-
-
-+ (void)setPrivateKey:(NSString *)thePrivateKey {
-  privateKey = thePrivateKey;
-}
-
-
-+ (void)setRedirectUrl:(NSString *)theRedirectUrl {
-  redirectUrl = theRedirectUrl;
-}
-
-
-+ (NSString *)apiKey {
-  return APIKey;
-}
-
-
-+ (NSString *)redirectUrl {
-  return redirectUrl;
-}
+@synthesize apiBaseUrlString = apiBaseUrlString_;
+@synthesize clientId = clientId_;
+@synthesize clientSecret = clientSecret_;
 
 
 - (id)init {
   self = [super init];
   if (self) {
-    self.consumer = [[[DOUOAuth2Consumer alloc] initWithKey:APIKey 
-                                                     secret:privateKey 
-                                                redirectURL:redirectUrl] autorelease];
-    [consumer_ updateWithUserDefaults];
     
-    self.provider =  [[[DOUOAuth2Provider alloc] initWithAuthURL:kAuthUrl 
-                                                        tokenURL:kTokenUrl] autorelease];
   }
   return self;
 }
@@ -79,8 +48,6 @@ static NSString *redirectUrl;
 
 - (void)dealloc {
   [queue_ release]; queue_ = nil;
-  [consumer_ release]; consumer_ = nil;
-  [provider_ release]; provider_ = nil;
   [super dealloc];
 }
 
@@ -136,16 +103,68 @@ static DOUService *myInstance = nil;
 }
 
 
-#pragma mark - login
 
-
-- (void)logout {
-  [consumer_ clear];
+- (NSError *)executeRefreshToken {
+  DOUOAuthService *service = [DOUOAuthService sharedInstance];
+  service.authorizationURL = kTokenUrl;
+  service.clientId = self.clientId;
+  service.clientSecret = self.clientSecret;
+  return [service validateRefresh];
 }
 
 
-- (NSError *)executeRefreshToken {
-  return [provider_ accessTokenByRefresh:consumer_];
+
+- (NSDictionary *)parseQueryString:(NSString *)query {
+  NSMutableDictionary *dict = [[[NSMutableDictionary alloc] initWithCapacity:6] autorelease];
+  NSArray *pairs = [query componentsSeparatedByString:@"&"];
+  
+  for (NSString *pair in pairs) {
+    NSArray *elements = [pair componentsSeparatedByString:@"="];
+    NSString *key = 
+    [[elements objectAtIndex:0] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    NSString *val = 
+    [[elements objectAtIndex:1] stringByReplacingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    
+    [dict setObject:val forKey:key];
+  }
+  return dict;
+}
+
+
+- (void)sign:(DOUHttpRequest *)request {
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  if (store.accessToken && ![store hasExpired]) {
+    NSString *authValue = [NSString stringWithFormat:@"%@ %@", @"Bearer", store.accessToken];
+    [request addRequestHeader:@"Authorization" value:authValue];      
+  }
+  else {
+    NSString *clientId = self.clientId;
+    if (!clientId) {
+      return ;
+    }
+    
+    NSURL *url = [request url];
+    NSString *urlString = [url absoluteString];
+    NSString *query = [url query];
+    if (query) {
+      NSDictionary *parameters = [self parseQueryString:query];
+      
+      NSArray *keys = [parameters allKeys];      
+      if ([keys count]  == 0) {
+        urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", clientId];
+      }
+      else {
+        urlString = [urlString stringByAppendingFormat:@"&%@=%@", @"apikey", clientId];
+      }
+    }
+    else {
+      urlString = [urlString stringByAppendingFormat:@"?%@=%@", @"apikey", clientId];  
+    }
+    
+    NSString *afterUrl = [urlString stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+    request.url = [NSURL URLWithString:afterUrl];
+  }
+  
 }
 
 
@@ -156,12 +175,13 @@ static DOUService *myInstance = nil;
     self.queue.maxConcurrentOperationCount = kDefaultMaxConcurrentOperationCount;
   }
   
-  if (consumer_.userId != 0 && [consumer_ hasExpired]) {
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  if (store.userId != 0 && store.refreshToken && [store shouldRefreshToken]) {
     [self executeRefreshToken];
   }
   
-  [consumer_ sign:request];
-  //NSLog(@"request url:%@", [request.url absoluteString]);
+  [self sign:request];
+  NSLog(@"request url:%@", [request.url absoluteString]);
 
   [[self queue] addOperation:request];
   [[self queue] go];
@@ -173,19 +193,10 @@ static DOUService *myInstance = nil;
 }
 
 
-- (NSString *)accessToken {
-  return consumer_.accessToken;
-}
-
-
-- (int)userId {
-  return consumer_.userId;  
-}
-
-
 - (BOOL)isValid {
-  if (consumer_.accessToken) {
-    return ![consumer_ hasExpired];
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  if (store.accessToken) {
+    return ![store hasExpired];
   }
   return NO;
 }
@@ -193,41 +204,31 @@ static DOUService *myInstance = nil;
 
 #if NS_BLOCKS_AVAILABLE
 
-- (void)loginWithUsername:(NSString *)username 
-                 password:(NSString *)password 
-                 callback:(DOUBasicBlock)block {
-  [provider_ accessTokenByPassword:password 
-                          username:username 
-                          consumer:consumer_
-                          callback:block];
-}
 
-
-- (void)loginWithAuthorizationCode:(NSString *)authorizationCode 
-                          callback:(DOUBasicBlock)block {
-  [provider_ accessTokenByAuthorizationCode:authorizationCode 
-                                   consumer:consumer_
-                                   callback:block];
-}
-
-
-- (void)get:(DOUQuery *)query callback:(DOUReqBlock)block {
+- (DOUHttpRequest *)get:(DOUQuery *)query callback:(DOUReqBlock)block {
+  query.apiBaseUrlString = self.apiBaseUrlString;
   // __block, It tells the block not to retain the request, which is important in preventing a retain-cycle,
   // since the request will always retain the block
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
   
+  [req setRequestMethod:@"GET"];
+
   [self addRequest:req];
+  return req;
 }
 
 
-- (void)post:(DOUQuery *)query callback:(DOUReqBlock)block {
-  [self post:query object:nil callback:block];
+- (DOUHttpRequest *)post:(DOUQuery *)query callback:(DOUReqBlock)block {
+  query.apiBaseUrlString = self.apiBaseUrlString;
+  return [self post:query object:nil callback:block];
 }
 
 
-- (void)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block {
+- (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block {
+  query.apiBaseUrlString = self.apiBaseUrlString;
+
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
@@ -248,14 +249,18 @@ static DOUService *myInstance = nil;
   
   [req setResponseEncoding:NSUTF8StringEncoding];
   [self addRequest:req];
+  return req;
 }
 
 
-- (void)post:(DOUQuery *)query 
+- (DOUHttpRequest *)post:(DOUQuery *)query 
    photoData:(NSData *)photoData
       format:(NSString *)format
  description:(NSString *)description
     callback:(DOUReqBlock)block {
+  
+  query.apiBaseUrlString = self.apiBaseUrlString;
+  
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
@@ -266,9 +271,10 @@ static DOUService *myInstance = nil;
 
   NSString *postContent = @"Media multipart posting\n--END_OF_PART\nContent-Type: application/atom+xml\n\n";
   
-  GDataEntryBase *emptyEntry = [[GDataEntryBase alloc] init];
+  GDataEntryBase *emptyEntry = [[GDataEntryBase alloc] init] ;
   emptyEntry.contentStringValue = description;
   NSString *descStr = [[emptyEntry XMLElement] XMLString];
+  [emptyEntry release];
   postContent = [postContent stringByAppendingString:descStr];
   postContent = [postContent stringByAppendingString:@"\n--END_OF_PART"];
   postContent = [postContent stringByAppendingFormat:@"\nContent-Type: image/%@\n", format];
@@ -282,10 +288,14 @@ static DOUService *myInstance = nil;
   NSInteger length = [postData length];
   [req addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", length]];
   [self addRequest:req]; 
+  return req;
 }
 
 
-- (void)del:(DOUQuery *)query callback:(DOUReqBlock)block {
+- (DOUHttpRequest *)delete:(DOUQuery *)query callback:(DOUReqBlock)block {
+  
+  query.apiBaseUrlString = self.apiBaseUrlString;
+
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
@@ -294,43 +304,29 @@ static DOUService *myInstance = nil;
   [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
   [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];
   [self addRequest:req];
+  return req;
 }
 
 
 #endif
 
 
-- (void)loginWithUsername:(NSString *)username 
-                 password:(NSString *)password 
-                 delegate:(id<DOUHttpRequestDelegate>)delegate {
-  [provider_ accessTokenByPassword:password 
-                          username:username 
-                          consumer:consumer_
-                          delegate:delegate];
-}
-
-
-- (void)loginWithAuthorizationCode:(NSString *)code
-                          delegate:(id<DOUHttpRequestDelegate>)delegate {
-  [provider_ accessTokenByAuthorizationCode:code 
-                                   consumer:consumer_
-                                   delegate:delegate];
-}
-
-
-- (void)get:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
+- (DOUHttpRequest *)get:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate {
+  query.apiBaseUrlString = self.apiBaseUrlString;
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
   [self addRequest:req];
+  return req;
 }
 
 
-- (void)post:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
-  [self post:query object:nil target:delegate];
+- (DOUHttpRequest *)post:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate {
+  query.apiBaseUrlString = self.apiBaseUrlString;
+  return [self post:query object:nil delegate:delegate];
 }
 
 
-- (void)post:(DOUQuery *)query object:(GDataEntryBase *)object target:(id<DOUHttpRequestDelegate>)delegate {
-
+- (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object delegate:(id<DOUHttpRequestDelegate>)delegate {
+  query.apiBaseUrlString = self.apiBaseUrlString;
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
   
   [req setRequestMethod:@"POST"];
@@ -349,15 +345,19 @@ static DOUService *myInstance = nil;
   
   [req setResponseEncoding:NSUTF8StringEncoding];
   [self addRequest:req];
+  return req;
 }
 
 
-- (void)del:(DOUQuery *)query target:(id<DOUHttpRequestDelegate>)delegate {
+- (DOUHttpRequest *)delete:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate {
+  query.apiBaseUrlString = self.apiBaseUrlString;
+
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
   [req setRequestMethod:@"DELETE"];
   [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
   [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
   [self addRequest:req];
+  return req;
 }
 
 

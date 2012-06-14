@@ -61,6 +61,8 @@
 
 - (IBAction)showInfo:(id)sender {
   DOUService *service = [DOUService sharedInstance];
+  service.apiBaseUrlString = kHttpApiBaseUrl;
+  
   DOUQuery *query = [DoubanQueryEvent queryForEventById:14910931];
 
   DOUReqBlock completionBlock = ^(DOUHttpRequest *req){

@@ -8,6 +8,8 @@
 
 #import "DOUHttpRequest.h"
 #import "DOUOAuth2.h"
+#import "DOUQuery.h"
+
 #import "DOUAPIConfig.h"
 #import "SBJson.h"
 
@@ -28,6 +30,7 @@ static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
   DOUHttpRequest *req = [[[DOUHttpRequest alloc] initWithURL:URL] autorelease];
+  [req setValidatesSecureCertificate:NO];
   [req setAllowCompressedResponse:YES];// YES is the default
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];
   return req;
@@ -165,7 +168,7 @@ static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
   }
       
   NSError *otherError = [NSError errorWithDomain:DOUErrorDomain
-                                            code:statusCode 
+                                            code:error.code
                                         userInfo:nil];
   return otherError;  
 

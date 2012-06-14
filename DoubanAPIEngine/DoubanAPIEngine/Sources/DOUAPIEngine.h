@@ -6,15 +6,16 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#import "DoubanDefines.h"
-#import "DOUService.h"
+#import "DOUAPIConfig.h"
 #import "DOUQuery.h"
+
+#import "DOUService.h"
+#import "DOUOAuthService.h"
 #import "DOUOAuth2.h"
-
-#import "DOUOAuth2Consumer.h"
-
+#import "DOUOAuthStore.h"
 #import "DOUHttpRequest.h"
 
+#import "DoubanDefines.h"
 #import "DoubanAttribute.h"
 #import "DoubanLocation.h"
 #import "DoubanTag.h"

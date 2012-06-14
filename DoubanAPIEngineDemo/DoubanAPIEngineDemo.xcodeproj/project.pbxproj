@@ -25,7 +25,6 @@
 		D8FC8CE714C49628003E5A03 /* CFNetwork.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CE614C49628003E5A03 /* CFNetwork.framework */; };
 		D8FC8CE914C49633003E5A03 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CE814C49633003E5A03 /* Security.framework */; };
 		D8FC8CEB14C4963D003E5A03 /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CEA14C4963D003E5A03 /* SystemConfiguration.framework */; };
-		D8FC8CEF14C49665003E5A03 /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CEE14C49665003E5A03 /* SenTestingKit.framework */; };
 		D8FC8CF014C49675003E5A03 /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D8FC8CEC14C4964A003E5A03 /* MobileCoreServices.framework */; };
 		D8FC8CF314C496EC003E5A03 /* GetEventController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8FC8CF114C496EC003E5A03 /* GetEventController.xib */; };
 /* End PBXBuildFile section */
@@ -83,7 +82,6 @@
 		D8FC8CE814C49633003E5A03 /* Security.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Security.framework; path = System/Library/Frameworks/Security.framework; sourceTree = SDKROOT; };
 		D8FC8CEA14C4963D003E5A03 /* SystemConfiguration.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SystemConfiguration.framework; path = System/Library/Frameworks/SystemConfiguration.framework; sourceTree = SDKROOT; };
 		D8FC8CEC14C4964A003E5A03 /* MobileCoreServices.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MobileCoreServices.framework; path = System/Library/Frameworks/MobileCoreServices.framework; sourceTree = SDKROOT; };
-		D8FC8CEE14C49665003E5A03 /* SenTestingKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = SenTestingKit.framework; path = Library/Frameworks/SenTestingKit.framework; sourceTree = DEVELOPER_DIR; };
 		D8FC8CF214C496EC003E5A03 /* en */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = en; path = en.lproj/GetEventController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -93,7 +91,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D8FC8CF014C49675003E5A03 /* MobileCoreServices.framework in Frameworks */,
-				D8FC8CEF14C49665003E5A03 /* SenTestingKit.framework in Frameworks */,
 				D8FC8CEB14C4963D003E5A03 /* SystemConfiguration.framework in Frameworks */,
 				D8FC8CE914C49633003E5A03 /* Security.framework in Frameworks */,
 				D8FC8CE714C49628003E5A03 /* CFNetwork.framework in Frameworks */,
@@ -129,7 +126,6 @@
 		D8FC8C5B14C416BB003E5A03 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				D8FC8CEE14C49665003E5A03 /* SenTestingKit.framework */,
 				D8FC8CEC14C4964A003E5A03 /* MobileCoreServices.framework */,
 				D8FC8CEA14C4963D003E5A03 /* SystemConfiguration.framework */,
 				D8FC8CE814C49633003E5A03 /* Security.framework */,

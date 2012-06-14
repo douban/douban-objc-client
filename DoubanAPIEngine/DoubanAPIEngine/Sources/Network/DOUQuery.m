@@ -7,13 +7,13 @@
 //
 
 #import "DOUQuery.h"
-#import "DOUAPIConfig.h"
 
 
 @implementation DOUQuery
 
 @synthesize subPath = subPath_;
 @synthesize parameters = parameters_;
+@synthesize apiBaseUrlString = apiBaseUrlString_;
 
 
 - (id)initWithSubPath:(NSString *)aSubPath parameters:(NSDictionary *)theParameters {
@@ -51,7 +51,7 @@
 
 
 - (NSString *)requestURLString {
-  NSString *url = [NSString stringWithFormat:@"%@%@", kAPIBaseUrl, subPath_];
+  NSString *url = [NSString stringWithFormat:@"%@%@", apiBaseUrlString_, subPath_];
   NSString *parameterStr = [self parametersUrlString];
   if ( parameterStr != nil && [parameterStr length] > 0 ) {
     url = [url stringByAppendingString:parameterStr];

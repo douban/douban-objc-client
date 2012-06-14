@@ -59,36 +59,10 @@ DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，�
 * 提供 Auth2 所需参数
 
 ```objective-c
-  [DOUService setAPIKey:kYourAPIKey];
-  [DOUService setPrivateKey:kYourPrivateKey];
-  [DOUService setRedirectUrl:kYourRedirectUrl];
-```
-
-
-* 登录，当前只完成了 password 类型的 Auth2 认证，随后会支持 AuthorizationCode 类型认证
-
-```objective-c
   DOUService *service = [DOUService sharedInstance];
-  [service loginWithUsername:kUsernameStr password:kPasswordStr];  
+  service.clientId = kAPIKey;
+  service.clientSecret = kPrivateKey;
 ```
-
-
-* 发起一个同步请求
-
-```objective-c
-  NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
-  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
-  DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:params] autorelease];
-
-  DOUHttpRequest *req = [DOUHttpRequest requestWithQuery:query];
-  [service.consumer sign:req];
-  
-  [req startSynchronous];
-  if (![req error]) {
-    DoubanEntrySubject *book = [[DoubanEntrySubject alloc] initWithData:[req responseData]];
-  }
-```
-
 
 * 发起一个异步请求
 
@@ -96,6 +70,7 @@ DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，�
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
   DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:nil] autorelease];
   
+  query.apiBaseUrlString = service.apiBaseUrlString;
   DOUHttpRequest *req = [DOUHttpRequest requestWithQuery:query target:self];
 
   DOUService *service = [DOUService sharedInstance];

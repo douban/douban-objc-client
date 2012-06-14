@@ -17,10 +17,6 @@
 		D800D56E146908AF009F64FD /* DOUHttpRequest.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D565146908AF009F64FD /* DOUHttpRequest.h */; };
 		D800D56F146908AF009F64FD /* DOUHttpRequest.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D566146908AF009F64FD /* DOUHttpRequest.m */; };
 		D800D570146908AF009F64FD /* DOUOAuth2.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D568146908AF009F64FD /* DOUOAuth2.h */; };
-		D800D571146908AF009F64FD /* DOUOAuth2Consumer.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D569146908AF009F64FD /* DOUOAuth2Consumer.h */; };
-		D800D572146908AF009F64FD /* DOUOAuth2Consumer.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D56A146908AF009F64FD /* DOUOAuth2Consumer.m */; };
-		D800D573146908AF009F64FD /* DOUOAuth2Provider.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D56B146908AF009F64FD /* DOUOAuth2Provider.h */; };
-		D800D574146908AF009F64FD /* DOUOAuth2Provider.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D56C146908AF009F64FD /* DOUOAuth2Provider.m */; };
 		D800D5C9146908FD009F64FD /* ASIAuthenticationDialog.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D577146908FD009F64FD /* ASIAuthenticationDialog.h */; };
 		D800D5CA146908FD009F64FD /* ASIAuthenticationDialog.m in Sources */ = {isa = PBXBuildFile; fileRef = D800D578146908FD009F64FD /* ASIAuthenticationDialog.m */; };
 		D800D5CB146908FD009F64FD /* ASICacheDelegate.h in Headers */ = {isa = PBXBuildFile; fileRef = D800D579146908FD009F64FD /* ASICacheDelegate.h */; };
@@ -235,6 +231,12 @@
 		D858E04714C3AC0D00335280 /* DOUQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04514C3AC0D00335280 /* DOUQuery.m */; };
 		D858E04E14C3DA9100335280 /* DOUService.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04C14C3DA9100335280 /* DOUService.h */; };
 		D858E04F14C3DA9100335280 /* DOUService.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04D14C3DA9100335280 /* DOUService.m */; };
+		D882161015889C5F004B4AD4 /* DOUOAuthService.h in Headers */ = {isa = PBXBuildFile; fileRef = D882160C15889C5F004B4AD4 /* DOUOAuthService.h */; };
+		D882161115889C5F004B4AD4 /* DOUOAuthService.m in Sources */ = {isa = PBXBuildFile; fileRef = D882160D15889C5F004B4AD4 /* DOUOAuthService.m */; };
+		D882161215889C5F004B4AD4 /* DOUOAuthStore.h in Headers */ = {isa = PBXBuildFile; fileRef = D882160E15889C5F004B4AD4 /* DOUOAuthStore.h */; };
+		D882161315889C5F004B4AD4 /* DOUOAuthStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D882160F15889C5F004B4AD4 /* DOUOAuthStore.m */; };
+		D882161915889DDE004B4AD4 /* DOUOAuthServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D882161415889DDE004B4AD4 /* DOUOAuthServiceTests.m */; };
+		D882161B15889DDE004B4AD4 /* DOUTestResponseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D882161815889DDE004B4AD4 /* DOUTestResponseLoader.m */; };
 		D8839940149F14EF00099D23 /* DoubanPhotoTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D883993F149F14EF00099D23 /* DoubanPhotoTests.m */; };
 		D8839941149F185E00099D23 /* DoubanEntryPhoto.xml in Resources */ = {isa = PBXBuildFile; fileRef = D883993B149F143C00099D23 /* DoubanEntryPhoto.xml */; };
 		D8839942149F186100099D23 /* DoubanFeedPhoto.xml in Resources */ = {isa = PBXBuildFile; fileRef = D883993C149F143C00099D23 /* DoubanFeedPhoto.xml */; };
@@ -319,10 +321,6 @@
 		D800D565146908AF009F64FD /* DOUHttpRequest.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUHttpRequest.h; sourceTree = "<group>"; };
 		D800D566146908AF009F64FD /* DOUHttpRequest.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUHttpRequest.m; sourceTree = "<group>"; };
 		D800D568146908AF009F64FD /* DOUOAuth2.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUOAuth2.h; sourceTree = "<group>"; };
-		D800D569146908AF009F64FD /* DOUOAuth2Consumer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUOAuth2Consumer.h; sourceTree = "<group>"; };
-		D800D56A146908AF009F64FD /* DOUOAuth2Consumer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuth2Consumer.m; sourceTree = "<group>"; };
-		D800D56B146908AF009F64FD /* DOUOAuth2Provider.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUOAuth2Provider.h; sourceTree = "<group>"; };
-		D800D56C146908AF009F64FD /* DOUOAuth2Provider.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuth2Provider.m; sourceTree = "<group>"; };
 		D800D577146908FD009F64FD /* ASIAuthenticationDialog.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASIAuthenticationDialog.h; sourceTree = "<group>"; };
 		D800D578146908FD009F64FD /* ASIAuthenticationDialog.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ASIAuthenticationDialog.m; sourceTree = "<group>"; };
 		D800D579146908FD009F64FD /* ASICacheDelegate.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ASICacheDelegate.h; sourceTree = "<group>"; };
@@ -531,6 +529,13 @@
 		D858E04514C3AC0D00335280 /* DOUQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUQuery.m; sourceTree = "<group>"; };
 		D858E04C14C3DA9100335280 /* DOUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUService.h; sourceTree = "<group>"; };
 		D858E04D14C3DA9100335280 /* DOUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUService.m; sourceTree = "<group>"; };
+		D882160C15889C5F004B4AD4 /* DOUOAuthService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUOAuthService.h; sourceTree = "<group>"; };
+		D882160D15889C5F004B4AD4 /* DOUOAuthService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuthService.m; sourceTree = "<group>"; };
+		D882160E15889C5F004B4AD4 /* DOUOAuthStore.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUOAuthStore.h; sourceTree = "<group>"; };
+		D882160F15889C5F004B4AD4 /* DOUOAuthStore.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuthStore.m; sourceTree = "<group>"; };
+		D882161415889DDE004B4AD4 /* DOUOAuthServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuthServiceTests.m; sourceTree = "<group>"; };
+		D882161715889DDE004B4AD4 /* DOUTestResponseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUTestResponseLoader.h; sourceTree = "<group>"; };
+		D882161815889DDE004B4AD4 /* DOUTestResponseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUTestResponseLoader.m; sourceTree = "<group>"; };
 		D883993B149F143C00099D23 /* DoubanEntryPhoto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanEntryPhoto.xml; sourceTree = "<group>"; };
 		D883993C149F143C00099D23 /* DoubanFeedPhoto.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedPhoto.xml; sourceTree = "<group>"; };
 		D883993F149F14EF00099D23 /* DoubanPhotoTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanPhotoTests.m; sourceTree = "<group>"; };
@@ -580,7 +585,6 @@
 		D8D28D5814A81F99003570B0 /* DoubanFeedEventCategory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanFeedEventCategory.m; sourceTree = "<group>"; };
 		D8D28D5C14A82356003570B0 /* DoubanFeedEventCategory.xml */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.xml; path = DoubanFeedEventCategory.xml; sourceTree = "<group>"; };
 		D8D28D5D14A825DC003570B0 /* DoubanEventCategoryTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DoubanEventCategoryTests.m; sourceTree = "<group>"; };
-		D8D58D91148DC01400741BF5 /* README.markdown */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = README.markdown; path = ../README.markdown; sourceTree = "<group>"; };
 		D8D8C66814D45EF70084D6E9 /* GDataEntryBase+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataEntryBase+Extension.h"; sourceTree = "<group>"; };
 		D8D8C66914D45EF70084D6E9 /* GDataEntryBase+Extension.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "GDataEntryBase+Extension.m"; sourceTree = "<group>"; };
 		D8DEDC5514D0D2C300500C56 /* GDataAtomAuthor+Extension.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "GDataAtomAuthor+Extension.h"; sourceTree = "<group>"; };
@@ -632,7 +636,6 @@
 		D800D52D146907B2009F64FD = {
 			isa = PBXGroup;
 			children = (
-				D8D58D91148DC01400741BF5 /* README.markdown */,
 				D800D53D146907B2009F64FD /* DoubanAPIEngine */,
 				D800D551146907B2009F64FD /* DoubanAPIEngineTests */,
 				D800D53A146907B2009F64FD /* Frameworks */,
@@ -687,6 +690,8 @@
 		D800D551146907B2009F64FD /* DoubanAPIEngineTests */ = {
 			isa = PBXGroup;
 			children = (
+				D882161415889DDE004B4AD4 /* DOUOAuthServiceTests.m */,
+				D882161615889DDE004B4AD4 /* Testing */,
 				D88EAF3514692D9400A4DE43 /* Resources */,
 				D8CFD433151C5C5200CCC311 /* DoubanCommentTests.m */,
 				D883996F149F479A00099D23 /* DoubanRecommendationTests.m */,
@@ -742,11 +747,11 @@
 		D800D567146908AF009F64FD /* OAuth2 */ = {
 			isa = PBXGroup;
 			children = (
+				D882160C15889C5F004B4AD4 /* DOUOAuthService.h */,
+				D882160D15889C5F004B4AD4 /* DOUOAuthService.m */,
+				D882160E15889C5F004B4AD4 /* DOUOAuthStore.h */,
+				D882160F15889C5F004B4AD4 /* DOUOAuthStore.m */,
 				D800D568146908AF009F64FD /* DOUOAuth2.h */,
-				D800D569146908AF009F64FD /* DOUOAuth2Consumer.h */,
-				D800D56A146908AF009F64FD /* DOUOAuth2Consumer.m */,
-				D800D56B146908AF009F64FD /* DOUOAuth2Provider.h */,
-				D800D56C146908AF009F64FD /* DOUOAuth2Provider.m */,
 			);
 			path = OAuth2;
 			sourceTree = "<group>";
@@ -1130,6 +1135,15 @@
 			path = Elements;
 			sourceTree = "<group>";
 		};
+		D882161615889DDE004B4AD4 /* Testing */ = {
+			isa = PBXGroup;
+			children = (
+				D882161715889DDE004B4AD4 /* DOUTestResponseLoader.h */,
+				D882161815889DDE004B4AD4 /* DOUTestResponseLoader.m */,
+			);
+			path = Testing;
+			sourceTree = "<group>";
+		};
 		D883995A149F41DA00099D23 /* Recommendation */ = {
 			isa = PBXGroup;
 			children = (
@@ -1207,8 +1221,6 @@
 				D800D56D146908AF009F64FD /* DOUAPIEngine.h in Headers */,
 				D800D56E146908AF009F64FD /* DOUHttpRequest.h in Headers */,
 				D800D570146908AF009F64FD /* DOUOAuth2.h in Headers */,
-				D800D571146908AF009F64FD /* DOUOAuth2Consumer.h in Headers */,
-				D800D573146908AF009F64FD /* DOUOAuth2Provider.h in Headers */,
 				D800D5C9146908FD009F64FD /* ASIAuthenticationDialog.h in Headers */,
 				D800D5CB146908FD009F64FD /* ASICacheDelegate.h in Headers */,
 				D800D5CC146908FD009F64FD /* ASIDataCompressor.h in Headers */,
@@ -1329,6 +1341,8 @@
 				D8EC0049151C274600A7066F /* DoubanFeedComment.h in Headers */,
 				D8CFD43F151C757200CCC311 /* NSString+Base64Encoding.h in Headers */,
 				D8CFD443151C760700CCC311 /* NSData+Base64Decoding.h in Headers */,
+				D882161015889C5F004B4AD4 /* DOUOAuthService.h in Headers */,
+				D882161215889C5F004B4AD4 /* DOUOAuthStore.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1377,7 +1391,7 @@
 		D800D52F146907B2009F64FD /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
-				LastUpgradeCheck = 0420;
+				LastUpgradeCheck = 0430;
 				ORGANIZATIONNAME = "Douban Inc";
 			};
 			buildConfigurationList = D800D532146907B2009F64FD /* Build configuration list for PBXProject "DoubanAPIEngine" */;
@@ -1447,8 +1461,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				D800D56F146908AF009F64FD /* DOUHttpRequest.m in Sources */,
-				D800D572146908AF009F64FD /* DOUOAuth2Consumer.m in Sources */,
-				D800D574146908AF009F64FD /* DOUOAuth2Provider.m in Sources */,
 				D800D5CA146908FD009F64FD /* ASIAuthenticationDialog.m in Sources */,
 				D800D5CD146908FD009F64FD /* ASIDataCompressor.m in Sources */,
 				D800D5CF146908FD009F64FD /* ASIDataDecompressor.m in Sources */,
@@ -1561,6 +1573,8 @@
 				D8EC004A151C274600A7066F /* DoubanFeedComment.m in Sources */,
 				D8CFD440151C757200CCC311 /* NSString+Base64Encoding.m in Sources */,
 				D8CFD444151C760700CCC311 /* NSData+Base64Decoding.m in Sources */,
+				D882161115889C5F004B4AD4 /* DOUOAuthService.m in Sources */,
+				D882161315889C5F004B4AD4 /* DOUOAuthStore.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1578,6 +1592,8 @@
 				D8D28D5E14A825DC003570B0 /* DoubanEventCategoryTests.m in Sources */,
 				D815D1CE14A9A6F4008BD224 /* DoubanCityTests.m in Sources */,
 				D8CFD435151C5C7A00CCC311 /* DoubanCommentTests.m in Sources */,
+				D882161915889DDE004B4AD4 /* DOUOAuthServiceTests.m in Sources */,
+				D882161B15889DDE004B4AD4 /* DOUTestResponseLoader.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1607,7 +1623,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COPY_PHASE_STRIP = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
 				GCC_DYNAMIC_NO_PIC = NO;
@@ -1617,6 +1636,7 @@
 					"$(inherited)",
 				);
 				GCC_SYMBOLS_PRIVATE_EXTERN = NO;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1630,9 +1650,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				ARCHS = "$(ARCHS_STANDARD_32_BIT)";
+				ARCHS = (
+					armv6,
+					"$(ARCHS_STANDARD_32_BIT)",
+				);
 				COPY_PHASE_STRIP = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				GCC_WARN_ABOUT_MISSING_PROTOTYPES = YES;
 				GCC_WARN_ABOUT_RETURN_TYPE = YES;
@@ -1653,6 +1677,7 @@
 				DSTROOT = /tmp/DoubanAPIEngine.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DoubanAPIEngine/DoubanAPIEngine-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				ONLY_ACTIVE_ARCH = NO;
@@ -1672,6 +1697,7 @@
 				DSTROOT = /tmp/DoubanAPIEngine.dst;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DoubanAPIEngine/DoubanAPIEngine-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				GCC_VERSION = com.apple.compilers.llvm.clang.1_0;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				ONLY_ACTIVE_ARCH = NO;
@@ -1690,6 +1716,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DoubanAPIEngine/DoubanAPIEngine-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "DoubanAPIEngineTests/DoubanAPIEngineTests-Info.plist";
 				OTHER_LDFLAGS = (
@@ -1711,6 +1738,7 @@
 				);
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "DoubanAPIEngine/DoubanAPIEngine-Prefix.pch";
+				GCC_THUMB_SUPPORT = NO;
 				HEADER_SEARCH_PATHS = "${SDK_DIR}/usr/include/libxml2";
 				INFOPLIST_FILE = "DoubanAPIEngineTests/DoubanAPIEngineTests-Info.plist";
 				OTHER_LDFLAGS = (

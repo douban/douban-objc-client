@@ -8,8 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "ASIFormDataRequest.h"
-#import "DOUQuery.h"
-#import "DOUOAuth2Consumer.h"
+
 
 extern NSUInteger const kDefaultTimeoutSeconds;
 
@@ -19,7 +18,8 @@ extern NSString * const DOUOAuthErrorDomain;
 
 extern NSString * const DOUErrorDomain;
 
-
+@class DOUHttpRequest;
+@class DOUQuery;
 @protocol DOUHttpRequestDelegate <NSObject>
 
 @required

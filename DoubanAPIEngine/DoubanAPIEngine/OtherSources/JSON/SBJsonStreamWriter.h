@@ -83,17 +83,23 @@
  */
 
 @interface SBJsonStreamWriter : NSObject {
-    NSMutableDictionary *cache;
+@private
+	NSString *error;
+    NSMutableArray *stateStack;
+    __weak SBJsonStreamWriterState *state;
+    id<SBJsonStreamWriterDelegate> delegate;
+	NSUInteger maxDepth;
+    BOOL sortKeys, humanReadable;
 }
 
-@property (nonatomic, unsafe_unretained) SBJsonStreamWriterState *state; // Internal
-@property (nonatomic, readonly, strong) NSMutableArray *stateStack; // Internal 
+@property (nonatomic, assign) __weak SBJsonStreamWriterState *state; // Internal
+@property (nonatomic, readonly, retain) NSMutableArray *stateStack; // Internal 
 
 /**
  @brief delegate to receive JSON output
  Delegate that will receive messages with output.
  */
-@property (unsafe_unretained) id<SBJsonStreamWriterDelegate> delegate;
+@property (assign) id<SBJsonStreamWriterDelegate> delegate;
 
 /**
  @brief The maximum recursing depth.

@@ -8,7 +8,8 @@
 
 #import <Foundation/Foundation.h>
 
-extern NSString * const kAPIBaseUrl;
+extern NSString * const kHttpsApiBaseUrl;
+extern NSString * const kHttpApiBaseUrl;
 
 extern NSString * const kAuthUrl;
 extern NSString * const kTokenUrl;
