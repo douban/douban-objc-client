@@ -1,0 +1,29 @@
+//
+//  DoubanFeedRecommendation.m
+//  DoubanAPIEngine
+//
+//  Created by Lin GUO on 11-12-19.
+//  Copyright (c) 2011年 Douban Inc. All rights reserved.
+//
+
+#import "DoubanFeedRecommendation.h"
+
+@implementation DoubanFeedRecommendation
+
+
++ (NSString *)standardFeedKind {
+	return @"recommendations"; //kGDataCategoryRecommendationsFeed;
+}
+
+
+- (Class)classForEntries {
+	return [DoubanEntryRecommendation class];
+}
+
+
++ (NSString *)defaultServiceVersion {
+	return kDoubanRecommendationsDefaultServiceVersion;
+}
+
+
+@end
