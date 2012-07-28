@@ -29,6 +29,7 @@
 - (void)dealloc {
   [subPath_ release]; subPath_ = nil;
   [parameters_ release]; parameters_ = nil;
+  [apiBaseUrlString_ release]; apiBaseUrlString_ = nil;
   [super dealloc];
 }
 

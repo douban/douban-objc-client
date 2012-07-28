@@ -34,6 +34,9 @@ _EXTERN NSString* const kDoubanCategoryCityCategory _INITIALIZE_AS(@"http://www.
 _EXTERN NSString* const kDoubanNamespace _INITIALIZE_AS(@"http://www.douban.com/xmlns/");
 _EXTERN NSString* const kDoubanNamespacePrefix _INITIALIZE_AS(@"db");
 
+_EXTERN NSString* const kAtomNamespace _INITIALIZE_AS(@"http://www.w3.org/2005/Atom");
+_EXTERN NSString* const kAtomNamespacePrefix _INITIALIZE_AS(@"ns0");
+
 _EXTERN NSString* const kGeorssNamespace _INITIALIZE_AS(@"http://www.georss.org/georss");
 _EXTERN NSString* const kGeorssNamespacePrefix _INITIALIZE_AS(@"georess");
 

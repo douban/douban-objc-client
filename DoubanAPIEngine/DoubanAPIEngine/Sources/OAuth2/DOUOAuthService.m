@@ -113,7 +113,7 @@ static DOUOAuthService *myInstance = nil;
 - (void)validateAuthorizationCode {
   ASIFormDataRequest *req = [self formRequest];
   [req setDelegate:self];
-  [req setPostValue:@"code" forKey:kOAuth2ResponseType]; 
+  [req setPostValue:@"authorization_code" forKey:kGrantTypeKey]; 
   [req setPostValue:self.authorizationCode forKey:kOAuth2ResponseTypeCode];
   [req startAsynchronous];
 }

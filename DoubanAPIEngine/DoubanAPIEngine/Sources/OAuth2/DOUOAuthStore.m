@@ -160,6 +160,7 @@ static DOUOAuthStore *myInstance = nil;
 - (NSString *)accessToken {
   NSUserDefaults *userDefaults = [NSUserDefaults standardUserDefaults];
   self.accessToken = [userDefaults stringForKey:kUserDefaultsAccessTokenKey];
+  //NSLog(@"token:%@", accessToken_);
   return accessToken_;
 }
 

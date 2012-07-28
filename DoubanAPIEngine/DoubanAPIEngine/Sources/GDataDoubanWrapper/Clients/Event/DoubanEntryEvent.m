@@ -214,8 +214,14 @@ static NSString * const kEventOthersCategoryName = @"其他";
     
     NSDateFormatter *dateFormatter = [[[NSDateFormatter alloc] init] autorelease];
     [dateFormatter setDateFormat:@"yyyy-MM-dd"];
-    NSDate *participateDate = [dateFormatter dateFromString:dateStr];
-    return participateDate;
+
+    NSDate *date = [dateFormatter dateFromString:dateStr];
+    
+    NSTimeZone *zone = [NSTimeZone systemTimeZone];
+    NSInteger interval = [zone secondsFromGMTForDate: date];
+    NSDate *localeDate = [date  dateByAddingTimeInterval: interval]; 
+    
+    return localeDate;
 	}
   return nil;
 }

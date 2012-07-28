@@ -12,7 +12,8 @@
 #import "DOUOAuthService.h"
 #import "DOUOAuthStore.h"
 #import "DOUQuery.h"
-#import "NSString+Base64Encoding.h"
+#import "DoubanDefines.h"
+#import "NSData+Base64.h"
 
 #import "ASINetworkQueue.h"
 
@@ -48,6 +49,9 @@ NSUInteger const kDefaultMaxConcurrentOperationCount = 4;
 
 - (void)dealloc {
   [queue_ release]; queue_ = nil;
+  [apiBaseUrlString_ release]; apiBaseUrlString_ = nil;
+  [clientId_ release]; clientId_ = nil;
+  [clientSecret_ release]; clientSecret_ = nil;
   [super dealloc];
 }
 
@@ -226,9 +230,33 @@ static DOUService *myInstance = nil;
 }
 
 
+- (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body callback:(DOUReqBlock)block {
+  query.apiBaseUrlString = self.apiBaseUrlString;
+  __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
+    block(req);
+  }];
+  
+  [req setRequestMethod:@"POST"];
+  [req addRequestHeader:@"Content-Type" value: @"application/x-www-form-urlencoded; charset=UTF-8"];
+  
+  if (body && [body length] > 0) {
+    NSData *objectData = [body dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
+    [req appendPostData:objectData];
+    [req addRequestHeader:@"Content-Length" value:length];        
+  }
+  else {
+    [req addRequestHeader:@"Content-Length" value:@"0"];
+  }
+  
+  [req setResponseEncoding:NSUTF8StringEncoding];
+  [self addRequest:req];
+  return req;
+}
+
+
 - (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block {
   query.apiBaseUrlString = self.apiBaseUrlString;
-
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
@@ -254,41 +282,68 @@ static DOUService *myInstance = nil;
 
 
 - (DOUHttpRequest *)post:(DOUQuery *)query 
-   photoData:(NSData *)photoData
-      format:(NSString *)format
- description:(NSString *)description
-    callback:(DOUReqBlock)block {
+               photoData:(NSData *)photoData
+             description:(NSString *)description
+                callback:(DOUReqBlock)block 
+  uploadProgressDelegate:(id<ASIProgressDelegate>)progressDelegate {
   
   query.apiBaseUrlString = self.apiBaseUrlString;
-  
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
   
-  [req setRequestMethod:@"POST"];
-  [req addRequestHeader:@"Content-Type" value:@"multipart/related; boundary=\"END_OF_PART\""];
-  [req addRequestHeader:@"MIME-version" value:@"1.0"];
+  
+  NSString *boundary = [[NSProcessInfo processInfo] globallyUniqueString];
+  NSData *boundaryData   = [[NSString stringWithFormat:@"--%@\n", boundary] 
+                                     dataUsingEncoding:NSUTF8StringEncoding];
 
-  NSString *postContent = @"Media multipart posting\n--END_OF_PART\nContent-Type: application/atom+xml\n\n";
+  NSData *finalBoundaryData = [[NSString stringWithFormat:@"\n--%@--", boundary]
+                                        dataUsingEncoding:NSUTF8StringEncoding]; 
+
+  [req setRequestMethod:@"POST"];
+  [req setResponseEncoding:NSUTF8StringEncoding];
+  [req setUploadProgressDelegate:progressDelegate];
+
+  [req addRequestHeader:@"Content-Type" 
+                  value:[NSString stringWithFormat:@"multipart/related; boundary=\"%@\"", boundary]];
+  [req addRequestHeader:@"MIME-version" value:@"1.0"];
   
-  GDataEntryBase *emptyEntry = [[GDataEntryBase alloc] init] ;
-  emptyEntry.contentStringValue = description;
-  NSString *descStr = [[emptyEntry XMLElement] XMLString];
-  [emptyEntry release];
-  postContent = [postContent stringByAppendingString:descStr];
-  postContent = [postContent stringByAppendingString:@"\n--END_OF_PART"];
-  postContent = [postContent stringByAppendingFormat:@"\nContent-Type: image/%@\n", format];
+  // Content XML
+  [req appendPostData:boundaryData];
+  [req appendPostData:[@"Content-Type: application/atom+xml\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
   
-  NSString *encodingStr = [NSString base64StringFromData:photoData length:[photoData length]];
+  GDataEntryBase *emptyEntry = [[GDataEntryBase alloc] init];
+  NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:kAtomNamespace, kAtomNamespacePrefix, kDoubanNamespace, kDoubanNamespacePrefix, nil];
+  [emptyEntry addNamespaces:dic];
+  [emptyEntry addExtensionDeclarations];
   
-  postContent = [postContent stringByAppendingString:encodingStr];
+  GDataEntryContent *content = [GDataEntryContent contentWithString:description];
+  [emptyEntry setContent:content];
+  NSData *descData = [[emptyEntry XMLDocument] XMLData];
+  [req appendPostData:descData];
+  [req appendPostData:boundaryData];
   
-  postContent = [postContent stringByAppendingFormat:@"--END_OF_PART--", format];
-  NSData *postData = [postContent dataUsingEncoding:NSUTF8StringEncoding];
-  NSInteger length = [postData length];
-  [req addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", length]];
-  [self addRequest:req]; 
-  return req;
+  // Image base64 binary
+  [req appendPostData:[@"Content-Type: image/jpeg\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
+  
+  NSString *encodingStr = [photoData base64EncodedString];
+  NSData *data = [encodingStr dataUsingEncoding:NSUTF8StringEncoding];
+  [req appendPostData:data];
+  [req appendPostData:finalBoundaryData];
+
+  // request length
+  NSData *postData = [req postBody];
+  [req addRequestHeader:@"CONTENT_LENGTH" value:[NSString stringWithFormat:@"%d", [postData length]]];  
+  
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  if (store.userId != 0 && store.refreshToken && [store shouldRefreshToken]) {
+    [self executeRefreshToken];
+  }
+  
+  [self sign:req];
+  NSLog(@"request url:%@", [req.url absoluteString]);
+  [req startAsynchronous];
+  return req;  
 }
 
 

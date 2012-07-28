@@ -48,6 +48,8 @@ typedef enum _DOUNetworkErrorType {
 typedef void (^DOUBasicBlock)(void);
 
 typedef void (^DOUReqBlock)(DOUHttpRequest *);
+
+typedef void (^DOUSizeBlock)(long long size);
 #endif
 
 //

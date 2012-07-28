@@ -39,13 +39,16 @@
 
 - (DOUHttpRequest *)post:(DOUQuery *)query callback:(DOUReqBlock)block;
 
+// for recommendation via shuo api
+- (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body callback:(DOUReqBlock)block;
+
 - (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block;
 
 - (DOUHttpRequest *)post:(DOUQuery *)query 
-   photoData:(NSData *)photoData
-      format:(NSString *)format
- description:(NSString *)description
-    callback:(DOUReqBlock)block;
+               photoData:(NSData *)photoData
+             description:(NSString *)description
+                callback:(DOUReqBlock)block
+  uploadProgressDelegate:(id<ASIProgressDelegate>)progressDelegate;
 
 - (DOUHttpRequest *)delete:(DOUQuery *)query callback:(DOUReqBlock)block;
 

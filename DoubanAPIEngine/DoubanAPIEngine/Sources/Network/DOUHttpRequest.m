@@ -16,7 +16,7 @@
 
 @implementation DOUHttpRequest
 
-NSUInteger const kDefaultTimeoutSeconds = 18;
+NSUInteger const kDefaultTimeoutSeconds = 30;
 
 
 NSString * const DOUHTTPRequestErrorDomain = @"DOUHTTPRequestErrorDomain";
@@ -30,6 +30,7 @@ static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
   DOUHttpRequest *req = [[[DOUHttpRequest alloc] initWithURL:URL] autorelease];
+  req.useCookiePersistence = NO;
   [req setValidatesSecureCertificate:NO];
   [req setAllowCompressedResponse:YES];// YES is the default
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];
