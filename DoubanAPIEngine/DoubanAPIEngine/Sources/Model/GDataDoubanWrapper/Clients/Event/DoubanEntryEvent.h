@@ -35,6 +35,7 @@ extern NSString * const kArrivedStr;
 @class DoubanLocation;
 @interface DoubanEntryEvent : GDataEntryBase
 
+@property (nonatomic, readonly) NSInteger  eventId;
 @property (nonatomic, readonly) GDataWhere *where;
 @property (nonatomic, readonly) GDataWhen  *when;
 @property (nonatomic, readonly) DoubanLocation *location;

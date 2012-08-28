@@ -93,6 +93,10 @@ static NSString * const kEventOthersCategoryName = @"其他";
 
 #pragma mark - Extensions
 
+- (NSInteger)eventId {
+  return [[[self identifier] lastPathComponent] integerValue];
+}
+
 - (GDataWhen *)when {
 	return [self objectForExtensionClass:[GDataWhen class]];
 }
