@@ -139,6 +139,7 @@ static DOUService *myInstance = nil;
   DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
   if (store.accessToken && ![store hasExpired]) {
     NSString *authValue = [NSString stringWithFormat:@"%@ %@", @"Bearer", store.accessToken];
+    //NSLog(@"bearer:%@", authValue);
     [request addRequestHeader:@"Authorization" value:authValue];      
   }
   else {
@@ -185,7 +186,6 @@ static DOUService *myInstance = nil;
   }
   
   [self sign:request];
-  NSLog(@"request url:%@", [request.url absoluteString]);
 
   [[self queue] addOperation:request];
   [[self queue] go];
@@ -224,12 +224,6 @@ static DOUService *myInstance = nil;
 }
 
 
-- (DOUHttpRequest *)post:(DOUQuery *)query callback:(DOUReqBlock)block {
-  query.apiBaseUrlString = self.apiBaseUrlString;
-  return [self post:query object:nil callback:block];
-}
-
-
 - (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body callback:(DOUReqBlock)block {
   query.apiBaseUrlString = self.apiBaseUrlString;
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
@@ -237,9 +231,17 @@ static DOUService *myInstance = nil;
   }];
   
   [req setRequestMethod:@"POST"];
-  [req addRequestHeader:@"Content-Type" value: @"application/x-www-form-urlencoded; charset=UTF-8"];
-  
+  [req addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded; charset=UTF-8"];      
+
   if (body && [body length] > 0) {
+    
+    NSError *error = nil;
+    GDataXMLElement *element = [[GDataXMLElement alloc] initWithXMLString:body error:&error];
+    if (!error && element) {
+      // if body is XML, Content-Type must be application/atom+xml
+      [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+    }
+    
     NSData *objectData = [body dataUsingEncoding:NSUTF8StringEncoding];
     NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
     [req appendPostData:objectData];
@@ -255,28 +257,58 @@ static DOUService *myInstance = nil;
 }
 
 
-- (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block {
+- (DOUHttpRequest *)post2:(DOUQuery *)query 
+                photoData:(NSData *)photoData
+              description:(NSString *)description
+                 callback:(DOUReqBlock)block 
+   uploadProgressDelegate:(id<ASIProgressDelegate>)progressDelegate {
+  
   query.apiBaseUrlString = self.apiBaseUrlString;
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
     block(req);
   }];
+  
+
+  NSString *charset = (NSString *)CFStringConvertEncodingToIANACharSetName(CFStringConvertNSStringEncodingToEncoding(NSUTF8StringEncoding));
+	
+	// We don't bother to check if post data contains the boundary, since it's pretty unlikely that it does.
+	CFUUIDRef uuid = CFUUIDCreate(nil);
+	NSString *uuidString = [(NSString*)CFUUIDCreateString(nil, uuid) autorelease];
+	CFRelease(uuid);
+	NSString *stringBoundary = [NSString stringWithFormat:@"0xKhTmLbOuNdArY-%@",uuidString];
+  NSString *endItemBoundary = [NSString stringWithFormat:@"\r\n--%@\r\n",stringBoundary];
 
   [req setRequestMethod:@"POST"];
-  [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
-  
-  if (object) {
-    NSString *string = [[object XMLElement] XMLString];
-    NSData *objectData = [string dataUsingEncoding:NSUTF8StringEncoding];
-    NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
-    [req appendPostData:objectData];
-    [req addRequestHeader:@"CONTENT_LENGTH" value:length];    
-  }
-  else {
-    [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
-  }
-  
   [req setResponseEncoding:NSUTF8StringEncoding];
-  [self addRequest:req];
+  [req setUploadProgressDelegate:progressDelegate];
+  
+	[req addRequestHeader:@"Content-Type" value:[NSString stringWithFormat:@"multipart/form-data; charset=%@; boundary=%@", charset, stringBoundary]];
+	
+	[req appendPostString:[NSString stringWithFormat:@"--%@\r\n",stringBoundary]];
+	
+	// Adds post data
+  [req appendPostString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"\r\n\r\n", @"desc"]];
+  [req appendPostString:description];
+  [req appendPostString:endItemBoundary];
+
+  // Adds Post file  
+  [req appendPostString:[NSString stringWithFormat:@"Content-Disposition: form-data; name=\"%@\"; filename=\"%@\"\r\n", @"image", @"image.jpeg"]];
+  [req appendPostString:[NSString stringWithFormat:@"Content-Type: %@\r\n\r\n", @"image/jpeg"]];
+  [req appendPostData:photoData];
+  
+	[req appendPostString:[NSString stringWithFormat:@"\r\n--%@--\r\n",stringBoundary]];
+  
+  // request length
+  NSData *postData = [req postBody];
+  [req addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", [postData length]]];  
+  
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  if (store.userId != 0 && store.refreshToken && [store shouldRefreshToken]) {
+    [self executeRefreshToken];
+  }
+  
+  [self sign:req];
+  [req startAsynchronous];
   return req;
 }
 
@@ -312,7 +344,7 @@ static DOUService *myInstance = nil;
   [req appendPostData:boundaryData];
   [req appendPostData:[@"Content-Type: application/atom+xml\n\n" dataUsingEncoding:NSUTF8StringEncoding]];
   
-  GDataEntryBase *emptyEntry = [[GDataEntryBase alloc] init];
+  GDataEntryBase *emptyEntry = [[[GDataEntryBase alloc] init] autorelease];
   NSDictionary *dic = [NSDictionary dictionaryWithObjectsAndKeys:kAtomNamespace, kAtomNamespacePrefix, kDoubanNamespace, kDoubanNamespacePrefix, nil];
   [emptyEntry addNamespaces:dic];
   [emptyEntry addExtensionDeclarations];
@@ -333,7 +365,7 @@ static DOUService *myInstance = nil;
 
   // request length
   NSData *postData = [req postBody];
-  [req addRequestHeader:@"CONTENT_LENGTH" value:[NSString stringWithFormat:@"%d", [postData length]]];  
+  [req addRequestHeader:@"Content-Length" value:[NSString stringWithFormat:@"%d", [postData length]]];  
   
   DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
   if (store.userId != 0 && store.refreshToken && [store shouldRefreshToken]) {
@@ -341,7 +373,7 @@ static DOUService *myInstance = nil;
   }
   
   [self sign:req];
-  NSLog(@"request url:%@", [req.url absoluteString]);
+  //NSLog(@"request url:%@", [req.url absoluteString]);
   [req startAsynchronous];
   return req;  
 }
@@ -357,7 +389,7 @@ static DOUService *myInstance = nil;
   
   [req setRequestMethod:@"DELETE"];
   [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
-  [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];
+  [req addRequestHeader:@"Content-Length" value:@"0"];
   [self addRequest:req];
   return req;
 }
@@ -374,28 +406,29 @@ static DOUService *myInstance = nil;
 }
 
 
-- (DOUHttpRequest *)post:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate {
-  query.apiBaseUrlString = self.apiBaseUrlString;
-  return [self post:query object:nil delegate:delegate];
-}
-
-
-- (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object delegate:(id<DOUHttpRequestDelegate>)delegate {
+- (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body delegate:(id<DOUHttpRequestDelegate>)delegate {
   query.apiBaseUrlString = self.apiBaseUrlString;
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
   
   [req setRequestMethod:@"POST"];
-  [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
-
-  if (object) {
-    NSString *string = [[object XMLElement] XMLString];
-    NSData *objectData = [string dataUsingEncoding:NSUTF8StringEncoding];
+  [req addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded; charset=UTF-8"];
+  
+  if (body && [body length] > 0) {
+    
+    NSError *error = nil;
+    GDataXMLElement *element = [[GDataXMLElement alloc] initWithXMLString:body error:&error];
+    if (!error && element) {
+      // if body is XML, Content-Type must be application/atom+xml
+      [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+    }
+    
+    NSData *objectData = [body dataUsingEncoding:NSUTF8StringEncoding];
     NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
     [req appendPostData:objectData];
-    [req addRequestHeader:@"CONTENT_LENGTH" value:length];    
+    [req addRequestHeader:@"Content-Length" value:length];        
   }
   else {
-    [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
+    [req addRequestHeader:@"Content-Length" value:@"0"];
   }
   
   [req setResponseEncoding:NSUTF8StringEncoding];
@@ -410,7 +443,7 @@ static DOUService *myInstance = nil;
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
   [req setRequestMethod:@"DELETE"];
   [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
-  [req addRequestHeader:@"CONTENT_LENGTH" value:@"0"];      
+  [req addRequestHeader:@"Content-Length" value:@"0"];      
   [self addRequest:req];
   return req;
 }

@@ -75,6 +75,8 @@ typedef void (^DOUSizeBlock)(long long size);
 
 - (NSError *)doubanError;
 
+- (void)appendPostString:(NSString *)string;
+
 @end
 
 

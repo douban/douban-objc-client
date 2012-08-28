@@ -25,8 +25,6 @@ NSString * const DOUOAuthErrorDomain = @"DOUOAuthErrorDomain";
 
 NSString * const DOUErrorDomain = @"DOUErrorDomain";
 
-static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
-
 
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
   DOUHttpRequest *req = [[[DOUHttpRequest alloc] initWithURL:URL] autorelease];
@@ -174,6 +172,11 @@ static NSString * const kOAuthMessageKey = @"kOAuthMessageKey";
   return otherError;  
 
 }
+
+- (void)appendPostString:(NSString *)string {
+	[super appendPostData:[string dataUsingEncoding:NSUTF8StringEncoding]];
+}
+
 
 
 @end

@@ -37,18 +37,22 @@
 
 - (DOUHttpRequest *)get:(DOUQuery *)query callback:(DOUReqBlock)block;
 
-- (DOUHttpRequest *)post:(DOUQuery *)query callback:(DOUReqBlock)block;
-
-// for recommendation via shuo api
-- (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body callback:(DOUReqBlock)block;
-
-- (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object callback:(DOUReqBlock)block;
-
 - (DOUHttpRequest *)post:(DOUQuery *)query 
+                postBody:(NSString *)body 
+                callback:(DOUReqBlock)block;
+
+- (DOUHttpRequest *)post:(DOUQuery *)query
                photoData:(NSData *)photoData
              description:(NSString *)description
                 callback:(DOUReqBlock)block
   uploadProgressDelegate:(id<ASIProgressDelegate>)progressDelegate;
+
+// v2 api post image
+- (DOUHttpRequest *)post2:(DOUQuery *)query
+                photoData:(NSData *)photoData
+              description:(NSString *)description
+                 callback:(DOUReqBlock)block
+   uploadProgressDelegate:(id<ASIProgressDelegate>)progressDelegate;
 
 - (DOUHttpRequest *)delete:(DOUQuery *)query callback:(DOUReqBlock)block;
 
@@ -57,9 +61,7 @@
 
 - (DOUHttpRequest *)get:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate;
 
-- (DOUHttpRequest *)post:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate;
-
-- (DOUHttpRequest *)post:(DOUQuery *)query object:(GDataEntryBase *)object delegate:(id<DOUHttpRequestDelegate>)delegate;
+- (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body delegate:(id<DOUHttpRequestDelegate>)delegate;
 
 - (DOUHttpRequest *)delete:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate;
 

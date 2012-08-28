@@ -7,7 +7,7 @@
 //
 
 #import <SenTestingKit/SenTestingKit.h>
-
+#import "DOUTestResponseLoader.h"
 #import "DOUAPIConfig.h"
 #import "DOUHttpRequest.h"
 #import "DOUService.h"
@@ -16,7 +16,7 @@
 
 @interface DoubanAPIEngineTests : SenTestCase 
 
-- (void)testDOUOAuth2Service;
+- (void)testPostEvent;
 
 @end
 
@@ -50,24 +50,40 @@ static NSString * const kPasswordStr = @"yourpassword";
 }
 
 
-+ (DOUQuery *)queryActivityWithId:(NSUInteger)activityId {
-  NSString *subPath = [NSString stringWithFormat:@"/event/%d", activityId];
-  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"json",@"alt", nil];
++ (DOUQuery *)queryEventWithId:(NSUInteger)eventId {
+  NSString *subPath = [NSString stringWithFormat:@"/event/%d", eventId];
+  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"xml", @"alt", nil];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:params];
+  return [query autorelease];
+}
+
+
++ (DOUQuery *)queryCreateEvent {
+  NSString *subPath = @"/v2/event/create";
+  DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
   return [query autorelease];
 }
 
 
 + (DOUQuery *)queryBookWithId:(int)bookId {
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
-  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"xml",@"alt", nil];
+  NSDictionary *params = [NSDictionary dictionaryWithObjectsAndKeys:@"xml", @"alt", nil];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:params];
   return [query autorelease];
 }
 
 
-- (void)testDOUOAuth2Service {
+- (void)testPostEvent {
   
+  DOUTestResponseLoader *loader = [DOUTestResponseLoader responseLoader];
+  [loader setTimeout:10];
+  DOUQuery *query = [[self class] queryCreateEvent];
+  DOUService *service = [DOUService sharedInstance];
+  service.apiBaseUrlString = kHttpsApiBaseUrl;
+  
+  [service post:query delegate:loader];  
+  [loader waitForResponse];
+  STAssertTrue(loader.wasSuccessful == YES, @"");
 }
 
 

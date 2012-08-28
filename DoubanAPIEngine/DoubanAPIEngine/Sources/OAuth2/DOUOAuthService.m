@@ -160,7 +160,7 @@ static DOUOAuthService *myInstance = nil;
 
   // handle the oauth error
   int statusCode = [req responseStatusCode];
-  if (statusCode == 400 || statusCode == 403) {
+  if (statusCode >= 400 && statusCode <= 403) {
     NSString *response = [req responseString];
     NSDictionary *dic = [response JSONValue];  
     if (dic) {
@@ -179,24 +179,42 @@ static DOUOAuthService *myInstance = nil;
 
 
 - (void)requestFinished:(ASIHTTPRequest *)req {
+  NSError *error = nil;
+
+  NSError *asiError = [req error];
+  if (asiError) {
+    error = [DOUHttpRequest adapterError:asiError];
+  }
   
-  NSLog(@"login response: %@", [req responseString]);
-  NSError *error = [req error];
-  if (!error) {
+  // handle the oauth error
+  int statusCode = [req responseStatusCode];
+  if (statusCode >= 400 && statusCode <= 403) {
     NSString *response = [req responseString];
-    NSDictionary *dic = [response JSONValue];
-    DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
-    [store updateWithSuccessDictionary:dic];
-    
-    if ([delegate_ respondsToSelector:@selector(OAuthClient:didAcquireSuccessDictionary:)]) {
-      [delegate_ OAuthClient:self didAcquireSuccessDictionary:dic];
+    NSDictionary *dic = [response JSONValue];  
+    if (dic) {
+      NSInteger code = [[dic objectForKey:@"code"] integerValue];
+      error = [NSError errorWithDomain:DOUOAuthErrorDomain
+                                  code:code 
+                              userInfo:dic];
     }
   }
-  else {
+  
+  // Error
+  if (error) {
     if ([delegate_ respondsToSelector:@selector(OAuthClient:didFailWithError:)]) {
       [delegate_ OAuthClient:self didFailWithError:error];
+      return ;
     }
+  }
   
+  // Success
+  NSString *response = [req responseString];
+  NSDictionary *dic = [response JSONValue];
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  [store updateWithSuccessDictionary:dic];
+  
+  if ([delegate_ respondsToSelector:@selector(OAuthClient:didAcquireSuccessDictionary:)]) {
+    [delegate_ OAuthClient:self didAcquireSuccessDictionary:dic];
   }
 }
  
