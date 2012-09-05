@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry>
+  <id>http://api.douban.com/miniblog/12974354</id>
+  <title>上传了一张照片到临时存放</title>
+  <author>
+    <link href="http://api.douban.com/people/1079441" rel="self"/>
+    <link href="http://www.douban.com/people/flycondor/" rel="alternate"/>
+    <link href="http://t.douban.com/icon/u1079441-7.jpg" rel="icon"/>
+    <name>挑灯看剑</name>
+    <uri>http://api.douban.com/people/1079441</uri>
+  </author>
+  <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#miniblog.photo"/>
+  <published>2008-07-29T15:10:29+08:00</published>
+  <content type="html"><![CDATA[上传了一张<a href="http://www.douban.com/photos/photo/17300/">照片</a>到<a href="http://www.douban.com/photos/album/10002472/">临时存放</a>]]></content>
+</entry>

@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <id>http://api.douban.com/photo/1259201045</id>
+  <title>照片</title>
+  <author>
+    <link href="http://api.douban.com/people/3220815" rel="self"/>
+    <link href="http://www.douban.com/people/highway61/" rel="alternate"/>
+    <link href="http://img3.douban.com/icon/u3220815-2.jpg" rel="icon"/>
+    <name>公路</name>
+    <uri>http://api.douban.com/people/3220815</uri>
+  </author>
+  <published>2011-10-17T11:55:31+08:00</published>
+  <link href="http://api.douban.com/photo/1259201045" rel="self"/>
+  <link href="http://www.douban.com/event/photo/1259201045/" rel="alternate"/>
+  <link href="http://img3.douban.com/view/photo/icon/public/p1259201045.jpg" rel="icon"/>
+  <link href="http://img3.douban.com/view/photo/photo/public/p1259201045.jpg" rel="image"/>
+  <link href="http://img3.douban.com/view/photo/thumb/public/p1259201045.jpg" rel="thumb"/>
+  <link href="http://img3.douban.com/view/photo/albumcover/public/p1259201045.jpg" rel="cover"/>
+  <link href="http://m.douban.com/photos/photo/1259201045/" rel="mobile"/>
+  <content/>
+  <db:attribute name="comments_count">12</db:attribute>
+  <db:attribute name="recs_count">1</db:attribute>
+  <db:attribute name="position">20</db:attribute>
+  <db:attribute name="next_photo">1259196350</db:attribute>
+  <db:attribute name="prev_photo">1259193512</db:attribute>
+  <db:attribute name="album">58416320</db:attribute>
+  <db:attribute name="album_title">活动照片</db:attribute>
+</entry>

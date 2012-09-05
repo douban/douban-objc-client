@@ -1,0 +1,24 @@
+{
+  "liked": false,
+  "author": {
+    "avatar": "http://img3.douban.com/icon/u1645921-14.jpg",
+    "alt": "http://www.douban.com/people/bear/",
+    "id": "1645921",
+    "name": "Bear",
+    "uid": "bear"
+  },
+  "album_id": "61434971",
+  "image": "http://img1.douban.com/view/photo/image/public/p1328238583.jpg",
+  "recs_count": 20,
+  "alt": "http://www.douban.com/photos/photo/1328238583/",
+  "album_title": "罗马 - 古堡酒店",
+  "id": "1328238583",
+  "icon": "http://img1.douban.com/view/photo/icon/public/p1328238583.jpg",
+  "thumb": "http://img1.douban.com/view/photo/thumb/public/p1328238583.jpg",
+  "created": "2011-12-05 19:54:43",
+  "privacy": "public",
+  "cover": "http://img1.douban.com/view/photo/cover/public/p1328238583.jpg",
+  "liked_count": 120,
+  "comments_count": 10,
+  "desc": "这个就是在古城墙里的酒店，一共就3个房间，很有趣"
+}

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <title>胖胖的大头鱼 的友邻广播</title>
+  <author>
+    <link href="http://api.douban.com/people/1057620" rel="self"/>
+    <link href="http://www.douban.com/people/aka/" rel="alternate"/>
+    <link href="http://t.douban.com/icon/u1057620-26.jpg" rel="icon"/>
+    <name>胖胖的大头鱼</name>
+    <uri>http://api.douban.com/people/1057620</uri>
+  </author>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+  <entry>
+    <id>http://api.douban.com/miniblog/12974400</id>
+    <title>写了新blog文章第一批北京志愿者的工作情况</title>
+    <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#miniblog.blog"/>
+    <author>
+      <link href="http://api.douban.com/people/1255282" rel="self"/>
+      <link href="http://www.douban.com/people/davies/" rel="alternate"/>
+      <link href="http://t.douban.com/icon/u1255282-2.jpg" rel="icon"/>
+      <name>Davies</name>
+      <uri>http://api.douban.com/people/1255282</uri>
+    </author>
+    <published>2008-07-31T11:57:47+08:00</published>
+    <content type="html"><![CDATA[写了新blog文章<a href="http://9.douban.com/site/entry/52192091/">第一批北京志愿者的工作情况</a>]]></content>
+  </entry>
+  <entry>
+    <id>http://api.douban.com/miniblog/12974395</id>
+    <title>加入了岩井俊二小组</title>
+    <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#miniblog.group"/>
+    <author>
+      <link href="http://api.douban.com/people/1079441" rel="self"/>
+      <link href="http://www.douban.com/people/flycondor/" rel="alternate"/>
+      <link href="http://t.douban.com/icon/u1079441-7.jpg" rel="icon"/>
+      <name>挑灯看剑</name>
+      <uri>http://api.douban.com/people/1079441</uri>
+    </author>
+    <published>2008-07-30T21:45:35+08:00</published>
+    <link href="/icon/g10355-1.jpg" rel="image"/>
+    <content type="html"><![CDATA[加入了<a href="http://www.douban.com/group/10355/">岩井俊二小组</a>]]></content>
+  </entry>
+</feed>

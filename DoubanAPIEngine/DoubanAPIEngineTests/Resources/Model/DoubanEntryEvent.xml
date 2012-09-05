@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<entry xmlns="http://www.w3.org/2005/Atom" xmlns:db="http://www.douban.com/xmlns/" xmlns:gd="http://schemas.google.com/g/2005" xmlns:georss="http://www.georss.org/georss" xmlns:openSearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/">
+  <id>http://api.douban.com/event/14792861</id>
+  <title>山谷里，我的家/小娟山谷里的居民2011北京演唱会</title>
+    <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#event.music"/>
+    <author>
+    <link href="http://site.douban.com/greenflower" rel="alternate"/>
+    <link href="http://api.douban.com/site/greenflower" rel="self"/>
+    <link href="http://img3.douban.com/view/site/small/public/6e324998d0ccfbd.jpg" rel="icon"/>
+    <name>小娟山谷里的居民</name>
+    <uri>http://api.douban.com/site/greenflower</uri>
+    </author>
+    <link href="http://api.douban.com/event/14792861" rel="self"/>
+    <link href="http://www.douban.com/event/14792861/" rel="alternate"/>
+    <link href="http://img3.douban.com/mpic/e538089.jpg" rel="image"/>
+    <summary>
+    当城市的边界消失 还有 山谷 风 心中的歌 “山谷里，我的家”，「小娟山谷里的居民」乐队2011年度北京唯一的一场演唱会，12月18日，相约北展剧场，打开山谷里的家。 山谷是一种生活的态度，也是生活的感恩。当城市的边界消失，沧海桑田，山谷里的居民始终拥有自己的清澈，让歌唱成为简单快乐的自由。 围绕“山谷”和“家”，山谷里的...
+    </summary>
+    <content>
+    当城市的边界消失 还有 山谷 风 心中的歌 “山谷里，我的家”，「小娟山谷里的居民」乐队2011年度北京唯一的一场演唱会，12月18日，相约北展剧场，打开山谷里的家。 山谷是一种生活的态度，也是生活的感恩。当城市的边界消失，沧海桑田，山谷里的居民始终拥有自己的清澈，让歌唱成为简单快乐的自由。 围绕“山谷”和“家”，山谷里的居民为这场演唱会特别设计曲目和编曲，划分六个重要单元：山谷序曲、冬季的城市、秋日的童话、夏夜的晚风、春天的约会、家的恋曲。独立延续的段落，季节更迭变换，亲密无间的友爱和对音乐的执着相信从不会改变。再次携手“台北到淡水”巡回演唱会的特邀乐手，为好久不见的朋友带来更加精致、亲切的现场感，乐队即将出版的新专辑《C大调的城》部分曲目亦将首次现场呈现。 那些想做而没做到的事，那些想唱而没能唱的歌，那些渐行渐远的梦想，若仍可以在某一天开花结果，来山谷里的家，听我们的四季，唱自由的歌。 【演出名称】 山谷里，我的家 /小娟山谷里的居民2011北京演唱会 【演出场地】 北京展览馆剧场 【演出时间】 2011年12月18日19：30 【票 价】 180/280/380/580/680/VIP/1000套票（580×2） 【演出阵容】 小娟/主唱木吉他铃鼓、黎强/木吉他竹笛Mandolin、刘晓光/长笛口琴钢琴萨克斯、荒井壮一郞/打击乐架子鼓、大中（特邀乐手）/木贝司低音大提琴 【制 作】小娟山谷里的居民 【售票热线】400-899-8989 400-896-6868 【订票网站】票务中国www.piaocn.com 首都票务网www.piao88.com
+    </content>
+    <db:attribute name="invite_only">no</db:attribute>
+    <db:attribute name="can_invite">no</db:attribute>
+    <db:attribute name="participants">342</db:attribute>
+    <db:attribute name="wishers">1118</db:attribute>
+    <db:attribute name="album">58416320</db:attribute>
+    <db:location id="beijing">北京</db:location>
+    <gd:when endTime="2011-12-18T21:30:00+08:00" startTime="2011-12-18T19:30:00+08:00"/>
+    <gd:where valueString="北京 西城区 西直门/动物园 北京展览馆剧场"/>
+    <georss:point>39.904213 116.40741</georss:point>
+    </entry>

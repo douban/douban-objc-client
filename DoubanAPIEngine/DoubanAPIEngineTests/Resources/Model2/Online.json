@@ -1,0 +1,37 @@
+{
+  "liked": false,
+  "album_id": "65606728",
+  "image": "http://img1.douban.com/lpic/o590273.jpg",
+  "create_time": "2012-02-24 11:49:32",
+  "recs_count": 417,
+  "owner": {
+    "avatar": "http://img3.douban.com/icon/u3121692-33.jpg",
+    "alt": "http://www.douban.com/people/linghowl/",
+    "id": "3121692",
+    "name": "浩叔出没东莫村",
+    "uid": "linghowl"
+  },
+  "alt": "http://www.douban.com/online/11038343/",
+  "id": "11038343",
+  "thumb": "http://img1.douban.com/spic/o590273.jpg",
+  "title": "新的截图猜电影，来！",
+  "tags": [
+           "截图",
+           "电影",
+           "交友",
+           "猜图"
+           ],
+  "related_url": "http://www.douban.com/online/10999361/",
+  "liked_count": 2134,
+  "cascade_invite": true,
+  "desc": "截图猜电影\r\n猜中后描述改为：\r\n《电影名》 by （猜中者名字）\r\n请遵守规则！\r\n\r\n附注：相关网址是，听配乐猜电影友情活动，尽请参加！",
+  "photo_count": 63562,
+  "participant_count": 13939,
+  "shuo_topic": "新的截图猜电影，来！",
+  "begin_time": "2012-02-24 11:00:00",
+  "icon": "http://img1.douban.com/bpic/o590273.jpg",
+  "cover": "http://img1.douban.com/tpic/o590273.jpg",
+  "joined":false,
+  "end_time": "2012-05-23 11:00:00",
+  "group_id": "0"
+}

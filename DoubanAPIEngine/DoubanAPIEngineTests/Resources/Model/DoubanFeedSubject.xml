@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom" xmlns:gd="http://schemas.google.com/g/2005" xmlns:opensearch="http://a9.com/-/spec/opensearchrss/1.0/" xmlns:db="http://www.douban.com/xmlns/">
+  <title>带有标签 cowboy 的条目</title>
+  <opensearch:totalResults>246</opensearch:totalResults>
+  <opensearch:startIndex>1</opensearch:startIndex>
+  <entry>
+    <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#movie"/>
+    <author>
+      <name>渡边信一郎</name>
+    </author>
+    <title>Cowboy Bebop</title>
+    <summary>友情、爱情、廉价道德观，这些都放在一边，享受着朝不保夕的自由人生，以自己的利益为绝对优先的——赏金猎人们，在剧中被称为COWBOY。
+      日本动画中一贯会以某 ...</summary>
+    <link rel="self" href="http://api.douban.com/movie/subject/1424406"/>
+    <link rel="alternate" href="http://movie.douban.com/subject/1424406/"/>
+    <link rel="image" href="http://t.douban.com/spic/s2351152.jpg"/>
+    <db:attribute name="year">1998</db:attribute>
+    <db:attribute name="language">日语</db:attribute>
+    <db:attribute name="site">http://www.cowboybebop.org/</db:attribute>
+    <db:attribute name="imdb">http://www.imdb.com/title/tt0213338/</db:attribute>
+    <db:attribute name="country">Japan</db:attribute>
+    <db:attribute name="cast">山寺宏一</db:attribute>
+    <db:attribute name="cast">石塚运昇</db:attribute>
+    <db:attribute name="cast">林原惠</db:attribute>
+    <id>http://api.douban.com/movie/subject/1424406</id>
+  </entry>
+  <entry>
+    <category scheme="http://www.douban.com/2007#kind" term="http://www.douban.com/2007#movie"/>
+    <author>
+      <name>渡边信一郎 (Shinichirô Watanabe)</name>
+    </author>
+    <title>Cowboy Bebop: Knockin' on Heaven's Door</title>
+    <summary>地点是火星，时间是２０７１年的万圣节前夕，一群歹徒在一号公路上炸毁一辆油罐车，并释出一种致命病毒。有关单位担心他们会发动一波更致命的生化战攻击，所以提出钜额奖金 ...</summary>
+    <link rel="self" href="http://api.douban.com/movie/subject/1307031"/>
+    <link rel="alternate" href="http://movie.douban.com/subject/1307031/"/>
+    <link rel="image" href="http://t.douban.com/spic/s1318036.jpg"/>
+    <db:attribute name="site">http://www.sonypictures.com/cthe/cowboybebop/</db:attribute>
+    <db:attribute name="year">2001</db:attribute>
+    <db:attribute name="language">Japanese</db:attribute>
+    <db:attribute name="imdb">http://www.imdb.com/title/tt0275277/</db:attribute>
+    <db:attribute name="country">Japan</db:attribute>
+    <id>http://api.douban.com/movie/subject/1307031</id>
+  </entry>
+  <opensearch:itemsPerPage>2</opensearch:itemsPerPage>
+</feed>

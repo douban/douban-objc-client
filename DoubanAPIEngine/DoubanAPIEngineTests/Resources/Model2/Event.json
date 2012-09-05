@@ -1,0 +1,26 @@
+{
+  "participant_count": 1,
+  "image": "http://lincode.dev.douban.com:9000/pics/event/median_event_dft.jpg",
+  "adapt_url": "http://lincode.dev.douban.com:9000/location/adapt/event/10000359/",
+  "begin_time": "2012-08-27 10:27:06",
+  "owner": {
+    "avatar": "http://lincode.dev.douban.com:9000/icon/user_normal.jpg",
+    "alt": "http://lincode.dev.douban.com:9000/people/sysadmin1/",
+    "id": "64050041",
+    "name": "sysadmin1",
+    "uid": "sysadmin1"
+  },
+  "alt": "http://lincode.dev.douban.com:9000/event/10000359/",
+  "geo": "0.0 0.0",
+  "id": "10000359",
+  "album": "10000354",
+  "title": "豆瓣活动创建",
+  "wisher_count": 0,
+  "content": "生活  Story 说Hello豆 evaomoad豆瓣阿吧    evaomoad测试阿豆瓣阿   evaomoad吧Hello啊生活豆汗豆瓣汗Hello 我们测试EmoTamla 啊豆中文evaomoad EmoTamla  说说 赞 Story 说  吧汗   豆瓣中文生活汗  赞 阿啊 Story 我们测试啊 说吧汗中文我们 豆生活evaomoad豆中文我们赞阿Story  EmoTamla 赞 HelloEmoTamla  中文测试EmoTamla 赞吧啊Story 生活豆瓣测试Hello 我们",
+  "image-hlarge": "http://lincode.dev.douban.com:9000/pics/event/hlarge_event_dft.jpg",
+  "end_time": "2012-09-17 10:27:07",
+  "image-lmobile": "http://lincode.dev.douban.com:9000/pics/event/lmobile_event_dft.jpg",
+  "can_invite": "no",
+  "address": "北京 海淀区 中关村",
+  "location": "beijing"
+}
