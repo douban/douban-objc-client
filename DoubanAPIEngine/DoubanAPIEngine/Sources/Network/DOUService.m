@@ -208,13 +208,14 @@ static DOUService *myInstance = nil;
 
 #if NS_BLOCKS_AVAILABLE
 
-
 - (DOUHttpRequest *)get:(DOUQuery *)query callback:(DOUReqBlock)block {
   query.apiBaseUrlString = self.apiBaseUrlString;
   // __block, It tells the block not to retain the request, which is important in preventing a retain-cycle,
   // since the request will always retain the block
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
-    block(req);
+    if (block != NULL) {
+      block(req);      
+    }
   }];
   
   [req setRequestMethod:@"GET"];
@@ -227,7 +228,9 @@ static DOUService *myInstance = nil;
 - (DOUHttpRequest *)post:(DOUQuery *)query postBody:(NSString *)body callback:(DOUReqBlock)block {
   query.apiBaseUrlString = self.apiBaseUrlString;
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
-    block(req);
+    if (block != NULL) {
+      block(req);      
+    }
   }];
   
   [req setRequestMethod:@"POST"];
@@ -236,7 +239,7 @@ static DOUService *myInstance = nil;
   if (body && [body length] > 0) {
     
     NSError *error = nil;
-    GDataXMLElement *element = [[GDataXMLElement alloc] initWithXMLString:body error:&error];
+    GDataXMLElement *element = [[[GDataXMLElement alloc] initWithXMLString:body error:&error] autorelease];
     if (!error && element) {
       // if body is XML, Content-Type must be application/atom+xml
       [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
@@ -265,7 +268,9 @@ static DOUService *myInstance = nil;
   
   query.apiBaseUrlString = self.apiBaseUrlString;
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
-    block(req);
+    if (block != NULL) {
+      block(req);      
+    }
   }];
   
 
@@ -321,7 +326,9 @@ static DOUService *myInstance = nil;
   
   query.apiBaseUrlString = self.apiBaseUrlString;
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
-    block(req);
+    if (block != NULL) {
+      block(req);      
+    }
   }];
   
   
@@ -384,7 +391,9 @@ static DOUService *myInstance = nil;
   query.apiBaseUrlString = self.apiBaseUrlString;
 
   __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
-    block(req);
+    if (block != NULL) {
+      block(req);      
+    }
   }];
   
   [req setRequestMethod:@"DELETE"];
@@ -401,6 +410,8 @@ static DOUService *myInstance = nil;
 - (DOUHttpRequest *)get:(DOUQuery *)query delegate:(id<DOUHttpRequestDelegate>)delegate {
   query.apiBaseUrlString = self.apiBaseUrlString;
   DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query target:delegate];
+  
+  [req setRequestMethod:@"GET"];
   [self addRequest:req];
   return req;
 }
@@ -416,7 +427,7 @@ static DOUService *myInstance = nil;
   if (body && [body length] > 0) {
     
     NSError *error = nil;
-    GDataXMLElement *element = [[GDataXMLElement alloc] initWithXMLString:body error:&error];
+    GDataXMLElement *element = [[[GDataXMLElement alloc] initWithXMLString:body error:&error] autorelease];
     if (!error && element) {
       // if body is XML, Content-Type must be application/atom+xml
       [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];

@@ -8,7 +8,7 @@
 
 #import "DOUObject.h"
 
-@class DOUPeople;
+@class DOUUser;
 @interface DOUAlbum : DOUObject
 
 @property (nonatomic, copy) NSString *identifier;
@@ -33,6 +33,6 @@
 @property (nonatomic, copy) NSString *cover;
 @property (nonatomic, copy) NSString *image;
 
-@property (nonatomic, retain) DOUPeople *author;
+@property (nonatomic, retain) DOUUser *author;
 
 @end

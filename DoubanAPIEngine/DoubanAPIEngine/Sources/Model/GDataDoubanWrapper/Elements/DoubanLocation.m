@@ -10,7 +10,7 @@
 #import "DoubanLocation.h"
 
 static NSString* const kIdentityAttr = @"id";
-static NSString* const kContentAttr = @"content";
+static NSString* const kNIdentifyAttr = @"n_id";
 
 @implementation DoubanLocation
 
@@ -21,7 +21,7 @@ static NSString* const kContentAttr = @"content";
 
 - (void)addParseDeclarations {
 	NSArray *attrs = [NSArray arrayWithObjects:
-					  kIdentityAttr, kContentAttr, nil];
+					  kIdentityAttr, kNIdentifyAttr, nil];
 	
 	[self addLocalAttributeDeclarations:attrs];
 	[self addContentValueDeclaration];
@@ -37,6 +37,15 @@ static NSString* const kContentAttr = @"content";
 	[self setStringValue:str forAttribute:kIdentityAttr];
 }
 
+
+- (NSString *)uid {
+	return [self stringValueForAttribute:kIdentityAttr];
+}
+
+
+- (void)setUid:(NSString *)str {
+	[self setStringValue:str forAttribute:kIdentityAttr];
+}
 
 - (NSString *)content {
 	return [self contentStringValue];

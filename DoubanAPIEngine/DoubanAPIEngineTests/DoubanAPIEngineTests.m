@@ -13,6 +13,8 @@
 #import "DOUService.h"
 #import "DOUQuery.h"
 #import "DoubanEntrySubject.h"
+#import "DOUAPIEngine.h"
+
 
 @interface DoubanAPIEngineTests : SenTestCase 
 
@@ -72,18 +74,8 @@ static NSString * const kPasswordStr = @"yourpassword";
   return [query autorelease];
 }
 
-
 - (void)testPostEvent {
-  
-  DOUTestResponseLoader *loader = [DOUTestResponseLoader responseLoader];
-  [loader setTimeout:10];
-  DOUQuery *query = [[self class] queryCreateEvent];
-  DOUService *service = [DOUService sharedInstance];
-  service.apiBaseUrlString = kHttpsApiBaseUrl;
-  
-  [service post:query delegate:loader];  
-  [loader waitForResponse];
-  STAssertTrue(loader.wasSuccessful == YES, @"");
+// todo
 }
 
 

@@ -45,6 +45,7 @@
     
   DoubanEntryPeople *people = [[DoubanEntryPeople alloc] initWithData:data]; 
 
+  NSLog(@"identify : %@", [people.location identity]);
   STAssertTrue([[people.location identity] isEqualToString:@"beijing"], @"location"); 
     
   STAssertTrue([[people.location content] isEqualToString:@"北京"], @"location"); 
