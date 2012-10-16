@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "DOUOnline.h"
 #import "DOUOnlineArray.h"
-#import "DOUPeople.h"
+#import "DOUUser.h"
 
 
 @interface DOUOnlineTests : SenTestCase

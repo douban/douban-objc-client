@@ -8,7 +8,7 @@
 
 #import "DOUObject.h"
 
-@class DOUPeople;
+@class DOUUser;
 @interface DOUOnline : DOUObject
 
 @property (nonatomic, copy) NSString *identifier;
@@ -45,7 +45,7 @@
 
 @property (nonatomic, copy) NSString *image;
 
-@property (nonatomic, retain) DOUPeople *owner;
+@property (nonatomic, retain) DOUUser *owner;
 
 @property (nonatomic, assign) BOOL liked;
 @property (nonatomic, assign) BOOL participated;

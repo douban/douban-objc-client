@@ -7,7 +7,7 @@
 //
 
 #import "DOUComment.h"
-#import "DOUPeople.h"
+#import "DOUUser.h"
 #import "DOUObject+Utils.h"
 
 
@@ -40,10 +40,10 @@
 }
 
 
-- (DOUPeople *)author {
+- (DOUUser *)author {
   NSDictionary *dic = [self.dictionary objectForKey:@"author"];
-  DOUPeople *people = [DOUPeople objectWithDictionary:dic];
-  return people;
+  DOUUser *user = [DOUUser objectWithDictionary:dic];
+  return user;
 }
 
 

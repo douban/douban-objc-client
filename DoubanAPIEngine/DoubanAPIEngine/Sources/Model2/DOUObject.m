@@ -12,8 +12,17 @@
 
 @implementation DOUObject
 
-@synthesize string = string_;
+@dynamic string;
 @synthesize dictionary = dictionary_;
+
+
+- (id)init {
+  self = [super init];
+  if (self) {
+    self.dictionary = [NSMutableDictionary dictionary];
+  }
+  return  self;
+}
 
 
 - (id)initWithString:(NSString *)theJsonStr {
@@ -22,11 +31,13 @@
     if (!theJsonStr || [theJsonStr length] <= 0) {
       return nil;
     }
+
+    NSMutableDictionary *dic = (NSMutableDictionary *)[theJsonStr JSONValue]; 
+    if (!dic) {
+      return nil;
+    }
     
-    self.string = theJsonStr;
-    
-    NSDictionary *dic = (NSDictionary *)[theJsonStr JSONValue]; 
-    self.dictionary = [[[NSMutableDictionary alloc] initWithDictionary:dic] autorelease];
+    self.dictionary = dic;
   }
   return self;
 }
@@ -36,8 +47,6 @@
   self = [super init];
   if (self) {
     self.dictionary = [[[NSMutableDictionary alloc] initWithDictionary:theDictionary] autorelease];
-    NSString *result = [self.dictionary JSONRepresentation];
-    self.string = result;
   }
   return self;
 }
@@ -57,9 +66,26 @@
 
 
 - (void)dealloc {
-  [string_ release]; string_ = nil;
   [dictionary_ release]; dictionary_ = nil;
   [super dealloc];
+}
+
+
+- (NSString *)string {
+  if (self.dictionary) {
+    NSString *result = [self.dictionary JSONRepresentation];
+    return result;      
+  }
+  return nil;
+}
+
+
+- (void)setString:(NSString *)theJsonStr {
+  NSMutableDictionary *dic = (NSMutableDictionary *)[theJsonStr JSONValue]; 
+  if (!dic) {
+    return ;
+  }
+  self.dictionary = dic;
 }
 
 

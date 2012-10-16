@@ -29,7 +29,7 @@ NSString * const DOUErrorDomain = @"DOUErrorDomain";
 + (DOUHttpRequest *)requestWithURL:(NSURL *)URL {
   DOUHttpRequest *req = [[[DOUHttpRequest alloc] initWithURL:URL] autorelease];
   req.useCookiePersistence = NO;
-  [req setValidatesSecureCertificate:NO];
+  //[req setValidatesSecureCertificate:NO];
   [req setAllowCompressedResponse:YES];// YES is the default
   [req setTimeOutSeconds:kDefaultTimeoutSeconds];
   return req;
