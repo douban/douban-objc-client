@@ -8,7 +8,7 @@
 
 #import "DOUAlbum.h"
 #import "DOUObject+Utils.h"
-#import "DOUPeople.h"
+#import "DOUUser.h"
 
 
 @implementation DOUAlbum
@@ -105,9 +105,9 @@
 }
 
 
-- (DOUPeople *)author {
+- (DOUUser *)author {
   NSDictionary *dic = [self.dictionary objectForKey:@"author"];
-  DOUPeople *people = [DOUPeople objectWithDictionary:dic];
+  DOUUser *people = [DOUUser objectWithDictionary:dic];
   return people;
 }
 

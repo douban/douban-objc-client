@@ -10,7 +10,7 @@
 #import "DOUPhoto.h"
 #import "DOUPhotoArray.h"
 #import "DOUAlbum.h"
-#import "DOUPeople.h"
+#import "DOUUser.h"
 
 
 @interface DOUPhotoTests : SenTestCase

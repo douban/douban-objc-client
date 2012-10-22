@@ -8,7 +8,7 @@
 
 #import "DOUObject.h"
 
-@class DOUPeople;
+@class DOUUser;
 @interface DOUComment : DOUObject
 
 
@@ -18,6 +18,6 @@
 @property (nonatomic, copy) NSString *createTimeStr; 
 @property (nonatomic, retain) NSDate *createTime;
 
-@property (nonatomic, retain) DOUPeople *author;
+@property (nonatomic, retain) DOUUser *author;
 
 @end

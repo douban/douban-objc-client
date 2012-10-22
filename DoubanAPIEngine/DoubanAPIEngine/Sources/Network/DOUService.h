@@ -9,7 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "DOUHttpRequest.h"
 #import "GDataEntryBase.h"
-#import "DoubanEntryPhoto.h"
 
 
 @class ASINetworkQueue;

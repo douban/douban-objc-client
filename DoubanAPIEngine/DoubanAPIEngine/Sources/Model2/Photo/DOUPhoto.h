@@ -8,7 +8,7 @@
 #import <UIKit/UIKit.h>
 #import "DOUObject.h"
 
-@class DOUPeople;
+@class DOUUser;
 @interface DOUPhoto : DOUObject
 
 @property (nonatomic, copy) NSString *identifier;
@@ -33,7 +33,7 @@
 @property (nonatomic, copy) NSString *nextPhoto;
 
 @property (nonatomic, assign) BOOL liked;
-@property (nonatomic, retain) DOUPeople *author;
+@property (nonatomic, retain) DOUUser *author;
 
 @property (nonatomic, assign) NSString *albumId;
 @property (nonatomic, assign) NSString *albumTitle;

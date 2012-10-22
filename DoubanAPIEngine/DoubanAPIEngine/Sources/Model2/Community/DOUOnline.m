@@ -7,7 +7,7 @@
 //
 
 #import "DOUOnline.h"
-#import "DOUPeople.h"
+#import "DOUUser.h"
 #import "DOUObject+Utils.h"
 
 
@@ -166,10 +166,10 @@
 }
 
 
-- (DOUPeople *)owner {
+- (DOUUser *)owner {
   NSDictionary *dic = [self.dictionary objectForKey:@"owner"];
-  DOUPeople *people = [DOUPeople objectWithDictionary:dic];
-  return people;
+  DOUUser *user = [DOUUser objectWithDictionary:dic];
+  return user;
 }
 
 
