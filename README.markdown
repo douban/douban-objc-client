@@ -54,10 +54,10 @@
 
 
 
-如何使用? 
--------
+# 如何使用? #
 
-* 提供 Auth2 所需参数
+
+### 提供 Auth2 所需参数 ###
 
 ```objective-c
   DOUService *service = [DOUService sharedInstance];
@@ -65,7 +65,7 @@
   service.clientSecret = kPrivateKey;
 ```
 
-* 发起一个异步请求
+### 发起一个异步请求 ###
 
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
@@ -94,7 +94,7 @@ DOUHttpRequest 的闭包处理回调的方法：
 
 
 
-* 异步请求的回调
+### 异步请求的回调 ###
 
 ```objective-c
 - (void)requestFinished:(DOUHttpRequest *)req {
@@ -111,8 +111,8 @@ DOUHttpRequest 的闭包处理回调的方法：
 
 
 
-待办列表
--------
+# 待办列表 #
+
   * 提供更多数据类型的支持，如: 豆邮，日记，收藏
   * 改进 token 过期时，refresh token 的方式，使其不依赖于本机时间
   * RESTFull put 型的添加
