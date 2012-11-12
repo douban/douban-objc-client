@@ -10,15 +10,15 @@
 
 # 如何配置? #
 
-### DoubanAPIEngine ###
+### 1.DoubanAPIEngine ###
 
 将`DoubanAPIEngine.xcodeproj`图标拖拽到你的项目文件目录中。
 
-### 设置项目 Building Settings ###
+### 2.设置项目 Building Settings ###
 
 点击`项目` -> `(TARGETS)`图标，在`Build Settings`里找到 `Other Linker Flags`, 设置为 `-all_load -ObjC`
 
-### 设置目标 Building Settings ###
+### 3.设置目标 Building Settings ###
 
 同上，找到 Header Search Paths，添加
 
@@ -26,17 +26,17 @@
 * ../DoubanAPIEngine/DoubanAPIEngine/Sources
 * ${SDK_DIR}/usr/include/libxml2 。
 
-#### TIPS ####
+##### TIPS #####
 
 以上的两个__DoubanAPIEngine__的目录可以是相对目录也可以是绝对目录，需要自行配置。这里将DoubanAPIEngine目录直接拷贝到了项目目录下。建议如此使用，有助于移植。
 
 
-### 添加依赖 ###
+### 4.添加依赖 ###
 
 点击目标(TARGETS)图标，选择`Building Phases`，找到`Target Dependencies`，添加`DoubanAPIEngine`。
 
 
-### 配置所需的 Frameworks ###
+### 5.配置所需的 Frameworks ###
 
 点击目标(TARGETS)图标，选择`Building Phases`，在`Link Binary with Libaries`中，加入下列库：
 
@@ -57,7 +57,7 @@
 # 如何使用? #
 
 
-### 提供 Auth2 所需参数 ###
+### 1.提供 Auth2 所需参数 ###
 
 ```objective-c
   DOUService *service = [DOUService sharedInstance];
@@ -65,7 +65,7 @@
   service.clientSecret = kPrivateKey;
 ```
 
-### 发起一个异步请求 ###
+### 2.发起一个异步请求 ###
 
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
@@ -94,7 +94,7 @@ DOUHttpRequest 的闭包处理回调的方法：
 
 
 
-### 异步请求的回调 ###
+### 3.异步请求的回调 ###
 
 ```objective-c
 - (void)requestFinished:(DOUHttpRequest *)req {
