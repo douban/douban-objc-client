@@ -1,43 +1,44 @@
 
 [豆瓣 API]: http://www.douban.com/service/
 
-douban-objc-client 介绍
-----------------------
+# douban-objc-client 介绍 #
 
 **douban-objc-client** 是一个 Objective C 实现的 豆瓣 API 客户端。支持 MAC OS 和 ios。
 
 更多信息请查询 **[豆瓣 API]**
 
 
+# 如何配置? #
 
-如何配置? 
--------
+### DoubanAPIEngine ###
 
-* 包含 DoubanAPIEngine
+将`DoubanAPIEngine.xcodeproj`图标拖拽到你的项目文件目录中。
 
-将 DoubanAPIEngine.xcodeproj 图标拖拽到你的项目文件目录中。
+### 设置项目 Building Settings ###
 
+点击`项目` -> `(TARGETS)`图标，在`Build Settings`里找到 `Other Linker Flags`, 设置为 `-all_load -ObjC`
 
-* 设置项目 Building Settings
+### 设置目标 Building Settings ###
 
-点击项目(TARGETS) 图标，找到 Other Linker Flags, 设置为 -all_load -ObjC
+同上，找到 Header Search Paths，添加
 
+* ../DoubanAPIEngine/DoubanAPIEngine/OtherSources
+* ../DoubanAPIEngine/DoubanAPIEngine/Sources
+* ${SDK_DIR}/usr/include/libxml2 。
 
-* 设置目标 Building Settings
+#### TIPS ####
 
-点击目标(TARGETS)图标，找到 Header Search Paths，添加 DoubanAPIEngine/OtherSources，DoubanAPIEngine/Sources 以及 ${SDK_DIR}/usr/include/libxml2 。
-
-DoubanAPIEngine/OtherSources， DoubanAPIEngine/Sources，可为相对目录，这样有助于移植。例如，你的项目若和 douban-objc-client 文件夹在同一目录下， 就可添加 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/OtherSources 和 ../douban-objc-client/DoubanAPIEngine/DoubanAPIEngine/Sources 。并且勾选 Recursive。
-
-
-* 添加依赖
-
-点击目标(TARGETS)图标，选择 Building Phases，在 Target Dependencies 中，添加 DoubanAPIEngine。
+以上的两个__DoubanAPIEngine__的目录可以是相对目录也可以是绝对目录，需要自行配置。这里将DoubanAPIEngine目录直接拷贝到了项目目录下。建议如此使用，有助于移植。
 
 
-* 配置所需的 Frameworks
+### 添加依赖 ###
 
-点击目标(TARGETS)图标，选择 Building Phases，在 Link Binary with Libaries 中，加入下列库：
+点击目标(TARGETS)图标，选择`Building Phases`，找到`Target Dependencies`，添加`DoubanAPIEngine`。
+
+
+### 配置所需的 Frameworks ###
+
+点击目标(TARGETS)图标，选择`Building Phases`，在`Link Binary with Libaries`中，加入下列库：
 
   * libDoubanAPIEngine.a
   * libxml2.dylib
