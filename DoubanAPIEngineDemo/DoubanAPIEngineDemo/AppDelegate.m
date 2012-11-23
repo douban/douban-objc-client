@@ -31,6 +31,13 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
   DOUService *service = [DOUService sharedInstance];
   service.clientId = kAPIKey;
   service.clientSecret = kPrivateKey;
+  if ([service isValid]) {
+    service.apiBaseUrlString = kHttpsApiBaseUrl;
+  }
+  else {
+    service.apiBaseUrlString = kHttpApiBaseUrl;
+  }
+  
   
   self.window = [[[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]] autorelease];
 
