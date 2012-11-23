@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D8BB4008165F706E00732107 /* StatusController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8BB4007165F706E00732107 /* StatusController.m */; };
 		D8F14DAF152002B1008F1875 /* NavController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D8F14DAE152002B1008F1875 /* NavController.xib */; };
 		D8F14DB215200AF9008F1875 /* NavController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F14DB115200AF9008F1875 /* NavController.m */; };
 		D8F14DCE1520200E008F1875 /* PhotosController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8F14DCD1520200E008F1875 /* PhotosController.m */; };
@@ -54,6 +55,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		D8BB4006165F706E00732107 /* StatusController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = StatusController.h; sourceTree = "<group>"; };
+		D8BB4007165F706E00732107 /* StatusController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = StatusController.m; sourceTree = "<group>"; };
 		D8F14DAE152002B1008F1875 /* NavController.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NavController.xib; sourceTree = "<group>"; };
 		D8F14DB015200AF9008F1875 /* NavController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = NavController.h; sourceTree = "<group>"; };
 		D8F14DB115200AF9008F1875 /* NavController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = NavController.m; sourceTree = "<group>"; };
@@ -152,6 +155,8 @@
 				D8FC8CCD14C48FAC003E5A03 /* GetEventController.h */,
 				D8FC8CCE14C48FAC003E5A03 /* GetEventController.m */,
 				D8FC8CF114C496EC003E5A03 /* GetEventController.xib */,
+				D8BB4006165F706E00732107 /* StatusController.h */,
+				D8BB4007165F706E00732107 /* StatusController.m */,
 				D8F14DCC1520200E008F1875 /* PhotosController.h */,
 				D8F14DCD1520200E008F1875 /* PhotosController.m */,
 				D8F14DD415204FC5008F1875 /* WebViewController.h */,
@@ -284,6 +289,7 @@
 				D8F14DB215200AF9008F1875 /* NavController.m in Sources */,
 				D8F14DCE1520200E008F1875 /* PhotosController.m in Sources */,
 				D8F14DD615204FC5008F1875 /* WebViewController.m in Sources */,
+				D8BB4008165F706E00732107 /* StatusController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

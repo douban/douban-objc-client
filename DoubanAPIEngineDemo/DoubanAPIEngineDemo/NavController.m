@@ -8,6 +8,7 @@
 #import <MobileCoreServices/MobileCoreServices.h>
 #import "NavController.h"
 #import "GetEventController.h"
+#import "StatusController.h"
 #import "WebViewController.h"
 #import "DOUAPIEngine.h"
 
@@ -54,7 +55,7 @@
 
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-  return 3;
+  return 4;
 }
 
 
@@ -71,13 +72,16 @@
   
   NSUInteger row = [indexPath row];
   if (row == 0) {
-    cell.textLabel.text = @"登录";    
+    cell.textLabel.text = @"登录";
   }
   else if (row == 1) {
-    cell.textLabel.text = @"Get 活动信息";    
+    cell.textLabel.text = @"条目信息 v1";
   }
   else if (row == 2) {
-    cell.textLabel.text = @"Post 照片";
+    cell.textLabel.text = @"发广播 v2";
+  }
+  else if (row == 3) {
+    cell.textLabel.text = @"Post 照片 v2";
   }
   
   return cell;
@@ -108,7 +112,11 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
                                                                                 bundle:nil];
     [self.navigationController pushViewController:getEventController animated:YES];     
   }
-  else if ([indexPath row] == 2) {
+   else if ([indexPath row] == 2){
+    UIViewController *getEventController = [[StatusController alloc] init];
+    [self.navigationController pushViewController:getEventController animated:YES];
+  }
+  else if ([indexPath row] == 3) {
     UIImagePickerController *photoController = [[UIImagePickerController alloc] init];
     photoController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self.navigationController presentModalViewController:photoController animated:YES]; 
@@ -136,17 +144,18 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
         
     NSData *imageData = UIImagePNGRepresentation(pickedImage);    
     DOUService *service = [DOUService sharedInstance];
-    NSString *subPath = [NSString stringWithFormat:@"/album/%d", @"43672487"];
+    NSString *subPath = [NSString stringWithFormat:@"/album/%@", @"43672487"];
     DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
     DOUReqBlock completionBlock = ^(DOUHttpRequest *req){
     
     };
   
-    [service post:query 
-        photoData:imageData 
-           format:@"png" 
-      description:@"description" 
-         callback:completionBlock];
+    [service post2:query
+         photoData:imageData
+       description:@"description"
+          callback:completionBlock
+uploadProgressDelegate:nil];
+    
   }
   
   [picker dismissModalViewControllerAnimated:YES];
