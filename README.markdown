@@ -1,9 +1,9 @@
 
-[豆瓣 API]: http://www.douban.com/service/
+[豆瓣 API]: http://developers.douban.com/
 
 # douban-objc-client 介绍 #
 
-**douban-objc-client** 是一个 Objective C 实现的 豆瓣 API 客户端。支持 MAC OS 和 ios。
+**douban-objc-client** 是一个 Objective C 实现的 豆瓣 API 客户端。现在仅支持 iOS。
 
 更多信息请查询 **[豆瓣 API]**
 
@@ -16,7 +16,7 @@
 
 ### 2.设置项目 Building Settings ###
 
-点击`项目` -> `(TARGETS)`图标，在`Build Settings`里找到 `Other Linker Flags`, 设置为 `-all_load -ObjC`
+点击`项目` -> `(TARGETS)`图标，在`Build Settings`里找到 `Other Linker Flags`, 设置为 `-all_load`, `-ObjC`
 
 ### 3.设置目标 Building Settings ###
 
@@ -24,7 +24,7 @@
 
 * ../DoubanAPIEngine/DoubanAPIEngine/OtherSources
 * ../DoubanAPIEngine/DoubanAPIEngine/Sources
-* ${SDK_DIR}/usr/include/libxml2 。
+* ${SDK_DIR}/usr/include/libxml2
 
 ##### TIPS #####
 
@@ -115,4 +115,4 @@ DOUHttpRequest 的闭包处理回调的方法：
 
   * 提供更多数据类型的支持，如: 豆邮，日记，收藏
   * 改进 token 过期时，refresh token 的方式，使其不依赖于本机时间
-  * RESTFull put 型的添加
+  * ARC, no-ARC 双模支持

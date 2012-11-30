@@ -80,9 +80,12 @@
     // Dispose of any resources that can be recreated.
 }
 
+
+/**
+ * 需要 scope: shuo_basic_w
+ */
 - (void)post {
-
-
+  
   DOUQuery *query = [DoubanQueryStatus queryForStatus];
   
   DOUReqBlock completionBlock = ^(DOUHttpRequest * req) {

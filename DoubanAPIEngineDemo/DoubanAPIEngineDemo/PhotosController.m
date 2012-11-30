@@ -22,4 +22,9 @@
 #pragma mark - View lifecycle
 
 
+
+/**
+ * 需要 scope: community_advanced_photo
+ */
+
 @end
