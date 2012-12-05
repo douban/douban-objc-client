@@ -450,6 +450,10 @@
 		D88800D8166F65CA00DAFFC4 /* DOUMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800D6166F65CA00DAFFC4 /* DOUMovie.m */; };
 		D88800DB166F65E400DAFFC4 /* DOUMovieArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800D9166F65E400DAFFC4 /* DOUMovieArray.h */; };
 		D88800DC166F65E400DAFFC4 /* DOUMovieArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800DA166F65E400DAFFC4 /* DOUMovieArray.m */; };
+		D88800DD166F6AD000DAFFC4 /* DOUMovie.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D88800D5166F65CA00DAFFC4 /* DOUMovie.h */; };
+		D88800DE166F6AD000DAFFC4 /* DOUMovieArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D88800D9166F65E400DAFFC4 /* DOUMovieArray.h */; };
+		D88800DF166F6AD000DAFFC4 /* DOUNote.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D88800C5166F5D4E00DAFFC4 /* DOUNote.h */; };
+		D88800E0166F6AD000DAFFC4 /* DOUNoteArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */; };
 		D88EAEFD14691D0800A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
 		D88EAEFE14691D2F00A4DE43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D71F14690D32009F64FD /* Security.framework */; };
 		D88EAEFF14691D5B00A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
@@ -490,6 +494,10 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
 			dstSubfolderSpec = 0;
 			files = (
+				D88800DD166F6AD000DAFFC4 /* DOUMovie.h in CopyFiles */,
+				D88800DE166F6AD000DAFFC4 /* DOUMovieArray.h in CopyFiles */,
+				D88800DF166F6AD000DAFFC4 /* DOUNote.h in CopyFiles */,
+				D88800E0166F6AD000DAFFC4 /* DOUNoteArray.h in CopyFiles */,
 				D8880090166EEC3100DAFFC4 /* GDataAtomPubControl.h in CopyFiles */,
 				D8880091166EEC3100DAFFC4 /* GDataBaseElements.h in CopyFiles */,
 				D8880092166EEC3100DAFFC4 /* GDataBatchID.h in CopyFiles */,
