@@ -444,6 +444,12 @@
 		D88800CC166F609300DAFFC4 /* DOUNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800CB166F609300DAFFC4 /* DOUNoteTests.m */; };
 		D88800CF166F63B600DAFFC4 /* DOUNoteArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */; };
 		D88800D0166F63B600DAFFC4 /* DOUNoteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800CE166F63B500DAFFC4 /* DOUNoteArray.m */; };
+		D88800D2166F654100DAFFC4 /* MovieArray.json in Resources */ = {isa = PBXBuildFile; fileRef = D88800D1166F654100DAFFC4 /* MovieArray.json */; };
+		D88800D4166F65A200DAFFC4 /* DOUMovieTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800D3166F65A200DAFFC4 /* DOUMovieTests.m */; };
+		D88800D7166F65CA00DAFFC4 /* DOUMovie.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800D5166F65CA00DAFFC4 /* DOUMovie.h */; };
+		D88800D8166F65CA00DAFFC4 /* DOUMovie.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800D6166F65CA00DAFFC4 /* DOUMovie.m */; };
+		D88800DB166F65E400DAFFC4 /* DOUMovieArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800D9166F65E400DAFFC4 /* DOUMovieArray.h */; };
+		D88800DC166F65E400DAFFC4 /* DOUMovieArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800DA166F65E400DAFFC4 /* DOUMovieArray.m */; };
 		D88EAEFD14691D0800A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
 		D88EAEFE14691D2F00A4DE43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D71F14690D32009F64FD /* Security.framework */; };
 		D88EAEFF14691D5B00A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
@@ -907,6 +913,12 @@
 		D88800CB166F609300DAFFC4 /* DOUNoteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOUNoteTests.m; path = Model2/DOUNoteTests.m; sourceTree = "<group>"; };
 		D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUNoteArray.h; sourceTree = "<group>"; };
 		D88800CE166F63B500DAFFC4 /* DOUNoteArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUNoteArray.m; sourceTree = "<group>"; };
+		D88800D1166F654100DAFFC4 /* MovieArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MovieArray.json; sourceTree = "<group>"; };
+		D88800D3166F65A200DAFFC4 /* DOUMovieTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOUMovieTests.m; path = Model2/DOUMovieTests.m; sourceTree = "<group>"; };
+		D88800D5166F65CA00DAFFC4 /* DOUMovie.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUMovie.h; sourceTree = "<group>"; };
+		D88800D6166F65CA00DAFFC4 /* DOUMovie.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUMovie.m; sourceTree = "<group>"; };
+		D88800D9166F65E400DAFFC4 /* DOUMovieArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUMovieArray.h; sourceTree = "<group>"; };
+		D88800DA166F65E400DAFFC4 /* DOUMovieArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUMovieArray.m; sourceTree = "<group>"; };
 		D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D89A2A5515ECA3360027C0B0 /* Event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
 		D89A6A94162D37EE00954BC4 /* DOUUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUUser.h; sourceTree = "<group>"; };
@@ -1571,6 +1583,7 @@
 		D87D4C8415C3F2760006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				D88800D3166F65A200DAFFC4 /* DOUMovieTests.m */,
 				D88800CB166F609300DAFFC4 /* DOUNoteTests.m */,
 				D87D4CC315C3F56D0006FAFE /* DOUCommentTests.m */,
 				D87D4CC415C3F56D0006FAFE /* DOUOnlineTests.m */,
@@ -1605,6 +1618,7 @@
 		D87D4C9615C3F4620006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				D88800D1166F654100DAFFC4 /* MovieArray.json */,
 				D88800C9166F603F00DAFFC4 /* Note.json */,
 				D87D4CB715C3F5580006FAFE /* Album.json */,
 				D89A2A5515ECA3360027C0B0 /* Event.json */,
@@ -1636,6 +1650,10 @@
 		D88800C1166F5C3700DAFFC4 /* Movie */ = {
 			isa = PBXGroup;
 			children = (
+				D88800D5166F65CA00DAFFC4 /* DOUMovie.h */,
+				D88800D6166F65CA00DAFFC4 /* DOUMovie.m */,
+				D88800D9166F65E400DAFFC4 /* DOUMovieArray.h */,
+				D88800DA166F65E400DAFFC4 /* DOUMovieArray.m */,
 			);
 			path = Movie;
 			sourceTree = "<group>";
@@ -1829,6 +1847,8 @@
 				D88800BD166F5BF600DAFFC4 /* DOUAlbumArray.h in Headers */,
 				D88800C7166F5D4F00DAFFC4 /* DOUNote.h in Headers */,
 				D88800CF166F63B600DAFFC4 /* DOUNoteArray.h in Headers */,
+				D88800D7166F65CA00DAFFC4 /* DOUMovie.h in Headers */,
+				D88800DB166F65E400DAFFC4 /* DOUMovieArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1929,6 +1949,7 @@
 				D87D4CC215C3F5580006FAFE /* PhotoArray.json in Resources */,
 				D89A2A5615ECA3360027C0B0 /* Event.json in Resources */,
 				D88800CA166F603F00DAFFC4 /* Note.json in Resources */,
+				D88800D2166F654100DAFFC4 /* MovieArray.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2113,6 +2134,8 @@
 				D88800BE166F5BF600DAFFC4 /* DOUAlbumArray.m in Sources */,
 				D88800C8166F5D4F00DAFFC4 /* DOUNote.m in Sources */,
 				D88800D0166F63B600DAFFC4 /* DOUNoteArray.m in Sources */,
+				D88800D8166F65CA00DAFFC4 /* DOUMovie.m in Sources */,
+				D88800DC166F65E400DAFFC4 /* DOUMovieArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2135,6 +2158,7 @@
 				D87D4CC715C3F56D0006FAFE /* DOUOnlineTests.m in Sources */,
 				D87D4CC815C3F56D0006FAFE /* DOUPhotoTests.m in Sources */,
 				D88800CC166F609300DAFFC4 /* DOUNoteTests.m in Sources */,
+				D88800D4166F65A200DAFFC4 /* DOUMovieTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
