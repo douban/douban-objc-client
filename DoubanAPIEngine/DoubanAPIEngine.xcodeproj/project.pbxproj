@@ -6,6 +6,23 @@
 	objectVersion = 46;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		D820CFA7166E03FC0067C5A5 /* libDoubanApiEngine */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = D820CFAA166E03FC0067C5A5 /* Build configuration list for PBXAggregateTarget "libDoubanApiEngine" */;
+			buildPhases = (
+				D820CFAE166E04230067C5A5 /* ShellScript */,
+				D820CFAF166E044C0067C5A5 /* ShellScript */,
+				D820CFB0166E04AA0067C5A5 /* CopyFiles */,
+			);
+			dependencies = (
+				D820CFAD166E04170067C5A5 /* PBXTargetDependency */,
+			);
+			name = libDoubanApiEngine;
+			productName = libDoubanApiEngine;
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		D800D53C146907B2009F64FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D53B146907B2009F64FD /* Foundation.framework */; };
 		D800D54A146907B2009F64FD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D549146907B2009F64FD /* SenTestingKit.framework */; };
@@ -108,6 +125,34 @@
 		D800D73B14691108009F64FD /* SystemConfiguration.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D72814690E53009F64FD /* SystemConfiguration.framework */; };
 		D800D73D14691130009F64FD /* MobileCoreServices.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D72414690E2D009F64FD /* MobileCoreServices.framework */; };
 		D800D73E14691140009F64FD /* libz.dylib in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D72A14690E6F009F64FD /* libz.dylib */; };
+		D820CFB1166E05390067C5A5 /* DOUAPIConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D624146909C2009F64FD /* DOUAPIConfig.h */; };
+		D820CFB2166E05390067C5A5 /* DOUAPIEngine.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D563146908AF009F64FD /* DOUAPIEngine.h */; };
+		D820CFB3166E05390067C5A5 /* DOUService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D858E04C14C3DA9100335280 /* DOUService.h */; };
+		D820CFB4166E05390067C5A5 /* DOUQuery.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D858E04414C3AC0D00335280 /* DOUQuery.h */; };
+		D820CFB5166E05390067C5A5 /* DOUHttpRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D565146908AF009F64FD /* DOUHttpRequest.h */; };
+		D820CFB6166E05390067C5A5 /* DOUOAuthService.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D882160C15889C5F004B4AD4 /* DOUOAuthService.h */; };
+		D820CFB7166E05390067C5A5 /* DOUOAuthStore.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D882160E15889C5F004B4AD4 /* DOUOAuthStore.h */; };
+		D820CFB8166E05390067C5A5 /* DOUOAuth2.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D568146908AF009F64FD /* DOUOAuth2.h */; };
+		D820CFB9166E05390067C5A5 /* DOUEvent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89A6A99162D384100954BC4 /* DOUEvent.h */; };
+		D820CFBA166E05390067C5A5 /* DOUEventArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89A6A9B162D384100954BC4 /* DOUEventArray.h */; };
+		D820CFBB166E05390067C5A5 /* DOULoc.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89A6A9D162D384100954BC4 /* DOULoc.h */; };
+		D820CFBC166E05390067C5A5 /* DOULocArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89A6A9F162D384100954BC4 /* DOULocArray.h */; };
+		D820CFBD166E05390067C5A5 /* DOUAlbum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B3315C3F0230006FAFE /* DOUAlbum.h */; };
+		D820CFBE166E05390067C5A5 /* DOUPhoto.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B3515C3F0230006FAFE /* DOUPhoto.h */; };
+		D820CFBF166E05390067C5A5 /* DOUPhotoArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B3715C3F0230006FAFE /* DOUPhotoArray.h */; };
+		D820CFC0166E05390067C5A5 /* DOUUser.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D89A6A94162D37EE00954BC4 /* DOUUser.h */; };
+		D820CFC1166E05390067C5A5 /* DOUComment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4C7715C3F14E0006FAFE /* DOUComment.h */; };
+		D820CFC2166E05390067C5A5 /* DOUCommentArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4C7915C3F14E0006FAFE /* DOUCommentArray.h */; };
+		D820CFC3166E05390067C5A5 /* DOUObject+Utils.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */; };
+		D820CFC4166E05390067C5A5 /* DOUOnline.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B2A15C3EFE70006FAFE /* DOUOnline.h */; };
+		D820CFC5166E05390067C5A5 /* DOUOnlineArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B2C15C3EFE70006FAFE /* DOUOnlineArray.h */; };
+		D820CFC6166E05390067C5A5 /* DOUObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B1115C3EF600006FAFE /* DOUObject.h */; };
+		D820CFC7166E05390067C5A5 /* DOUObjectArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B1515C3EF600006FAFE /* DOUObjectArray.h */; };
+		D820CFDC166E068E0067C5A5 /* ASIProgressDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D58A146908FD009F64FD /* ASIProgressDelegate.h */; };
+		D820CFDD166E0A520067C5A5 /* ASIHTTPRequest.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D582146908FD009F64FD /* ASIHTTPRequest.h */; };
+		D820CFDE166E0B330067C5A5 /* ASICacheDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D579146908FD009F64FD /* ASICacheDelegate.h */; };
+		D820CFDF166E0B330067C5A5 /* ASIHTTPRequestConfig.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D584146908FD009F64FD /* ASIHTTPRequestConfig.h */; };
+		D820CFE0166E0B330067C5A5 /* ASIHTTPRequestDelegate.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D800D585146908FD009F64FD /* ASIHTTPRequestDelegate.h */; };
 		D858E04614C3AC0D00335280 /* DOUQuery.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04414C3AC0D00335280 /* DOUQuery.h */; };
 		D858E04714C3AC0D00335280 /* DOUQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04514C3AC0D00335280 /* DOUQuery.m */; };
 		D858E04E14C3DA9100335280 /* DOUService.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04C14C3DA9100335280 /* DOUService.h */; };
@@ -319,6 +364,78 @@
 		D882161315889C5F004B4AD4 /* DOUOAuthStore.m in Sources */ = {isa = PBXBuildFile; fileRef = D882160F15889C5F004B4AD4 /* DOUOAuthStore.m */; };
 		D882161915889DDE004B4AD4 /* DOUOAuthServiceTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D882161415889DDE004B4AD4 /* DOUOAuthServiceTests.m */; };
 		D882161B15889DDE004B4AD4 /* DOUTestResponseLoader.m in Sources */ = {isa = PBXBuildFile; fileRef = D882161815889DDE004B4AD4 /* DOUTestResponseLoader.m */; };
+		D888006F166EE73300DAFFC4 /* DoubanEntryComment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9B15C3F0420006FAFE /* DoubanEntryComment.h */; };
+		D8880070166EE73300DAFFC4 /* DoubanFeedComment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9D15C3F0420006FAFE /* DoubanFeedComment.h */; };
+		D8880071166EE73300DAFFC4 /* DoubanEntryCity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BA015C3F0420006FAFE /* DoubanEntryCity.h */; };
+		D8880072166EE73300DAFFC4 /* DoubanEntryEvent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BA215C3F0420006FAFE /* DoubanEntryEvent.h */; };
+		D8880073166EE73300DAFFC4 /* DoubanEntryEventCategory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BA415C3F0420006FAFE /* DoubanEntryEventCategory.h */; };
+		D8880074166EE73300DAFFC4 /* DoubanFeedCity.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BA615C3F0420006FAFE /* DoubanFeedCity.h */; };
+		D8880075166EE73300DAFFC4 /* DoubanFeedEvent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BA815C3F0420006FAFE /* DoubanFeedEvent.h */; };
+		D8880076166EE73300DAFFC4 /* DoubanFeedEventCategory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BAA15C3F0420006FAFE /* DoubanFeedEventCategory.h */; };
+		D8880077166EE73300DAFFC4 /* DoubanEntryMiniblog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BB115C3F0420006FAFE /* DoubanEntryMiniblog.h */; };
+		D8880078166EE73300DAFFC4 /* DoubanFeedMiniblog.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BB315C3F0420006FAFE /* DoubanFeedMiniblog.h */; };
+		D8880079166EE73300DAFFC4 /* DoubanEntryPeople.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BB615C3F0420006FAFE /* DoubanEntryPeople.h */; };
+		D888007A166EE73300DAFFC4 /* DoubanFeedPeople.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BB815C3F0420006FAFE /* DoubanFeedPeople.h */; };
+		D888007B166EE73300DAFFC4 /* DoubanEntryAlbum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BBB15C3F0420006FAFE /* DoubanEntryAlbum.h */; };
+		D888007C166EE73300DAFFC4 /* DoubanEntryPhoto.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BBD15C3F0420006FAFE /* DoubanEntryPhoto.h */; };
+		D888007D166EE73300DAFFC4 /* DoubanFeedAlbum.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BBF15C3F0420006FAFE /* DoubanFeedAlbum.h */; };
+		D888007E166EE73300DAFFC4 /* DoubanFeedPhoto.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BC115C3F0420006FAFE /* DoubanFeedPhoto.h */; };
+		D888007F166EE73300DAFFC4 /* DoubanEntryRecommendation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BC415C3F0420006FAFE /* DoubanEntryRecommendation.h */; };
+		D8880080166EE73300DAFFC4 /* DoubanFeedRecommendation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BC615C3F0430006FAFE /* DoubanFeedRecommendation.h */; };
+		D8880081166EE73300DAFFC4 /* DoubanEntryReview.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BC915C3F0430006FAFE /* DoubanEntryReview.h */; };
+		D8880082166EE73300DAFFC4 /* DoubanFeedReview.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BCB15C3F0430006FAFE /* DoubanFeedReview.h */; };
+		D8880083166EE73300DAFFC4 /* DoubanEntrySubject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BCE15C3F0430006FAFE /* DoubanEntrySubject.h */; };
+		D8880084166EE73300DAFFC4 /* DoubanFeedSubject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BD015C3F0430006FAFE /* DoubanFeedSubject.h */; };
+		D8880085166EE73300DAFFC4 /* DoubanDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BD215C3F0430006FAFE /* DoubanDefines.h */; };
+		D8880086166EE73300DAFFC4 /* DoubanAttribute.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BD515C3F0430006FAFE /* DoubanAttribute.h */; };
+		D8880087166EE73300DAFFC4 /* DoubanLocation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BD715C3F0430006FAFE /* DoubanLocation.h */; };
+		D8880088166EE73300DAFFC4 /* DoubanSignature.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BD915C3F0430006FAFE /* DoubanSignature.h */; };
+		D8880089166EE73300DAFFC4 /* DoubanTag.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BDB15C3F0430006FAFE /* DoubanTag.h */; };
+		D888008A166EE73300DAFFC4 /* DoubanUID.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BDD15C3F0430006FAFE /* DoubanUID.h */; };
+		D888008B166EE73300DAFFC4 /* GeorssPoint.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4BDF15C3F0430006FAFE /* GeorssPoint.h */; };
+		D888008D166EEAB900DAFFC4 /* GDataEntryBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4115C3F0420006FAFE /* GDataEntryBase.h */; };
+		D888008E166EEAB900DAFFC4 /* GDataFeedBase.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4315C3F0420006FAFE /* GDataFeedBase.h */; };
+		D888008F166EEAB900DAFFC4 /* GDataObject.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4515C3F0420006FAFE /* GDataObject.h */; };
+		D8880090166EEC3100DAFFC4 /* GDataAtomPubControl.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4815C3F0420006FAFE /* GDataAtomPubControl.h */; };
+		D8880091166EEC3100DAFFC4 /* GDataBaseElements.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4A15C3F0420006FAFE /* GDataBaseElements.h */; };
+		D8880092166EEC3100DAFFC4 /* GDataBatchID.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4C15C3F0420006FAFE /* GDataBatchID.h */; };
+		D8880093166EEC3100DAFFC4 /* GDataBatchInterrupted.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B4E15C3F0420006FAFE /* GDataBatchInterrupted.h */; };
+		D8880094166EEC3100DAFFC4 /* GDataBatchOperation.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5015C3F0420006FAFE /* GDataBatchOperation.h */; };
+		D8880095166EEC3100DAFFC4 /* GDataBatchStatus.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5215C3F0420006FAFE /* GDataBatchStatus.h */; };
+		D8880096166EEC3100DAFFC4 /* GDataCategory.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5415C3F0420006FAFE /* GDataCategory.h */; };
+		D8880097166EEC3100DAFFC4 /* GDataComment.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5615C3F0420006FAFE /* GDataComment.h */; };
+		D8880098166EEC3100DAFFC4 /* GDataCustomProperty.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5815C3F0420006FAFE /* GDataCustomProperty.h */; };
+		D8880099166EEC3100DAFFC4 /* GDataDateTime.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5A15C3F0420006FAFE /* GDataDateTime.h */; };
+		D888009A166EEC3100DAFFC4 /* GDataDeleted.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5C15C3F0420006FAFE /* GDataDeleted.h */; };
+		D888009B166EEC3100DAFFC4 /* GDataElements.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5E15C3F0420006FAFE /* GDataElements.h */; };
+		D888009C166EEC3100DAFFC4 /* GDataEmail.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B5F15C3F0420006FAFE /* GDataEmail.h */; };
+		D888009D166EEC3100DAFFC4 /* GDataEntryContent.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6115C3F0420006FAFE /* GDataEntryContent.h */; };
+		D888009E166EEC3100DAFFC4 /* GDataEntryLink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6315C3F0420006FAFE /* GDataEntryLink.h */; };
+		D888009F166EEC3100DAFFC4 /* GDataExtendedProperty.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6515C3F0420006FAFE /* GDataExtendedProperty.h */; };
+		D88800A0166EEC3100DAFFC4 /* GDataFeedLink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6715C3F0420006FAFE /* GDataFeedLink.h */; };
+		D88800A1166EEC3100DAFFC4 /* GDataGenerator.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6915C3F0420006FAFE /* GDataGenerator.h */; };
+		D88800A2166EEC3100DAFFC4 /* GDataGeoPt.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6B15C3F0420006FAFE /* GDataGeoPt.h */; };
+		D88800A3166EEC3100DAFFC4 /* GDataIM.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6D15C3F0420006FAFE /* GDataIM.h */; };
+		D88800A4166EEC3100DAFFC4 /* GDataLink.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B6F15C3F0420006FAFE /* GDataLink.h */; };
+		D88800A5166EEC3100DAFFC4 /* GDataMoney.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7115C3F0420006FAFE /* GDataMoney.h */; };
+		D88800A6166EEC3100DAFFC4 /* GDataName.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7315C3F0420006FAFE /* GDataName.h */; };
+		D88800A7166EEC3100DAFFC4 /* GDataOrganization.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7515C3F0420006FAFE /* GDataOrganization.h */; };
+		D88800A8166EEC3100DAFFC4 /* GDataOrganizationName.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7715C3F0420006FAFE /* GDataOrganizationName.h */; };
+		D88800A9166EEC3100DAFFC4 /* GDataPerson.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7915C3F0420006FAFE /* GDataPerson.h */; };
+		D88800AA166EEC3100DAFFC4 /* GDataPhoneNumber.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7B15C3F0420006FAFE /* GDataPhoneNumber.h */; };
+		D88800AB166EEC3100DAFFC4 /* GDataPostalAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7D15C3F0420006FAFE /* GDataPostalAddress.h */; };
+		D88800AC166EEC3100DAFFC4 /* GDataRating.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B7F15C3F0420006FAFE /* GDataRating.h */; };
+		D88800AD166EEC3100DAFFC4 /* GDataStructuredPostalAddress.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8115C3F0420006FAFE /* GDataStructuredPostalAddress.h */; };
+		D88800AE166EEC3100DAFFC4 /* GDataTextConstruct.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8315C3F0420006FAFE /* GDataTextConstruct.h */; };
+		D88800AF166EEC3100DAFFC4 /* GDataValueConstruct.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8515C3F0420006FAFE /* GDataValueConstruct.h */; };
+		D88800B0166EEC3100DAFFC4 /* GDataWhen.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8715C3F0420006FAFE /* GDataWhen.h */; };
+		D88800B1166EEC3100DAFFC4 /* GDataWhere.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8915C3F0420006FAFE /* GDataWhere.h */; };
+		D88800B2166EEC3100DAFFC4 /* GDataWho.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8B15C3F0420006FAFE /* GDataWho.h */; };
+		D88800B3166EEC3100DAFFC4 /* GDataDefines.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8D15C3F0420006FAFE /* GDataDefines.h */; };
+		D88800B4166EEC3100DAFFC4 /* GDataUtilities.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B8E15C3F0420006FAFE /* GDataUtilities.h */; };
+		D88800B5166EEC3100DAFFC4 /* GTMGatherInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9115C3F0420006FAFE /* GTMGatherInputStream.h */; };
+		D88800B6166EEC3100DAFFC4 /* GTMMIMEDocument.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9315C3F0420006FAFE /* GTMMIMEDocument.h */; };
+		D88800B7166EEC3100DAFFC4 /* GDataXMLNode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9615C3F0420006FAFE /* GDataXMLNode.h */; };
 		D88EAEFD14691D0800A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
 		D88EAEFE14691D2F00A4DE43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D71F14690D32009F64FD /* Security.framework */; };
 		D88EAEFF14691D5B00A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
@@ -343,7 +460,126 @@
 			remoteGlobalIDString = D800D537146907B2009F64FD;
 			remoteInfo = DoubanAPIEngine;
 		};
+		D820CFAC166E04170067C5A5 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = D800D52F146907B2009F64FD /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = D800D537146907B2009F64FD;
+			remoteInfo = DoubanAPIEngine;
+		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		D820CFB0166E04AA0067C5A5 /* CopyFiles */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
+			dstSubfolderSpec = 0;
+			files = (
+				D8880090166EEC3100DAFFC4 /* GDataAtomPubControl.h in CopyFiles */,
+				D8880091166EEC3100DAFFC4 /* GDataBaseElements.h in CopyFiles */,
+				D8880092166EEC3100DAFFC4 /* GDataBatchID.h in CopyFiles */,
+				D8880093166EEC3100DAFFC4 /* GDataBatchInterrupted.h in CopyFiles */,
+				D8880094166EEC3100DAFFC4 /* GDataBatchOperation.h in CopyFiles */,
+				D8880095166EEC3100DAFFC4 /* GDataBatchStatus.h in CopyFiles */,
+				D8880096166EEC3100DAFFC4 /* GDataCategory.h in CopyFiles */,
+				D8880097166EEC3100DAFFC4 /* GDataComment.h in CopyFiles */,
+				D8880098166EEC3100DAFFC4 /* GDataCustomProperty.h in CopyFiles */,
+				D8880099166EEC3100DAFFC4 /* GDataDateTime.h in CopyFiles */,
+				D888009A166EEC3100DAFFC4 /* GDataDeleted.h in CopyFiles */,
+				D888009B166EEC3100DAFFC4 /* GDataElements.h in CopyFiles */,
+				D888009C166EEC3100DAFFC4 /* GDataEmail.h in CopyFiles */,
+				D888009D166EEC3100DAFFC4 /* GDataEntryContent.h in CopyFiles */,
+				D888009E166EEC3100DAFFC4 /* GDataEntryLink.h in CopyFiles */,
+				D888009F166EEC3100DAFFC4 /* GDataExtendedProperty.h in CopyFiles */,
+				D88800A0166EEC3100DAFFC4 /* GDataFeedLink.h in CopyFiles */,
+				D88800A1166EEC3100DAFFC4 /* GDataGenerator.h in CopyFiles */,
+				D88800A2166EEC3100DAFFC4 /* GDataGeoPt.h in CopyFiles */,
+				D88800A3166EEC3100DAFFC4 /* GDataIM.h in CopyFiles */,
+				D88800A4166EEC3100DAFFC4 /* GDataLink.h in CopyFiles */,
+				D88800A5166EEC3100DAFFC4 /* GDataMoney.h in CopyFiles */,
+				D88800A6166EEC3100DAFFC4 /* GDataName.h in CopyFiles */,
+				D88800A7166EEC3100DAFFC4 /* GDataOrganization.h in CopyFiles */,
+				D88800A8166EEC3100DAFFC4 /* GDataOrganizationName.h in CopyFiles */,
+				D88800A9166EEC3100DAFFC4 /* GDataPerson.h in CopyFiles */,
+				D88800AA166EEC3100DAFFC4 /* GDataPhoneNumber.h in CopyFiles */,
+				D88800AB166EEC3100DAFFC4 /* GDataPostalAddress.h in CopyFiles */,
+				D88800AC166EEC3100DAFFC4 /* GDataRating.h in CopyFiles */,
+				D88800AD166EEC3100DAFFC4 /* GDataStructuredPostalAddress.h in CopyFiles */,
+				D88800AE166EEC3100DAFFC4 /* GDataTextConstruct.h in CopyFiles */,
+				D88800AF166EEC3100DAFFC4 /* GDataValueConstruct.h in CopyFiles */,
+				D88800B0166EEC3100DAFFC4 /* GDataWhen.h in CopyFiles */,
+				D88800B1166EEC3100DAFFC4 /* GDataWhere.h in CopyFiles */,
+				D88800B2166EEC3100DAFFC4 /* GDataWho.h in CopyFiles */,
+				D88800B3166EEC3100DAFFC4 /* GDataDefines.h in CopyFiles */,
+				D88800B4166EEC3100DAFFC4 /* GDataUtilities.h in CopyFiles */,
+				D88800B5166EEC3100DAFFC4 /* GTMGatherInputStream.h in CopyFiles */,
+				D88800B6166EEC3100DAFFC4 /* GTMMIMEDocument.h in CopyFiles */,
+				D88800B7166EEC3100DAFFC4 /* GDataXMLNode.h in CopyFiles */,
+				D888008D166EEAB900DAFFC4 /* GDataEntryBase.h in CopyFiles */,
+				D888008E166EEAB900DAFFC4 /* GDataFeedBase.h in CopyFiles */,
+				D888008F166EEAB900DAFFC4 /* GDataObject.h in CopyFiles */,
+				D888006F166EE73300DAFFC4 /* DoubanEntryComment.h in CopyFiles */,
+				D8880070166EE73300DAFFC4 /* DoubanFeedComment.h in CopyFiles */,
+				D8880071166EE73300DAFFC4 /* DoubanEntryCity.h in CopyFiles */,
+				D8880072166EE73300DAFFC4 /* DoubanEntryEvent.h in CopyFiles */,
+				D8880073166EE73300DAFFC4 /* DoubanEntryEventCategory.h in CopyFiles */,
+				D8880074166EE73300DAFFC4 /* DoubanFeedCity.h in CopyFiles */,
+				D8880075166EE73300DAFFC4 /* DoubanFeedEvent.h in CopyFiles */,
+				D8880076166EE73300DAFFC4 /* DoubanFeedEventCategory.h in CopyFiles */,
+				D8880077166EE73300DAFFC4 /* DoubanEntryMiniblog.h in CopyFiles */,
+				D8880078166EE73300DAFFC4 /* DoubanFeedMiniblog.h in CopyFiles */,
+				D8880079166EE73300DAFFC4 /* DoubanEntryPeople.h in CopyFiles */,
+				D888007A166EE73300DAFFC4 /* DoubanFeedPeople.h in CopyFiles */,
+				D888007B166EE73300DAFFC4 /* DoubanEntryAlbum.h in CopyFiles */,
+				D888007C166EE73300DAFFC4 /* DoubanEntryPhoto.h in CopyFiles */,
+				D888007D166EE73300DAFFC4 /* DoubanFeedAlbum.h in CopyFiles */,
+				D888007E166EE73300DAFFC4 /* DoubanFeedPhoto.h in CopyFiles */,
+				D888007F166EE73300DAFFC4 /* DoubanEntryRecommendation.h in CopyFiles */,
+				D8880080166EE73300DAFFC4 /* DoubanFeedRecommendation.h in CopyFiles */,
+				D8880081166EE73300DAFFC4 /* DoubanEntryReview.h in CopyFiles */,
+				D8880082166EE73300DAFFC4 /* DoubanFeedReview.h in CopyFiles */,
+				D8880083166EE73300DAFFC4 /* DoubanEntrySubject.h in CopyFiles */,
+				D8880084166EE73300DAFFC4 /* DoubanFeedSubject.h in CopyFiles */,
+				D8880085166EE73300DAFFC4 /* DoubanDefines.h in CopyFiles */,
+				D8880086166EE73300DAFFC4 /* DoubanAttribute.h in CopyFiles */,
+				D8880087166EE73300DAFFC4 /* DoubanLocation.h in CopyFiles */,
+				D8880088166EE73300DAFFC4 /* DoubanSignature.h in CopyFiles */,
+				D8880089166EE73300DAFFC4 /* DoubanTag.h in CopyFiles */,
+				D888008A166EE73300DAFFC4 /* DoubanUID.h in CopyFiles */,
+				D888008B166EE73300DAFFC4 /* GeorssPoint.h in CopyFiles */,
+				D820CFDE166E0B330067C5A5 /* ASICacheDelegate.h in CopyFiles */,
+				D820CFDF166E0B330067C5A5 /* ASIHTTPRequestConfig.h in CopyFiles */,
+				D820CFE0166E0B330067C5A5 /* ASIHTTPRequestDelegate.h in CopyFiles */,
+				D820CFDD166E0A520067C5A5 /* ASIHTTPRequest.h in CopyFiles */,
+				D820CFDC166E068E0067C5A5 /* ASIProgressDelegate.h in CopyFiles */,
+				D820CFB1166E05390067C5A5 /* DOUAPIConfig.h in CopyFiles */,
+				D820CFB2166E05390067C5A5 /* DOUAPIEngine.h in CopyFiles */,
+				D820CFB3166E05390067C5A5 /* DOUService.h in CopyFiles */,
+				D820CFB4166E05390067C5A5 /* DOUQuery.h in CopyFiles */,
+				D820CFB5166E05390067C5A5 /* DOUHttpRequest.h in CopyFiles */,
+				D820CFB6166E05390067C5A5 /* DOUOAuthService.h in CopyFiles */,
+				D820CFB7166E05390067C5A5 /* DOUOAuthStore.h in CopyFiles */,
+				D820CFB8166E05390067C5A5 /* DOUOAuth2.h in CopyFiles */,
+				D820CFB9166E05390067C5A5 /* DOUEvent.h in CopyFiles */,
+				D820CFBA166E05390067C5A5 /* DOUEventArray.h in CopyFiles */,
+				D820CFBB166E05390067C5A5 /* DOULoc.h in CopyFiles */,
+				D820CFBC166E05390067C5A5 /* DOULocArray.h in CopyFiles */,
+				D820CFBD166E05390067C5A5 /* DOUAlbum.h in CopyFiles */,
+				D820CFBE166E05390067C5A5 /* DOUPhoto.h in CopyFiles */,
+				D820CFBF166E05390067C5A5 /* DOUPhotoArray.h in CopyFiles */,
+				D820CFC0166E05390067C5A5 /* DOUUser.h in CopyFiles */,
+				D820CFC1166E05390067C5A5 /* DOUComment.h in CopyFiles */,
+				D820CFC2166E05390067C5A5 /* DOUCommentArray.h in CopyFiles */,
+				D820CFC3166E05390067C5A5 /* DOUObject+Utils.h in CopyFiles */,
+				D820CFC4166E05390067C5A5 /* DOUOnline.h in CopyFiles */,
+				D820CFC5166E05390067C5A5 /* DOUOnlineArray.h in CopyFiles */,
+				D820CFC6166E05390067C5A5 /* DOUObject.h in CopyFiles */,
+				D820CFC7166E05390067C5A5 /* DOUObjectArray.h in CopyFiles */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		D800D538146907B2009F64FD /* libDoubanAPIEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDoubanAPIEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -1607,6 +1843,7 @@
 			targets = (
 				D800D537146907B2009F64FD /* DoubanAPIEngine */,
 				D800D547146907B2009F64FD /* DoubanAPIEngineTests */,
+				D820CFA7166E03FC0067C5A5 /* libDoubanApiEngine */,
 			);
 		};
 /* End PBXProject section */
@@ -1658,6 +1895,32 @@
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+		D820CFAE166E04230067C5A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "xcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphonesimulator -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\n\nxcodebuild -project ${PROJECT_NAME}.xcodeproj -sdk iphoneos -target ${PROJECT_NAME} -configuration ${CONFIGURATION} clean build\n";
+		};
+		D820CFAF166E044C0067C5A5 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "SIMULATOR_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphonesimulator/lib${PROJECT_NAME}.a\" &&\nDEVICE_LIBRARY_PATH=\"${BUILD_DIR}/${CONFIGURATION}-iphoneos/lib${PROJECT_NAME}.a\" &&\nUNIVERSAL_LIBRARY_DIR=\"${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal\" &&\nUNIVERSAL_LIBRARY_PATH=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}\" &&\nFRAMEWORK=\"${UNIVERSAL_LIBRARY_DIR}/${PRODUCT_NAME}.framework\" &&\n\n\n# Create framework directory structure.\nrm -rf \"${FRAMEWORK}\" &&\nmkdir -p \"${UNIVERSAL_LIBRARY_DIR}\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Headers\" &&\nmkdir -p \"${FRAMEWORK}/Versions/A/Resources\" &&\n\n\n# Generate universal binary for the device and simulator.\nlipo \"${SIMULATOR_LIBRARY_PATH}\" \"${DEVICE_LIBRARY_PATH}\" -create -output \"${UNIVERSAL_LIBRARY_PATH}\" &&\n\n\n# Move files to appropriate locations in framework paths.\ncp \"${UNIVERSAL_LIBRARY_PATH}\" \"${FRAMEWORK}/Versions/A\" &&\nln -s \"A\" \"${FRAMEWORK}/Versions/Current\" &&\nln -s \"Versions/Current/Headers\" \"${FRAMEWORK}/Headers\" &&\nln -s \"Versions/Current/Resources\" \"${FRAMEWORK}/Resources\" &&\nln -s \"Versions/Current/${PRODUCT_NAME}\" \"${FRAMEWORK}/${PRODUCT_NAME}\"";
 		};
 /* End PBXShellScriptBuildPhase section */
 
@@ -1827,6 +2090,11 @@
 			target = D800D537146907B2009F64FD /* DoubanAPIEngine */;
 			targetProxy = D800D54E146907B2009F64FD /* PBXContainerItemProxy */;
 		};
+		D820CFAD166E04170067C5A5 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = D800D537146907B2009F64FD /* DoubanAPIEngine */;
+			targetProxy = D820CFAC166E04170067C5A5 /* PBXContainerItemProxy */;
+		};
 /* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
@@ -1973,6 +2241,20 @@
 			};
 			name = Release;
 		};
+		D820CFA8166E03FC0067C5A5 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		D820CFA9166E03FC0067C5A5 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
@@ -1999,6 +2281,15 @@
 			buildConfigurations = (
 				D800D560146907B2009F64FD /* Debug */,
 				D800D561146907B2009F64FD /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		D820CFAA166E03FC0067C5A5 /* Build configuration list for PBXAggregateTarget "libDoubanApiEngine" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				D820CFA8166E03FC0067C5A5 /* Debug */,
+				D820CFA9166E03FC0067C5A5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

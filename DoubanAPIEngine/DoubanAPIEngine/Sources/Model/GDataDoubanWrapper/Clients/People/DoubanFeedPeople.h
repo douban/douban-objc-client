@@ -7,7 +7,6 @@
 //
 
 #import "GDataFeedBase.h"
-#import "DoubanEntryPeople.h"
 
 @interface DoubanFeedPeople : GDataFeedBase
 

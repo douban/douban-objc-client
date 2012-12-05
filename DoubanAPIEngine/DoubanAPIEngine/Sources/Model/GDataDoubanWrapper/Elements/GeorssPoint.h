@@ -6,7 +6,6 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
-#import <Foundation/Foundation.h>
 #import "GDataExtendedProperty.h"
 
 @interface GeorssPoint : GDataExtendedProperty <GDataExtension>

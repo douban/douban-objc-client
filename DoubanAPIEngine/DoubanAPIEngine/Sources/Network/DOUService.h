@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "DOUHttpRequest.h"
-#import "GDataEntryBase.h"
 
 
 @class ASINetworkQueue;

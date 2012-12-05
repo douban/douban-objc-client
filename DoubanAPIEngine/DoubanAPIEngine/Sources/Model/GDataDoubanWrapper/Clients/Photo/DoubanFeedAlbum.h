@@ -7,7 +7,6 @@
 //
 
 #import "GDataFeedBase.h"
-#import "DoubanEntryAlbum.h"
 
 @interface DoubanFeedAlbum : GDataFeedBase
 

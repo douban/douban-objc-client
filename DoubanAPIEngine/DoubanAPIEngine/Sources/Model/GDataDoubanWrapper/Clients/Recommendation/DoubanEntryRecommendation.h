@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "GDataEntryBase.h"
-#import "GDataBaseElements.h"
 
 
 #undef _EXTERN

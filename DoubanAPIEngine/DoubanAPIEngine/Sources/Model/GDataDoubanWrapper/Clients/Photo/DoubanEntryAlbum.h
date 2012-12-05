@@ -8,7 +8,6 @@
 
 #import <Foundation/Foundation.h>
 #import "GDataEntryBase.h"
-#import "GDataBaseElements.h"
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -22,6 +21,7 @@
 
 _EXTERN NSString* const kDoubanAlbumsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
+@class GDataAtomAuthor;
 @interface DoubanEntryAlbum : GDataEntryBase
 
 @property (nonatomic, readonly) GDataAtomAuthor *author;

@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedEventCategory.h"
+#import "DoubanEntryEventCategory.h"
 
 
 @implementation DoubanFeedEventCategory

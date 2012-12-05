@@ -8,10 +8,6 @@
 
 #import "GDataEntryBase.h"
 
-#import "DoubanLocation.h"
-#import "DoubanAttribute.h"
-#import "DoubanUID.h"
-#import "DoubanSignature.h"
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -25,7 +21,9 @@
 
 _EXTERN NSString* const kDoubanPeoplesDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
-
+@class DoubanLocation;
+@class DoubanUID;
+@class DoubanSignature;
 @interface DoubanEntryPeople : GDataEntryBase
 
 @property (nonatomic, readonly) DoubanLocation  *location;

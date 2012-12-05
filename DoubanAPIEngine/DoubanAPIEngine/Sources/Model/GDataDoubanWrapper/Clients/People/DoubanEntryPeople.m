@@ -13,6 +13,10 @@
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
 
+#import "DoubanLocation.h"
+#import "DoubanUID.h"
+#import "DoubanSignature.h"
+
 @implementation DoubanEntryPeople
 
 @dynamic location;

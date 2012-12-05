@@ -10,6 +10,7 @@
 #import "DOUOAuth2.h"
 #import "DOUOAUthStore.h"
 #import "SBJson.h"
+#import "ASIFormDataRequest.h"
 
 
 @interface DOUOAuthService () <ASIHTTPRequestDelegate>

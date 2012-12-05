@@ -8,8 +8,7 @@
 
 #import "GDataEntryBase.h"
 
-#import "GDataWhen.h"
-#import "GDataWhere.h"
+
 
 
 #undef _EXTERN
@@ -33,6 +32,8 @@ extern NSString * const kArrivedStr;
 
 @class DoubanEntryEventCategory;
 @class DoubanLocation;
+@class GDataWhere;
+@class GDataWhen;
 @interface DoubanEntryEvent : GDataEntryBase
 
 @property (nonatomic, readonly) NSInteger  eventId;

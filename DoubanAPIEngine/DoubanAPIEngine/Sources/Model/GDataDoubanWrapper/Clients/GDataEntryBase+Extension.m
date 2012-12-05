@@ -9,6 +9,7 @@
 #import "GDataEntryBase+Extension.h"
 #import "DoubanDefines.h"
 #import "DoubanAttribute.h"
+#import "GDataBaseElements.h"
 
 
 @implementation GDataEntryBase (Extension)

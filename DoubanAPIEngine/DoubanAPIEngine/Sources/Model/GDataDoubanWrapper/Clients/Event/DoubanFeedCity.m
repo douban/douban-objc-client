@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedCity.h"
+#import "DoubanEntryCity.h"
 
 
 @implementation DoubanFeedCity

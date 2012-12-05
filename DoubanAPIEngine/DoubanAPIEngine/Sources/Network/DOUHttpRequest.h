@@ -7,7 +7,7 @@
 //
 
 #import <Foundation/Foundation.h>
-#import "ASIFormDataRequest.h"
+#import "ASIHTTPRequest.h"
 
 
 extern NSUInteger const kDefaultTimeoutSeconds;

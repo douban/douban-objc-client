@@ -7,10 +7,7 @@
 //
 
 #import "GDataEntryBase.h"
-#import "GDataValueConstruct.h"
 
-#import "GDataRating.h"
-#import "DoubanAttribute.h"
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -24,6 +21,7 @@
 
 _EXTERN NSString* const kDoubanReviewsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
+@class GDataRating;
 @interface DoubanEntryReview : GDataEntryBase
 
 @property (nonatomic, retain) GDataRating *rating;

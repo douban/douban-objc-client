@@ -7,7 +7,7 @@
 //
 
 #import "DoubanFeedPeople.h"
-
+#import "DoubanEntryPeople.h"
 
 @implementation DoubanFeedPeople
 

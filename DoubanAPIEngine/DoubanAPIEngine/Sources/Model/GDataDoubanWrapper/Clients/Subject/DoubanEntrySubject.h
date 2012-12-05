@@ -8,12 +8,7 @@
 
 
 #import "GDataEntryBase.h"
-#import "GDataValueConstruct.h"
 
-#import "GDataRating.h"
-
-#import "DoubanAttribute.h"
-#import "DoubanTag.h"
 
 
 #undef _EXTERN
@@ -28,7 +23,9 @@
 
 _EXTERN NSString* const kDoubanSubjectsDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
-
+@class GDataRating;
+@class GDataLink;
+@class DoubanTag;
 @interface DoubanEntrySubject : GDataEntryBase
 
 @property (nonatomic, retain) GDataRating  *rating;

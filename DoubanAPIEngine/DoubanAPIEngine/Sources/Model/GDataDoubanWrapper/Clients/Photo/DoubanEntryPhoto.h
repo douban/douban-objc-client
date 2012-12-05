@@ -7,7 +7,6 @@
 //
 
 #import "GDataEntryBase.h"
-#import "GDataBaseElements.h"
 
 #undef _EXTERN
 #undef _INITIALIZE_AS
@@ -21,7 +20,7 @@
 
 _EXTERN NSString* const kDoubanPhotosDefaultServiceVersion _INITIALIZE_AS(@"2.0");
 
-
+@class GDataAtomAuthor;
 @interface DoubanEntryPhoto : GDataEntryBase {
 
 }
