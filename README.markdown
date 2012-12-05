@@ -1,24 +1,27 @@
 
 [豆瓣 API]: http://developers.douban.com/
 
-# douban-objc-client 介绍 #
+# douban-objc-client 介绍
 
 **douban-objc-client** 是一个 Objective C 实现的 豆瓣 API 客户端。现在仅支持 iOS。
 
 更多信息请查询 **[豆瓣 API]**
 
 
-# 如何配置? #
+# 如何配置?
 
-### 1.DoubanAPIEngine ###
+## 方法一：项目依赖
+#### *适用于开发过程中可能会修改 douban-objc-client 的源代码的项目
+
+### 1.DoubanAPIEngine
 
 将`DoubanAPIEngine.xcodeproj`图标拖拽到你的项目文件目录中。
 
-### 2.设置项目 Building Settings ###
+### 2.设置项目 Building Settings
 
 点击`项目` -> `(TARGETS)`图标，在`Build Settings`里找到 `Other Linker Flags`, 设置为 `-all_load`, `-ObjC`
 
-### 3.设置目标 Building Settings ###
+### 3.设置目标 Building Settings
 
 同上，找到 Header Search Paths，添加
 
@@ -26,17 +29,16 @@
 * ../DoubanAPIEngine/DoubanAPIEngine/Sources
 * ${SDK_DIR}/usr/include/libxml2
 
-##### TIPS #####
-
+##### TIPS :
 以上的两个**DoubanAPIEngine**的目录可以是相对目录也可以是绝对目录，需要自行配置。这里将DoubanAPIEngine目录直接拷贝到了项目目录下。建议如此使用，有助于移植。
 
 
-### 4.添加依赖 ###
+### 4.添加依赖
 
 点击目标(TARGETS)图标，选择`Building Phases`，找到`Target Dependencies`，添加`DoubanAPIEngine`。
 
 
-### 5.配置所需的 Frameworks ###
+### 5.添加所需的 Frameworks
 
 点击目标(TARGETS)图标，选择`Building Phases`，在`Link Binary with Libaries`中，加入下列库：
 
@@ -53,11 +55,29 @@
   * SenTestingkit.framework
 
 
+## 方法二：添加 framework
+#### *适用于不会修改源代码的项目
+
+### 1.添加 libDoubanAPIEngine.framework
+点击目标(TARGETS)图标，选择Building Phases，在Link Binary with Libaries中，加入 libDoubanAPIEngine.framework
+
+### 2.添加其他库
+点击目标(TARGETS)图标，选择Building Phases，在Link Binary with Libaries中，加入
+
+  * libxml2.dylib
+  * libz.dylib
+  * CoreGraphics.framework
+  * CFNetwork.framework
+  * Security.framework
+  * SystemConfiguration.framework
+  * MobileCoreServices.framework
+  * UIKit.framework
+  * Foundation.framework
 
 # 如何使用? #
 
 
-### 1.提供 Auth2 所需参数 ###
+### 1.提供 Auth2 所需参数
 
 ```objective-c
   DOUService *service = [DOUService sharedInstance];
@@ -65,7 +85,7 @@
   service.clientSecret = kPrivateKey;
 ```
 
-### 2.发起一个异步请求 ###
+### 2.发起一个异步请求
 
 ```objective-c
   NSString *subPath = [NSString stringWithFormat:@"/book/subject/%d", bookId];
@@ -94,7 +114,7 @@ DOUHttpRequest 的闭包处理回调的方法：
 
 
 
-### 3.异步请求的回调 ###
+### 3.异步请求的回调
 
 ```objective-c
 - (void)requestFinished:(DOUHttpRequest *)req {
@@ -111,7 +131,7 @@ DOUHttpRequest 的闭包处理回调的方法：
 
 
 
-# 待办列表 #
+# 待办列表
 
   * 提供更多数据类型的支持，如: 豆邮，日记，收藏
   * 改进 token 过期时，refresh token 的方式，使其不依赖于本机时间
