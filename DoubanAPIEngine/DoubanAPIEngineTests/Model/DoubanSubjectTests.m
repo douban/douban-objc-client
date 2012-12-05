@@ -10,6 +10,7 @@
 #import "DoubanEntrySubject.h"
 #import "DoubanFeedSubject.h"
 #import "GDataBaseElements.h"
+#import "DoubanAttribute.h"
 
 @interface DoubanSubjectTests : SenTestCase 
 

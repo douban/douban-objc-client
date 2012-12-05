@@ -436,6 +436,14 @@
 		D88800B5166EEC3100DAFFC4 /* GTMGatherInputStream.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9115C3F0420006FAFE /* GTMGatherInputStream.h */; };
 		D88800B6166EEC3100DAFFC4 /* GTMMIMEDocument.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9315C3F0420006FAFE /* GTMMIMEDocument.h */; };
 		D88800B7166EEC3100DAFFC4 /* GDataXMLNode.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D87D4B9615C3F0420006FAFE /* GDataXMLNode.h */; };
+		D88800BD166F5BF600DAFFC4 /* DOUAlbumArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800BB166F5BF500DAFFC4 /* DOUAlbumArray.h */; };
+		D88800BE166F5BF600DAFFC4 /* DOUAlbumArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800BC166F5BF600DAFFC4 /* DOUAlbumArray.m */; };
+		D88800C7166F5D4F00DAFFC4 /* DOUNote.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800C5166F5D4E00DAFFC4 /* DOUNote.h */; };
+		D88800C8166F5D4F00DAFFC4 /* DOUNote.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800C6166F5D4F00DAFFC4 /* DOUNote.m */; };
+		D88800CA166F603F00DAFFC4 /* Note.json in Resources */ = {isa = PBXBuildFile; fileRef = D88800C9166F603F00DAFFC4 /* Note.json */; };
+		D88800CC166F609300DAFFC4 /* DOUNoteTests.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800CB166F609300DAFFC4 /* DOUNoteTests.m */; };
+		D88800CF166F63B600DAFFC4 /* DOUNoteArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */; };
+		D88800D0166F63B600DAFFC4 /* DOUNoteArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D88800CE166F63B500DAFFC4 /* DOUNoteArray.m */; };
 		D88EAEFD14691D0800A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
 		D88EAEFE14691D2F00A4DE43 /* Security.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D71F14690D32009F64FD /* Security.framework */; };
 		D88EAEFF14691D5B00A4DE43 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */; };
@@ -685,8 +693,8 @@
 		D858E04D14C3DA9100335280 /* DOUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUService.m; sourceTree = "<group>"; };
 		D87D4B1115C3EF600006FAFE /* DOUObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUObject.h; sourceTree = "<group>"; };
 		D87D4B1215C3EF600006FAFE /* DOUObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUObject.m; sourceTree = "<group>"; };
-		D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = "DOUObject+Utils.h"; path = "../DOUObject+Utils.h"; sourceTree = "<group>"; };
-		D87D4B1415C3EF600006FAFE /* DOUObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = "DOUObject+Utils.m"; path = "../DOUObject+Utils.m"; sourceTree = "<group>"; };
+		D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOUObject+Utils.h"; sourceTree = "<group>"; };
+		D87D4B1415C3EF600006FAFE /* DOUObject+Utils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "DOUObject+Utils.m"; sourceTree = "<group>"; };
 		D87D4B1515C3EF600006FAFE /* DOUObjectArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUObjectArray.h; sourceTree = "<group>"; };
 		D87D4B1615C3EF600006FAFE /* DOUObjectArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUObjectArray.m; sourceTree = "<group>"; };
 		D87D4B2A15C3EFE70006FAFE /* DOUOnline.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUOnline.h; sourceTree = "<group>"; };
@@ -891,6 +899,14 @@
 		D882161415889DDE004B4AD4 /* DOUOAuthServiceTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUOAuthServiceTests.m; sourceTree = "<group>"; };
 		D882161715889DDE004B4AD4 /* DOUTestResponseLoader.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUTestResponseLoader.h; sourceTree = "<group>"; };
 		D882161815889DDE004B4AD4 /* DOUTestResponseLoader.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUTestResponseLoader.m; sourceTree = "<group>"; };
+		D88800BB166F5BF500DAFFC4 /* DOUAlbumArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUAlbumArray.h; sourceTree = "<group>"; };
+		D88800BC166F5BF600DAFFC4 /* DOUAlbumArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUAlbumArray.m; sourceTree = "<group>"; };
+		D88800C5166F5D4E00DAFFC4 /* DOUNote.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUNote.h; sourceTree = "<group>"; };
+		D88800C6166F5D4F00DAFFC4 /* DOUNote.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUNote.m; sourceTree = "<group>"; };
+		D88800C9166F603F00DAFFC4 /* Note.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Note.json; sourceTree = "<group>"; };
+		D88800CB166F609300DAFFC4 /* DOUNoteTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOUNoteTests.m; path = Model2/DOUNoteTests.m; sourceTree = "<group>"; };
+		D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUNoteArray.h; sourceTree = "<group>"; };
+		D88800CE166F63B500DAFFC4 /* DOUNoteArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUNoteArray.m; sourceTree = "<group>"; };
 		D88EAEFC14691D0800A4DE43 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
 		D89A2A5515ECA3360027C0B0 /* Event.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = Event.json; sourceTree = "<group>"; };
 		D89A6A94162D37EE00954BC4 /* DOUUser.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUUser.h; sourceTree = "<group>"; };
@@ -1211,9 +1227,14 @@
 		D87D4B0315C3EF350006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				D88800C0166F5C3000DAFFC4 /* Book */,
+				D88800C1166F5C3700DAFFC4 /* Movie */,
+				D88800C2166F5C4300DAFFC4 /* Music */,
 				D89A6A98162D384100954BC4 /* Event */,
 				D87D4B3215C3F00C0006FAFE /* Photo */,
 				D87D4B2915C3EFBF0006FAFE /* Community */,
+				D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */,
+				D87D4B1415C3EF600006FAFE /* DOUObject+Utils.m */,
 				D87D4B1115C3EF600006FAFE /* DOUObject.h */,
 				D87D4B1215C3EF600006FAFE /* DOUObject.m */,
 				D87D4B1515C3EF600006FAFE /* DOUObjectArray.h */,
@@ -1231,12 +1252,14 @@
 				D87D4C7815C3F14E0006FAFE /* DOUComment.m */,
 				D87D4C7915C3F14E0006FAFE /* DOUCommentArray.h */,
 				D87D4C7A15C3F14E0006FAFE /* DOUCommentArray.m */,
-				D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */,
-				D87D4B1415C3EF600006FAFE /* DOUObject+Utils.m */,
 				D87D4B2A15C3EFE70006FAFE /* DOUOnline.h */,
 				D87D4B2B15C3EFE70006FAFE /* DOUOnline.m */,
 				D87D4B2C15C3EFE70006FAFE /* DOUOnlineArray.h */,
 				D87D4B2D15C3EFE70006FAFE /* DOUOnlineArray.m */,
+				D88800C5166F5D4E00DAFFC4 /* DOUNote.h */,
+				D88800C6166F5D4F00DAFFC4 /* DOUNote.m */,
+				D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */,
+				D88800CE166F63B500DAFFC4 /* DOUNoteArray.m */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -1246,6 +1269,8 @@
 			children = (
 				D87D4B3315C3F0230006FAFE /* DOUAlbum.h */,
 				D87D4B3415C3F0230006FAFE /* DOUAlbum.m */,
+				D88800BB166F5BF500DAFFC4 /* DOUAlbumArray.h */,
+				D88800BC166F5BF600DAFFC4 /* DOUAlbumArray.m */,
 				D87D4B3515C3F0230006FAFE /* DOUPhoto.h */,
 				D87D4B3615C3F0230006FAFE /* DOUPhoto.m */,
 				D87D4B3715C3F0230006FAFE /* DOUPhotoArray.h */,
@@ -1546,6 +1571,7 @@
 		D87D4C8415C3F2760006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				D88800CB166F609300DAFFC4 /* DOUNoteTests.m */,
 				D87D4CC315C3F56D0006FAFE /* DOUCommentTests.m */,
 				D87D4CC415C3F56D0006FAFE /* DOUOnlineTests.m */,
 				D87D4CC515C3F56D0006FAFE /* DOUPhotoTests.m */,
@@ -1579,6 +1605,7 @@
 		D87D4C9615C3F4620006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				D88800C9166F603F00DAFFC4 /* Note.json */,
 				D87D4CB715C3F5580006FAFE /* Album.json */,
 				D89A2A5515ECA3360027C0B0 /* Event.json */,
 				D87D4CB815C3F5580006FAFE /* CommentArray.json */,
@@ -1597,6 +1624,27 @@
 				D882161815889DDE004B4AD4 /* DOUTestResponseLoader.m */,
 			);
 			path = Testing;
+			sourceTree = "<group>";
+		};
+		D88800C0166F5C3000DAFFC4 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		D88800C1166F5C3700DAFFC4 /* Movie */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Movie;
+			sourceTree = "<group>";
+		};
+		D88800C2166F5C4300DAFFC4 /* Music */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Music;
 			sourceTree = "<group>";
 		};
 		D88EAF3514692D9400A4DE43 /* Resources */ = {
@@ -1778,6 +1826,9 @@
 				D89A6AA3162D384100954BC4 /* DOUEventArray.h in Headers */,
 				D89A6AA5162D384100954BC4 /* DOULoc.h in Headers */,
 				D89A6AA7162D384100954BC4 /* DOULocArray.h in Headers */,
+				D88800BD166F5BF600DAFFC4 /* DOUAlbumArray.h in Headers */,
+				D88800C7166F5D4F00DAFFC4 /* DOUNote.h in Headers */,
+				D88800CF166F63B600DAFFC4 /* DOUNoteArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1877,6 +1928,7 @@
 				D87D4CC115C3F5580006FAFE /* Photo.json in Resources */,
 				D87D4CC215C3F5580006FAFE /* PhotoArray.json in Resources */,
 				D89A2A5615ECA3360027C0B0 /* Event.json in Resources */,
+				D88800CA166F603F00DAFFC4 /* Note.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2058,6 +2110,9 @@
 				D89A6AA4162D384100954BC4 /* DOUEventArray.m in Sources */,
 				D89A6AA6162D384100954BC4 /* DOULoc.m in Sources */,
 				D89A6AA8162D384100954BC4 /* DOULocArray.m in Sources */,
+				D88800BE166F5BF600DAFFC4 /* DOUAlbumArray.m in Sources */,
+				D88800C8166F5D4F00DAFFC4 /* DOUNote.m in Sources */,
+				D88800D0166F63B600DAFFC4 /* DOUNoteArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2079,6 +2134,7 @@
 				D87D4CC615C3F56D0006FAFE /* DOUCommentTests.m in Sources */,
 				D87D4CC715C3F56D0006FAFE /* DOUOnlineTests.m in Sources */,
 				D87D4CC815C3F56D0006FAFE /* DOUPhotoTests.m in Sources */,
+				D88800CC166F609300DAFFC4 /* DOUNoteTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
