@@ -55,7 +55,8 @@
   * SenTestingkit.framework
 
 #### Tips : 此方法 import 头文件应该使用以下方式:
-```#import "DOUService.h"
+```
+	#import "DOUService.h"
 ```
 
 ## 方法二：添加 framework
@@ -77,10 +78,12 @@
   * UIKit.framework
   * Foundation.framework
 
-#### Tips : 此方法 import 头文件应该使用以下方式:****
+#### Tips : 此方法 import 头文件应该使用以下方式:
 
-```#import <libDoubanAPIEngine/DOUService.h>
 ```
+	#import <libDoubanAPIEngine/DOUService.h>
+```
+
 
 # 如何使用? #
 
