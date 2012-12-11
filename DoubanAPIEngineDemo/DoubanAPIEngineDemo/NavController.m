@@ -75,7 +75,7 @@
     cell.textLabel.text = @"登录";
   }
   else if (row == 1) {
-    cell.textLabel.text = @"条目信息 v1";
+    cell.textLabel.text = @"条目信息 v2";
   }
   else if (row == 2) {
     cell.textLabel.text = @"发广播 v2";

@@ -12,7 +12,7 @@
 
 
 + (id)queryForEventById:(int)eventId {
-  NSString *subPath = [NSString stringWithFormat:@"/event/%d", eventId];
+  NSString *subPath = [NSString stringWithFormat:@"/v2/event/%d", eventId];
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
   return [query autorelease];
 }

@@ -9,7 +9,7 @@
 #import "GetEventController.h"
 
 #import "DOUAPIEngine.h"
-#import "DoubanEntryEvent.h"
+#import "DOUEvent.h"
 #import "DoubanQueryEvent.h"
 
 @implementation GetEventController
@@ -52,10 +52,10 @@
 
 
 - (void)updateUI {
-  titleLabel_.text = [[self.event title] stringValue];
-  timeLabel_.text = [[self.event when] stringValueForAttribute:@"endTime"];
-  whereLabel_.text = [[self.event where] stringValue];
-  contentLabel_.text = [[self.event content] stringValue];
+  titleLabel_.text = [self.event title];
+  timeLabel_.text = [self.event beginTimeStr];
+  whereLabel_.text = [self.event address];
+  contentLabel_.text = [self.event content];
 }
 
 
@@ -66,12 +66,11 @@
   DOUQuery *query = [DoubanQueryEvent queryForEventById:14910931];
 
   DOUReqBlock completionBlock = ^(DOUHttpRequest *req){
-    NSError *error = [req error];
     NSLog(@"str:%@", [req responseString]);
-    
+    NSError *error = [req doubanError];
     if (!error) {
       
-      DoubanEntryEvent *newEvent = [[DoubanEntryEvent alloc] initWithData:[req responseData]];
+      DOUEvent *newEvent = [[DOUEvent alloc] initWithString:[req responseString]];
       self.event = newEvent;
       [newEvent release];
       [self updateUI];
