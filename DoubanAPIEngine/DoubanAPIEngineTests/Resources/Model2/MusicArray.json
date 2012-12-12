@@ -1,0 +1,86 @@
+{
+    "count": 1,
+    "start": 0,
+    "total": 1,
+    "musics": [
+               {
+               "rating": {
+               "max": 10,
+               "average": "7.4",
+               "numRaters": 3080,
+               "min": 0
+               },
+               "author": [
+                          {
+                          "name": "S.H.E"
+                          }
+                          ],
+               "alt_title": "",
+               "image": "http://img3.douban.com/spic/s24231882.jpg",
+               "tags": [
+                        {
+                        "count": 1480,
+                        "name": "S.H.E"
+                        },
+                        {
+                        "count": 542,
+                        "name": "台湾"
+                        },
+                        {
+                        "count": 374,
+                        "name": "2012"
+                        },
+                        {
+                        "count": 338,
+                        "name": "华语"
+                        },
+                        {
+                        "count": 227,
+                        "name": "女声"
+                        },
+                        {
+                        "count": 145,
+                        "name": "Pop"
+                        },
+                        {
+                        "count": 132,
+                        "name": "HIM华研国际"
+                        },
+                        {
+                        "count": 79,
+                        "name": "流行"
+                        }
+                        ],
+               "mobile_link": "http://m.douban.com/music/subject/20275660/",
+               "attrs": {
+               "publisher": [
+                             "華研唱片"
+                             ],
+               "singer": [
+                          "S.H.E"
+                          ],
+               "version": [
+                           "专辑"
+                           ],
+               "pubdate": [
+                           "2012-11-16"
+                           ],
+               "title": [
+                         "花又開好了 (生命的美好平裝發行版)"
+                         ],
+               "media": [
+                         "CD+DVD"
+                         ],
+               "tracks": [
+                          "CD：\n1. 迫不及待\n2. 花又開好了\n3. 不說再見\n4. 心還是熱的\n5. 親愛的樹洞\n6. 還我\n7. 明天的自己\n8. 那時候的樹\n9. 像女孩的女人\n10. 後來後來\nBonus DVD：SHERO MV全紀錄DVD 曲目\n1. SHERO (2010臺北國際花卉博覽會指定主題曲)\n2. 我愛雨夜花\n3. 愛就對了\n4. 你不會\n5. 愛上你 (電視劇「就想賴著妳」片尾曲)\n6. 兩個人的荒島 (時尚職場勵志劇「杜拉拉升職記」片尾曲)"
+                          ],
+               "discs": [
+                         "2"
+                         ]
+               },
+               "title": "花又開好了 (生命的美好平裝發行版)",
+               "alt": "http://music.douban.com/subject/20275660/",
+               "id": "20275660"
+               }
+               ]
+}

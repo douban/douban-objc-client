@@ -58,7 +58,7 @@
 
 
 - (NSDate *)publishTime {
-  return [[self class] dateOfString:self.publishTimeStr];
+  return [[self class] dateOfString:self.publishTimeStr dateFormat:@"yyyy-MM-dd"];
 }
 
 

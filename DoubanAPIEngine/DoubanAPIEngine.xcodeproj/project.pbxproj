@@ -24,6 +24,18 @@
 /* End PBXAggregateTarget section */
 
 /* Begin PBXBuildFile section */
+		1A3451DA167887E90097FEF5 /* DOUBookArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3451D6167887E90097FEF5 /* DOUBookArray.m */; };
+		1A3451DB167887E90097FEF5 /* DOUBookArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3451D7167887E90097FEF5 /* DOUBookArray.h */; };
+		1A3451DC167887E90097FEF5 /* DOUBook.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3451D8167887E90097FEF5 /* DOUBook.m */; };
+		1A3451DD167887E90097FEF5 /* DOUBook.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3451D9167887E90097FEF5 /* DOUBook.h */; };
+		1A3451E2167887F80097FEF5 /* DOUMusicArray.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3451DE167887F80097FEF5 /* DOUMusicArray.m */; };
+		1A3451E3167887F80097FEF5 /* DOUMusicArray.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3451DF167887F80097FEF5 /* DOUMusicArray.h */; };
+		1A3451E4167887F80097FEF5 /* DOUMusic.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3451E0167887F80097FEF5 /* DOUMusic.m */; };
+		1A3451E5167887F80097FEF5 /* DOUMusic.h in Headers */ = {isa = PBXBuildFile; fileRef = 1A3451E1167887F80097FEF5 /* DOUMusic.h */; };
+		1A3451E8167889060097FEF5 /* MusicArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A3451E6167889060097FEF5 /* MusicArray.json */; };
+		1A3451E9167889060097FEF5 /* BookArray.json in Resources */ = {isa = PBXBuildFile; fileRef = 1A3451E7167889060097FEF5 /* BookArray.json */; };
+		1A3451EC167889140097FEF5 /* DOUMusicTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3451EA167889140097FEF5 /* DOUMusicTests.m */; };
+		1A3451ED167889140097FEF5 /* DOUBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 1A3451EB167889140097FEF5 /* DOUBookTests.m */; };
 		D800D53C146907B2009F64FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D53B146907B2009F64FD /* Foundation.framework */; };
 		D800D54A146907B2009F64FD /* SenTestingKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D549146907B2009F64FD /* SenTestingKit.framework */; };
 		D800D54D146907B2009F64FD /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D800D53B146907B2009F64FD /* Foundation.framework */; };
@@ -604,6 +616,18 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
+		1A3451D6167887E90097FEF5 /* DOUBookArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUBookArray.m; sourceTree = "<group>"; };
+		1A3451D7167887E90097FEF5 /* DOUBookArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUBookArray.h; sourceTree = "<group>"; };
+		1A3451D8167887E90097FEF5 /* DOUBook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUBook.m; sourceTree = "<group>"; };
+		1A3451D9167887E90097FEF5 /* DOUBook.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUBook.h; sourceTree = "<group>"; };
+		1A3451DE167887F80097FEF5 /* DOUMusicArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUMusicArray.m; sourceTree = "<group>"; };
+		1A3451DF167887F80097FEF5 /* DOUMusicArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUMusicArray.h; sourceTree = "<group>"; };
+		1A3451E0167887F80097FEF5 /* DOUMusic.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUMusic.m; sourceTree = "<group>"; };
+		1A3451E1167887F80097FEF5 /* DOUMusic.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUMusic.h; sourceTree = "<group>"; };
+		1A3451E6167889060097FEF5 /* MusicArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = MusicArray.json; sourceTree = "<group>"; };
+		1A3451E7167889060097FEF5 /* BookArray.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = BookArray.json; sourceTree = "<group>"; };
+		1A3451EA167889140097FEF5 /* DOUMusicTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOUMusicTests.m; path = Model2/DOUMusicTests.m; sourceTree = "<group>"; };
+		1A3451EB167889140097FEF5 /* DOUBookTests.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = DOUBookTests.m; path = Model2/DOUBookTests.m; sourceTree = "<group>"; };
 		D800D538146907B2009F64FD /* libDoubanAPIEngine.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libDoubanAPIEngine.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		D800D53B146907B2009F64FD /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		D800D53F146907B2009F64FD /* DoubanAPIEngine-Prefix.pch */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "DoubanAPIEngine-Prefix.pch"; sourceTree = "<group>"; };
@@ -1591,6 +1615,8 @@
 		D87D4C8415C3F2760006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				1A3451EA167889140097FEF5 /* DOUMusicTests.m */,
+				1A3451EB167889140097FEF5 /* DOUBookTests.m */,
 				D88800D3166F65A200DAFFC4 /* DOUMovieTests.m */,
 				D88800CB166F609300DAFFC4 /* DOUNoteTests.m */,
 				D87D4CC315C3F56D0006FAFE /* DOUCommentTests.m */,
@@ -1626,6 +1652,8 @@
 		D87D4C9615C3F4620006FAFE /* Model2 */ = {
 			isa = PBXGroup;
 			children = (
+				1A3451E6167889060097FEF5 /* MusicArray.json */,
+				1A3451E7167889060097FEF5 /* BookArray.json */,
 				D88800D1166F654100DAFFC4 /* MovieArray.json */,
 				D88800C9166F603F00DAFFC4 /* Note.json */,
 				D87D4CB715C3F5580006FAFE /* Album.json */,
@@ -1651,6 +1679,10 @@
 		D88800C0166F5C3000DAFFC4 /* Book */ = {
 			isa = PBXGroup;
 			children = (
+				1A3451D9167887E90097FEF5 /* DOUBook.h */,
+				1A3451D8167887E90097FEF5 /* DOUBook.m */,
+				1A3451D7167887E90097FEF5 /* DOUBookArray.h */,
+				1A3451D6167887E90097FEF5 /* DOUBookArray.m */,
 			);
 			path = Book;
 			sourceTree = "<group>";
@@ -1669,6 +1701,10 @@
 		D88800C2166F5C4300DAFFC4 /* Music */ = {
 			isa = PBXGroup;
 			children = (
+				1A3451DF167887F80097FEF5 /* DOUMusicArray.h */,
+				1A3451DE167887F80097FEF5 /* DOUMusicArray.m */,
+				1A3451E1167887F80097FEF5 /* DOUMusic.h */,
+				1A3451E0167887F80097FEF5 /* DOUMusic.m */,
 			);
 			path = Music;
 			sourceTree = "<group>";
@@ -1857,6 +1893,10 @@
 				D88800CF166F63B600DAFFC4 /* DOUNoteArray.h in Headers */,
 				D88800D7166F65CA00DAFFC4 /* DOUMovie.h in Headers */,
 				D88800DB166F65E400DAFFC4 /* DOUMovieArray.h in Headers */,
+				1A3451DB167887E90097FEF5 /* DOUBookArray.h in Headers */,
+				1A3451DD167887E90097FEF5 /* DOUBook.h in Headers */,
+				1A3451E3167887F80097FEF5 /* DOUMusicArray.h in Headers */,
+				1A3451E5167887F80097FEF5 /* DOUMusic.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1958,6 +1998,8 @@
 				D89A2A5615ECA3360027C0B0 /* Event.json in Resources */,
 				D88800CA166F603F00DAFFC4 /* Note.json in Resources */,
 				D88800D2166F654100DAFFC4 /* MovieArray.json in Resources */,
+				1A3451E8167889060097FEF5 /* MusicArray.json in Resources */,
+				1A3451E9167889060097FEF5 /* BookArray.json in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2144,6 +2186,10 @@
 				D88800D0166F63B600DAFFC4 /* DOUNoteArray.m in Sources */,
 				D88800D8166F65CA00DAFFC4 /* DOUMovie.m in Sources */,
 				D88800DC166F65E400DAFFC4 /* DOUMovieArray.m in Sources */,
+				1A3451DA167887E90097FEF5 /* DOUBookArray.m in Sources */,
+				1A3451DC167887E90097FEF5 /* DOUBook.m in Sources */,
+				1A3451E2167887F80097FEF5 /* DOUMusicArray.m in Sources */,
+				1A3451E4167887F80097FEF5 /* DOUMusic.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2167,6 +2213,8 @@
 				D87D4CC815C3F56D0006FAFE /* DOUPhotoTests.m in Sources */,
 				D88800CC166F609300DAFFC4 /* DOUNoteTests.m in Sources */,
 				D88800D4166F65A200DAFFC4 /* DOUMovieTests.m in Sources */,
+				1A3451EC167889140097FEF5 /* DOUMusicTests.m in Sources */,
+				1A3451ED167889140097FEF5 /* DOUBookTests.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
