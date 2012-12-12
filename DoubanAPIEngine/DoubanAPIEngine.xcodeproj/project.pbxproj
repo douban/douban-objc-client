@@ -1701,10 +1701,10 @@
 		D88800C2166F5C4300DAFFC4 /* Music */ = {
 			isa = PBXGroup;
 			children = (
-				1A3451DF167887F80097FEF5 /* DOUMusicArray.h */,
-				1A3451DE167887F80097FEF5 /* DOUMusicArray.m */,
 				1A3451E1167887F80097FEF5 /* DOUMusic.h */,
 				1A3451E0167887F80097FEF5 /* DOUMusic.m */,
+				1A3451DF167887F80097FEF5 /* DOUMusicArray.h */,
+				1A3451DE167887F80097FEF5 /* DOUMusicArray.m */,
 			);
 			path = Music;
 			sourceTree = "<group>";
