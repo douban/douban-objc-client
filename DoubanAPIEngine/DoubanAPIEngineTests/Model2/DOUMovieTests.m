@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 #import "DOUMovie.h"
 #import "DOUMovieArray.h"
-
+#import "DOUObject+Utils.h"
 
 @interface DOUMovieTests : SenTestCase
 
@@ -38,9 +38,10 @@
       STAssertTrue([movie.rating isEqualToString:@"8.4"], @"rating");
       STAssertTrue([movie.stars isEqualToString:@"45"], @"stars");
       STAssertTrue([movie.publishTimeStr isEqualToString:@"2012-10-29"], @"publishdata");
+      NSLog(@"*****%@", movie.publishTime);
+      STAssertTrue([movie.publishTime isEqualToDate: [[movie class] dateOfString:@"2012-10-29" dateFormat:@"yyyy-MM-dd"]], @"publishdata");
       STAssertTrue(movie.wishCount == 400, @"wish");
       STAssertTrue(movie.collectionCount == 117, @"collection");
-
     }
   }
   

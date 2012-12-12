@@ -11,11 +11,15 @@
 @implementation DOUObject (Utils)
 
 + (NSDate *)dateOfString:(NSString *)dateString {
-  NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-  [dateFormat setDateFormat:@"yyyy-MM-dd HH:mm:SS"];
-  NSDate *date = [dateFormat dateFromString:dateString];
-  [dateFormat release];
-  return date;
+  return [self dateOfString:dateString dateFormat:@"yyyy-MM-dd HH:mm:SS"];
+}
+
++ (NSDate *)dateOfString:(NSString *)dateString dateFormat:(NSString *)dateFormatString {
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:dateFormatString];
+    NSDate *date = [dateFormat dateFromString:dateString];
+    [dateFormat release];
+    return date;
 }
 
 @end
