@@ -173,6 +173,11 @@
 		D8695E90167AD59000EFFF41 /* DOUNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D8695E8C167AD59000EFFF41 /* DOUNotification.m */; };
 		D8695E91167AD59000EFFF41 /* DOUNotificationArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D8695E8D167AD59000EFFF41 /* DOUNotificationArray.h */; };
 		D8695E92167AD59000EFFF41 /* DOUNotificationArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D8695E8E167AD59000EFFF41 /* DOUNotificationArray.m */; };
+		D8695EBD167AFBCE00EFFF41 /* DOUBook.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A3451D9167887E90097FEF5 /* DOUBook.h */; };
+		D8695EBE167AFBCE00EFFF41 /* DOUBookArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A3451D7167887E90097FEF5 /* DOUBookArray.h */; };
+		D8695EBF167AFBCE00EFFF41 /* DOUMusic.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A3451E1167887F80097FEF5 /* DOUMusic.h */; };
+		D8695EC0167AFBCE00EFFF41 /* DOUMusicArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = 1A3451DF167887F80097FEF5 /* DOUMusicArray.h */; };
+		D8695EC1167AFBCE00EFFF41 /* DOUAlbumArray.h in CopyFiles */ = {isa = PBXBuildFile; fileRef = D88800BB166F5BF500DAFFC4 /* DOUAlbumArray.h */; };
 		D87D4B2315C3EF600006FAFE /* DOUObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D4B1115C3EF600006FAFE /* DOUObject.h */; };
 		D87D4B2415C3EF600006FAFE /* DOUObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D87D4B1215C3EF600006FAFE /* DOUObject.m */; };
 		D87D4B2515C3EF600006FAFE /* DOUObject+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */; };
@@ -510,6 +515,11 @@
 			dstPath = "${BUILD_DIR}/${CONFIGURATION}-iphoneuniversal/${PRODUCT_NAME}.framework/Versions/A/Headers";
 			dstSubfolderSpec = 0;
 			files = (
+				D8695EBD167AFBCE00EFFF41 /* DOUBook.h in CopyFiles */,
+				D8695EBE167AFBCE00EFFF41 /* DOUBookArray.h in CopyFiles */,
+				D8695EBF167AFBCE00EFFF41 /* DOUMusic.h in CopyFiles */,
+				D8695EC0167AFBCE00EFFF41 /* DOUMusicArray.h in CopyFiles */,
+				D8695EC1167AFBCE00EFFF41 /* DOUAlbumArray.h in CopyFiles */,
 				D88800DD166F6AD000DAFFC4 /* DOUMovie.h in CopyFiles */,
 				D88800DE166F6AD000DAFFC4 /* DOUMovieArray.h in CopyFiles */,
 				D88800DF166F6AD000DAFFC4 /* DOUNote.h in CopyFiles */,
