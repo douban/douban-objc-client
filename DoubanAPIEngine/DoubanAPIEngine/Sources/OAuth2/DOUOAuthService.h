@@ -31,8 +31,7 @@
 	NSString *authorizationCode_;
   NSString *authorizationURL_;
   NSString *callbackURL_;
-  NSString *accessToken_;
-  NSString *refreshToken_;
+
   
   id<DOUOAuthServiceDelegate> delegate_;
 }
@@ -44,8 +43,6 @@
 @property (nonatomic, retain) NSString *callbackURL;
 @property (nonatomic, retain) NSString *authorizationCode;
 
-@property (nonatomic, readonly) NSString *accessToken;
-@property (nonatomic, readonly) NSString *refreshToken;
 
 + (id)sharedInstance;
 
