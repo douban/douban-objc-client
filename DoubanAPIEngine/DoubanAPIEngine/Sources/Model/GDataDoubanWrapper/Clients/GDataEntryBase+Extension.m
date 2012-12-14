@@ -35,7 +35,7 @@
 - (GDataAtomAuthor *)theFirstAuthor {
   NSArray *authors = [self authors];
   if (authors) {
-    GDataAtomAuthor *author = [authors objectAtIndex:0];
+    GDataAtomAuthor *author = (GDataAtomAuthor *)[authors objectAtIndex:0];
     return author;
   }
   return nil;

@@ -169,6 +169,10 @@
 		D858E04714C3AC0D00335280 /* DOUQuery.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04514C3AC0D00335280 /* DOUQuery.m */; };
 		D858E04E14C3DA9100335280 /* DOUService.h in Headers */ = {isa = PBXBuildFile; fileRef = D858E04C14C3DA9100335280 /* DOUService.h */; };
 		D858E04F14C3DA9100335280 /* DOUService.m in Sources */ = {isa = PBXBuildFile; fileRef = D858E04D14C3DA9100335280 /* DOUService.m */; };
+		D8695E8F167AD59000EFFF41 /* DOUNotification.h in Headers */ = {isa = PBXBuildFile; fileRef = D8695E8B167AD59000EFFF41 /* DOUNotification.h */; };
+		D8695E90167AD59000EFFF41 /* DOUNotification.m in Sources */ = {isa = PBXBuildFile; fileRef = D8695E8C167AD59000EFFF41 /* DOUNotification.m */; };
+		D8695E91167AD59000EFFF41 /* DOUNotificationArray.h in Headers */ = {isa = PBXBuildFile; fileRef = D8695E8D167AD59000EFFF41 /* DOUNotificationArray.h */; };
+		D8695E92167AD59000EFFF41 /* DOUNotificationArray.m in Sources */ = {isa = PBXBuildFile; fileRef = D8695E8E167AD59000EFFF41 /* DOUNotificationArray.m */; };
 		D87D4B2315C3EF600006FAFE /* DOUObject.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D4B1115C3EF600006FAFE /* DOUObject.h */; };
 		D87D4B2415C3EF600006FAFE /* DOUObject.m in Sources */ = {isa = PBXBuildFile; fileRef = D87D4B1215C3EF600006FAFE /* DOUObject.m */; };
 		D87D4B2515C3EF600006FAFE /* DOUObject+Utils.h in Headers */ = {isa = PBXBuildFile; fileRef = D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */; };
@@ -729,6 +733,10 @@
 		D858E04514C3AC0D00335280 /* DOUQuery.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUQuery.m; sourceTree = "<group>"; };
 		D858E04C14C3DA9100335280 /* DOUService.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUService.h; sourceTree = "<group>"; };
 		D858E04D14C3DA9100335280 /* DOUService.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUService.m; sourceTree = "<group>"; };
+		D8695E8B167AD59000EFFF41 /* DOUNotification.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUNotification.h; sourceTree = "<group>"; };
+		D8695E8C167AD59000EFFF41 /* DOUNotification.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUNotification.m; sourceTree = "<group>"; };
+		D8695E8D167AD59000EFFF41 /* DOUNotificationArray.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUNotificationArray.h; sourceTree = "<group>"; };
+		D8695E8E167AD59000EFFF41 /* DOUNotificationArray.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUNotificationArray.m; sourceTree = "<group>"; };
 		D87D4B1115C3EF600006FAFE /* DOUObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DOUObject.h; sourceTree = "<group>"; };
 		D87D4B1215C3EF600006FAFE /* DOUObject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DOUObject.m; sourceTree = "<group>"; };
 		D87D4B1315C3EF600006FAFE /* DOUObject+Utils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "DOUObject+Utils.h"; sourceTree = "<group>"; };
@@ -1304,6 +1312,10 @@
 				D88800C6166F5D4F00DAFFC4 /* DOUNote.m */,
 				D88800CD166F63B400DAFFC4 /* DOUNoteArray.h */,
 				D88800CE166F63B500DAFFC4 /* DOUNoteArray.m */,
+				D8695E8B167AD59000EFFF41 /* DOUNotification.h */,
+				D8695E8C167AD59000EFFF41 /* DOUNotification.m */,
+				D8695E8D167AD59000EFFF41 /* DOUNotificationArray.h */,
+				D8695E8E167AD59000EFFF41 /* DOUNotificationArray.m */,
 			);
 			path = Community;
 			sourceTree = "<group>";
@@ -1897,6 +1909,8 @@
 				1A3451DD167887E90097FEF5 /* DOUBook.h in Headers */,
 				1A3451E3167887F80097FEF5 /* DOUMusicArray.h in Headers */,
 				1A3451E5167887F80097FEF5 /* DOUMusic.h in Headers */,
+				D8695E8F167AD59000EFFF41 /* DOUNotification.h in Headers */,
+				D8695E91167AD59000EFFF41 /* DOUNotificationArray.h in Headers */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -2190,6 +2204,8 @@
 				1A3451DC167887E90097FEF5 /* DOUBook.m in Sources */,
 				1A3451E2167887F80097FEF5 /* DOUMusicArray.m in Sources */,
 				1A3451E4167887F80097FEF5 /* DOUMusic.m in Sources */,
+				D8695E90167AD59000EFFF41 /* DOUNotification.m in Sources */,
+				D8695E92167AD59000EFFF41 /* DOUNotificationArray.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

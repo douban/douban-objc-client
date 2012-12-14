@@ -11,6 +11,7 @@
 #import "DOUAPIEngine.h"
 #import "DoubanEntryComment.h"
 #import "DoubanFeedComment.h"
+#import "GDataEntryBase+Extension.h"
 
 @interface DoubanCommentTests : SenTestCase 
 
@@ -64,7 +65,7 @@
     if ([[comment identifier] isEqualToString:@"http://api.douban.com/recommendation/1474552938/comment/99612528"]) {
       STAssertTrue([[[comment content] stringValue] isEqualToString:@"大众点评啦"] , @"content");
 
-      STAssertTrue([[[comment publishedDate] stringValue] isEqualToString:@"2012-03-22T21:29:27+08:00"], @"published");    
+      STAssertTrue([[[comment publishedDate] stringValue] isEqualToString:@"2012-03-22T21:29:27+08:00"], @"published");
       
       GDataAtomAuthor *author = [comment theFirstAuthor];
       STAssertTrue([[author name] isEqualToString:@"lincode"], @"author");

@@ -14,9 +14,8 @@
 /**
  为 DOUHttpRequest 提供异步测试支持
  */
-@interface DOUTestResponseLoader : NSObject<DOUHttpRequestDelegate, DOUOAuthServiceDelegate>
+@interface DOUTestResponseLoader : NSObject<DOUOAuthServiceDelegate>
 
-//@property (nonatomic, retain, readonly) DOUHttpResponse *response;
 
 @property (nonatomic, readonly, getter = wasSuccessful) BOOL successful;
 
