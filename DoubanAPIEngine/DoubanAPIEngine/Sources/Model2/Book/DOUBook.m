@@ -114,7 +114,6 @@
     }
 }
 
-
 - (NSString *)authorIntro {
   return [self.dictionary objectForKey:@"author_intro"];
 }
