@@ -13,24 +13,24 @@
 @dynamic chapter;
 @dynamic book_id;
 @dynamic time;
-@dynamic content;
+@dynamic abstract;
 
 - (NSString *)chapter {
-    return [self.dictionary objectForKey:@"count"];
+    return [self.dictionary objectForKey:@"chapter"];
 }
 
 
 - (NSString *)book_id {
-    return [self.dictionary objectForKey:@"name"];
+    return [self.dictionary objectForKey:@"book_id"];
 }
 
 - (NSString *)time {
-    return [self.dictionary objectForKey:@"count"];
+    return [self.dictionary objectForKey:@"time"];
 }
 
 
-- (NSString *)content {
-    return [self.dictionary objectForKey:@"name"];
+- (NSString *)abstract {
+    return [self.dictionary objectForKey:@"abstract"];
 }
 
 @end

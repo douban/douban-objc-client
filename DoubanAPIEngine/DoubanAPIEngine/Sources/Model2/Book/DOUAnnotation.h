@@ -15,6 +15,6 @@
 @property (nonatomic, copy) NSString *chapter;
 @property (nonatomic, copy) NSString *book_id;
 @property (nonatomic, copy) NSString *time;
-@property (nonatomic, copy) NSString *content;
+@property (nonatomic, copy) NSString *abstract;
 
 @end

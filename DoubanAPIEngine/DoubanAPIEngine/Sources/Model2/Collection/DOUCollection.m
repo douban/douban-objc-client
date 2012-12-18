@@ -14,6 +14,9 @@
 @dynamic book_id;
 @dynamic tags;
 @dynamic updated;
+@dynamic comment;
+@dynamic identifier;
+@dynamic user_id;
 
 - (NSString *)status {
     return [self.dictionary objectForKey:@"status"];
@@ -30,6 +33,18 @@
 
 - (NSString *)updated {
     return [self.dictionary objectForKey:@"updated"];
+}
+
+- (NSString *)comment {
+    return [self.dictionary objectForKey:@"comment"];
+}
+
+- (NSString *)identifier {
+    return [self.dictionary objectForKey:@"identifier"];
+}
+
+- (NSString *)user_id {
+    return [self.dictionary objectForKey:@"user_id"];
 }
 
 @end
