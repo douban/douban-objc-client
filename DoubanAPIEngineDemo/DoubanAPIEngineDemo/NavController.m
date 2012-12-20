@@ -106,18 +106,21 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     NSURL *url = [NSURL URLWithString:urlStr];
     UIViewController *webViewController = [[WebViewController alloc] initWithRequestURL:url];
     [self.navigationController pushViewController:webViewController animated:YES];
+      [webViewController release];
   }
   else if ([indexPath row] == 1) {
     UIViewController *getEventController = [[GetEventController alloc] initWithNibName:@"GetEventController" 
                                                                                 bundle:nil];
-    [self.navigationController pushViewController:getEventController animated:YES];     
+    [self.navigationController pushViewController:getEventController animated:YES];
+      [getEventController release];
   }
    else if ([indexPath row] == 2){
-    UIViewController *getEventController = [[StatusController alloc] init];
-    [self.navigationController pushViewController:getEventController animated:YES];
+    UIViewController *statusController = [[StatusController alloc] init];
+    [self.navigationController pushViewController:statusController animated:YES];
+       [statusController release];
   }
   else if ([indexPath row] == 3) {
-    UIImagePickerController *photoController = [[UIImagePickerController alloc] init];
+      UIImagePickerController *photoController = [[[UIImagePickerController alloc] init]autorelease];
     photoController.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     [self.navigationController presentModalViewController:photoController animated:YES]; 
     photoController.delegate = self;
@@ -145,7 +148,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     NSData *imageData = UIImagePNGRepresentation(pickedImage);    
     DOUService *service = [DOUService sharedInstance];
     NSString *subPath = [NSString stringWithFormat:@"/album/%@", @"43672487"];
-    DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
+    DOUQuery *query = [[[DOUQuery alloc] initWithSubPath:subPath parameters:nil]autorelease];
     DOUReqBlock completionBlock = ^(DOUHttpRequest *req){
     
     };
@@ -157,6 +160,7 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 uploadProgressDelegate:nil];
     
   }
+    
   
   [picker dismissModalViewControllerAnimated:YES];
   
