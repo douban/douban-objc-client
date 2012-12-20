@@ -102,9 +102,9 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
 
 #pragma mark - UIWebViewDelegate
 
-- (BOOL)webView:(UIWebView *)webView 
-    shouldStartLoadWithRequest:(NSURLRequest *)request 
-    navigationType:(UIWebViewNavigationType)navigationType {
+- (BOOL)webView:(UIWebView *)webView
+shouldStartLoadWithRequest:(NSURLRequest *)request
+ navigationType:(UIWebViewNavigationType)navigationType {
   
   NSURL *urlObj =  [request URL];
   NSString *url = [urlObj absoluteString];
@@ -115,7 +115,14 @@ static NSString * const kRedirectUrl = @"http://www.douban.com/location/mobile";
     NSString* query = [urlObj query];
     NSMutableDictionary *parsedQuery = [query explodeToDictionaryInnerGlue:@"=" 
                                                                 outterGlue:@"&"];
-    
+
+    //access_denied
+    NSString *error = [parsedQuery objectForKey:@"error"];
+    if (error) {
+        return NO;
+    }
+      
+    //access_accept
     NSString *code = [parsedQuery objectForKey:@"code"];
     DOUOAuthService *service = [DOUOAuthService sharedInstance];
     service.authorizationURL = kTokenUrl;
