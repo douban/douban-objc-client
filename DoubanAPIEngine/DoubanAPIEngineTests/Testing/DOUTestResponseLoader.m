@@ -7,7 +7,6 @@
 //
 
 #import "DOUTestResponseLoader.h"
-//#import "DOUHttpResponse.h"
 
 
 NSString * const DOUTestResponseLoaderTimeoutException = @"DOUTestResponseLoaderTimeoutException";
@@ -85,13 +84,6 @@ NSString * const DOUTestResponseLoaderTimeoutException = @"DOUTestResponseLoader
 
 
 #pragma mark - DOUHttpRequestDelegate
-//
-//- (void)request:(DOUHttpRequest *)aRequest didFinish:(DOUHttpResponse *)aResponse {
-//  self.response = aResponse;
-//  awaitingResponse = NO;
-//  successful = YES;  
-//}
-
 
 - (void)request:(DOUHttpRequest *)aRequest didFail:(NSError *)anError {
   [self loadError:anError];

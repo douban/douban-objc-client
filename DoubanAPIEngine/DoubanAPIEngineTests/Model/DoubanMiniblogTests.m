@@ -8,9 +8,17 @@
 
 #import <SenTestingKit/SenTestingKit.h>
 #import "GDataBaseElements.h"
+#import "DoubanAttribute.h"
 #import "DOUAPIEngine.h"
 #import "DoubanEntryMiniblog.h"
 #import "DoubanFeedMiniblog.h"
+#import "DoubanDefines.h"
+
+#import "GDataAtomAuthor+Extension.h"
+#import "GDataLink.h"
+#import "GDataEntryBase.h"
+#import "GDataEntryBase+Extension.h"
+
 
 @interface DoubanMiniblogTests : SenTestCase 
 
@@ -44,10 +52,14 @@
     
   NSData *data = [NSData dataWithContentsOfFile:filePath];
 
-  DoubanEntryMiniblog *miniblog= [[DoubanEntryMiniblog alloc] initWithData:data]; 
-  STAssertTrue([[[miniblog theFirstAuthor] name] isEqualToString:@"挑灯看剑"], @"author name");
-  GDataAtomAuthor *author = [miniblog theFirstAuthor]; 
-  GDataLink *link = [author linkWithRelAttributeValue:@"icon"]; 
+  DoubanEntryMiniblog *miniblog= [[[DoubanEntryMiniblog alloc] initWithData:data] autorelease];
+  
+  GDataAtomAuthor *author = [miniblog theFirstAuthor];
+
+  STAssertTrue([[author name] isEqualToString:@"挑灯看剑"], @"author name");
+  
+  GDataLink *link = [author linkWithRelAttributeValue:@"icon"];
+  
   NSURL *url = [link URL];
   STAssertTrue([[url absoluteString] isEqualToString:@"http://t.douban.com/icon/u1079441-7.jpg"], @"author icon");
   

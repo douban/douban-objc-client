@@ -8,6 +8,8 @@
 
 #define DOUBANENTRYEVENT_DEFINE_GLOBALS 1
 
+#import "GDataWhen.h"
+#import "GDataWhere.h"
 #import "DoubanEntryEvent.h"
 #import "DoubanEntryEventCategory.h"
 

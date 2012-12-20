@@ -8,9 +8,9 @@
 
 #import <Foundation/Foundation.h>
 #import "GDataEntryBase.h"
-#import "GDataBaseElements.h"
 
 @class DoubanAttribute;
+@class GDataAtomAuthor;
 @interface GDataEntryBase (Extension)
 
 - (NSArray *)doubanAttributes;

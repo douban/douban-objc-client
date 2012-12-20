@@ -6,8 +6,8 @@
 //  Copyright 2010 Douban Inc. All rights reserved.
 //
 
-
 #import "DoubanFeedPhoto.h"
+#import "DoubanEntryPhoto.h"
 
 
 @implementation DoubanFeedPhoto

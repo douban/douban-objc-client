@@ -12,7 +12,8 @@
 #import "DoubanFeedEvent.h"
 #import "DoubanLocation.h"
 #import "DoubanAttribute.h"
-
+#import "GDataWhen.h"
+#import "GDataWhere.h"
 
 @interface DoubanEventTests : SenTestCase 
 

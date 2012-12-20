@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedEvent.h"
+#import "DoubanEntryEvent.h"
 
 
 @implementation DoubanFeedEvent

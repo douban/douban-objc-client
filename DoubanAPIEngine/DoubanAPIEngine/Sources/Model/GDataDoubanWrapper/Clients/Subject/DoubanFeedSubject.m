@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedSubject.h"
+#import "DoubanEntrySubject.h"
 
 @implementation DoubanFeedSubject
 

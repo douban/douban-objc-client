@@ -24,7 +24,7 @@
     <db:attribute name="participants">342</db:attribute>
     <db:attribute name="wishers">1118</db:attribute>
     <db:attribute name="album">58416320</db:attribute>
-    <db:location n_id="beijing">北京</db:location>
+    <db:location id="beijing">北京</db:location>
     <gd:when endTime="2011-12-18T21:30:00+08:00" startTime="2011-12-18T19:30:00+08:00"/>
     <gd:where valueString="北京 西城区 西直门/动物园 北京展览馆剧场"/>
     <georss:point>39.904213 116.40741</georss:point>

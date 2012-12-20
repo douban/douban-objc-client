@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedAlbum.h"
+#import "DoubanEntryAlbum.h"
 
 
 @implementation DoubanFeedAlbum
