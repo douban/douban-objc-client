@@ -47,6 +47,24 @@
   return [self.dictionary objectForKey:@"rating"];
 }
 
+- (NSString *)numRaters {
+    NSMutableDictionary *dic = [self.dictionary objectForKey:@"rating"];
+    if (!dic) {
+        return nil;
+    } else {
+        return [dic objectForKey:@"numRaters"];
+    }
+}
+
+- (NSString *)average {
+    NSMutableDictionary *dic = [self.dictionary objectForKey:@"rating"];
+    if (!dic) {
+        return nil;
+    } else {
+        return [dic objectForKey:@"average"];
+    }
+}
+
 - (NSString *)ISBN10 {
     return [self.dictionary objectForKey:@"isbn10"];
 }
@@ -65,18 +83,36 @@
 }
 
 
+- (NSString *)images{
+    return [self.dictionary objectForKey:@"images"];
+}
+
 - (NSString *)largeImage {
-  return [self.dictionary objectForKey:@"large"];
+    NSMutableDictionary *dic = [self.dictionary objectForKey:@"images"];
+    if (!dic) {
+        return nil;
+    } else {
+        return [dic objectForKey:@"large"];
+    }
 }
 
 - (NSString *)smallImage {
-  return [self.dictionary objectForKey:@"small"];
+    NSMutableDictionary *dic = [self.dictionary objectForKey:@"images"];
+    if (!dic) {
+        return nil;
+    } else {
+        return [dic objectForKey:@"small"];
+    }
 }
 
 - (NSString *)mediumImage {
-  return [self.dictionary objectForKey:@"medium"];
+    NSMutableDictionary *dic = [self.dictionary objectForKey:@"images"];
+    if (!dic) {
+        return nil;
+    } else {
+        return [dic objectForKey:@"medium"];
+    }
 }
-
 
 - (NSString *)authorIntro {
   return [self.dictionary objectForKey:@"author_intro"];
