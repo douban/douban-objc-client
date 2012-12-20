@@ -13,6 +13,7 @@
 #import "DoubanDefines.h"
 #import "DoubanEntryReview.h"
 
+#import "DoubanAttribute.h"
 
 @implementation DoubanEntryReview
 

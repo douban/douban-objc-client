@@ -9,6 +9,7 @@
 #import "DOUService.h"
 #import "DOUHTTPRequest.h"
 #import "DOUAPIConfig.h"
+#import "GDataEntryBase.h"
 #import "DOUOAuthService.h"
 #import "DOUOAuthStore.h"
 #import "DOUQuery.h"

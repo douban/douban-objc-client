@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedRecommendation.h"
+#import "DoubanEntryRecommendation.h"
 
 @implementation DoubanFeedRecommendation
 

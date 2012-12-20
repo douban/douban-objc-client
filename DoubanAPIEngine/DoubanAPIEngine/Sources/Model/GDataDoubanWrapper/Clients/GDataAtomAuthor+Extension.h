@@ -9,6 +9,7 @@
 #import <Foundation/Foundation.h>
 #import "GDataBaseElements.h"
 
+
 @class GDataLink;
 @interface GDataAtomAuthor (Extension)
 

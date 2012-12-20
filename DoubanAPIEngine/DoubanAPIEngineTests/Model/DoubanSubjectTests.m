@@ -10,6 +10,10 @@
 #import "DoubanEntrySubject.h"
 #import "DoubanFeedSubject.h"
 #import "GDataBaseElements.h"
+#import "GDataRating.h"
+#import "DoubanAttribute.h"
+#import "DoubanTag.h"
+
 
 @interface DoubanSubjectTests : SenTestCase 
 
@@ -46,10 +50,11 @@
   
   STAssertTrue([[subject tags] count] == 5, @"tags ");
   
-  for (DoubanTag *tag in [subject tags]) {
-    
+  for (id tagObject in [subject tags]) {
+
+    DoubanTag *tag = (DoubanTag*)tagObject;
     if ([[tag name] isEqualToString:@"片山恭一"])
-       STAssertTrue([[tag count] integerValue]== 15, @"name");      
+       STAssertTrue([[tag count] integerValue] == 15, @"name");
 
     if ([[tag name] isEqualToString:@"小说"])
       STAssertTrue([[tag count] integerValue]== 6, @"name");  

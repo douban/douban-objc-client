@@ -7,10 +7,10 @@
 //
 
 
-@class DoubanEntryEvent;
+@class DOUEvent;
 @interface GetEventController : UIViewController {
  @private
-  DoubanEntryEvent *event_;
+  DOUEvent *event_;
 
   IBOutlet UILabel *titleLabel_;
   IBOutlet UILabel *timeLabel_;
@@ -19,7 +19,7 @@
 
 }
 
-@property (nonatomic, retain) DoubanEntryEvent *event;
+@property (nonatomic, retain) DOUEvent *event;
 
 @property (nonatomic, retain) UILabel *titleLabel;
 @property (nonatomic, retain) UILabel *timeLabel;

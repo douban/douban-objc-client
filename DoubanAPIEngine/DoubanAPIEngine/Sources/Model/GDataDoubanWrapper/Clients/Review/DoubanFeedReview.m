@@ -7,6 +7,7 @@
 //
 
 #import "DoubanFeedReview.h"
+#import "DoubanEntryReview.h"
 
 
 @implementation DoubanFeedReview

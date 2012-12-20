@@ -14,7 +14,8 @@
 
 #import "GDataEntryBase+Extension.h"
 #import "GDataRating.h"
-
+#import "DoubanAttribute.h"
+#import "DoubanTag.h"
 
 @implementation DoubanEntrySubject
 

@@ -10,6 +10,7 @@
 #import "DOUOAuth2.h"
 #import "DOUOAUthStore.h"
 #import "SBJson.h"
+#import "ASIFormDataRequest.h"
 
 
 @interface DOUOAuthService () <ASIHTTPRequestDelegate>
@@ -25,8 +26,6 @@
 @synthesize authorizationURL = authorizationURL_;
 @synthesize callbackURL = callbackURL_;
 @synthesize authorizationCode = authorizationCode_;
-@synthesize accessToken = accessToken_;
-@synthesize refreshToken = refreshToken_;
 
 
 static DOUOAuthService *myInstance = nil;
@@ -79,16 +78,16 @@ static DOUOAuthService *myInstance = nil;
 }
 
 
-
 - (void)dealloc {
   [clientId_ release];
   [clientSecret_ release];
-  [accessToken_ release];
   [authorizationCode_ release];
   [callbackURL_ release];
   [authorizationURL_ release];
   [super dealloc];
 }
+
+
 
 
 
@@ -134,7 +133,10 @@ static DOUOAuthService *myInstance = nil;
 - (NSError *)validateRefresh {
   ASIFormDataRequest *req = [self formRequest];
   [req setPostValue:kGrantTypeRefreshToken forKey:kGrantTypeKey];
-  [req setPostValue:self.refreshToken forKey:kOAuth2ResponseTypeToken];
+  
+  DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
+  NSString *refreshToken = store.refreshToken;
+  [req setPostValue:refreshToken forKey:kOAuth2ResponseTypeToken];
   [req startSynchronous];
   
   NSError *error = [req error];
@@ -209,6 +211,7 @@ static DOUOAuthService *myInstance = nil;
   
   // Success
   NSString *response = [req responseString];
+  NSLog(@"login success:%@", response);
   NSDictionary *dic = [response JSONValue];
   DOUOAuthStore *store = [DOUOAuthStore sharedInstance];
   [store updateWithSuccessDictionary:dic];

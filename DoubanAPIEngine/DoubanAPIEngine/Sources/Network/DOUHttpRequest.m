@@ -6,6 +6,7 @@
 //  Copyright (c) 2011年 Douban Inc. All rights reserved.
 //
 
+#import "ASIHTTPRequest.h"
 #import "DOUHttpRequest.h"
 #import "DOUOAuth2.h"
 #import "DOUQuery.h"
