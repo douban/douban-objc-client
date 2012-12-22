@@ -14,6 +14,8 @@
 @property (nonatomic, copy) NSString *title;
 @property (nonatomic, copy) NSString *subTitle;
 @property (nonatomic, copy) NSString *rating;
+@property (nonatomic, copy) NSString *numRaters;
+@property (nonatomic, copy) NSString *average;
 @property (nonatomic, copy) NSString *ISBN10;
 @property (nonatomic, copy) NSString *ISBN13;
 
@@ -21,6 +23,7 @@
 @property (nonatomic, copy) NSString *publishDateStr;
 @property (nonatomic, retain) NSDate *publishDate;
 
+@property (nonatomic, copy) NSString *image;
 @property (nonatomic, copy) NSString *largeImage;
 @property (nonatomic, copy) NSString *smallImage;
 @property (nonatomic, copy) NSString *mediumImage;
