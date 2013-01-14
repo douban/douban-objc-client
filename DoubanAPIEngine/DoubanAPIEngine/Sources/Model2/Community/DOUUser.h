@@ -13,6 +13,7 @@
 @property (nonatomic, copy) NSString *identifier;
 @property (nonatomic, copy) NSString *avatar;
 @property (nonatomic, copy) NSString *name;
+@property (nonatomic, copy) NSString *signature;
 @property (nonatomic, copy) NSString *alt;
 @property (nonatomic, copy) NSString *uid;
 @property (nonatomic, copy) NSString *desc;
