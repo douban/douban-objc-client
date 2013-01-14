@@ -9,6 +9,7 @@
 #import "DOUAPIConfig.h"
 #import "DOUQuery.h"
 
+#import "DoubanDefines.h"
 #import "DOUService.h"
 #import "DOUOAuthService.h"
 #import "DOUOAuth2.h"
