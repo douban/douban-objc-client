@@ -8,7 +8,7 @@
 
 #import "DOUBook.h"
 #import "DOUObject+Utils.h"
-
+#import "SBJson.h"
 
 @implementation DOUBook
 
@@ -16,6 +16,8 @@
 @dynamic title;
 @dynamic subTitle;
 @dynamic rating;
+@dynamic numRaters;
+@dynamic average;
 @dynamic ISBN10;
 @dynamic ISBN13;
 
@@ -23,6 +25,7 @@
 @dynamic publishDateStr;
 @dynamic publishDate;
 
+@dynamic image;
 @dynamic largeImage;
 @dynamic smallImage;
 @dynamic mediumImage;
@@ -32,19 +35,19 @@
 
 
 - (NSString *)identifier {
-  return [self.dictionary objectForKey:@"id"];
+    return [self.dictionary objectForKey:@"id"];
 }
 
 - (NSString *)subTitle {
-  return [self.dictionary objectForKey:@"subtitle"];
+    return [self.dictionary objectForKey:@"subtitle"];
 }
 
 - (NSString *)title {
-  return [self.dictionary objectForKey:@"title"];
+    return [self.dictionary objectForKey:@"title"];
 }
 
 - (NSString *)rating {
-  return [self.dictionary objectForKey:@"rating"];
+    return [self.dictionary objectForKey:@"rating"];
 }
 
 - (NSString *)numRaters {
@@ -77,11 +80,9 @@
     return [self.dictionary objectForKey:@"pubdate"];
 }
 
-
-- (NSDate *)publishDate {
-    return [[self class] dateOfString:self.publishDateStr dateFormat:@"yyyy-MM"];
+- (NSString *)image{
+    return [self.dictionary objectForKey:@"image"];
 }
-
 
 - (NSString *)images{
     return [self.dictionary objectForKey:@"images"];
@@ -113,6 +114,7 @@
         return [dic objectForKey:@"medium"];
     }
 }
+
 
 - (NSString *)authorIntro {
   return [self.dictionary objectForKey:@"author_intro"];
