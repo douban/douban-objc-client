@@ -40,6 +40,11 @@
 }
 
 
+- (NSString *)signature {
+  return [self.dictionary objectForKey:@"signature"];
+}
+
+
 - (NSString *)uid {
   return [self.dictionary objectForKey:@"uid"];
 }

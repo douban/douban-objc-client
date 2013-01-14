@@ -80,6 +80,11 @@
     return [self.dictionary objectForKey:@"pubdate"];
 }
 
+- (NSDate *)publishDate {
+  return [[self class] dateOfString:[self publishDateStr] dateFormat:@"yyyy-MM"];
+}
+
+
 - (NSString *)image{
     return [self.dictionary objectForKey:@"image"];
 }
