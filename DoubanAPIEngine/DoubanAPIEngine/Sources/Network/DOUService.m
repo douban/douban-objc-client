@@ -387,6 +387,41 @@ static DOUService *myInstance = nil;
 }
 
 
+- (DOUHttpRequest *)put:(DOUQuery *)query postBody:(NSString *)body callback:(DOUReqBlock)block {
+  query.apiBaseUrlString = self.apiBaseUrlString;
+  __block DOUHttpRequest * req = [DOUHttpRequest requestWithQuery:query completionBlock:^{
+    if (block != NULL) {
+      block(req);
+    }
+  }];
+  
+  [req setRequestMethod:@"PUT"];
+  [req addRequestHeader:@"Content-Type" value:@"application/x-www-form-urlencoded; charset=UTF-8"];
+  
+  if (body && [body length] > 0) {
+    
+    NSError *error = nil;
+    GDataXMLElement *element = [[[GDataXMLElement alloc] initWithXMLString:body error:&error] autorelease];
+    if (!error && element) {
+      // if body is XML, Content-Type must be application/atom+xml
+      [req addRequestHeader:@"Content-Type" value:@"application/atom+xml"];
+    }
+    
+    NSData *objectData = [body dataUsingEncoding:NSUTF8StringEncoding];
+    NSString *length = [NSString stringWithFormat:@"%d", [objectData length]];
+    [req appendPostData:objectData];
+    [req addRequestHeader:@"Content-Length" value:length];
+  }
+  else {
+    [req addRequestHeader:@"Content-Length" value:@"0"];
+  }
+  
+  [req setResponseEncoding:NSUTF8StringEncoding];
+  [self addRequest:req];
+  return req;
+}
+
+
 - (DOUHttpRequest *)delete:(DOUQuery *)query callback:(DOUReqBlock)block {
   
   query.apiBaseUrlString = self.apiBaseUrlString;

@@ -52,6 +52,11 @@
                  callback:(DOUReqBlock)block
    uploadProgressDelegate:(id<ASIProgressDelegate>)progressDelegate;
 
+
+- (DOUHttpRequest *)put:(DOUQuery *)query
+                postBody:(NSString *)body
+                callback:(DOUReqBlock)block;
+
 - (DOUHttpRequest *)delete:(DOUQuery *)query callback:(DOUReqBlock)block;
 
 #endif
