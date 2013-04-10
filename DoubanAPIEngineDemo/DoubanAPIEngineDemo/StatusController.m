@@ -21,7 +21,7 @@
 @implementation DoubanQueryStatus
 
 + (id)queryForStatus {
-  NSString *subPath = @"/shuo/statuses/";
+  NSString *subPath = @"/shuo/v2/statuses/";
   
   DOUQuery *query = [[DOUQuery alloc] initWithSubPath:subPath parameters:nil];
   
