@@ -3,6 +3,8 @@
 
 # douban-objc-client 介绍
 
+**该项目已经废弃**
+
 **douban-objc-client** 是一个 Objective C 实现的 豆瓣 API 客户端。现在仅支持 iOS。
 
 更多信息请查询 **[豆瓣 API]**
